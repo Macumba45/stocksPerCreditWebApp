@@ -3,6 +3,9 @@ import { FC, memo, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { getToken } from '../../services/storage';
 import Landing from '../../views/Landing';
+import DashboardEMP from '../../views/Dashboard EMP';
+import DashboardINV from '../../views/Dashboard INV';
+import Profile from '../../views/Profile';
 
 const Router: FC = () => {
     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -60,6 +63,10 @@ const Router: FC = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Landing />} />
+                <Route path="/welcome" element={<Landing />} />
+                <Route path="/dashboardEmp" element={<DashboardEMP />} />
+                <Route path="/dashboardInv" element={<DashboardINV />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </BrowserRouter>
