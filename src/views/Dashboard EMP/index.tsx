@@ -1,4 +1,5 @@
 import { FC, memo } from "react";
+import SidebarDashboard from "../../components/SidebarDashboard";
 
 
 
@@ -7,7 +8,7 @@ const DashboardEMP: FC = () => {
     return (
 
         <>
-            <div>DashboardEMP</div>
+            <SidebarDashboard />
         </>
     );
 };
