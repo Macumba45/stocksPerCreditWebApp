@@ -1,11 +1,16 @@
 import { FC, memo } from "react";
+import NavBar from "../../components/NavBar";
 
 
 
 const Landing: FC = () => {
 
     return (
-        <div>PRUEBA</div>
+
+        <>
+            <NavBar />
+            <div>PRUEBA</div>
+        </>
     );
 };
 
