@@ -1,103 +1,185 @@
-import styled, {css} from 'styled-components';
-import {Form as DefaultForm} from 'formik';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Form as defaultForm } from 'formik';
 
-export const FormContainer = styled.div`
-     width: 100vw;
-     height: 100vh;
-     align-items: center;
-     display: flex;
-     justify-content: center;
-     background-color: ${({theme}) => theme.colors.black};
-     background-image: url('https://i.blogs.es/603a33/layer-14/1366_2000.webp');
-     background-size: cover;
+export const LoginBackImg = styled.div`
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(66, 0, 36, 1) 100%
+    );
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
 `;
 
-export const Form = styled(DefaultForm)`
-     display: flex;
-     flex-direction: column;
-     background-color: rgba(116, 0, 1, 0.5);
-     border-radius: 10px;
-     height: 25rem;
-     width: 22.5rem;
-     margin-top: 6.25rem;
-     margin-left: 2rem;
-     margin-right: 1.7rem;
-     font-family: Oswald;
-     color: ${({theme}) => theme.colors.white100};
+export const MainFormContainer = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: center;
 `;
 
-export const InputContainer = styled.div`
-     display: flex;
-     flex-flow: column;
-     color: ${({theme}) => theme.colors.white100};
-     &:not(:first-child) {
-          margin-top: 16px;
-     }
+export const Form = styled(defaultForm)`
+    background-color: white;
+    border-radius: 10px;
+    height: 35rem;
+    margin-left: 1.7rem;
+    margin-right: 1.7rem;
+    width: 400px;
+    /* Margen para pantalla grande */
+    margin-top: 6rem;
+
+    /* Media query para pantalla pequeña */
+    @media (max-width: 768px) {
+        margin-top: 6.25rem;
+        width: 300px;
+    }
 `;
 
-export const Input = styled.input<{$hasError?: boolean}>`
-     padding: 10px;
-     margin: 10px;
-     border: none; /* eliminar el borde predeterminado */
-     border-bottom: 1px solid ${({theme}) => theme.colors.white100}; /* agregar borde inferior */
-     background: transparent; /* hacer el fondo transparente */
-     color: ${({theme}) =>
-          theme.colors.white100}; /* establecer el color de texto */
-     padding: 10px 14px;
-
-     ${({$hasError, theme}) =>
-          $hasError &&
-          css`
-               color: ${theme.colors.GriffindorYellow};
-               border-bottom-color: ${theme.colors
-                    .GriffindorYellow}; /* agregar borde inferior amarillo cuando hay un error */
-          `}
+export const LoginTitle = styled.h1`
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-size: ${({ theme }) => theme.fontSizes.mediumSmall};
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    margin-bottom: 3.125rem;
+    margin-left: 1.875rem;
+    margin-top: 3.125rem;
 `;
+
+export const EmailContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-left: 3.125rem; */
+    margin-top: 5rem;
+`;
+
+export const PasswordContainer = styled.div`
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-left: 3.125rem; */
+    margin-top: 1.25rem;
+`;
+
+export const LabelContainer = styled.div``;
 
 export const Label = styled.label`
-     color: gray;
-     font-size: 16px;
-     font-weight: bold;
-     margin: 16px;
-     color: ${({theme}) => theme.colors.white100};
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+    margin: 0 2.1rem;
 `;
 
-export const FormButton = styled.button`
-     border-radius: 5px;
-     cursor: pointer;
-     margin: 16px;
-     padding: 5px;
-     font-family: Oswald;
-     background-color: ${({theme}) => theme.colors.GriffindorGold};
-`;
+export const Input = styled.input<{ $hasError?: boolean }>`
+    border-radius: 5px;
+    border: 0.1px solid
+        ${({ $hasError, theme }) =>
+            $hasError ? theme.colors.danger : theme.colors.secondary};
+    padding-left: 0.5rem;
+    box-sizing: border-box;
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-size: 0.8rem;
+    height: 2.5rem;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-top: 0.625rem;
+    width: 15rem;
 
-export const FormMessage = styled.p`
-     align-items: center;
-     display: flex;
-     justify-content: center;
-     color: ${({theme}) => theme.colors.GriffindorYellow};
+    ${({ $hasError, theme }) =>
+        $hasError &&
+        css`
+            color: ${theme.colors.danger};
+        `}
+
+    &::placeholder {
+        color: ${({ theme }) => theme.colors.primary};
+        font-family: ${({ theme }) => theme.fonts.primary};
+        font-size: 0.7rem;
+        font-weight: 200;
+        opacity: 0.5;
+    }
+
+    @media (min-width: 768px) {
+        width: 21rem;
+    }
 `;
 
 export const Error = styled.span`
-     color: red;
-     font-size: 12px;
-     font-weight: 500;
-     margin-top: 8px;
-     margin-left: 15px;
-     color: ${({theme}) => theme.colors.GriffindorYellow};
+    color: ${({ theme }) => theme.colors.danger};
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-size: 0.7rem;
+    margin-top: 0.5rem;
+    margin-left: 2.05rem;
 `;
 
-export const Return = styled.p`
-     color: red;
-     font-size: 12px;
-     font-weight: 500;
-     margin-top: 8px;
-     margin-left: 10px;
-     text-decoration: none;
-     color: ${({theme}) => theme.colors.GriffindorYellow};
+export const ButtonLoginContainer = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: center;
 `;
 
-export const StyledLink = styled.a`
-     /* text-decoration: none; */
-     color: ${({theme}) => theme.colors.GriffindorYellow};
+export const LinkSignupContainer = styled.div`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 3.125rem;
+`;
+
+export const LinkSignupText = styled(Link)`
+    color: ${({ theme }) => theme.colors.primary};
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-size: ${({ theme }) => theme.fontSizes.smallest};
+    font-weight: 500;
+    text-decoration: none;
+
+    &:hover {
+        color: ${({ theme }) => theme.colors.secondary};
+
+        cursor: pointer;
+    }
+`;
+
+export const ButtonLogin = styled.button`
+    background-color: ${({ theme }) => theme.colors.primary};
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-size: ${({ theme }) => theme.fontSizes.smallest};
+    font-weight: 500;
+    margin-bottom: 3.125rem;
+    margin-top: 50px;
+    padding: 1rem 2rem 1rem 2rem;
+    text-decoration: none;
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.secondary};
+        color: ${({ theme }) => theme.colors.light};
+        cursor: pointer;
+    }
+`;
+
+export const ErrorFirebaseContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+
+export const ErrorFirebaseText = styled.p`
+    font-family: ${({ theme }) => theme.fonts.primary};
+    font-size: ${({ theme }) => theme.fontSizes.smallest};
+    font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+    color: ${({ theme }) => theme.colors.danger};
+    margin-bottom: 1rem;
+`;
+
+export const ErrorLogin = styled.span`
+    color: ${({ theme }) => theme.colors.danger};
+    font-size: ${({ theme }) => theme.fontSizes.smallest};
+    font-family: ${({ theme }) => theme.fonts.primary};
+    margin-top: 1rem;
 `;

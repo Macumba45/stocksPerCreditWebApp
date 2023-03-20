@@ -1,61 +1,57 @@
-import {setToken} from '../storage';
+import { Props } from "../../views/Auth/Login/type";
+import { SignUpProps } from "../../views/Auth/SignUp/type";
 
-const BASE_API_URL = 'http://localhost:8000/auth';
 
-export const login = async (values: {email: string; password: string}) => {
-     let error = '';
-     try {
-          const response = await fetch(`${BASE_API_URL}/login`, {
-               method: 'POST',
-               headers: {
+
+export const handledSubmitLogin =
+    async (values: Props): Promise<Response> => {
+        try {
+            const response = await fetch(
+                'http://localhost:8000/auth/login',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: values.email,
+                        password: values.password,
+                    }),
+                }
+            );
+
+            return response;
+
+
+        } catch (error: any) {
+            console.log(error);
+            return new Response(null);
+
+        }
+    }
+
+
+export const hadledSubmitSignup = async (values: SignUpProps) => {
+
+    try {
+        const response = await fetch(
+            'http://localhost:8000/auth/signup',
+            {
+                method: 'POST',
+                headers: {
                     'Content-Type': 'application/json',
-               },
-
-               body: JSON.stringify({
+                },
+                body: JSON.stringify({
+                    name: values.name,
                     email: values.email,
                     password: values.password,
-               }),
-          });
+                }),
+            }
+        );
+        return response;
+    } catch (error: any) {
+        console.log(error);
+        return new Response(null);
 
-          if (response.ok) {
-               const token = await response.json();
-               setToken(token);
-          } else {
-               const errorData = await response.json();
-               error = errorData.error;
-          }
-     } catch (error) {
-          error = (error as Error).message;
-          console.log((error as Error).message);
-     }
-
-     return error;
-};
-
-export const signup = async (values: {email: string; password: string}) => {
-     let error = '';
-     try {
-          const response = await fetch(`${BASE_API_URL}/signup`, {
-               method: 'POST',
-               headers: {
-                    'Content-Type': 'application/json',
-               },
-               body: JSON.stringify({
-                    email: values.email,
-                    password: values.password,
-               }),
-          });
-          if (response.ok) {
-               const token = await response.json();
-               setToken(token);
-          } else {
-               const errorData = await response.json();
-               error = errorData.error;
-          }
-     } catch (error) {
-          error = (error as Error).message;
-          console.log((error as Error).message);
-     }
-
-     return error;
-};
+    }
+}

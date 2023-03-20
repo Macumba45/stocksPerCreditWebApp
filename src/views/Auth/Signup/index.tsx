@@ -1,90 +1,133 @@
-import {FC, memo, useCallback} from 'react';
-import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import { FC, memo, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { initialValues } from '../SignUp/constants';
+import { Field, FieldProps, Formik } from 'formik';
+import { validationSchema } from './constants';
+import type { SignUpProps } from './type';
 import {
-     Form,
-     FormButton,
-     FormContainer,
-     Input,
-     Label,
-     Error,
-     InputContainer,
-     StyledLink,
-     Return,
+    MainFormContainer,
+    Form,
+    SignUpTitle,
+    EmailContainer,
+    PasswordContainer,
+    LabelContainer,
+    Label,
+    Input,
+    ButtonSignUpContainer,
+    LinkLoginContainer,
+    LinkLoginText,
+    ButtonSignUp,
+    LoginBackImg,
+    Error,
+    NameContainer,
 } from './styles';
-import {Formik, Field} from 'formik';
-import {initialValues, validationSchema} from './constants';
-import {signup} from '../../../services/api/auth';
+import { setAuthenticatedToken } from '../../../services/storage';
+import { hadledSubmitSignup } from '../../../services/api/auth';
 
-const SignupForm: FC = () => {
-     const navigate = useNavigate();
-     const [error, setError] = useState<string | null>(null);
+const SignUp: FC = () => {
+    const navigate = useNavigate();
 
-     const handleSignup = async (values: typeof initialValues) => {
-          const signupError = await signup(values);
+    const handleSubmit = useCallback(
+        async (values: SignUpProps) => {
+            try {
+                const response: Response = await hadledSubmitSignup(values);
 
-          if (!signupError) {
-               navigate('/landing');
-          } else {
-               setError(signupError);
-          }
-     };
+                if (response.ok) {
+                    const data = await response.json();
+                    setAuthenticatedToken(data);
+                    navigate('/feed');
+                }
+            } catch (error: any) {
+                console.log(error);
+            }
+        },
+        [navigate]
+    );
 
-     const goToBack = useCallback(() => {
-          navigate('/landing');
-     }, [navigate]);
-
-     return (
-          <FormContainer>
-               <Formik
-                    validationSchema={validationSchema}
-                    onSubmit={handleSignup}
-                    initialValues={initialValues}
-               >
-                    <Form>
-                         <Field name="email">
-                              {({field, meta}: {field: any; meta: any}) => (
-                                   <InputContainer>
-                                        <Label>Email</Label>
+    return (
+        <>
+            <LoginBackImg>
+                <MainFormContainer>
+                    <Formik
+                        validationSchema={validationSchema}
+                        onSubmit={handleSubmit}
+                        initialValues={initialValues}>
+                        <Form>
+                            <SignUpTitle>SignUp</SignUpTitle>
+                            <Field name="name">
+                                {({ field, meta }: FieldProps) => (
+                                    <NameContainer>
+                                        <LabelContainer>
+                                            <Label>Name* </Label>
+                                        </LabelContainer>
                                         <Input
-                                             $hasError={!!meta?.error}
-                                             type="text"
-                                             {...field}
+                                            $hasError={!!meta?.error}
+                                            type="name"
+                                            placeholder="Insert your username"
+                                            autoComplete="email"
+                                            {...field}
+                                        />
+                                        {!!meta?.error && (
+                                            <Error>{meta.error}</Error>
+                                        )}
+                                    </NameContainer>
+                                )}
+                            </Field>
+                            <Field name="email">
+                                {({ field, meta }: FieldProps) => (
+                                    <EmailContainer>
+                                        <LabelContainer>
+                                            <Label>Email* </Label>
+                                        </LabelContainer>
+                                        <Input
+                                            $hasError={!!meta?.error}
+                                            type="email"
+                                            placeholder="Insert your email"
+                                            autoComplete="email"
+                                            {...field}
+                                        />
+                                        {!!meta?.error && (
+                                            <Error>{meta.error}</Error>
+                                        )}
+                                    </EmailContainer>
+                                )}
+                            </Field>
+                            <Field name="password">
+                                {({ field, meta }: FieldProps) => (
+                                    <PasswordContainer>
+                                        <LabelContainer>
+                                            <Label>Password* </Label>
+                                        </LabelContainer>
+                                        <Input
+                                            $hasError={!!meta?.error}
+                                            type="password"
+                                            autoComplete="current-password"
+                                            placeholder="Insert password"
+                                            {...field}
                                         />
                                         {meta?.error && (
-                                             <Error>{meta.error}</Error>
+                                            <Error>{meta.error}</Error>
                                         )}
-                                   </InputContainer>
-                              )}
-                         </Field>
-                         <Field name="password">
-                              {({field, meta}: {field: any; meta: any}) => (
-                                   <InputContainer>
-                                        <Label>Password</Label>
-                                        <Input
-                                             $hasError={!!meta?.error}
-                                             {...field}
-                                             type="password"
-                                        />
-                                        {meta?.error && (
-                                             <Error>{meta.error}</Error>
-                                        )}
-                                   </InputContainer>
-                              )}
-                         </Field>
-                         <FormButton type="submit">SignUp</FormButton>
-                         <div style={{marginTop: '10px'}}>
-                              <Return>
-                                   Already have an account?{' '}
-                                   <StyledLink href="/login">
-                                        Go to login 👈{' '}
-                                   </StyledLink>
-                              </Return>
-                         </div>
-                    </Form>
-               </Formik>
-          </FormContainer>
-     );
+                                    </PasswordContainer>
+                                )}
+                            </Field>
+                            <LinkLoginContainer>
+                                <LinkLoginText to="/login">
+                                    If you are already SignUp, click here to
+                                    login!
+                                </LinkLoginText>
+                            </LinkLoginContainer>
+                            <ButtonSignUpContainer>
+                                <ButtonSignUp type="submit">
+                                    Sign Up
+                                </ButtonSignUp>
+                            </ButtonSignUpContainer>
+                        </Form>
+                    </Formik>
+                </MainFormContainer>
+            </LoginBackImg>
+        </>
+    );
 };
 
-export default memo(SignupForm);
+export default memo(SignUp);
