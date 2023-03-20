@@ -23,7 +23,7 @@ import DraftsIcon from '@mui/icons-material/Drafts';
 import StarIcon from '@mui/icons-material/Star';
 import React from 'react';
 
-const SidebarDashboard: FC = () => {
+const SidebarDashboardEMP: FC = () => {
     const drawerWidth = 240;
 
     type IconType = ComponentType<{ sx?: any }>;
@@ -236,4 +236,4 @@ const SidebarDashboard: FC = () => {
     );
 };
 
-export default memo(SidebarDashboard);
+export default memo(SidebarDashboardEMP);
