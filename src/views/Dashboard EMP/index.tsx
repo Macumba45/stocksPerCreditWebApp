@@ -1,16 +1,12 @@
-import { FC, memo } from "react";
-import SidebarDashboardEMP from "../../components/SidebarDashboardEMP";
-
-
+import {FC, memo} from 'react';
+import SidebarDashboardEMP from '../../components/SidebarDashboardEMP';
 
 const DashboardEMP: FC = () => {
-
-    return (
-
-        <>
-            <SidebarDashboardEMP />
-        </>
-    );
+     return (
+          <>
+               <SidebarDashboardEMP />
+          </>
+     );
 };
 
 export default memo(DashboardEMP);
