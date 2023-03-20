@@ -1,11 +1,15 @@
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import theme from './styles/theme';
+import { Reset } from 'styled-reset';
+import Router from './container/Router';
 
 function App() {
-     return (
-          <div className="App">
-               <p>ESTE ES EL PRIMER DIA DE VUESTRAS VIDAS</p>
-          </div>
-     );
+    return (
+        <ThemeProvider theme={theme}>
+            <Reset />
+            <Router />
+        </ThemeProvider>
+    );
 }
 
 export default App;
