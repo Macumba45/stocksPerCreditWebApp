@@ -15,17 +15,21 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 import { useNavigate } from 'react-router-dom';
 
+const userRole = window.localStorage.getItem('role');
+
+
 const pages = [
     { label: 'Login', route: '/login' },
     { label: 'Signup', route: '/signup' },
 ];
 
 const pagesLogged = [
-    { label: 'Login', route: '/login' },
-    { label: 'Signup', route: '/signup' },
+    { label: 'Our Company', route: '/' },
+    { label: 'Contact', route: '/' },
+    { label: 'How we works?', route: '/' }
 ];
 const settings = [
-    { label: 'Dashboard', route: '/dashboardemp' },
+    { label: 'Dashboard', route: userRole === 'emprendedor' ? '/dashboardEmp' : '/dashboardInv' },
     { label: 'Logout', route: '/logout' },
 ];
 const NavBar: FC = () => {
@@ -60,7 +64,56 @@ const NavBar: FC = () => {
         return (
             <AppBar position="fixed" sx={{ top: 0 }}>
                 <Container maxWidth="xl">
+
                     <Toolbar disableGutters>
+                        <Box
+                            sx={{
+                                flexGrow: 1,
+                                display: { xs: 'flex', md: 'none' },
+                            }}
+                        >
+                            <IconButton
+                                size="large"
+                                aria-label="account of current user"
+                                aria-controls="menu-appbar"
+                                aria-haspopup="true"
+                                onClick={handleOpenNavMenu}
+                                color="inherit"
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Menu
+                                id="menu-appbar"
+                                anchorEl={anchorElNav}
+                                anchorOrigin={{
+                                    vertical: 'bottom',
+                                    horizontal: 'left',
+                                }}
+                                keepMounted
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                open={Boolean(anchorElNav)}
+                                onClose={handleCloseNavMenu}
+                                sx={{
+                                    display: { xs: 'block', md: 'none' },
+                                }}
+                            >
+                                {pagesLogged.map(({ label, route }) => (
+                                    <MenuItem
+                                        key={label}
+                                        onClick={() =>
+                                            handleClickSetting(route)
+                                        }
+                                    >
+                                        <Typography textAlign="center">
+                                            {label}
+                                        </Typography>
+                                    </MenuItem>
+                                ))}
+                            </Menu>
+                        </Box>
                         <AdbIcon
                             sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
                         />
@@ -102,13 +155,15 @@ const NavBar: FC = () => {
                         >
                             LOGO
                         </Typography>
+
+
                         <Box
                             sx={{
                                 flexGrow: 1,
                                 display: { xs: 'none', md: 'flex' },
                             }}
                         >
-                            {pages.map(({ label, route }) => (
+                            {pagesLogged.map(({ label, route }) => (
                                 <Button
                                     key={label}
                                     onClick={() =>

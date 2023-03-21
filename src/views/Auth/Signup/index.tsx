@@ -17,26 +17,31 @@ import {
     LinkLoginContainer,
     LinkLoginText,
     ButtonSignUp,
-    LoginBackImg,
     Error,
     NameContainer,
+    RadioGroup,
+    RadioOption,
+    RadioInput,
 } from './styles';
 import { setAuthenticatedToken } from '../../../services/storage';
 import { hadledSubmitSignup } from '../../../services/api/auth';
+import { WindowSharp } from '@mui/icons-material';
 
 const SignUp: FC = () => {
     const navigate = useNavigate();
 
     const handleSubmit = useCallback(
         async (values: SignUpProps) => {
+            console.log(values);
             try {
-                const response: Response = await hadledSubmitSignup(values);
-
+                const role = values.role === "inversor" ? "inversionista" : "emprendedor";
+                const data = { ...values, roleKey: role };
+                const response: Response = await hadledSubmitSignup(data);
                 if (response.ok) {
-                     // const data = await response.json();
-                     const data = "12345"
-                    setAuthenticatedToken(data);
-                    navigate('/feed');
+                    const token = "12345";
+                    setAuthenticatedToken(token);
+                    window.localStorage.setItem('role', role);
+                    navigate('/');
                 }
             } catch (error: any) {
                 console.log(error);
@@ -44,6 +49,32 @@ const SignUp: FC = () => {
         },
         [navigate]
     );
+
+    const roleOptions = [
+        { label: 'Entrepreneur', value: 'emprendedor' },
+        { label: 'Investor', value: 'inversor' },
+    ];
+
+    const renderRoleOptions = (field: any) => {
+        const { value, onChange } = field;
+        return (
+            <RadioGroup>
+                {roleOptions.map((option) => (
+                    <RadioOption key={option.value}>
+                        <RadioInput
+                            type="radio"
+                            id={option.value}
+                            name="role"
+                            value={option.value}
+                            checked={value === option.value}
+                            onChange={onChange}
+                        />
+                        <label htmlFor={option.value}>{option.label}</label>
+                    </RadioOption>
+                ))}
+            </RadioGroup>
+        );
+    };
 
     return (
         <>
@@ -77,6 +108,27 @@ const SignUp: FC = () => {
                                 </NameContainer>
                             )}
                         </Field>
+                        <Field name="lastname">
+                            {({ field, meta }: FieldProps) => (
+                                <NameContainer>
+                                    <LabelContainer>
+                                        <Label>Lastname* </Label>
+                                    </LabelContainer>
+                                    <Input
+                                        $hasError={!!meta?.error}
+                                        type="lastname"
+                                        placeholder="Insert your lastname"
+                                        autoComplete="lastname"
+                                        {...field}
+                                    />
+                                    {!!meta?.error && (
+                                        <Error>
+                                            {meta.error}
+                                        </Error>
+                                    )}
+                                </NameContainer>
+                            )}
+                        </Field>
                         <Field name="email">
                             {({ field, meta }: FieldProps) => (
                                 <EmailContainer>
@@ -97,6 +149,83 @@ const SignUp: FC = () => {
                                     )}
                                 </EmailContainer>
                             )}
+                        </Field>
+                        <Field name="country">
+                            {({ field, meta }: FieldProps) => (
+                                <NameContainer>
+                                    <LabelContainer>
+                                        <Label>Lastname* </Label>
+                                    </LabelContainer>
+                                    <Input
+                                        $hasError={!!meta?.error}
+                                        type="country"
+                                        placeholder="Insert your country"
+                                        autoComplete="country"
+                                        {...field}
+                                    />
+                                    {!!meta?.error && (
+                                        <Error>
+                                            {meta.error}
+                                        </Error>
+                                    )}
+                                </NameContainer>
+                            )}
+                        </Field>
+                        <Field name="city">
+                            {({ field, meta }: FieldProps) => (
+                                <NameContainer>
+                                    <LabelContainer>
+                                        <Label>City* </Label>
+                                    </LabelContainer>
+                                    <Input
+                                        $hasError={!!meta?.error}
+                                        type="country"
+                                        placeholder="Insert your city"
+                                        autoComplete="city"
+                                        {...field}
+                                    />
+                                    {!!meta?.error && (
+                                        <Error>
+                                            {meta.error}
+                                        </Error>
+                                    )}
+                                </NameContainer>
+                            )}
+                        </Field>
+                        <Field name="phone">
+                            {({ field, meta }: FieldProps) => (
+                                <NameContainer>
+                                    <LabelContainer>
+                                        <Label>Phone* </Label>
+                                    </LabelContainer>
+                                    <Input
+                                        $hasError={!!meta?.error}
+                                        type="phone"
+                                        placeholder="Insert your phone"
+                                        autoComplete="phone"
+                                        {...field}
+                                    />
+                                    {!!meta?.error && (
+                                        <Error>
+                                            {meta.error}
+                                        </Error>
+                                    )}
+                                </NameContainer>
+                            )}
+                        </Field>
+                        <Field name="role">{({ field, meta }: FieldProps) => (
+                            <NameContainer>
+                                <LabelContainer>
+                                    <Label>Choose your Role* </Label>
+                                </LabelContainer>
+                                {renderRoleOptions(field)}
+                                {!!meta?.error && (
+                                    <Error>
+                                        {meta.error}
+                                    </Error>
+                                )}
+                            </NameContainer>
+                        )}
                         </Field>
                         <Field name="password">
                             {({ field, meta }: FieldProps) => (
