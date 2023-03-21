@@ -37,7 +37,6 @@ export const HeartButton = styled.button`
   cursor: pointer;
   font-size: 32px;
   margin-top: 16px;
-  color: ${props => props.liked ? '#ff1493' : '#ccc'};
 
   &:focus {
     outline: none;

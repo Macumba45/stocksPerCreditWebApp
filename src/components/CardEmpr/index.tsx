@@ -10,16 +10,12 @@ type CardProps = {
 };
 
 const Card: React.FC<CardProps> = ({ image, title, description, onClick }) => {
-  const [liked, setLiked] = useState(false);
 
-  const handleLikeClick = () => {
-    setLiked(!liked);
-  };
 
   return (
     <CardContainer>
       <Image src={image} />
-    <HeartButton onClick={handleLikeClick} liked={liked}>
+    <HeartButton >
     <FavoriteBorderIcon/>
       </HeartButton>
       <Title>{title}</Title>
