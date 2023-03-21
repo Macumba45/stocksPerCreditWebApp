@@ -2,6 +2,11 @@ export type SignUpProps = {
      name: string;
      email: string;
      password: string;
+     lastname: string;
+     role: string;
+     country: string;
+     city: string;
+     phone: string;
 };
 
 export type FieldProps = {
