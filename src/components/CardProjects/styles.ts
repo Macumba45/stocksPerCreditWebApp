@@ -30,13 +30,14 @@ export const Description = styled.p`
   line-height: 1.5;
 `;
 
-export const HeartButton = styled.button`
+export const HeartButton = styled.button<{ liked: boolean }>`
   background-color: transparent;
   margin-left: 160px;
   border: none;
   cursor: pointer;
   font-size: 32px;
   margin-top: 16px;
+  color: ${(props) => (props.liked ? 'red' : 'black')};
 
   &:focus {
     outline: none;
