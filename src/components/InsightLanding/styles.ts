@@ -24,7 +24,7 @@ export const Container = styled.div`
      border-radius: 10px;
      margin-bottom: 2rem;
      text-align: center;
-     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+     box-shadow: 0px 0px 20px rgba(129, 129, 129, 0.2);
 
      @media screen and (width: 800px) {
           height: 300px;
