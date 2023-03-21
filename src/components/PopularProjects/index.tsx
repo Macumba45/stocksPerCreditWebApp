@@ -1,9 +1,6 @@
 import { FC, memo } from 'react';
-import Slider from 'react-slick';
 import Card from '../CardProjects';
 import { ContainerProjects, MainContainer, TitlePopular } from './styles';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const PopularProjects: FC = () => {
 
