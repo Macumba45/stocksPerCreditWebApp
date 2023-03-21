@@ -1,5 +1,5 @@
 import {FC, memo} from 'react';
-import Card from '../../components/CardEmpr';
+import Card from '../../components/CardProjects';
 import SidebarDashboardEMP from '../../components/SidebarDashboardEMP'
 
 const DashboardEMP: FC = () => {

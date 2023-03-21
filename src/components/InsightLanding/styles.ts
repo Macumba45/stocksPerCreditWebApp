@@ -5,10 +5,13 @@ export const MainContainer = styled.div`
      flex-wrap: wrap;
      height: 6rem;
      justify-content: center;
-     margin-top: 3rem;
+     margin-top: 6rem;
      margin-bottom: 3rem;
      border-radius: 10px;
-     height: 500px;
+     height: 300px;
+     @media screen and (max-width: 500px) {
+        margin-top: 2rem;
+     }
      @media screen and (min-width: 800px) {
           height: 100px;
      }
@@ -29,15 +32,15 @@ export const Container = styled.div`
 `;
 
 export const TitleInsight = styled.h1`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.small};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.small};
+     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
      margin-top: 1rem;
 `;
 
 export const DataContainer = styled.div`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
      margin-top: 1.5rem;
 `;
