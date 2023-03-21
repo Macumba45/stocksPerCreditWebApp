@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-  margin-left: 100px;
   display: flex;
+  margin :1rem;
   width: 270px ;
   height: 560px;
   flex-direction: column;
