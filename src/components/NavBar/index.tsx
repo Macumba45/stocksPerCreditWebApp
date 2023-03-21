@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react';
+import { FC, memo, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -58,10 +58,11 @@ const NavBar: FC = () => {
     const handleClickSetting = (route: any) => {
         navigate(route);
         if (route === '/logout') {
-            navigate('/');
             window.localStorage.clear();
+            navigate('/welcome');
         }
     };
+
 
     if (token) {
         return (

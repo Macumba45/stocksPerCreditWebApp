@@ -12,6 +12,7 @@ export const MainContainer = styled.div`
 
 export const TitleContainer = styled.div`
      margin: 0 auto;
+     text-align: center;
 `;
 
 export const Title = styled.h1`
@@ -32,6 +33,15 @@ export const SubTitle = styled.h2`
      font-weight: ${({ theme }) => theme.fontWeights.semiLight};
      line-height: 30px;
      margin: 3rem 2rem 0 2rem;
+`;
+export const SubTitleBorderButton = styled.button`
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     line-height: 30px;
+     margin: 3rem 2rem 2rem 2rem;
+     border: 1px solid black;
+     padding: 1rem;
 `;
 
 export const ButtonContainer = styled.div`
