@@ -2,7 +2,7 @@ import {FC, memo} from 'react';
 import BigCard from '../../components/BigCard';
 import LittleCard from '../../components/LittleCard';
 import MediumCard from '../../components/MediumCard';
-import SidebarDashboardEMP2 from '../../components/SidebarDashboardINV';
+import ResponsiveDrawer from '../../components/SidebarPrueba';
 import {
      BigDivsContainer,
      Container,
@@ -15,15 +15,15 @@ const DashboardINV: FC = () => {
      return (
           <>
                <Container>
-                    <SidebarDashboardEMP2 />
+                    <ResponsiveDrawer />
                     <MainContainer>
                          <LilDivContainer>
-                             <LittleCard/>
-                             <LittleCard/>
-                             <LittleCard/>
-                             <LittleCard/>
-                             <LittleCard/>
-                             <LittleCard/>
+                              <LittleCard />
+                              <LittleCard />
+                              <LittleCard />
+                              <LittleCard />
+                              <LittleCard />
+                              <LittleCard />
                          </LilDivContainer>
 
                          <BigDivsContainer>
@@ -36,7 +36,7 @@ const DashboardINV: FC = () => {
                               <MediumCard />
                               <MediumCard />
                          </MixDivsContainer>
-                          <MixDivsContainer>
+                         <MixDivsContainer>
                               <BigCard />
                               <MediumCard />
                               <MediumCard />

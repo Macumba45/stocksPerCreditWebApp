@@ -12,7 +12,7 @@ background-color: ${({ theme }) => theme.colors.white};
 `
 
 export const Image = styled.img`
-  width: 150px;
+  width: 30%;
 `;
 
 export const Info = styled.p`
