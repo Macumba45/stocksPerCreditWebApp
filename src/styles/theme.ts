@@ -24,7 +24,7 @@ const theme = {
           bold: '800',
      },
      fontSizes: {
-          smallest: '0.8rem',
+          smallest: '1rem',
           small: '1.5rem',
           mediumSmall: '2rem',
           medium: '4rem',

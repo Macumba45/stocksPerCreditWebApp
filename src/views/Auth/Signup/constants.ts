@@ -21,8 +21,7 @@ export const validationSchema = Yup.object().shape({
           .min(4, 'Too Short!')
           .max(16, 'Too Long!')
           .required('City is required'),
-     phone: Yup.number()
-          .required('Phone is required'),
+     phone: Yup.number().required('Phone is required'),
      password: Yup.string()
           .min(4, 'Too Short!')
           .max(8, 'Too Long!')
