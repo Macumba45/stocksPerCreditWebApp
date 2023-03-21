@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const MainContainer = styled.div`
-     width: 100%;
+     max-width: 800px;
      margin: 0 auto;
+     margin-top: 6rem;
      margin-bottom: 3rem;
      display: flex;
      flex-direction: column;
@@ -14,9 +15,9 @@ export const TitleContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.mediumSmall};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.mediumSmall};
+     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
      margin-top: 3rem;
 `;
 
@@ -26,9 +27,9 @@ export const SubTitleContainer = styled.div`
 `;
 
 export const SubTitle = styled.h2`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
      line-height: 30px;
      margin: 3rem 2rem 0 2rem;
 `;
