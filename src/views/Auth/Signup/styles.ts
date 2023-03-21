@@ -25,15 +25,14 @@ export const MainFormContainer = styled.div`
 export const Form = styled(defaultForm)`
      background-color: white;
      border-radius: 10px;
-     height: 35rem;
      margin-left: 1.7rem;
      margin-right: 1.7rem;
      /* Margen para pantalla grande */
-     margin-top: 6rem;
+     margin-bottom: 6rem;
 
      /* Media query para pantalla pequeña */
      @media (max-width: 768px) {
-          margin-top: 6.25rem;
+          margin-top: 2rem;
           width: 300px;
      }
 `;
@@ -181,4 +180,24 @@ export const ErrorFirebaseText = styled.p`
      font-weight: ${({theme}) => theme.fontWeights.semiBold};
      color: ${({theme}) => theme.colors.danger};
      margin-bottom: 1rem;
+`;
+
+export const RadioGroup = styled.div`
+     display: flex;
+     flex-direction: row;
+     margin-top: 2rem;
+     margin-left: 1.5rem;
+     font-family: ${({theme}) => theme.fonts.primary};
+`;
+
+export const RadioOption = styled.label`
+     display: flex;
+     align-items: center;
+     margin-right: 16px;
+     font-family: ${({theme}) => theme.fonts.primary};
+`;
+
+export const RadioInput = styled.input`
+     margin-right: 8px;
+     font-family: ${({theme}) => theme.fonts.primary};
 `;
