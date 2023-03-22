@@ -7,12 +7,13 @@ import BasicTabs from '../FilterProjects/index'
 const PopularProjects: FC = () => {
 
     return (
-
         <>
+
             <Container>
                 <TitlePopular>Popular Projects</TitlePopular>
                 <BasicTabs />
             </Container>
+
 
             <MainContainer>
                 <ContainerProjects>
