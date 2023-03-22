@@ -18,7 +18,11 @@ export const Title = styled.h1`
      font-family: ${({ theme }) => theme.fonts.primary};
      font-size: ${({ theme }) => theme.fontSizes.mediumSmall};
      font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+     color: ${({ theme }) => theme.colors.primary};
      margin-top: 3rem;
+     margin-left: 1rem;
+     margin-right: 1rem;
+
 `;
 
 export const SubTitleContainer = styled.div`

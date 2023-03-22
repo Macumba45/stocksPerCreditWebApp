@@ -1,4 +1,4 @@
-import { FC, memo, useEffect, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -24,9 +24,9 @@ const pages = [
 ];
 
 const pagesLogged = [
-    { label: 'Our Company', route: '/' },
-    { label: 'Contact', route: '/' },
-    { label: 'How we works?', route: '/' },
+    { label: 'Investments', route: '/' },
+    { label: 'Entrepreneurship', route: '/' },
+    { label: 'Simulation', route: '/' },
 ];
 const settings = [
     {
@@ -67,7 +67,7 @@ const NavBar: FC = () => {
 
     if (token) {
         return (
-            <AppBar position="fixed" sx={{ top: 0 }}>
+            <AppBar position="fixed" sx={{ top: 0, backgroundColor: ' #222222' }}>
                 <Container >
                     <Toolbar disableGutters>
                         <Box
@@ -236,7 +236,7 @@ const NavBar: FC = () => {
         );
     } else {
         return (
-            <AppBar position="fixed" sx={{ top: 0 }}>
+            <AppBar position="fixed" sx={{ top: 0, backgroundColor: ' #222222' }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
                         <AdbIcon
