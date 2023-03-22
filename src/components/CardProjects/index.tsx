@@ -1,6 +1,6 @@
 import { useState, memo } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { CardContainer, Image, Title, Description, HeartButton, ContainerImg, ContainerButton, ContainerTitle, ContainerDesc, ContainerLocations, Locations, ContainerCategories, Categories, ContainerLinear, MainContainer } from './styles'
+import { CardContainer, Image, Title, Description, HeartButton, ContainerImg, ContainerButton, ContainerTitle, ContainerDesc, ContainerCountry, Country, ContainerCity, City, ContainerCategories, Categories, ContainerLinear } from './styles'
 import LinearWithValueLabel from '../ProgressLinear/index'
 type CardProps = {
   image: string;
@@ -8,10 +8,11 @@ type CardProps = {
   description: string;
   onClick?: () => void;
   showHeartButton?: boolean;
-  locations?: string;
+  country?: string;
+  city?: string;
   categories?: string;
 };
-const Card: React.FC<CardProps> = ({ image, title, description, onClick, showHeartButton, locations, categories }) => {
+const Card: React.FC<CardProps> = ({ image, title, description, onClick, showHeartButton, country, city, categories }) => {
   const [liked, setLiked] = useState(false);
 
   const handleClick = () => {
@@ -20,37 +21,38 @@ const Card: React.FC<CardProps> = ({ image, title, description, onClick, showHea
 
 
   return (
-    <MainContainer>
-      <CardContainer>
-        <ContainerImg>
-          <Image src={image} />
-        </ContainerImg>
-        <ContainerButton>
-          {showHeartButton && (
-            <HeartButton liked={liked} onClick={handleClick}>
-              <FavoriteBorderIcon />
-            </HeartButton>
-          )}
-        </ContainerButton>
-        <ContainerTitle>
-          <Title>{title}</Title>
-        </ContainerTitle>
-        <ContainerDesc>
-          <Description>{description}</Description>
-        </ContainerDesc>
-        <ContainerLocations>
-          <Locations>{locations}</Locations>
-        </ContainerLocations>
-        <ContainerLinear>
-          <LinearWithValueLabel
-            min={0}
-            max={100} />
-        </ContainerLinear>
-        <ContainerCategories>
-          <Categories>{categories}</Categories>
-        </ContainerCategories>
-      </CardContainer>
-    </MainContainer>
+    <CardContainer>
+      <ContainerImg>
+        <Image src={image} />
+      </ContainerImg>
+      <ContainerButton>
+        {showHeartButton && (
+          <HeartButton liked={liked} onClick={handleClick}>
+            <FavoriteBorderIcon />
+          </HeartButton>
+        )}
+      </ContainerButton>
+      <ContainerTitle>
+        <Title>{title}</Title>
+      </ContainerTitle>
+      <ContainerDesc>
+        <Description>{description}</Description>
+      </ContainerDesc>
+      <ContainerCountry>
+        <Country>{country}</Country>
+      </ContainerCountry>
+      <ContainerCity>
+        <City>{city}</City>
+      </ContainerCity>
+      <ContainerLinear>
+        <LinearWithValueLabel
+          min={0}
+          max={100} />
+      </ContainerLinear>
+      <ContainerCategories>
+        <Categories>{categories}</Categories>
+      </ContainerCategories>
+    </CardContainer>
   );
 };
 

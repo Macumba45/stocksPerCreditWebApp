@@ -90,24 +90,35 @@ export const HeartIcon = styled.i`
   transform: rotate(45deg);
 `;
 
-export const ContainerLocations = styled.div`
-position: relative;
-position: relative;;
-margin-left: 1rem;
-margin-top: 1rem;
+export const Container = styled.div`
+  display: flex;
+  align-items: center; /* alinear los elementos verticalmente en el centro */
+  margin-top: 1rem;
+`;
 
-`
+export const ContainerCountry = styled.div`
+  margin-left: 1rem;
+`;
 
+export const Country = styled.p`
+  color: ${({ theme }) => theme.colors.lighterGrey};
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-size: ${({ theme }) => theme.fontSizes.smallest};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  max-width: 220px; /* establecer un ancho máximo para el contenedor */
+`;
 
-export const Locations = styled.p`
-color: ${({ theme }) => theme.colors.lighterGrey};
-font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
-     max-width: 220px; /* establecer un ancho máximo para el contenedor */
+export const ContainerCity = styled.div`
+  margin-left: 1rem;
+`;
 
-
-`
+export const City = styled.p`
+  color: ${({ theme }) => theme.colors.lighterGrey};
+  font-family: ${({ theme }) => theme.fonts.primary};
+  font-size: ${({ theme }) => theme.fontSizes.smallest};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  max-width: 220px; /* establecer un ancho máximo para el contenedor */
+`;
 
 export const ContainerCategories = styled.div`
 position: relative;;

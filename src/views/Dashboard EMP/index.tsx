@@ -13,7 +13,8 @@ const DashboardEMP: FC = () => {
           showHeartButton={false}
           title={'Mind on me'}
           description={'Deteccion de deterioro cognitivo precoz mediante IA y PNL'}
-          locations={'Madrid,España'}
+          country={'España'}
+          city={'Madrid'}
           categories={'MEDICINA'}
         />
           <Card
@@ -21,7 +22,8 @@ const DashboardEMP: FC = () => {
           showHeartButton={false}
           title={'Mind on me'}
           description={'Deteccion de deterioro cognitivo precoz mediante IA y PNL'}
-          locations={'Madrid,España'}
+          country={'España'}
+          city={'Madrid'}    
           categories={'MEDICINA'}
         />
           <Card
@@ -29,7 +31,8 @@ const DashboardEMP: FC = () => {
           showHeartButton={false}
           title={'Mind on me'}
           description={'Deteccion de deterioro cognitivo precoz mediante IA y PNL'}
-          locations={'Madrid,España'}
+          country={'España'}
+          city={'Madrid'}      
           categories={'MEDICINA'}
         />
           <Card
@@ -37,7 +40,8 @@ const DashboardEMP: FC = () => {
           showHeartButton={false}
           title={'Mind on me'}
           description={'Deteccion de deterioro cognitivo precoz mediante IA y PNL'}
-          locations={'Madrid,España'}
+          country={'España'}
+          city={'Madrid'}         
           categories={'MEDICINA'}
         />
       </MaxContainer>
