@@ -11,10 +11,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-
 import { useNavigate } from 'react-router-dom';
+import { LogoStocks } from './styles';
 
+
+const logo = require('./assets/logo.png');
 const userRole = window.localStorage.getItem('role');
 const token = window.localStorage.getItem('token');
 
@@ -62,7 +63,7 @@ const NavBar: FC = () => {
             navigate('/welcome');
         }
     };
-    
+
 
 
     if (token) {
@@ -118,11 +119,9 @@ const NavBar: FC = () => {
                                 ))}
                             </Menu>
                         </Box>
-                        <AdbIcon
-                            sx={{
-                                display: { xs: 'none', md: 'flex' },
-                                mr: 1,
-                            }}
+                        <LogoStocks
+                            src={`${logo}`}
+
                         />
                         <Typography
                             variant="h6"
@@ -137,16 +136,16 @@ const NavBar: FC = () => {
                                 letterSpacing: '.3rem',
                                 color: 'inherit',
                                 textDecoration: 'none',
+                                backgroundImage: `${logo}`
+
                             }}
                         >
-                            LOGO
+                            Stocks
                         </Typography>
-                        <AdbIcon
-                            sx={{
-                                display: { xs: 'flex', md: 'none' },
-                                mr: 1,
-                            }}
-                        />
+                        {/* <LogoStocks
+                            src={`${logo}`}
+
+                        /> */}
                         <Typography
                             variant="h5"
                             noWrap
@@ -163,7 +162,7 @@ const NavBar: FC = () => {
                                 textDecoration: 'none',
                             }}
                         >
-                            LOGO
+                            Stocks
                         </Typography>
 
                         <Box
@@ -239,12 +238,10 @@ const NavBar: FC = () => {
             <AppBar position="fixed" sx={{ top: 0, backgroundColor: ' #222222' }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                        <AdbIcon
-                            sx={{
-                                display: { xs: 'none', md: 'flex' },
-                                mr: 1,
-                            }}
-                        />
+                        {/* <LogoStocks
+                            src={`${logo}`}
+
+                        /> */}
                         <Typography
                             variant="h6"
                             noWrap
@@ -260,7 +257,7 @@ const NavBar: FC = () => {
                                 textDecoration: 'none',
                             }}
                         >
-                            LOGO
+                            Stocks
                         </Typography>
 
                         <Box
@@ -311,11 +308,9 @@ const NavBar: FC = () => {
                                 ))}
                             </Menu>
                         </Box>
-                        <AdbIcon
-                            sx={{
-                                display: { xs: 'flex', md: 'none' },
-                                mr: 1,
-                            }}
+                        <LogoStocks
+                            src={`${logo}`}
+
                         />
                         <Typography
                             variant="h5"
@@ -333,7 +328,7 @@ const NavBar: FC = () => {
                                 textDecoration: 'none',
                             }}
                         >
-                            LOGO
+                            Stocks
                         </Typography>
                         <Box
                             sx={{

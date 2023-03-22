@@ -9,7 +9,7 @@ const Hr: FC<Props> = ({ label }) => {
     return (
 
 
-        <Divider sx={{ width: '200px', margin: '0 auto', marginBottom: '5rem' }}>
+        <Divider sx={{ width: '350px', margin: '0 auto', marginBottom: '8rem', marginTop: '8rem' }}>
             <Chip sx={{ backgroundColor: '#7E1B75', color: 'white' }} label={label} />
         </Divider>
 

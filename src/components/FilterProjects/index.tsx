@@ -54,7 +54,7 @@ const BasicTabs: FC = () => {
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                Item One
+                Cards 1
             </TabPanel>
             <TabPanel value={value} index={1}>
                 Item Two

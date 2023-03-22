@@ -3,8 +3,6 @@ import styled from "styled-components"
 export const MainContainer = styled.div`
 
      margin: 0 auto;
-     margin-top: 2rem;
-     margin-bottom: 3rem;
      display: flex;
     
 
@@ -20,8 +18,6 @@ flex-direction: column;
 export const ContainerProjects = styled.div`
 
      margin: 0 auto;
-     margin-top: 2rem;
-     margin-bottom: 3rem;
      display: flex;
      flex-wrap: wrap;
      justify-content: center;

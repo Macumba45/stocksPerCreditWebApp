@@ -6,7 +6,7 @@ const FeaturedCard: FC = () => {
           <MainContainer>
                <ContainerText>
                     <Title><SpanFeatured>Inversores y emprendedores {<br />} conectados</SpanFeatured> para un {<br />} futuro mejor</Title>
-                    <SubTitle>Encuentra la startup en la que quieres {<br />}invertir con el respaldo de nuestro test</SubTitle>
+                    <SubTitle>Encuentra la startup en la que quieres invertir con el respaldo de nuestro test.</SubTitle>
                     <ButtonContainer>
                          <ButtonSimulation>Start</ButtonSimulation>
                     </ButtonContainer>
