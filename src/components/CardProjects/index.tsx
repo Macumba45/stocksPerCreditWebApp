@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import { useState, memo } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { CardContainer, Image, Title, Description, HeartButton } from './styles'
+import { CardContainer, Image, Title, Description, HeartButton, ContainerImg, ContainerButton, ContainerTitle, ContainerDesc } from './styles'
+
 type CardProps = {
   image: string;
   title: string;
   description: string;
-  onClick: () => void;
-  liked: boolean;
+  onClick?: () => void;
+  showHeartButton?: boolean;
 };
-
-const Card: React.FC<CardProps> = ({ image, title, description, onClick }) => {
+const Card: React.FC<CardProps> = ({ image, title, description, onClick, showHeartButton }) => {
   const [liked, setLiked] = useState(false);
 
   const handleClick = () => {
@@ -19,16 +19,25 @@ const Card: React.FC<CardProps> = ({ image, title, description, onClick }) => {
 
   return (
     <CardContainer>
-      <Image src={image} />
-      <HeartButton liked={liked} onClick={handleClick}>
-      <FavoriteBorderIcon/>
-      </HeartButton>
+      <ContainerImg>
+        <Image src={image} />
+      </ContainerImg>
+      <ContainerButton>
+        {showHeartButton && (
+          <HeartButton liked={liked} onClick={handleClick}>
+            <FavoriteBorderIcon />
+          </HeartButton>
+        )}
+      </ContainerButton>
+      <ContainerTitle>
+        <Title>{title}</Title>
+      </ContainerTitle>
+      <ContainerDesc>
+        <Description>{description}</Description>
+      </ContainerDesc>
 
-      <Title>{title}</Title>
-      <Description>{description}</Description>
-      
     </CardContainer>
   );
 };
 
-export default Card;
+export default memo(Card);
