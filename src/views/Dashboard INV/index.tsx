@@ -11,7 +11,7 @@ import {
      MixDivsContainer,
 } from './styles';
 
-const DashboardINV: FC = () => {
+const DashboardINVe: FC = () => {
      return (
           <>
                <Container>
@@ -47,4 +47,4 @@ const DashboardINV: FC = () => {
      );
 };
 
-export default memo(DashboardINV);
+export default memo(DashboardINVe);
