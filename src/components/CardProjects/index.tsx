@@ -1,7 +1,7 @@
 import { useState, memo } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import { CardContainer, Image, Title, Description, HeartButton, ContainerImg, ContainerButton, ContainerTitle, ContainerDesc, ContainerLocations, Locations,ContainerCategories, Categories} from './styles'
-
+import { CardContainer, Image, Title, Description, HeartButton, ContainerImg, ContainerButton, ContainerTitle, ContainerDesc, ContainerLocations, Locations, ContainerCategories, Categories, ContainerLinear } from './styles'
+import LinearWithValueLabel from '../ProgressLinear/index'
 type CardProps = {
   image: string;
   title: string;
@@ -40,10 +40,14 @@ const Card: React.FC<CardProps> = ({ image, title, description, onClick, showHea
       <ContainerLocations>
         <Locations>{locations}</Locations>
       </ContainerLocations>
+      <ContainerLinear>
+        <LinearWithValueLabel
+          min={0}
+          max={100} />
+      </ContainerLinear>
       <ContainerCategories>
         <Categories>{categories}</Categories>
       </ContainerCategories>
-
     </CardContainer>
   );
 };

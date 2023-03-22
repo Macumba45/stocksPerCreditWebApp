@@ -4,7 +4,7 @@ export const CardContainer = styled.div`
   display: flex;
   margin :1rem;
   width: 270px ;
-  height: 560px;
+  height: 600px;
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -15,16 +15,21 @@ export const CardContainer = styled.div`
     transition: box-shadow 0.5s ease, transform 0.5s ease;
   }
 `;
-export const ContainerImg = styled.div``
+export const ContainerImg = styled.div`
+border:none
+`
 
 export const Image = styled.img`
   width: 270px;
   height: 300px;
-  border: 1px solid black;
+  border:none
+
 `;
 export const ContainerTitle = styled.div`
 position: relative;;
 left: 1rem;
+max-width: 220px; /* establecer un ancho máximo para el contenedor */
+
 `
 
 export const Title = styled.h2`
@@ -36,7 +41,7 @@ export const Title = styled.h2`
 
 export const ContainerDesc = styled.div`
   width: 100%;
-  max-width: 270px; /* establecer un ancho máximo para el contenedor */
+  max-width: 220px; /* establecer un ancho máximo para el contenedor */
   position: relative;;
   left: 1rem;
 `;
@@ -47,6 +52,9 @@ export const Description = styled.p`
   line-height: 1.5;
   word-wrap: break-word; /* permitir que las palabras se dividan en varias líneas si no caben en una sola */
   color: #606060;
+  font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
 
 `;
 export const ContainerButton = styled.div``
@@ -76,20 +84,28 @@ export const HeartIcon = styled.i`
 export const ContainerLocations = styled.div`
 position: relative;
 position: relative;;
-left: 1rem;
-top: 4rem;
+margin-left: 1rem;
+margin-top: 1rem;
+
 `
 
 
 export const Locations = styled.p`
-color: ${({theme}) => theme.colors.lighterGrey};
+color: ${({ theme }) => theme.colors.lighterGrey};
+font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     max-width: 220px; /* establecer un ancho máximo para el contenedor */
+
 
 `
 
 export const ContainerCategories = styled.div`
 position: relative;;
-left: 1rem;
-top: 5rem;
+margin-left: 1rem;
+margin-top: 1rem;
+
+
 
 
 `
@@ -98,6 +114,21 @@ export const Categories = styled.p`
   display: inline-block;
   padding: 1px ;
   background-color: #7E1B75;
+  color:white;
+  border-radius: 10px;
+  font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: 13px;
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     padding: 0.3rem;
 
 
 `;
+
+
+export const ContainerLinear = styled.div`
+position: relative;
+position: relative;;
+margin-left: 1rem;
+margin-top: 2rem;
+
+`

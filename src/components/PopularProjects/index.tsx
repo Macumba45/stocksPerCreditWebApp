@@ -22,6 +22,8 @@ const PopularProjects: FC = () => {
                         showHeartButton={true}
                         title='title'
                         description='test'
+                        categories='Medicina'
+                        locations='Madrid'
                         onClick={() => console.log('prueba')}
                     />
                     <Card
