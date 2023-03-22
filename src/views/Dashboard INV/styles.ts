@@ -20,38 +20,40 @@ export const LilDivContainer = styled.div`
           margin: auto;
           height: 45rem; */
           margin-left: 0;
-    grid-template-columns: 1fr;
-    height: auto;
+          grid-template-columns: 1fr;
+          height: auto;
      }
 `;
 
 export const BigDivsContainer = styled.div`
      display: flex;
      margin: 20px 0 20px ${SIDEBAR_WIDTH};
-     @media (max-width: 768px) {
-        /* display: flex;
-          flex-flow: column;
-          margin: auto;
-          height: 45rem;
-          width:100vw; */
-          flex-direction: column;
-    margin: 20px 0;
+     & > * {
+          width: 90%;
      }
+     @media (max-width: 768px) {
+          flex-direction: column;
+          margin: 20px 0;
+     }
+;
 `;
 
-export const BigDiv = styled.div`
-`
+export const BigDiv = styled.div``;
 
 export const MediumDiv = styled.div``;
 
 export const MixDivsContainer = styled.div`
-     display: flex;
+      display: flex;
      margin: 20px 0 20px ${SIDEBAR_WIDTH};
+     flex-wrap: wrap;
+     & > * {
+          width: 90%;
+     }
      @media (max-width: 768px) {
-    flex-direction: column;
-    margin: 20px 0;
-  }
-`;
+          flex-direction: column;
+          margin: 20px 0;
+     }
+;
 
 // import styled from 'styled-components';
 

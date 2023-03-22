@@ -9,7 +9,7 @@ const theme = {
           info: '#17a2b8',
           light: '#252525',
           dark: '#343a40',
-          lighterGrey: '#F2F8F7',
+          lighterGrey: '#F8F9F9',
           white:'#FFFFFF',
           lighterBlue:'#E4FCFA'
      },
