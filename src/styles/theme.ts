@@ -1,17 +1,20 @@
 const theme = {
      colors: {
-          primary: '#420024',
-          secondary: '#000000',
-          tertiary: '#ff008b',
+          primary: '#7E1B75',
+          secondary: '#222222',
+          tertiary: '#323232',
           success: '#28a745',
           danger: '#dc3545',
           warning: '#ffc107',
           info: '#17a2b8',
-          light: '#252525',
+          light: '#EEEEEE',
           dark: '#343a40',
-          lighterGrey: '#C0C0C0',
-          white:'#FFFFFF'
-          
+
+          lighterGrey: '#F2F8F7',
+          white:'#FFFFFF',
+          lighterBlue:'#E4FCFA'
+
+
      },
      fonts: {
           primary: 'Roboto, sans-serif',

@@ -10,6 +10,13 @@ export const MainContainer = styled.div`
 
 `
 
+export const Container = styled.div`
+
+display: flex;
+flex-direction: column;
+
+`
+
 export const ContainerProjects = styled.div`
 
      margin: 0 auto;
@@ -21,7 +28,7 @@ export const ContainerProjects = styled.div`
 
 
 `
-     
+
 export const ContainerTitle = styled.div`
 
 `
@@ -33,4 +40,5 @@ font-family: ${({ theme }) => theme.fonts.primary};
      font-weight: ${({ theme }) => theme.fontWeights.semiLight};
      margin-top: 6rem;
      margin-left: 3rem;
+     margin-bottom: 2rem;
 `

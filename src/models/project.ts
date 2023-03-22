@@ -5,11 +5,11 @@ import {
 
 export type ProjectCardInput = {
      image: string;
-     tiempo: string;
-     dinero: string;
-     nombre: string;
-     categoria: string;
-     inversiones: string;
+     time: string;
+     investment: string;
+     name: string;
+     category: string;
+     money: string;
 };
 
 export type ProjectCardDetailsInput = {
