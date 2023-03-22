@@ -6,8 +6,7 @@ export const Container = styled.div`
      background-color: ${({theme}) => theme.colors.lighterGrey};
 `;
 
-export const MainContainer = styled.div`
-`;
+export const MainContainer = styled.div``;
 
 export const LilDivContainer = styled.div`
      margin-left: ${SIDEBAR_WIDTH};
@@ -39,7 +38,7 @@ export const BigDiv = styled.div;
 
 export const MediumDiv = styled.div``;
 
-export const MixDivsContainer = styled.div` 
+export const MixDivsContainer = styled.div`
      display: grid;
      grid-template-columns: 1fr 0.5fr 0.5fr;
      margin: 20px 0 20px ${SIDEBAR_WIDTH};

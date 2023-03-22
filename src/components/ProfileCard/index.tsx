@@ -3,9 +3,7 @@ import {Container} from './styles';
 import {Props} from './types';
 
 const ProfileCard: FC<Props> = ({}) => {
-     return (              
-          <Container/>
-     );
+     return <Container />;
 };
 
 export default memo(ProfileCard);
