@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const MaxContainer = styled.div`
-     position: absolute;
-     left: 13rem;
+export const ContainerProjects = styled.div``;
+
+export const MainContainer = styled.div`
      display: flex;
      flex-wrap: wrap;
      justify-content: center;

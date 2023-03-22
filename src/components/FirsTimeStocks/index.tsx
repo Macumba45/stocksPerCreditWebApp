@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import {FC, memo} from 'react';
 import {
      ButtonContainer,
      MainContainer,
@@ -8,7 +8,7 @@ import {
      TitleContainer,
 } from './styles';
 import Button from '@mui/material/Button';
-import { Stack } from '@mui/material';
+import {Stack} from '@mui/material';
 
 const FirsTimeStocks: FC = () => {
      return (
@@ -25,10 +25,15 @@ const FirsTimeStocks: FC = () => {
                </SubTitleContainer>
                <ButtonContainer>
                     <Stack spacing={2} direction="row">
-                         <Button sx={{ backgroundColor: '#7E1B75' }} variant="contained">Signup</Button>
+                         <Button
+                              sx={{backgroundColor: '#7E1B75'}}
+                              variant="contained"
+                         >
+                              Signup
+                         </Button>
                     </Stack>
                </ButtonContainer>
-          </MainContainer >
+          </MainContainer>
      );
 };
 

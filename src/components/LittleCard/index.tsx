@@ -13,6 +13,7 @@ const LittleCard: FC<Props> = ({image}) => {
                     />
                </ContainerIcon>
                <Info>Earnings $340.5</Info>
+
           </Container>
      );
 };

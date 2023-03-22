@@ -1,6 +1,5 @@
 import {FC, memo} from 'react';
 import {
-     FeaturedImg,
      MainContainer,
      ContainerText,
      ContainerImg,
@@ -11,27 +10,25 @@ import {
      ButtonSimulation,
 } from './styles';
 
-const FeaturedCard: FC = () => {
+const DashboardLanding: FC = () => {
      return (
           <MainContainer>
+               <ContainerImg></ContainerImg>
                <ContainerText>
                     <Title>
-                         <SpanFeatured>
-                              Inversores y emprendedores {<br />} conectados
-                         </SpanFeatured>{' '}
-                         para un {<br />} futuro mejor
+                         <SpanFeatured>Tus inversiones {<br />}</SpanFeatured>
+                         claras y seguras
                     </Title>
                     <SubTitle>
-                         Encuentra la startup en la que quieres invertir con el
-                         respaldo de nuestro test.
+                         Invierte desde solo 100€{<br />} en startups en
+                         crecimiento de todo el planeta
                     </SubTitle>
                     <ButtonContainer>
                          <ButtonSimulation>Start</ButtonSimulation>
                     </ButtonContainer>
                </ContainerText>
-               <ContainerImg></ContainerImg>
           </MainContainer>
      );
 };
 
-export default memo(FeaturedCard);
+export default memo(DashboardLanding);
