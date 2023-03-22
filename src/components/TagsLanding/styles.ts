@@ -19,6 +19,7 @@ export const Title = styled.h1`
      font-family: ${({ theme }) => theme.fonts.primary};
      font-size: ${({ theme }) => theme.fontSizes.mediumSmall};
      font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+     color: ${({ theme }) => theme.colors.primary};
      margin-top: 3rem;
 `;
 
@@ -42,8 +43,43 @@ export const SubTitleBorderButton = styled.button`
      margin: 3rem 2rem 2rem 2rem;
      border: 1px solid black;
      padding: 1rem;
+     background-color:${({ theme }) => theme.colors.primary};
+     color: ${({ theme }) => theme.colors.light}
+
 `;
 
 export const ButtonContainer = styled.div`
      margin: 4rem auto;
+     border-color: ${({ theme }) => theme.colors.primary};
+     
+
 `;
+
+export const ContainerTags = styled.div`
+
+     display: flex;
+     justify-content: space-around;
+     
+     flex-wrap: wrap;
+    
+
+`
+
+export const IndividualTags = styled.div`
+     font-family: ${({ theme }) => theme.fonts.primary};
+
+display: flex;
+flex-direction:column;
+margin-left: 2rem;
+margin-right: 2rem;
+margin-top: 2rem;
+margin-bottom: 2rem;
+`
+
+export const LabelTag = styled.div`
+margin-top: 1rem;
+color: ${({ theme }) => theme.colors.primary};
+
+`
+
+
