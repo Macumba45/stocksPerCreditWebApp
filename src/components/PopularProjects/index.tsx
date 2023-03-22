@@ -1,13 +1,19 @@
 import { FC, memo } from 'react';
 import Card from '../CardProjects';
-import { ContainerProjects, MainContainer, TitlePopular } from './styles';
+import { Container, ContainerProjects, MainContainer, TitlePopular } from './styles';
+import BasicTabs from '../FilterProjects/index'
+
 
 const PopularProjects: FC = () => {
 
     return (
-
         <>
-            <TitlePopular>Popular Projects</TitlePopular>
+
+            <Container>
+                <TitlePopular>Popular Projects</TitlePopular>
+                <BasicTabs />
+            </Container>
+
 
             <MainContainer>
                 <ContainerProjects>
@@ -16,6 +22,8 @@ const PopularProjects: FC = () => {
                         showHeartButton={true}
                         title='title'
                         description='test'
+                        categories='Medicina'
+                        locations='Madrid'
                         onClick={() => console.log('prueba')}
                     />
                     <Card
