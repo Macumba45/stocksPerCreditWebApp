@@ -92,7 +92,7 @@ export const Container = styled.div`
      margin-top: 1rem;
 `;
 
-export const ContainerCountry = styled.div`
+export const ContainerLocations = styled.div`
      margin-left: 1rem;
      margin-bottom: 1rem;
      margin-top: 1rem;
@@ -104,11 +104,8 @@ export const Country = styled.p`
      font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: ${({theme}) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
-`;
+     display: inline-block;
 
-export const ContainerCity = styled.div`
-     margin-left: 1rem;
-     margin-bottom: 1rem;
 `;
 
 export const City = styled.p`
@@ -117,6 +114,8 @@ export const City = styled.p`
      font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: ${({theme}) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
+      display: inline-block;
+
 `;
 
 export const ContainerCategories = styled.div`
@@ -231,3 +230,44 @@ export const CategoriesModal = styled.p`
      font-weight: ${({theme}) => theme.fontWeights.bold};
      padding: 0.3rem;
      `
+
+export const ContainerRecaudacciones = styled.div`
+
+`
+
+
+export const Recaudado = styled.p`
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid black;
+  display: inline-block;
+`;
+
+export const Inversores = styled.p`
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid black;
+  display: inline-block;
+`;
+
+export const MinimaInversion = styled.p`
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid black;
+  display: inline-block;
+`;
+
+export const Objetivos = styled.p`
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid black;
+  display: inline-block;
+`;
+
+export const ValorLimite = styled.p`
+  margin-bottom: 0.3rem;
+  border-bottom: 1px solid black;
+  display: inline-block;
+`;
+
+export const LabelSpan = styled.span`
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+`

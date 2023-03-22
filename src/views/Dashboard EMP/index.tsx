@@ -18,6 +18,12 @@ const DashboardEMP: FC = () => {
                          country={'España'}
                          city={'Madrid'}
                          categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+
                     />
                     <Card
                          image={''}
