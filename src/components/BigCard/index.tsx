@@ -3,9 +3,8 @@ import {Container} from './styles';
 
 const BigCard: FC = () => {
      return (
-          <Container>
               
-          </Container>
+          <Container/>
      );
 };
 

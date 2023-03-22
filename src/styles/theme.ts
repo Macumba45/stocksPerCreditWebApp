@@ -9,8 +9,9 @@ const theme = {
           info: '#17a2b8',
           light: '#252525',
           dark: '#343a40',
-          lighterGrey: '#C0C0C0',
-          white:'#FFFFFF'
+          lighterGrey: '#F2F8F7',
+          white:'#FFFFFF',
+          lighterBlue:'#E4FCFA'
      },
      fonts: {
           primary: 'Roboto, sans-serif',

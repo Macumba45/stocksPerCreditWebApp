@@ -62,6 +62,7 @@ const NavBar: FC = () => {
             navigate('/welcome');
         }
     };
+    
 
 
     if (token) {
