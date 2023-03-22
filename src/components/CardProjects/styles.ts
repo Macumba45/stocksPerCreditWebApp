@@ -145,3 +145,89 @@ export const ContainerLinear = styled.div`
      margin-top: 2rem;
      margin-bottom: 2rem;
 `;
+
+
+export const ContainerImgModal = styled.div`
+     border: none;
+`
+export const ImageModal = styled.img`
+     width: 100%;
+     height: 100px;
+     border: none;
+     `
+
+export const ContainerTitleModal = styled.div`
+     position: relative;
+     left: 1rem;
+     max-width: 220px; /* establecer un ancho máximo para el contenedor */
+     `
+export const TitleModal = styled.p`
+     margin: 10px 0;
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     text-align: left;
+     `
+
+export const ContainerDescModal = styled.div`
+     width: 100%;
+     max-width: 220px; /* establecer un ancho máximo para el contenedor */
+     position: relative;
+     left: 1rem;
+     `
+export const DescriptionModal = styled.p`
+     margin: 0;
+     font-size: 16px;
+     line-height: 1.5;
+     word-wrap: break-word; /* permitir que las palabras se dividan en varias líneas si no caben en una sola */
+     color: #606060;
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     `
+
+
+export const ContainerCountryModal = styled.div`
+     margin-left: 1rem;
+     margin-bottom: 1rem;
+     margin-top: 1rem;
+     `
+export const CountryModal = styled.p`
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     max-width: 220px; /* establecer un ancho máximo para el contenedor */
+`
+
+
+export const ContainerCityModal = styled.div`
+     margin-left: 1rem;
+     margin-bottom: 1rem;
+`
+export const CityModal = styled.p`
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     max-width: 220px; /* establecer un ancho máximo para el contenedor */
+`
+
+
+export const ContainerCategoriesModal = styled.div`
+     position: relative;
+     margin-left: 1rem;
+     margin-top: 1rem;
+     margin-bottom: 1rem;
+     `
+export const CategoriesModal = styled.p`
+   display: inline-block;
+     padding: 1px;
+     background-color: #7e1b75;
+     color: white;
+     border-radius: 10px;
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: 13px;
+     font-weight: ${({theme}) => theme.fontWeights.bold};
+     padding: 0.3rem;
+     `
