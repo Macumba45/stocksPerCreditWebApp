@@ -13,23 +13,23 @@ const PopularProjects: FC = () => {
                 <ContainerProjects>
                     <Card
                         image='Hola'
+                        showHeartButton={true}
                         title='title'
                         description='test'
-                        liked={true}
                         onClick={() => console.log('prueba')}
                     />
                     <Card
                         image='Hola'
+                        showHeartButton={true}
                         title='title'
                         description='test'
-                        liked={true}
                         onClick={() => console.log('prueba')}
                     />
                     <Card
                         image='Hola'
+                        showHeartButton={true}
                         title='title'
                         description='test'
-                        liked={true}
                         onClick={() => console.log('prueba')}
                     />
                 </ContainerProjects>
