@@ -11,6 +11,7 @@ const theme = {
           dark: '#343a40',
           lighterGrey: '#C0C0C0',
           white:'#FFFFFF'
+          
      },
      fonts: {
           primary: 'Roboto, sans-serif',

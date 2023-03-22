@@ -5,10 +5,8 @@ import { ContainerProjects, MainContainer, TitlePopular } from './styles';
 const PopularProjects: FC = () => {
 
     return (
-
         <>
             <TitlePopular>Popular Projects</TitlePopular>
-
             <MainContainer>
                 <ContainerProjects>
                     <Card

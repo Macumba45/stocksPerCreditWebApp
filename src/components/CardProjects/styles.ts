@@ -9,6 +9,11 @@ export const CardContainer = styled.div`
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
+  &:hover {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02);
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+  }
 `;
 export const ContainerImg = styled.div``
 
@@ -18,6 +23,8 @@ export const Image = styled.img`
   border: 1px solid black;
 `;
 export const ContainerTitle = styled.div`
+position: relative;;
+left: 1rem;
 `
 
 export const Title = styled.h2`
@@ -30,6 +37,8 @@ export const Title = styled.h2`
 export const ContainerDesc = styled.div`
   width: 100%;
   max-width: 270px; /* establecer un ancho máximo para el contenedor */
+  position: relative;;
+  left: 1rem;
 `;
 
 export const Description = styled.p`
@@ -37,6 +46,8 @@ export const Description = styled.p`
   font-size: 16px;
   line-height: 1.5;
   word-wrap: break-word; /* permitir que las palabras se dividan en varias líneas si no caben en una sola */
+  color: #606060;
+
 `;
 export const ContainerButton = styled.div``
 
@@ -62,3 +73,31 @@ export const HeartIcon = styled.i`
   transform: rotate(45deg);
 `;
 
+export const ContainerLocations = styled.div`
+position: relative;
+position: relative;;
+left: 1rem;
+top: 4rem;
+`
+
+
+export const Locations = styled.p`
+color: ${({theme}) => theme.colors.lighterGrey};
+
+`
+
+export const ContainerCategories = styled.div`
+position: relative;;
+left: 1rem;
+top: 5rem;
+
+
+`
+
+export const Categories = styled.p`
+  display: inline-block;
+  padding: 1px ;
+  background-color: #7E1B75;
+
+
+`;
