@@ -8,7 +8,6 @@ const LittleCard: FC<Props> = ({image}) => {
                <Image src={image} />
                <>
                     <Info>Earnings $340.5</Info>
-                    
                </>
           </Container>
      );

@@ -10,7 +10,7 @@ export const MainContainer = styled.div`
      border-radius: 10px;
      height: 600px;
      @media screen and (min-width: 500px) {
-        margin-top: 2rem;
+          margin-top: 2rem;
      }
      @media screen and (min-width: 800px) {
           height: 150px;
@@ -19,7 +19,7 @@ export const MainContainer = styled.div`
 export const Container = styled.div`
      width: 300px;
      height: 150px;
-     margin-left: 0.5rem;     
+     margin-left: 0.5rem;
      margin-right: 0.5rem;
      border-radius: 10px;
      margin-bottom: 4rem;
@@ -32,16 +32,16 @@ export const Container = styled.div`
 `;
 
 export const TitleInsight = styled.h1`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.small};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.small};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
      margin-top: 1rem;
 `;
 
 export const DataContainer = styled.div`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-     color: ${({ theme }) => theme.colors.primary};;
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     color: ${({theme}) => theme.colors.primary};
      margin-top: 1.5rem;
 `;

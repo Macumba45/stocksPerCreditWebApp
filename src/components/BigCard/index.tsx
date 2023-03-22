@@ -2,10 +2,7 @@ import {FC, memo} from 'react';
 import {Container} from './styles';
 
 const BigCard: FC = () => {
-     return (
-              
-          <Container/>
-     );
+     return <Container />;
 };
 
 export default memo(BigCard);

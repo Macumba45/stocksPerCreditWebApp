@@ -12,9 +12,7 @@ const theme = {
 
           lighterGrey: '#8f8f8f',
           white: '#FFFFFF',
-          lighterBlue: '#E4FCFA'
-
-
+          lighterBlue: '#E4FCFA',
      },
      fonts: {
           primary: 'Roboto, sans-serif',

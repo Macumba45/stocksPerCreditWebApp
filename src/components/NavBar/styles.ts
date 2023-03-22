@@ -5,9 +5,8 @@ export const MainContainer = styled.div`
      top: 0;
 `;
 
-
 export const LogoStocks = styled.img`
-width: 40px;
-height: 40px;
-margin-right: 1rem;
-`
+     width: 40px;
+     height: 40px;
+     margin-right: 1rem;
+`;
