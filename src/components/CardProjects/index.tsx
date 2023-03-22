@@ -28,9 +28,8 @@ import {
   TitleModal,
   ContainerDescModal,
   DescriptionModal,
-  ContainerCountryModal,
+  ContainerLocationsModal,
   CountryModal,
-  ContainerCityModal,
   CityModal,
   ContainerCategoriesModal,
   CategoriesModal,
@@ -118,8 +117,8 @@ const Card: React.FC<CardProps> = ({
         <Description>{description}</Description>
       </ContainerDesc>
       <ContainerLocations>
-        <Country>{country},</Country>
-        <City>{city}</City>
+        <Country>{country}</Country>
+        <City>, {city}</City>
       </ContainerLocations>
       <ContainerCategories>
         <Categories>{categories}</Categories>
@@ -145,22 +144,20 @@ const Card: React.FC<CardProps> = ({
             <ContainerDescModal>
               <DescriptionModal>{description}</DescriptionModal>
             </ContainerDescModal>
-            <ContainerCountryModal>
+            <ContainerLocationsModal>
               <CountryModal>{country}</CountryModal>
-            </ContainerCountryModal>
-            <ContainerCityModal>
-              <CityModal>{city}</CityModal>
-            </ContainerCityModal>
+              <CityModal>, {city}</CityModal>
+            </ContainerLocationsModal>
             <ContainerCategoriesModal>
               <CategoriesModal>{categories}</CategoriesModal>
             </ContainerCategoriesModal>
             <ContainerRecaudacciones>
-              <Recaudado><LabelSpan>Collected:</LabelSpan>{collected}</Recaudado><br />
-              <Inversores><LabelSpan>Investors:</LabelSpan>{investors}</Inversores><br />
-              <MinimaInversion><LabelSpan>Minimum Investment
-                :</LabelSpan>{minimuminvestment}</MinimaInversion><br />
-              <Objetivos><LabelSpan>Goals:</LabelSpan>{goals}</Objetivos><br />
-              <ValorLimite><LabelSpan>Limit Value:</LabelSpan>{limitvalue}</ValorLimite>
+              <Recaudado>{collected} <LabelSpan>Collected</LabelSpan></Recaudado>
+              <Inversores>{investors} <LabelSpan>Investors</LabelSpan></Inversores>
+              <MinimaInversion>{minimuminvestment} <LabelSpan>Minimum Investment
+                </LabelSpan></MinimaInversion>
+              <Objetivos>{goals} <LabelSpan>Goals</LabelSpan></Objetivos>
+              <ValorLimite>{limitvalue} <LabelSpan>Limit Value</LabelSpan></ValorLimite>
             </ContainerRecaudacciones>
           </Box>
         </Modal>

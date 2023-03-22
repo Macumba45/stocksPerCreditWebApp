@@ -39,8 +39,8 @@ export const ContainerTitle = styled.div`
 export const Title = styled.h2`
      margin: 10px 0;
      font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     font-size: ${({theme}) => theme.fontSizes.small};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
      text-align: left;
 `;
 
@@ -153,6 +153,7 @@ export const ImageModal = styled.img`
      width: 100%;
      height: 100px;
      border: none;
+     
      `
 
 export const ContainerTitleModal = styled.div`
@@ -164,7 +165,7 @@ export const TitleModal = styled.p`
      margin: 10px 0;
      font-family: ${({theme}) => theme.fonts.primary};
      font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
      text-align: left;
      `
 
@@ -186,7 +187,7 @@ export const DescriptionModal = styled.p`
      `
 
 
-export const ContainerCountryModal = styled.div`
+export const ContainerLocationsModal = styled.div`
      margin-left: 1rem;
      margin-bottom: 1rem;
      margin-top: 1rem;
@@ -197,12 +198,8 @@ export const CountryModal = styled.p`
      font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: ${({theme}) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
-`
+     display: inline-block;
 
-
-export const ContainerCityModal = styled.div`
-     margin-left: 1rem;
-     margin-bottom: 1rem;
 `
 export const CityModal = styled.p`
      color: ${({theme}) => theme.colors.lighterGrey};
@@ -210,6 +207,8 @@ export const CityModal = styled.p`
      font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: ${({theme}) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
+     display: inline-block;
+
 `
 
 
@@ -238,36 +237,48 @@ export const ContainerRecaudacciones = styled.div`
 
 export const Recaudado = styled.p`
   margin-bottom: 0.3rem;
-  border-bottom: 1px solid black;
-  display: inline-block;
+  border-bottom: 1px solid blue;
+  color: ${({theme}) => theme.colors.lighterGrey};
+
+  font-weight: ${({theme}) => theme.fontWeights.bold};
+
 `;
 
 export const Inversores = styled.p`
   margin-bottom: 0.3rem;
-  border-bottom: 1px solid black;
-  display: inline-block;
+  border-bottom: 1px solid blue;
+  color: ${({theme}) => theme.colors.lighterGrey};
+  font-weight: ${({theme}) => theme.fontWeights.bold};
+
 `;
 
 export const MinimaInversion = styled.p`
   margin-bottom: 0.3rem;
-  border-bottom: 1px solid black;
-  display: inline-block;
+  border-bottom: 1px solid blue;
+  color: ${({theme}) => theme.colors.lighterGrey};
+  font-weight: ${({theme}) => theme.fontWeights.bold};
+
 `;
 
 export const Objetivos = styled.p`
   margin-bottom: 0.3rem;
-  border-bottom: 1px solid black;
-  display: inline-block;
+  border-bottom: 1px solid blue;
+  color: ${({theme}) => theme.colors.lighterGrey};
+  font-weight: ${({theme}) => theme.fontWeights.bold};
+
 `;
 
 export const ValorLimite = styled.p`
   margin-bottom: 0.3rem;
-  border-bottom: 1px solid black;
-  display: inline-block;
+  border-bottom: 1px solid blue;
+  color: ${({theme}) => theme.colors.lighterGrey};
+  font-weight: ${({theme}) => theme.fontWeights.bold};
+
 `;
 
 export const LabelSpan = styled.span`
+     color: ${({theme}) => theme.colors.black};
      font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     font-size: ${({theme}) => theme.fontSizes.verysmall};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
 `
