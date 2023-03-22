@@ -237,6 +237,8 @@ const NavBar: FC = () => {
                >
                     <Container maxWidth="xl">
                          <Toolbar disableGutters>
+                              <LogoStocks src={`${logo}`} />
+
                               <Typography
                                    variant="h6"
                                    noWrap
@@ -245,6 +247,8 @@ const NavBar: FC = () => {
                                    sx={{
                                         mr: 2,
                                         display: {xs: 'none', md: 'flex'},
+                                        flexGrow: 20,
+                                        flexDirection: 'flex-end',
                                         fontFamily: 'monospace',
                                         fontWeight: 700,
                                         letterSpacing: '.3rem',
@@ -303,7 +307,6 @@ const NavBar: FC = () => {
                                         ))}
                                    </Menu>
                               </Box>
-                              <LogoStocks src={`${logo}`} />
                               <Typography
                                    variant="h5"
                                    noWrap

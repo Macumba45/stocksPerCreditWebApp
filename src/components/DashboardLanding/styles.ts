@@ -14,6 +14,7 @@ export const MainContainer = styled.div`
 
 export const ContainerText = styled.div`
      margin-top: 4rem;
+     margin-right: 5rem;
 `;
 
 export const Title = styled.h1`
@@ -70,10 +71,11 @@ export const ContainerImg = styled.div`
      background-size: cover;
      background-repeat: no-repeat;
      margin-top: 4rem;
+     margin-left: 2rem;
      border-radius: 10px;
      margin-right: 2rem;
      @media screen and (min-width: 700px) {
-          background-image: url('https://www.65ymas.com/uploads/s1/26/12/42/cuales-son-los-principales-fondos-de-inversion-que-existen-en-el-mercado.jpeg');
+          background-image: url('https://img.freepik.com/foto-gratis/concepto-trabajo-empresarial_1388-73.jpg?w=2000&t=st=1679509442~exp=1679510042~hmac=bf948dc85394a8a3fc48880d934d517604d153dc5e5f152fdff695af2c239725');
      }
 `;
 
