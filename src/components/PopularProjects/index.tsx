@@ -42,6 +42,7 @@ const PopularProjects: FC = () => {
                          <Card
                               image="Hola"
                               showHeartButton={true}
+
                               title="Esto es un proyecto de prueba basado en tu ano"
                               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
                               categories="Medicina"
@@ -52,6 +53,7 @@ const PopularProjects: FC = () => {
                          <Card
                               image="Hola"
                               showHeartButton={true}
+
                               title="Esto es un proyecto de prueba basado en tu ano"
                               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
                               categories="Medicina"
@@ -62,6 +64,7 @@ const PopularProjects: FC = () => {
                          <Card
                               image="Hola"
                               showHeartButton={true}
+
                               title="Esto es un proyecto de prueba basado en tu ano"
                               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
                               categories="Medicina"
