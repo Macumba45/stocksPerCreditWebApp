@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
-background-color: ${({ theme }) => theme.colors.white};
-width:21rem;
-height:25rem;
-border-radius:20px;
-margin:0 1.25rem;
+     background-color: ${({theme}) => theme.colors.white};
+     width: 21rem;
+     height: 25rem;
+     border-radius: 20px;
+     margin: 5px 1.25rem;
 `
