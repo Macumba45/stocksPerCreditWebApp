@@ -1,5 +1,14 @@
 import styled from 'styled-components';
 
+export const MainContainer = styled.div`
+
+     margin: 0 auto;
+     display: flex;
+     flex-direction: row;
+    
+
+`
+
 export const CardContainer = styled.div`
   display: flex;
   margin :1rem;

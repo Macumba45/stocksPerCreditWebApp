@@ -1,6 +1,7 @@
 import { FC, memo } from 'react';
 import FeaturedCard from '../../components/FeaturedCard';
 import FirsTimeStocks from '../../components/FirsTimeStocks';
+import Footer from '../../components/Footer';
 import Hr from '../../components/Hr';
 import InsightLanding from '../../components/InsightLanding';
 import NavBar from '../../components/NavBar';
@@ -15,9 +16,11 @@ const Landing: FC = () => {
             <Hr label='Stadistics' />
             <InsightLanding />
             <FirsTimeStocks />
+            <Hr label='Projects' />
             <PopularProjects />
             <Hr label='Top Categories' />
             <TagsLanding />
+            <Footer />
 
 
         </>
