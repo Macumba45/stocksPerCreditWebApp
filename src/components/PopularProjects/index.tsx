@@ -23,7 +23,8 @@ const PopularProjects: FC = () => {
                         title='title'
                         description='test'
                         categories='Medicina'
-                        locations='Madrid'
+                        country={'España'}
+                        city={'Madrid'}             
                         onClick={() => console.log('prueba')}
                     />
                     <Card
