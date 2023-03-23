@@ -1,11 +1,12 @@
 import {FC, memo} from 'react';
 import Card from '../../components/CardProjects';
-import SidebarDashboardEMP from '../../components/SidebarDashboardEMP';
+import NavBarEmp from '../../components/NavbarEmp';
 import {MaxContainer} from './styles';
 
 const DashboardEMP: FC = () => {
      return (
           <>
+          <NavBarEmp/>
                <MaxContainer>
                     <Card
                          image={''}
