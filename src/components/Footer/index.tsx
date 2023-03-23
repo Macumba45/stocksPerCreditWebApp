@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import {
      FooterContainer,
      FooterSection,
@@ -16,12 +16,15 @@ import {
      EmpDiv,
      UsDiv,
      ParagraphUs,
+     LogoFooter,
+     ContainerLogoBranding,
 } from './style';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
+const logo = require('../../../src/components/NavBar/assets/logo.png')
 
 const Footer: FC = () => {
      return (
@@ -29,26 +32,57 @@ const Footer: FC = () => {
                <FooterSection>
                     <FooterLinks>
                          <FooterAboutUsDiv>
-                              <H2>Stocks</H2>
-                              <ParagraphUs>Inversores y emprendedores</ParagraphUs>
+                              <ContainerLogoBranding>
+                                   <LogoFooter
+                                        src={logo} />
+                                   <H2>Stocks</H2>
+                              </ContainerLogoBranding>
+                              <ParagraphUs>
+                                   Inversores y emprendedores
+                              </ParagraphUs>
                               <ParagraphUs> conectados para</ParagraphUs>
                               <ParagraphUs> un futuro mejor.</ParagraphUs>
 
                               <SocialMedia>
                                    <ParagraphIcon>
-                                        <FacebookIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <FacebookIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <InstagramIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <InstagramIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <TwitterIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <TwitterIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <LinkedInIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <LinkedInIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <TelegramIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <TelegramIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                               </SocialMedia>
                          </FooterAboutUsDiv>

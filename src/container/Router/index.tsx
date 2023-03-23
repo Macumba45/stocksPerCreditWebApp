@@ -6,6 +6,10 @@ import Landing from '../../views/Landing';
 import Profile from '../../views/Profile';
 import Login from '../../views/Auth/Login';
 import SignUp from '../../views/Auth/SignUp';
+import DashboardProjects from '../../views/DashboardINVMyProjects/index';
+import DashboardProjectsInvest from '../../views/DashboardINVMyInvestments/index';
+import CreateNewProject from '../../views/NewProject/index';
+import NotFound404 from '../../views/NotFound404';
 import Dashboard from '../../views/Dashboard';
 
 const Router: FC = () => {
@@ -20,29 +24,29 @@ const Router: FC = () => {
           return children;
      };
 
-     const PublicRoute = ({children}: {children: JSX.Element}) => {
-          const token = getAuthenticatedToken();
-          const location = useLocation();
+     // const PublicRoute = ({ children }: { children: JSX.Element }) => {
+     //      const token = getAuthenticatedToken();
+     //      const location = useLocation();
 
-          if (token) {
-               if (
-                    location.pathname === '/login' ||
-                    location.pathname === '/signup' ||
-                    location.pathname === '/'
-               ) {
-                    return (
-                         <Navigate
-                              to="/feed"
-                              replace
-                              state={{from: location}}
-                         />
-                    );
-               }
-               return children;
-          }
+     //      if (token) {
+     //           if (
+     //                location.pathname === '/login' ||
+     //                location.pathname === '/signup' ||
+     //                location.pathname === '/'
+     //           ) {
+     //                return (
+     //                     <Navigate
+     //                          to="/welcome"
+     //                          replace
+     //                          state={{ from: location }}
+     //                     />
+     //                );
+     //           }
+     //           return children;
+     //      }
 
-          return children;
-     };
+     //      return children;
+     // };
 
      const NotFound = () => {
           const navigate = useNavigate();
@@ -56,12 +60,7 @@ const Router: FC = () => {
                }
           }, [navigate, token]);
 
-          return (
-               <div>
-                    <h1>404 Not Found</h1>
-                    <p>The page you are looking for does not exist.</p>
-               </div>
-          );
+          return <NotFound404 />;
      };
 
      return (

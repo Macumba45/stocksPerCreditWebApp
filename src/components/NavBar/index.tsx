@@ -1,4 +1,4 @@
-import { FC, memo, useState } from 'react';
+import { FC, memo, useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,7 +16,7 @@ import { LogoStocks } from './styles';
 
 const logo = require('./assets/logo.png');
 const userRole = window.localStorage.getItem('role');
-const token = window.localStorage.getItem('token');
+
 
 const pages = [
      { label: 'Login', route: '/login' },
@@ -24,20 +24,18 @@ const pages = [
 ];
 
 const pagesLogged = [
-     { label: 'Investments', route: '/' },
-     { label: 'Entrepreneurship', route: '/' },
-     { label: 'Simulation', route: '/' },
+     { label: 'Dashboard', route: '/' },
 ];
 const settings = [
-     {
-          label: 'Dashboard',
-          route: userRole === 'emprendedor' ? '/dashboardEmp' : '/dashboardInv',
-     },
-     { label: 'Logout', route: '/logout' },
+
+     { label: 'Profile', route: '/profile' },
+     { label: 'Logout', route: '/logout' }
 ];
 
 const NavBar: FC = () => {
      const navigate = useNavigate();
+     const [token] = useState<string | null>(window.localStorage.getItem('token'));
+     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
      const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
      const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
@@ -63,7 +61,13 @@ const NavBar: FC = () => {
           }
      };
 
-     if (token) {
+     useEffect(() => {
+          if (token) {
+               setIsAuthenticated(true);
+          }
+     }, [token])
+
+     if (isAuthenticated) {
           return (
                <AppBar
                     position="fixed"
@@ -184,7 +188,7 @@ const NavBar: FC = () => {
                                    ))}
                               </Box>
                               <Box sx={{ flexGrow: 0 }}>
-                                   <Tooltip title="Open settings">
+                                   <Tooltip title="">
                                         <IconButton
                                              onClick={handleOpenUserMenu}
                                              sx={{ p: 0 }}

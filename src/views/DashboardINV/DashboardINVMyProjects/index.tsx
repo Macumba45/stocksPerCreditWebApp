@@ -1,5 +1,4 @@
 import { FC, memo } from "react";
-import DashboardINVe from './index'
 
 const DashboardProjects: FC = () => {
 
@@ -14,5 +13,3 @@ const DashboardProjects: FC = () => {
     )
 }
 
-
-export default memo(DashboardProjects)

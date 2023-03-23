@@ -4,24 +4,20 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PaymentIcon from '@mui/icons-material/Payment';
 import FeedIcon from '@mui/icons-material/Feed';
 import Typography from '@mui/material/Typography';
-import { FC, memo, useState } from 'react';
+import {FC, memo, useState} from 'react';
 import React from 'react';
-import { Container, ContainerLogo, ContainerProfile, LogoStocks } from './styles';
-import { Link } from 'react-router-dom';
+import {Container, ContainerLogo, ContainerProfile, LogoStocks} from './styles';
+import {Link} from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
 
 const drawerWidth = 240;
@@ -35,7 +31,7 @@ interface Props {
 }
 
 const ResponsiveDrawer: FC = (props: Props) => {
-     const { window } = props;
+     const {window} = props;
      const logo = require('../NavBar/assets/logo.png');
      const [mobileOpen, setMobileOpen] = useState(false);
      const container =
@@ -55,70 +51,75 @@ const ResponsiveDrawer: FC = (props: Props) => {
           'My investments': { icon: PaymentIcon, link: '/dashboardInv/investments' },
      };
 
-
      const drawer = (
           <Container>
-
                <ContainerLogo>
-                    <LogoStocks
-
-                         src={logo} />
+                    <LogoStocks src={logo} />
                </ContainerLogo>
 
                <Divider />
                <List>
-                    {Object.entries(iconMap).map(([text, { icon: IconComponent, link }], index) => (
-                         <ListItem
-                              key={text}
-                              disablePadding
-                              sx={{
-                                   padding: 1,
-                                   marginBottom: 2,
-                                   cursor: 'pointer',
-                                   '&:hover': { backgroundColor: 'lightgray' },
-                              }}
-                              button
-                              component={Link}
-                              to={link}
-                         >
-                              <ListItemIcon sx={{ marginLeft: 2 }}>
-                                   {React.createElement(IconComponent)}
-                              </ListItemIcon>
-                              <ListItemText primary={text} />
-                         </ListItem>
-                    ))}
+                    {Object.entries(iconMap).map(
+                         ([text, {icon: IconComponent, link}], index) => (
+                              <ListItem
+                                   key={text}
+                                   disablePadding
+                                   sx={{
+                                        padding: 1,
+                                        marginBottom: 2,
+                                        cursor: 'pointer',
+                                        '&:hover': {
+                                             backgroundColor: 'lightgray',
+                                        },
+                                   }}
+                                   button
+                                   component={Link}
+                                   to={link}
+                              >
+                                   <ListItemIcon sx={{marginLeft: 2}}>
+                                        {React.createElement(IconComponent)}
+                                   </ListItemIcon>
+                                   <ListItemText primary={text} />
+                              </ListItem>
+                         )
+                    )}
                </List>
           </Container>
      );
 
-
      return (
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{display: 'flex'}}>
                <CssBaseline />
                <AppBar
                     position="fixed"
                     sx={{
-                         width: { sm: `calc(100% - ${drawerWidth}px)` },
-                         ml: { sm: `${drawerWidth}px` },
-                         backgroundColor: '#343a40'
+                         width: {sm: `calc(100% - ${drawerWidth}px)`},
+                         ml: {sm: `${drawerWidth}px`},
+                         backgroundColor: '#343a40',
                     }}
                >
-                    <Toolbar sx={{ justifyContent: 'space-between', height: '80px' }}>
+                    <Toolbar
+                         sx={{justifyContent: 'space-between', height: '80px'}}
+                    >
                          <IconButton
                               color="inherit"
                               aria-label="open drawer"
                               edge="start"
                               onClick={handleDrawerToggle}
-                              sx={{ mr: 2, display: { sm: 'none' } }}
+                              sx={{mr: 2, display: {sm: 'none'}}}
                          >
                               <MenuIcon />
                          </IconButton>
-                         <Typography variant="h6" noWrap component="div" sx={{
-
-                              '@media screen and (max-width: 800px)': {
-                                   display: 'none',
-                              }
-                         }}>
+                         <Typography
+                              variant="h6"
+                              noWrap
+                              component="div"
+                              sx={{
+                                   '@media screen and (max-width: 800px)': {
+                                        display: 'none',
+                                   },
+                              }}
+                         >
                               Stocks Dashboard - Investor
                          </Typography>
                          <ContainerProfile>
@@ -128,7 +129,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                </AppBar>
                <Box
                     component="nav"
-                    sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+                    sx={{width: {sm: drawerWidth}, flexShrink: {sm: 0}}}
                     aria-label="mailbox folders"
                >
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -141,7 +142,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               keepMounted: true, // Better open performance on mobile.
                          }}
                          sx={{
-                              display: { xs: 'block', sm: 'none' },
+                              display: {xs: 'block', sm: 'none'},
                               '& .MuiDrawer-paper': {
                                    boxSizing: 'border-box',
                                    width: drawerWidth,
@@ -153,7 +154,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     <Drawer
                          variant="permanent"
                          sx={{
-                              display: { xs: 'none', sm: 'block' },
+                              display: {xs: 'none', sm: 'block'},
                               '& .MuiDrawer-paper': {
                                    boxSizing: 'border-box',
                                    width: drawerWidth,
@@ -169,14 +170,14 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     sx={{
                          flexGrow: 1,
                          p: 3,
-                         width: { sm: `calc(100% - ${drawerWidth}px)` },
+                         width: {sm: `calc(100% - ${drawerWidth}px)`},
                     }}
                >
                     <Toolbar />
                     <Typography paragraph></Typography>
                     <Typography paragraph></Typography>
                </Box>
-          </Box >
+          </Box>
      );
 };
 
