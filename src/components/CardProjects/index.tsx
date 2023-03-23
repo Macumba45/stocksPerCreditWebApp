@@ -48,6 +48,7 @@ import {
   Menu,
   MenuItem,
 } from './styles';
+import { useLocation } from 'react-router';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -98,6 +99,9 @@ const Card: React.FC<CardProps> = ({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [showMenu, setShowMenu] = useState(false);
+  const location = useLocation()
+  const showMenuItems = location.pathname !== '/' && location.pathname !== '/welcome';
+
 
 
   const handleClick = () => {
@@ -119,7 +123,7 @@ const Card: React.FC<CardProps> = ({
             <FavoriteBorderIcon />
           </HeartButton>
         )}
-       
+
       </ContainerButton>
       <ContainerTitle>
         <Title>{title}</Title>
@@ -139,14 +143,18 @@ const Card: React.FC<CardProps> = ({
       </ContainerLinear>
       <div>
         <ContainerButtonModal><Button sx={{ color: '#7E1B75', marginBottom: '12px' }} onClick={handleOpen}>More Info</Button>
-        <MenuButton onClick={handleMenuClick}>
-          <MoreVertIcon/>
-        </MenuButton>
+          <MenuButton onClick={handleMenuClick}>
+            {showMenuItems && (
+              <MoreVertIcon />
+            )}
+          </MenuButton>
         </ContainerButtonModal>
-        {showMenu && (
-          <Menu>
-            <MenuItem><DeleteIcon/> <EditIcon/></MenuItem>
-          </Menu>
+        {showMenuItems && (
+          showMenu && (
+            <Menu>
+              <MenuItem><DeleteIcon /> <EditIcon /></MenuItem>
+            </Menu>
+          )
         )}
         <Modal
           open={open}
