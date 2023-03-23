@@ -15,6 +15,7 @@ import {
      InvestDiv,
      EmpDiv,
      UsDiv,
+     ParagraphUs,
 } from './style';
 // import {AppBar, Toolbar, Typography} from '@material-ui/core';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -29,26 +30,26 @@ const Footer: FC = () => {
                <FooterSection>
                     <FooterLinks>
                          <FooterAboutUsDiv>
-                              <H2>STOCKS</H2>
-                              <Paragraph>
-                                   Inversores y emprendedores <br></br>{' '}
-                                   conectados para <br></br> un futuro mejor.
-                              </Paragraph>
+                              <H2>Stocks</H2>
+                              <ParagraphUs>Inversores y emprendedores</ParagraphUs>
+                              <ParagraphUs> conectados para</ParagraphUs>
+                              <ParagraphUs> un futuro mejor.</ParagraphUs>
+
                               <SocialMedia>
                                    <ParagraphIcon>
-                                        <FacebookIcon style={{fontSize: 30}} />
+                                        <FacebookIcon style={{fontSize: 30, color:'#F1D4F6'}} />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <InstagramIcon style={{fontSize: 30}} />
+                                        <InstagramIcon style={{fontSize: 30, color:'#F1D4F6'}} />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <TwitterIcon style={{fontSize: 30}} />
+                                        <TwitterIcon style={{fontSize: 30, color:'#F1D4F6'}} />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <LinkedInIcon style={{fontSize: 30}} />
+                                        <LinkedInIcon style={{fontSize: 30, color:'#F1D4F6'}} />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <TelegramIcon style={{fontSize: 30}} />
+                                        <TelegramIcon style={{fontSize: 30, color:'#F1D4F6'}} />
                                    </ParagraphIcon>
                               </SocialMedia>
                          </FooterAboutUsDiv>

@@ -1,12 +1,5 @@
 import styled from 'styled-components';
 
-// export const MainContainer = styled.div`
-//      height: 300px;
-//      width: 100%;
-//      background-color: ${({theme}) => theme.colors.lighterGrey};
-//      margin-top: 5rem;
-// `;
-
 export const FooterContainer = styled.div`
      background-color: ${({theme}) => theme.colors.secondary};
 `;
@@ -29,7 +22,7 @@ export const FooterLinks = styled.div`
 export const FooterAboutUsDiv = styled.div`
      color: ${({theme}) => theme.colors.light};
      font-family: ${({theme}) => theme.fonts.primary};
-     margin-left:-300px;
+     margin-left: -300px;
 `;
 
 export const FooterLinksDiv = styled.div`
@@ -58,9 +51,12 @@ export const SocialMedia = styled.div`
 export const H2 = styled.h2`
      font-size: ${({theme}) => theme.fontSizes.mediumSmall};
      font-weight: ${({theme}) => theme.fontWeights.bold};
+     font-family: ${({theme}) => theme.fonts.secondary};
      margin-left: 2.8rem;
 `;
-export const H4 = styled.h4``;
+export const H4 = styled.h4`
+color: ${({theme}) => theme.colors.primaryLight};
+`;
 
 export const Link = styled.a`
      color: ${({theme}) => theme.colors.light};
@@ -69,9 +65,13 @@ export const Link = styled.a`
 export const Paragraph = styled.p`
      margin: 0.5rem 0;
 `;
+export const ParagraphUs= styled.p`
+margin: 0.5rem 0;
+color: ${({theme}) => theme.colors.primaryLight};
+`
 
 export const ParagraphIcon = styled.p`
-     margin: 0.5rem;
+     margin: 0 0.3rem;
 `;
 
 export const HR = styled.hr`
