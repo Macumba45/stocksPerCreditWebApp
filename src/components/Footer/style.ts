@@ -20,9 +20,9 @@ export const FooterLinks = styled.div`
      margin-bottom: 2rem;
 `;
 export const FooterAboutUsDiv = styled.div`
-     color: ${({ theme }) => theme.colors.light};
-     font-family: ${({ theme }) => theme.fonts.primary};
-     margin-left: -300px;
+     color: ${({theme}) => theme.colors.light};
+     font-family: ${({theme}) => theme.fonts.primary};
+     margin-left: -18.75rem;
 `;
 
 export const FooterLinksDiv = styled.div`

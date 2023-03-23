@@ -1,10 +1,8 @@
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { FC, memo, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { getAuthenticatedToken } from '../../services/storage';
+import {Navigate, useLocation, useNavigate} from 'react-router-dom';
+import {FC, memo, useEffect} from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {getAuthenticatedToken} from '../../services/storage/token';
 import Landing from '../../views/Landing';
-import DashboardEMP from '../../views/DashboardEMP';
-import DashboardINV from '../../views/DashboardINV';
 import Profile from '../../views/Profile';
 import Login from '../../views/Auth/Login';
 import SignUp from '../../views/Auth/SignUp';
@@ -12,14 +10,15 @@ import DashboardProjects from '../../views/DashboardINVMyProjects/index';
 import DashboardProjectsInvest from '../../views/DashboardINVMyInvestments/index';
 import CreateNewProject from '../../views/NewProject/index';
 import NotFound404 from '../../views/NotFound404';
+import Dashboard from '../../views/Dashboard';
 
 const Router: FC = () => {
-     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
+     const ProtectedRoutes = ({children}: {children: JSX.Element}) => {
           const token = getAuthenticatedToken();
           const location = useLocation();
 
           if (!token || token === null) {
-               return <Navigate to="/login" replace state={{ from: location }} />;
+               return <Navigate to="/login" replace state={{from: location}} />;
           }
 
           return children;
@@ -57,7 +56,7 @@ const Router: FC = () => {
                if (token) {
                     // navigate('/feed', { replace: true });
                } else {
-                    navigate('/login', { replace: true });
+                    navigate('/login', {replace: true});
                }
           }, [navigate, token]);
 
@@ -71,46 +70,16 @@ const Router: FC = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/welcome" element={<Landing />} />
+
                     <Route
-                         path="/dashboardemp"
+                         path="/dashboard"
                          element={
                               <ProtectedRoutes>
-                                   <DashboardEMP />
+                                   <Dashboard />
                               </ProtectedRoutes>
                          }
                     />
-                    <Route
-                         path="/dashboardemp/createproject"
-                         element={
-                              <ProtectedRoutes>
-                                   <CreateNewProject />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/dashboardinv"
-                         element={
-                              <ProtectedRoutes>
-                                   <DashboardINV />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/dashboardinv/projects"
-                         element={
-                              <ProtectedRoutes>
-                                   <DashboardProjects />
-                              </ProtectedRoutes>
-                         }
-                    />
-                    <Route
-                         path="/dashboardinv/investments"
-                         element={
-                              <ProtectedRoutes>
-                                   <DashboardProjectsInvest />
-                              </ProtectedRoutes>
-                         }
-                    />
+
                     <Route path="/profile" element={<Profile />} />
                     <Route path="*" element={<NotFound />} />
                </Routes>

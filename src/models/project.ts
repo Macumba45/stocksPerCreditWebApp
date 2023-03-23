@@ -1,7 +1,7 @@
 import {
      ProjectCardResponse,
      ProjectCardDetailsResponse,
-} from '../services/project';
+} from '../services/api/project';
 
 export type ProjectCardInput = {
      image: string;
