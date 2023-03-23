@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import BigCard from '../../components/BigCard';
 import LittleCard from '../../components/LittleCard';
 import MediumCard from '../../components/MediumCard';
@@ -20,93 +20,7 @@ const DashboardINVe: FC = () => {
           <>
                <Container>
                     <ResponsiveDrawer />
-                    <MainContainer>
-                         <LilDivContainer>
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <QueryStatsIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Total Projects:"
-                                   data="423.34€"
-                                   icon={
-                                        <PaidIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <HomeIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <QueryStatsIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <AccountBalanceIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <AccountBalanceIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                         </LilDivContainer>
 
-                         <ContainerMediumCards>
-                              <MediumCard />
-                              <MediumCard />
-                              <MediumCard />
-                         </ContainerMediumCards>
-
-                         <ContainerBigCards>
-                              <BigCard />
-                              <BigCard />
-                         </ContainerBigCards>
-                    </MainContainer>
                </Container>
           </>
      );
