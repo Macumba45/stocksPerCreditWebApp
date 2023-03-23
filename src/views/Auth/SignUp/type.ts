@@ -1,9 +1,11 @@
+import { UserRole } from "../../../models/user";
+
 export type SignUpProps = {
      name: string;
      email: string;
      password: string;
      lastname: string;
-     role: string;
+     role: UserRole;
      country: string;
      city: string;
      phone: string;
