@@ -1,101 +1,184 @@
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
+import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import {FC, memo} from 'react';
+import MenuIcon from '@mui/icons-material/Menu';
+import Toolbar from '@mui/material/Toolbar';
+import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PaymentIcon from '@mui/icons-material/Payment';
+import FeedIcon from '@mui/icons-material/Feed';
+import Typography from '@mui/material/Typography';
+import { FC, memo, useState } from 'react';
+import React from 'react';
+import { Container, ContainerLogo, ContainerProfile, LogoStocks } from './styles';
+import { Link } from 'react-router-dom';
+import ProfileDashboard from '../ProfileDashboard';
 
-const drawerWidth = 200;
+const drawerWidth = 240;
 
-const SidebarDashboardEMP2: FC = () => {
+interface Props {
+     /**
+      * Injected by the documentation to work in an iframe.
+      * You won't need it on your project.
+      */
+     window?: () => Window;
+}
+
+const ResponsiveDrawer: FC = (props: Props) => {
+     const { window } = props;
+     const logo = require('../NavBar/assets/logo.png');
+     const [mobileOpen, setMobileOpen] = useState(false);
+     const container =
+          window !== undefined ? () => window().document.body : undefined;
+
+     const handleDrawerToggle = () => {
+          setMobileOpen(!mobileOpen);
+     };
+
+     type IconMapItem = {
+          icon: React.ElementType;
+          link: string;
+     };
+
+     const iconMap: { [key: string]: IconMapItem } = {
+          'Stocks Dashboard': { icon: DashboardIcon, link: '/dashboardInv' },
+          'My investments': { icon: PaymentIcon, link: '/dashboardInv/investments' },
+          'Projects': { icon: FeedIcon, link: '/dashboardInv/projects' },
+     };
+
+
+     const drawer = (
+          <Container>
+
+               <ContainerLogo>
+                    <LogoStocks
+
+                         src={logo} />
+               </ContainerLogo>
+
+               <Divider />
+               <List>
+                    {Object.entries(iconMap).map(([text, { icon: IconComponent, link }], index) => (
+                         <ListItem
+                              key={text}
+                              disablePadding
+                              sx={{
+                                   padding: 1,
+                                   marginBottom: 2,
+                                   cursor: 'pointer',
+                                   '&:hover': { backgroundColor: 'lightgray' },
+                              }}
+                              button
+                              component={Link}
+                              to={link}
+                         >
+                              <ListItemIcon sx={{ marginLeft: 2 }}>
+                                   {React.createElement(IconComponent)}
+                              </ListItemIcon>
+                              <ListItemText primary={text} />
+                         </ListItem>
+                    ))}
+               </List>
+          </Container>
+     );
+
+
      return (
-          <Box sx={{display: 'flex'}}>
+          <Box sx={{ display: 'flex' }}>
                <CssBaseline />
                <AppBar
                     position="fixed"
                     sx={{
-                         width: `calc(100% - ${drawerWidth}px)`,
-                         ml: `${drawerWidth}px`,
+                         width: { sm: `calc(100% - ${drawerWidth}px)` },
+                         ml: { sm: `${drawerWidth}px` },
+                         backgroundColor: '#343a40'
                     }}
                >
-                    <Toolbar>
-                         <Typography variant="h6" noWrap component="div">
-                              Stocks per Credit
+                    <Toolbar sx={{ justifyContent: 'space-between', height: '80px' }}>
+                         <IconButton
+                              color="inherit"
+                              aria-label="open drawer"
+                              edge="start"
+                              onClick={handleDrawerToggle}
+                              sx={{ mr: 2, display: { sm: 'none' } }}
+                         >
+                              <MenuIcon />
+                         </IconButton>
+                         <Typography variant="h6" noWrap component="div" sx={{
+
+                              '@media screen and (max-width: 800px)': {
+                                   display: 'none',
+                              }
+                         }}>
+                              Stocks Dashboard - Investor
                          </Typography>
+                         <ContainerProfile>
+                              <ProfileDashboard />
+                         </ContainerProfile>
                     </Toolbar>
                </AppBar>
-               <Drawer
-                    sx={{
-                         width: drawerWidth,
-                         flexShrink: 0,
-                         '& .MuiDrawer-paper': {
-                              width: drawerWidth,
-                              boxSizing: 'border-box',
-                         },
-                    }}
-                    variant="permanent"
-                    anchor="left"
+               <Box
+                    component="nav"
+                    sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+                    aria-label="mailbox folders"
                >
-                    <Toolbar />
-                    <Divider />
-                    <List>
-                         {[
-                              'Main Dashboard',
-                              'My investments',
-                              'Data Tables',
-                              'Profile',
-                         ].map((text, index) => (
-                              <ListItem key={text} disablePadding>
-                                   <ListItemButton>
-                                        <ListItemIcon>
-                                             {index % 2 === 0 ? (
-                                                  <InboxIcon />
-                                             ) : (
-                                                  <MailIcon />
-                                             )}
-                                        </ListItemIcon>
-                                        <ListItemText primary={text} />
-                                   </ListItemButton>
-                              </ListItem>
-                         ))}
-                    </List>
-                    <Divider />
-                    <List>
-                         {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                              <ListItem key={text} disablePadding>
-                                   <ListItemButton>
-                                        <ListItemIcon>
-                                             {index % 2 === 0 ? (
-                                                  <InboxIcon />
-                                             ) : (
-                                                  <MailIcon />
-                                             )}
-                                        </ListItemIcon>
-                                        <ListItemText primary={text} />
-                                   </ListItemButton>
-                              </ListItem>
-                         ))}
-                    </List>
-               </Drawer>
+                    {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+                    <Drawer
+                         container={container}
+                         variant="temporary"
+                         open={mobileOpen}
+                         onClose={handleDrawerToggle}
+                         ModalProps={{
+                              keepMounted: true, // Better open performance on mobile.
+                         }}
+                         sx={{
+                              display: { xs: 'block', sm: 'none' },
+                              '& .MuiDrawer-paper': {
+                                   boxSizing: 'border-box',
+                                   width: drawerWidth,
+                              },
+                         }}
+                    >
+                         {drawer}
+                    </Drawer>
+                    <Drawer
+                         variant="permanent"
+                         sx={{
+                              display: { xs: 'none', sm: 'block' },
+                              '& .MuiDrawer-paper': {
+                                   boxSizing: 'border-box',
+                                   width: drawerWidth,
+                              },
+                         }}
+                         open
+                    >
+                         {drawer}
+                    </Drawer>
+               </Box>
                <Box
                     component="main"
-                    sx={{flexGrow: 1, bgcolor: 'background.default', p: 3}}
+                    sx={{
+                         flexGrow: 1,
+                         p: 3,
+                         width: { sm: `calc(100% - ${drawerWidth}px)` },
+                    }}
                >
                     <Toolbar />
                     <Typography paragraph></Typography>
                     <Typography paragraph></Typography>
                </Box>
-          </Box>
+          </Box >
      );
 };
 
-export default memo(SidebarDashboardEMP2);
+export default memo(ResponsiveDrawer);
