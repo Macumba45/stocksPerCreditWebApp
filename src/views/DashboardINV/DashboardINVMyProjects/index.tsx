@@ -6,7 +6,7 @@ const DashboardProjects: FC = () => {
     return (
 
         <>
-            <div>PRUEBA</div>
+            <div>En construcción</div>
         </>
 
 

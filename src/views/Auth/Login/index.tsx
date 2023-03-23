@@ -19,8 +19,10 @@ import {
      Error,
      ErrorLogin,
 } from './styles';
-import {setAuthenticatedToken} from '../../../services/storage';
+import {setAuthenticatedToken} from '../../../services/storage/token';
 import {handledSubmitLogin} from '../../../services/api/auth';
+import { setUserRole } from '../../../services/storage/userRole';
+import { UserRole } from '../../../models/profile';
 
 const Login: FC<Props> = () => {
      const navigate = useNavigate();
@@ -34,6 +36,7 @@ const Login: FC<Props> = () => {
                          // const data = await response.json();
                          const data = '12345';
                          setAuthenticatedToken(data);
+                         setUserRole(UserRole.ENTREPRENEUR)
                          navigate('/');
                     }
                     if (response.status === 500) {

@@ -6,8 +6,12 @@ export type ProfileInput = {
      city: string;
      phone: string;
      avatar: string;
-     id: string;
 };
+
+export enum UserRole {
+     INVESTOR = 'INVESTOR',
+     ENTREPRENEUR = 'ENTREPRENEUR'
+}
 
 export const normalizeProfile = (input: any) => {
      return {

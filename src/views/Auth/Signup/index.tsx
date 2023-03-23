@@ -23,7 +23,7 @@ import {
      RadioOption,
      RadioInput,
 } from './styles';
-import {setAuthenticatedToken} from '../../../services/storage';
+import {setAuthenticatedToken} from '../../../services/storage/token';
 import {hadledSubmitSignup} from '../../../services/api/auth';
 
 const SignUp: FC = () => {

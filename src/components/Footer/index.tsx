@@ -17,7 +17,6 @@ import {
      UsDiv,
      ParagraphUs,
 } from './style';
-// import {AppBar, Toolbar, Typography} from '@material-ui/core';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
