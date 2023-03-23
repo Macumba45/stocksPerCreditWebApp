@@ -1,8 +1,12 @@
-import {FC, memo} from 'react';
-import {Container} from './styles';
+import { FC, memo } from 'react';
+import { Container, MainContainer } from './styles';
 
 const BigCard: FC = () => {
-     return <Container />;
+     return (
+
+          <MainContainer>
+               <Container />
+          </MainContainer>)
 };
 
 export default memo(BigCard);

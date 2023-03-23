@@ -41,7 +41,7 @@ function LinearProgressWithLabel(props: Props) {
 const LinearWithValueLabel: FC<LinearWithValueLabelProps> = ({min, max}) => {
      return (
           <Box sx={{width: '100%'}}>
-               <LinearProgressWithLabel value={30} min={min} max={max} />
+               <LinearProgressWithLabel sx={{height: '10px'}} value={30} min={min} max={max} />
           </Box>
      );
 };

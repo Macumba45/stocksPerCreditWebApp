@@ -9,10 +9,11 @@ const theme = {
           info: '#17a2b8',
           light: '#EEEEEE',
           dark: '#343a40',
-          
+
           lighterGrey: '#8f8f8f',
           white: '#FFFFFF',
           lighterBlue: '#E4FCFA',
+          black: '#000'
      },
      fonts: {
           primary: 'Roboto, sans-serif',
@@ -28,6 +29,7 @@ const theme = {
           bold: '800',
      },
      fontSizes: {
+          verysmall: '0.7rem',
           smallest: '1rem',
           small: '1.5rem',
           mediumSmall: '2rem',

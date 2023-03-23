@@ -1,20 +1,23 @@
-import {FC, memo} from 'react';
-import {Container, Image, Info, ContainerIcon} from './styles';
-import {Props} from './types';
+import { FC, memo } from 'react';
+import { Container, Image, ContainerIcon, ContainerInfo, LabelSpan, DataSpan, MainContainer } from './styles';
+import { Props } from './types';
 import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
 
-const LittleCard: FC<Props> = ({image}) => {
+const LittleCard: FC<Props> = ({ icon, label, data }) => {
      return (
-          <Container>
-               <Image src={image} />
-               <ContainerIcon>
-                    <LeaderboardRoundedIcon
-                         style={{color: '#7E1B75', fontSize: 60}}
-                    />
-               </ContainerIcon>
-               <Info>Earnings $340.5</Info>
 
-          </Container>
+          <MainContainer>
+               <Container>
+                    <ContainerIcon>
+                         {icon}
+                    </ContainerIcon>
+                    <ContainerInfo>
+                         <LabelSpan>{label}</LabelSpan>
+                         <DataSpan>{data}</DataSpan>
+                    </ContainerInfo>
+
+               </Container>
+          </MainContainer>
      );
 };
 
