@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { UserRole } from '../../../models/user';
 
 export const validationSchema = Yup.object().shape({
      name: Yup.string()
@@ -9,7 +10,7 @@ export const validationSchema = Yup.object().shape({
           .min(4, 'Too Short!')
           .max(16, 'Too Long!')
           .required('Lastname is required'),
-     role: Yup.string().oneOf(['emprendedor', 'inversor'], 'Role is required'),
+     role: Yup.string().required('Role is required'),
      email: Yup.string()
           .email('Email is invalid')
           .required('Email is required'),
@@ -31,7 +32,7 @@ export const validationSchema = Yup.object().shape({
 export const initialValues = {
      name: '',
      lastname: '',
-     role: '',
+     role: UserRole.ENTREPRENEUR,
      email: '',
      country: '',
      city: '',

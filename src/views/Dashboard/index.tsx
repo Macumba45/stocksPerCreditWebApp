@@ -1,6 +1,6 @@
-import {FC, memo, useState} from 'react';
-import {UserRole} from '../../models/profile';
-import {getUserRole} from '../../services/storage/userRole';
+import { FC, memo, useState } from 'react';
+import { UserRole } from '../../models/user';
+import { getUserRole } from '../../services/storage/userRole';
 import DashboardEMP from '../DashboardEMP';
 import DashboardINVe from '../DashboardINV';
 

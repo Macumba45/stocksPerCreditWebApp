@@ -1,8 +1,8 @@
-import {FC, memo, useCallback, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {Field, FieldProps, Formik} from 'formik';
-import {validationSchema, initialValues} from './constants';
-import {Props} from './type';
+import { FC, memo, useCallback, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Field, FieldProps, Formik } from 'formik';
+import { validationSchema, initialValues } from './constants';
+import { Props } from './type';
 import {
      MainFormContainer,
      LoginTitle,
@@ -19,10 +19,10 @@ import {
      Error,
      ErrorLogin,
 } from './styles';
-import {setAuthenticatedToken} from '../../../services/storage/token';
-import {handledSubmitLogin} from '../../../services/api/auth';
+import { setAuthenticatedToken } from '../../../services/storage/token';
+import { handledSubmitLogin } from '../../../services/api/auth';
 import { setUserRole } from '../../../services/storage/userRole';
-import { UserRole } from '../../../models/profile';
+import { UserRole } from '../../../models/user';
 
 const Login: FC<Props> = () => {
      const navigate = useNavigate();
@@ -61,7 +61,7 @@ const Login: FC<Props> = () => {
                          <Form>
                               <LoginTitle>SignIn</LoginTitle>
                               <Field name="email">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <EmailContainer>
                                              <LabelContainer>
                                                   <Label>Email* </Label>
@@ -80,7 +80,7 @@ const Login: FC<Props> = () => {
                                    )}
                               </Field>
                               <Field name="password">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <PasswordContainer>
                                              <LabelContainer>
                                                   <Label>Password* </Label>

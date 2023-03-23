@@ -1,13 +1,13 @@
-import { UserRole } from "../../models/profile";
+import { UserRole } from "../../models/user";
 
 const USER_ROLE_KEY = 'user-role';
 
 export const getUserRole = () => {
     try {
-         const userRole = window.localStorage.getItem(USER_ROLE_KEY);
-         return userRole ? JSON.parse(userRole) : null;
+        const userRole = window.localStorage.getItem(USER_ROLE_KEY);
+        return userRole ? JSON.parse(userRole) : null;
     } catch (error) {
-         console.log(error);
+        console.log(error);
     }
 };
 
