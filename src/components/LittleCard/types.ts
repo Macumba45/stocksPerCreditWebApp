@@ -1,3 +1,5 @@
 export type Props = {
-     image?: string;
+     icon: React.ReactNode
+     label: string,
+     data: string
 };
