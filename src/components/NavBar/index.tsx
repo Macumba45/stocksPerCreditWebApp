@@ -31,7 +31,7 @@ const pagesLogged = [
 const settings = [
      {
           label: 'Dashboard',
-          route: userRole === 'emprendedor' ? '/dashboardEmp' : '/dashboardInv',
+          route: userRole === 'emprendedor' ? '/dashboardemp' : '/dashboardinv',
      },
      { label: 'Logout', route: '/logout' },
 ];
