@@ -1,4 +1,3 @@
-export type Props= {
-    tag: string;
-  }
-  
+export type Props = {
+     tag: string;
+};

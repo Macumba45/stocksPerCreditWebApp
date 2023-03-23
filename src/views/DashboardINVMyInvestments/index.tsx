@@ -1,19 +1,12 @@
-import { FC, memo } from "react";
-import ResponsiveDrawer from '../../components/SidebarDashboardINV/index'
+import {FC, memo} from 'react';
+import ResponsiveDrawer from '../../components/SidebarDashboardINV/index';
 
 const DashboardProjectsInvest: FC = () => {
+     return (
+          <>
+               <ResponsiveDrawer />
+          </>
+     );
+};
 
-    return (
-
-        <>
-            <ResponsiveDrawer />
-
-        </>
-
-
-
-    )
-}
-
-
-export default memo(DashboardProjectsInvest)
+export default memo(DashboardProjectsInvest);

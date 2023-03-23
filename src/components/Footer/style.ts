@@ -55,7 +55,7 @@ export const H2 = styled.h2`
      margin-left: 2.8rem;
 `;
 export const H4 = styled.h4`
-color: ${({theme}) => theme.colors.primaryLight};
+     color: ${({theme}) => theme.colors.primaryLight};
 `;
 
 export const Link = styled.a`
@@ -65,10 +65,10 @@ export const Link = styled.a`
 export const Paragraph = styled.p`
      margin: 0.5rem 0;
 `;
-export const ParagraphUs= styled.p`
-margin: 0.5rem 0;
-color: ${({theme}) => theme.colors.primaryLight};
-`
+export const ParagraphUs = styled.p`
+     margin: 0.5rem 0;
+     color: ${({theme}) => theme.colors.primaryLight};
+`;
 
 export const ParagraphIcon = styled.p`
      margin: 0 0.3rem;

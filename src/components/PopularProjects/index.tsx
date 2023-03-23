@@ -1,11 +1,10 @@
-import { FC, memo } from 'react';
+import {FC, memo} from 'react';
 import Slider from 'react-slick';
 import Card from '../CardProjects/index';
-import { ContainerProjects, MainContainer } from './styles';
+import {ContainerProjects, MainContainer} from './styles';
 import BasicTabs from '../FilterProjects/index';
 
 const PopularProjects: FC = () => {
-
      return (
           <>
                <MainContainer>
