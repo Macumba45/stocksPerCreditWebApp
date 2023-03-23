@@ -13,6 +13,8 @@ export const CardContainer = styled.div`
      min-height: 600px;
      flex-direction: column;
      border-radius: 10px;
+     border-bottom-left-radius:0px;
+     border-bottom-right-radius:0px;
      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
      background-color: #ffffff;
      &:hover {
@@ -23,6 +25,7 @@ export const CardContainer = styled.div`
 `;
 export const ContainerImg = styled.div`
      border: none;
+     
 `;
 
 export const Image = styled.img`
@@ -38,9 +41,9 @@ export const ContainerTitle = styled.div`
 
 export const Title = styled.h2`
      margin: 10px 0;
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.small};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.small};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
      text-align: left;
 `;
 
@@ -57,13 +60,13 @@ export const Description = styled.p`
      line-height: 1.5;
      word-wrap: break-word; /* permitir que las palabras se dividan en varias líneas si no caben en una sola */
      color: #606060;
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
 `;
 export const ContainerButton = styled.div``;
 
-export const HeartButton = styled.button<{liked: boolean}>`
+export const HeartButton = styled.button<{ liked: boolean }>`
      background-color: transparent;
      border: none;
      cursor: pointer;
@@ -99,22 +102,22 @@ export const ContainerLocations = styled.div`
 `;
 
 export const Country = styled.p`
-     color: ${({theme}) => theme.colors.lighterGrey};
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     color: ${({ theme }) => theme.colors.lighterGrey};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      display: inline-block;
 
 `;
 
 export const City = styled.p`
-     color: ${({theme}) => theme.colors.lighterGrey};
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     color: ${({ theme }) => theme.colors.lighterGrey};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
-      display: inline-block;
+     display: inline-block;
 
 `;
 
@@ -131,9 +134,9 @@ export const Categories = styled.p`
      background-color: #7e1b75;
      color: white;
      border-radius: 10px;
-     font-family: ${({theme}) => theme.fonts.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
      font-size: 13px;
-     font-weight: ${({theme}) => theme.fontWeights.bold};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
      padding: 0.3rem;
 `;
 
@@ -158,14 +161,13 @@ export const ImageModal = styled.img`
 
 export const ContainerTitleModal = styled.div`
      position: relative;
-     left: 1rem;
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      `
 export const TitleModal = styled.p`
      margin: 10px 0;
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
      text-align: left;
      `
 
@@ -173,7 +175,6 @@ export const ContainerDescModal = styled.div`
      width: 100%;
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      position: relative;
-     left: 1rem;
      `
 export const DescriptionModal = styled.p`
      margin: 0;
@@ -181,40 +182,36 @@ export const DescriptionModal = styled.p`
      line-height: 1.5;
      word-wrap: break-word; /* permitir que las palabras se dividan en varias líneas si no caben en una sola */
      color: #606060;
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
      `
 
-
 export const ContainerLocationsModal = styled.div`
-     margin-left: 1rem;
      margin-bottom: 1rem;
      margin-top: 1rem;
      `
 export const CountryModal = styled.p`
-     color: ${({theme}) => theme.colors.lighterGrey};
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     color: ${({ theme }) => theme.colors.lighterGrey};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      display: inline-block;
 
 `
 export const CityModal = styled.p`
-     color: ${({theme}) => theme.colors.lighterGrey};
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     color: ${({ theme }) => theme.colors.lighterGrey};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      display: inline-block;
 
 `
 
-
 export const ContainerCategoriesModal = styled.div`
      position: relative;
-     margin-left: 1rem;
      margin-top: 1rem;
      margin-bottom: 1rem;
      `
@@ -224,9 +221,9 @@ export const CategoriesModal = styled.p`
      background-color: #7e1b75;
      color: white;
      border-radius: 10px;
-     font-family: ${({theme}) => theme.fonts.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
      font-size: 13px;
-     font-weight: ${({theme}) => theme.fontWeights.bold};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
      padding: 0.3rem;
      `
 
@@ -234,51 +231,83 @@ export const ContainerRecaudacciones = styled.div`
 
 `
 
-
 export const Recaudado = styled.p`
   margin-bottom: 0.3rem;
   border-bottom: 1px solid blue;
-  color: ${({theme}) => theme.colors.lighterGrey};
-
-  font-weight: ${({theme}) => theme.fontWeights.bold};
+  color: ${({ theme }) => theme.colors.lighterGrey};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 
 `;
 
 export const Inversores = styled.p`
   margin-bottom: 0.3rem;
   border-bottom: 1px solid blue;
-  color: ${({theme}) => theme.colors.lighterGrey};
-  font-weight: ${({theme}) => theme.fontWeights.bold};
+  color: ${({ theme }) => theme.colors.lighterGrey};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 
 `;
 
 export const MinimaInversion = styled.p`
   margin-bottom: 0.3rem;
   border-bottom: 1px solid blue;
-  color: ${({theme}) => theme.colors.lighterGrey};
-  font-weight: ${({theme}) => theme.fontWeights.bold};
+  color: ${({ theme }) => theme.colors.lighterGrey};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 
 `;
 
 export const Objetivos = styled.p`
   margin-bottom: 0.3rem;
   border-bottom: 1px solid blue;
-  color: ${({theme}) => theme.colors.lighterGrey};
-  font-weight: ${({theme}) => theme.fontWeights.bold};
+  color: ${({ theme }) => theme.colors.lighterGrey};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 
 `;
 
 export const ValorLimite = styled.p`
   margin-bottom: 0.3rem;
   border-bottom: 1px solid blue;
-  color: ${({theme}) => theme.colors.lighterGrey};
-  font-weight: ${({theme}) => theme.fontWeights.bold};
+  color: ${({ theme }) => theme.colors.lighterGrey};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
 
 `;
 
 export const LabelSpan = styled.span`
-     color: ${({theme}) => theme.colors.black};
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.verysmall};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     color: ${({ theme }) => theme.colors.black};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.verysmall};
+     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
 `
+
+export const ContainerButtonModal = styled.div`
+margin-left: 80px;
+`
+
+export const MenuButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+`;
+
+export const Menu = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+ border-bottom-left-radius:10px;
+ border-bottom-right-radius:10px;
+
+  width: 270px;
+  height: 50px;
+  align-items: center;  
+ 
+`;
+
+export const MenuItem = styled.button`
+  background-color: transparent;
+  border: none;
+  margin-left: 100px;
+  color: #333;
+  cursor: pointer;
+  `

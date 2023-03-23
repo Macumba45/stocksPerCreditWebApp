@@ -6,7 +6,6 @@ import {MaxContainer} from './styles';
 const DashboardEMP: FC = () => {
      return (
           <>
-               <SidebarDashboardEMP />
                <MaxContainer>
                     <Card
                          image={''}
