@@ -5,6 +5,9 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import LinearWithValueLabel from '../ProgressLinear/index';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import {
   CardContainer,
@@ -28,9 +31,8 @@ import {
   TitleModal,
   ContainerDescModal,
   DescriptionModal,
-  ContainerCountryModal,
+  ContainerLocationsModal,
   CountryModal,
-  ContainerCityModal,
   CityModal,
   ContainerCategoriesModal,
   CategoriesModal,
@@ -40,10 +42,11 @@ import {
   MinimaInversion,
   Objetivos,
   ValorLimite,
-  LabelSpan
-
-
-
+  LabelSpan,
+  ContainerButtonModal,
+  MenuButton,
+  Menu,
+  MenuItem,
 } from './styles';
 
 const style = {
@@ -94,9 +97,15 @@ const Card: React.FC<CardProps> = ({
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [showMenu, setShowMenu] = useState(false);
+
 
   const handleClick = () => {
     setLiked(!liked);
+  };
+
+  const handleMenuClick = () => {
+    setShowMenu(!showMenu);
   };
 
   return (
@@ -110,6 +119,7 @@ const Card: React.FC<CardProps> = ({
             <FavoriteBorderIcon />
           </HeartButton>
         )}
+       
       </ContainerButton>
       <ContainerTitle>
         <Title>{title}</Title>
@@ -118,8 +128,8 @@ const Card: React.FC<CardProps> = ({
         <Description>{description}</Description>
       </ContainerDesc>
       <ContainerLocations>
-        <Country>{country},</Country>
-        <City>{city}</City>
+        <Country>{country}</Country>
+        <City>, {city}</City>
       </ContainerLocations>
       <ContainerCategories>
         <Categories>{categories}</Categories>
@@ -128,7 +138,16 @@ const Card: React.FC<CardProps> = ({
         <LinearWithValueLabel min={0} max={100} />
       </ContainerLinear>
       <div>
-        <Button onClick={handleOpen}>More Info</Button>
+        <ContainerButtonModal><Button sx={{ color: '#7E1B75', marginBottom: '12px' }} onClick={handleOpen}>More Info</Button>
+        <MenuButton onClick={handleMenuClick}>
+          <MoreVertIcon/>
+        </MenuButton>
+        </ContainerButtonModal>
+        {showMenu && (
+          <Menu>
+            <MenuItem><DeleteIcon/> <EditIcon/></MenuItem>
+          </Menu>
+        )}
         <Modal
           open={open}
           onClose={handleClose}
@@ -145,22 +164,20 @@ const Card: React.FC<CardProps> = ({
             <ContainerDescModal>
               <DescriptionModal>{description}</DescriptionModal>
             </ContainerDescModal>
-            <ContainerCountryModal>
+            <ContainerLocationsModal>
               <CountryModal>{country}</CountryModal>
-            </ContainerCountryModal>
-            <ContainerCityModal>
-              <CityModal>{city}</CityModal>
-            </ContainerCityModal>
+              <CityModal>, {city}</CityModal>
+            </ContainerLocationsModal>
             <ContainerCategoriesModal>
               <CategoriesModal>{categories}</CategoriesModal>
             </ContainerCategoriesModal>
             <ContainerRecaudacciones>
-              <Recaudado><LabelSpan>Collected:</LabelSpan>{collected}</Recaudado><br />
-              <Inversores><LabelSpan>Investors:</LabelSpan>{investors}</Inversores><br />
-              <MinimaInversion><LabelSpan>Minimum Investment
-                :</LabelSpan>{minimuminvestment}</MinimaInversion><br />
-              <Objetivos><LabelSpan>Goals:</LabelSpan>{goals}</Objetivos><br />
-              <ValorLimite><LabelSpan>Limit Value:</LabelSpan>{limitvalue}</ValorLimite>
+              <Recaudado>{collected} <LabelSpan>Collected</LabelSpan></Recaudado>
+              <Inversores>{investors} <LabelSpan>Investors</LabelSpan></Inversores>
+              <MinimaInversion>{minimuminvestment} <LabelSpan>Minimum Investment
+              </LabelSpan></MinimaInversion>
+              <Objetivos>{goals} <LabelSpan>Goals</LabelSpan></Objetivos>
+              <ValorLimite>{limitvalue} <LabelSpan>Limit Value</LabelSpan></ValorLimite>
             </ContainerRecaudacciones>
           </Box>
         </Modal>
