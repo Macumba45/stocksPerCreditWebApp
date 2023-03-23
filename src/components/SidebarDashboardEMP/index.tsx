@@ -12,13 +12,13 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-import { FC, memo } from 'react';
+import {FC, memo} from 'react';
 
 const drawerWidth = 200;
 
 const SidebarDashboardEMP: FC = () => {
      return (
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{display: 'flex'}}>
                <CssBaseline />
                <AppBar
                     position="fixed"
@@ -88,7 +88,7 @@ const SidebarDashboardEMP: FC = () => {
                </Drawer>
                <Box
                     component="main"
-                    sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
+                    sx={{flexGrow: 1, bgcolor: 'background.default', p: 3}}
                >
                     <Toolbar />
                     <Typography paragraph></Typography>

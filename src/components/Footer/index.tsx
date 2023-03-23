@@ -31,25 +31,52 @@ const Footer: FC = () => {
                     <FooterLinks>
                          <FooterAboutUsDiv>
                               <H2>Stocks</H2>
-                              <ParagraphUs>Inversores y emprendedores</ParagraphUs>
+                              <ParagraphUs>
+                                   Inversores y emprendedores
+                              </ParagraphUs>
                               <ParagraphUs> conectados para</ParagraphUs>
                               <ParagraphUs> un futuro mejor.</ParagraphUs>
 
                               <SocialMedia>
                                    <ParagraphIcon>
-                                        <FacebookIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <FacebookIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <InstagramIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <InstagramIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <TwitterIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <TwitterIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <LinkedInIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <LinkedInIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                                    <ParagraphIcon>
-                                        <TelegramIcon style={{fontSize: 30, color:'#F1D4F6'}} />
+                                        <TelegramIcon
+                                             style={{
+                                                  fontSize: 30,
+                                                  color: '#F1D4F6',
+                                             }}
+                                        />
                                    </ParagraphIcon>
                               </SocialMedia>
                          </FooterAboutUsDiv>

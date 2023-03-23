@@ -3,12 +3,11 @@ import styled from 'styled-components';
 const SIDEBAR_WIDTH = '15rem';
 
 export const Container = styled.div`
-     background-color: ${({ theme }) => theme.colors.light};
+     background-color: ${({theme}) => theme.colors.light};
      width: 100%;
-     height:130vh;
+     height: 200vh;
      @media (max-width: 768px) {
-          height:330vh;
-
+          height: 360vh;
      }
 `;
 
@@ -17,48 +16,33 @@ export const MainContainer = styled.div``;
 export const LilDivContainer = styled.div`
      margin-left: ${SIDEBAR_WIDTH};
      display: flex;
-     flex-wrap:wrap;
+     flex-wrap: wrap;
      justify-content: center;
      margin-bottom: 4rem;
      @media (max-width: 768px) {
           margin-left: 0;
-
      }
-
-
-`
-
+`;
 
 export const ContainerMediumCards = styled.div`
-
      display: flex;
-     justify-content:center;
+     justify-content: center;
      flex-wrap: wrap;
      margin-left: ${SIDEBAR_WIDTH};
      @media (max-width: 768px) {
           margin-left: 0;
-
      }
-
-
-`
+`;
 export const ContainerBigCards = styled.div`
      display: flex;
-     justify-content:center;
+     justify-content: center;
      flex-wrap: wrap;
      margin-left: ${SIDEBAR_WIDTH};
      margin-bottom: 4rem;
      @media (max-width: 768px) {
           margin-left: 0;
-
      }
-
-
-     `
-
-
-
-
+`;
 
 export const BigDivsContainer = styled.div`
      display: flex;
