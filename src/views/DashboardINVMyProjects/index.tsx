@@ -1,12 +1,13 @@
 import { FC, memo } from "react";
-import DashboardINVe from './index'
+import ResponsiveDrawer from '../../components/SidebarDashboardINV/index'
 
 const DashboardProjects: FC = () => {
 
     return (
 
         <>
-            <div>PRUEBA</div>
+            <ResponsiveDrawer />
+
         </>
 
 

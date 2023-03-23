@@ -8,7 +8,8 @@ import DashboardINV from '../../views/DashboardINV';
 import Profile from '../../views/Profile';
 import Login from '../../views/Auth/Login';
 import SignUp from '../../views/Auth/SignUp';
-import DashboardProjects from '../../views/DashboardINV/DashboardINVMyProjects/index'
+import DashboardProjects from '../../views/DashboardINVMyProjects/index'
+import DashboardProjectsInvest from '../../views/DashboardINVMyInvestments/index'
 
 const Router: FC = () => {
      const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -75,6 +76,9 @@ const Router: FC = () => {
                     <Route path="/welcome" element={<Landing />} />
                     <Route path="/dashboardEmp" element={<ProtectedRoutes><DashboardEMP /></ProtectedRoutes>} />
                     <Route path="/dashboardInv" element={<ProtectedRoutes><DashboardINV /></ProtectedRoutes>} />
+                    <Route path="/dashboardInv/projects" element={<ProtectedRoutes><DashboardProjects /></ProtectedRoutes>} />
+                    <Route path="/dashboardInv/investments" element={<ProtectedRoutes><DashboardProjectsInvest /></ProtectedRoutes>} />
+
                     <Route path="/profile" element={<Profile />} />
                     <Route path="*" element={<NotFound />} />
                </Routes>
