@@ -1,8 +1,8 @@
-import {AccountCircle} from '@mui/icons-material';
-import {Avatar} from '@mui/joy';
-import {Menu, MenuItem} from '@mui/material';
-import {FC, memo, useCallback, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import { AccountCircle } from '@mui/icons-material';
+import { Avatar } from '@mui/joy';
+import { Menu, MenuItem } from '@mui/material';
+import { FC, memo, useCallback, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const UserAvatar: FC = () => {
      const navigate = useNavigate();
@@ -19,13 +19,13 @@ const UserAvatar: FC = () => {
      const handleLogout = useCallback(() => {
           window.localStorage.clear();
           navigate('/welcome');
-     }, []);
+     }, [navigate]);
 
      return (
           <>
                <Avatar
                     variant="solid"
-                    sx={{height: 40}}
+                    sx={{ height: 40 }}
                     onClick={handleMenuOpen}
                >
                     <AccountCircle />

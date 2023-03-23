@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
-     background-color: ${({theme}) => theme.colors.secondary};
+     background-color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const FooterSection = styled.div`
@@ -20,8 +20,8 @@ export const FooterLinks = styled.div`
      margin-bottom: 2rem;
 `;
 export const FooterAboutUsDiv = styled.div`
-     color: ${({theme}) => theme.colors.light};
-     font-family: ${({theme}) => theme.fonts.primary};
+     color: ${({ theme }) => theme.colors.light};
+     font-family: ${({ theme }) => theme.fonts.primary};
      margin-left: -300px;
 `;
 
@@ -29,8 +29,8 @@ export const FooterLinksDiv = styled.div`
      width: 9.4rem;
      display: flex;
      flex-direction: row;
-     color: ${({theme}) => theme.colors.light};
-     font-family: ${({theme}) => theme.fonts.primary};
+     color: ${({ theme }) => theme.colors.light};
+     font-family: ${({ theme }) => theme.fonts.primary};
 `;
 export const InvestDiv = styled.div`
      margin: 0 1rem;
@@ -49,25 +49,27 @@ export const SocialMedia = styled.div`
      flex-direction: row;
 `;
 export const H2 = styled.h2`
-     font-size: ${({theme}) => theme.fontSizes.mediumSmall};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     font-family: ${({theme}) => theme.fonts.secondary};
-     margin-left: 2.8rem;
+     font-size: ${({ theme }) => theme.fontSizes.mediumSmall};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-family: ${({ theme }) => theme.fonts.secondary};
+     margin-left: 0.8rem;
 `;
 export const H4 = styled.h4`
-     color: ${({theme}) => theme.colors.primaryLight};
+     color: ${({ theme }) => theme.colors.primaryLight};
 `;
 
 export const Link = styled.a`
-     color: ${({theme}) => theme.colors.light};
+     color: ${({ theme }) => theme.colors.light};
      text-decoration: none;
 `;
 export const Paragraph = styled.p`
      margin: 0.5rem 0;
 `;
 export const ParagraphUs = styled.p`
-     margin: 0.5rem 0;
-     color: ${({theme}) => theme.colors.primaryLight};
+     margin-bottom: 0.8rem;
+     margin-top: 0.5rem;
+     margin-left: 0.5rem;
+     color: ${({ theme }) => theme.colors.primaryLight};
 `;
 
 export const ParagraphIcon = styled.p`
@@ -78,3 +80,19 @@ export const HR = styled.hr`
      background-color: white;
      padding: 0 4rem;
 `;
+
+export const LogoFooter = styled.img`
+
+width: 50px;
+height: 50px;
+
+
+`
+
+export const ContainerLogoBranding = styled.div`
+
+display:flex;
+align-items:center;
+
+
+`

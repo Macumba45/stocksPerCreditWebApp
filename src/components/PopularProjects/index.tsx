@@ -1,17 +1,15 @@
-import {FC, memo} from 'react';
-import Slider from 'react-slick';
-import Card from '../CardProjects/index';
-import {ContainerProjects, MainContainer} from './styles';
+import { FC, memo } from 'react';
+import { MainContainerTabs } from './styles';
 import BasicTabs from '../FilterProjects/index';
 
 const PopularProjects: FC = () => {
      return (
           <>
-               <MainContainer>
+               <MainContainerTabs>
                     <BasicTabs />
-               </MainContainer>
+               </MainContainerTabs>
 
-               <MainContainer>
+               {/* <MainContainer>
                     <ContainerProjects>
                          <Card
                               image="Hola"
@@ -44,7 +42,7 @@ const PopularProjects: FC = () => {
                               onClick={() => console.log('prueba')}
                          />
                     </ContainerProjects>
-               </MainContainer>
+               </MainContainer> */}
           </>
      );
 };

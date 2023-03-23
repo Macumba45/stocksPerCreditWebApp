@@ -1,7 +1,7 @@
-import {Navigate, useLocation, useNavigate} from 'react-router-dom';
-import {FC, memo, useEffect} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {getAuthenticatedToken} from '../../services/storage';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { FC, memo, useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { getAuthenticatedToken } from '../../services/storage';
 import Landing from '../../views/Landing';
 import DashboardEMP from '../../views/DashboardEMP';
 import DashboardINV from '../../views/DashboardINV';
@@ -14,40 +14,40 @@ import CreateNewProject from '../../views/NewProject/index';
 import NotFound404 from '../../views/NotFound404';
 
 const Router: FC = () => {
-     const ProtectedRoutes = ({children}: {children: JSX.Element}) => {
+     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
           const token = getAuthenticatedToken();
           const location = useLocation();
 
           if (!token || token === null) {
-               return <Navigate to="/login" replace state={{from: location}} />;
+               return <Navigate to="/login" replace state={{ from: location }} />;
           }
 
           return children;
      };
 
-     const PublicRoute = ({children}: {children: JSX.Element}) => {
-          const token = getAuthenticatedToken();
-          const location = useLocation();
+     // const PublicRoute = ({ children }: { children: JSX.Element }) => {
+     //      const token = getAuthenticatedToken();
+     //      const location = useLocation();
 
-          if (token) {
-               if (
-                    location.pathname === '/login' ||
-                    location.pathname === '/signup' ||
-                    location.pathname === '/'
-               ) {
-                    return (
-                         <Navigate
-                              to="/feed"
-                              replace
-                              state={{from: location}}
-                         />
-                    );
-               }
-               return children;
-          }
+     //      if (token) {
+     //           if (
+     //                location.pathname === '/login' ||
+     //                location.pathname === '/signup' ||
+     //                location.pathname === '/'
+     //           ) {
+     //                return (
+     //                     <Navigate
+     //                          to="/welcome"
+     //                          replace
+     //                          state={{ from: location }}
+     //                     />
+     //                );
+     //           }
+     //           return children;
+     //      }
 
-          return children;
-     };
+     //      return children;
+     // };
 
      const NotFound = () => {
           const navigate = useNavigate();
@@ -57,7 +57,7 @@ const Router: FC = () => {
                if (token) {
                     // navigate('/feed', { replace: true });
                } else {
-                    navigate('/login', {replace: true});
+                    navigate('/login', { replace: true });
                }
           }, [navigate, token]);
 

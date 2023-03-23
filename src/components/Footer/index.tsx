@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import {
      FooterContainer,
      FooterSection,
@@ -16,6 +16,8 @@ import {
      EmpDiv,
      UsDiv,
      ParagraphUs,
+     LogoFooter,
+     ContainerLogoBranding,
 } from './style';
 // import {AppBar, Toolbar, Typography} from '@material-ui/core';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -23,6 +25,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
+const logo = require('../../../src/components/NavBar/assets/logo.png')
 
 const Footer: FC = () => {
      return (
@@ -30,7 +33,11 @@ const Footer: FC = () => {
                <FooterSection>
                     <FooterLinks>
                          <FooterAboutUsDiv>
-                              <H2>Stocks</H2>
+                              <ContainerLogoBranding>
+                                   <LogoFooter
+                                        src={logo} />
+                                   <H2>Stocks</H2>
+                              </ContainerLogoBranding>
                               <ParagraphUs>
                                    Inversores y emprendedores
                               </ParagraphUs>

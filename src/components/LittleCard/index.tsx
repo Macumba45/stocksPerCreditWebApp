@@ -1,7 +1,6 @@
 import {FC, memo} from 'react';
 import {
      Container,
-     Image,
      ContainerIcon,
      ContainerInfo,
      LabelSpan,
@@ -9,7 +8,6 @@ import {
      MainContainer,
 } from './styles';
 import {Props} from './types';
-import LeaderboardRoundedIcon from '@mui/icons-material/LeaderboardRounded';
 
 const LittleCard: FC<Props> = ({icon, label, data}) => {
      return (
