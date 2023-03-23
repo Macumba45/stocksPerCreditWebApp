@@ -47,9 +47,9 @@ const ResponsiveDrawer: FC = (props: Props) => {
      };
 
      const iconMap: { [key: string]: IconMapItem } = {
-          'Stocks Dashboard': { icon: DashboardIcon, link: '/dashboardInv' },
-          'My investments': { icon: PaymentIcon, link: '/dashboardInv/investments' },
-          'Projects': { icon: FeedIcon, link: '/dashboardInv/projects' },
+          'Stocks Dashboard': { icon: DashboardIcon, link: '/dashboardinv' },
+          'My investments': { icon: PaymentIcon, link: '/dashboardinv/investments' },
+          'Projects': { icon: FeedIcon, link: '/dashboardinv/projects' },
      };
 
 

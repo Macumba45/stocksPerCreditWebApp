@@ -10,6 +10,7 @@ import Login from '../../views/Auth/Login';
 import SignUp from '../../views/Auth/SignUp';
 import DashboardProjects from '../../views/DashboardINVMyProjects/index'
 import DashboardProjectsInvest from '../../views/DashboardINVMyInvestments/index'
+import CreateNewProject from '../../views/NewProject/index';
 
 const Router: FC = () => {
      const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -74,11 +75,11 @@ const Router: FC = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/welcome" element={<Landing />} />
-                    <Route path="/dashboardEmp" element={<ProtectedRoutes><DashboardEMP /></ProtectedRoutes>} />
-                    <Route path="/dashboardInv" element={<ProtectedRoutes><DashboardINV /></ProtectedRoutes>} />
-                    <Route path="/dashboardInv/projects" element={<ProtectedRoutes><DashboardProjects /></ProtectedRoutes>} />
-                    <Route path="/dashboardInv/investments" element={<ProtectedRoutes><DashboardProjectsInvest /></ProtectedRoutes>} />
-
+                    <Route path="/dashboardemp" element={<ProtectedRoutes><DashboardEMP /></ProtectedRoutes>} />
+                    <Route path="/dashboardemp/createproject" element={<ProtectedRoutes><CreateNewProject /></ProtectedRoutes>} />
+                    <Route path="/dashboardinv" element={<ProtectedRoutes><DashboardINV /></ProtectedRoutes>} />
+                    <Route path="/dashboardinv/projects" element={<ProtectedRoutes><DashboardProjects /></ProtectedRoutes>} />
+                    <Route path="/dashboardinv/investments" element={<ProtectedRoutes><DashboardProjectsInvest /></ProtectedRoutes>} />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="*" element={<NotFound />} />
                </Routes>

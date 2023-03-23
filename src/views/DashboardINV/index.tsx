@@ -14,6 +14,7 @@ import {
      LilDivContainer,
      MainContainer,
 } from './styles';
+import Hr from '../../components/Hr';
 
 
 const DashboardINVe: FC = () => {
@@ -49,10 +50,10 @@ const DashboardINVe: FC = () => {
                                    data='423.34€'
                                    icon={<AccountBalanceIcon sx={{ color: '#7E1B75', fontSize: 40 }} />} />
                          </LilDivContainer>
-                         {/* 
+
                          <Hr
                               label='Stats'
-                              style={{ margin: '200px' }} /> */}
+                              style={{ left: 100 }} />
 
 
                          <ContainerMediumCards>
