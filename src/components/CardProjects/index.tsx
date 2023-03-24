@@ -1,4 +1,4 @@
-import {useState, memo} from 'react';
+import { useState, memo } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -48,7 +48,7 @@ import {
      Menu,
      MenuItem,
 } from './styles';
-import {useLocation} from 'react-router';
+import { useLocation } from 'react-router';
 
 const style = {
      position: 'absolute' as 'absolute',
@@ -140,7 +140,7 @@ const Card: React.FC<CardProps> = ({
                <div>
                     <ContainerButtonModal>
                          <Button
-                              sx={{color: '#7E1B75', marginBottom: '12px'}}
+                              sx={{ color: '#7E1B75', marginBottom: '12px' }}
                               onClick={handleOpen}
                          >
                               More Info

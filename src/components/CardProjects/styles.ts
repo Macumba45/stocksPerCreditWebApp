@@ -223,35 +223,35 @@ export const CategoriesModal = styled.p`
 export const ContainerRecaudacciones = styled.div``;
 
 export const Recaudado = styled.p`
-     margin-bottom: 0.3rem;
+     margin-bottom: 1rem;
      border-bottom: 1px solid blue;
      color: ${({theme}) => theme.colors.lighterGrey};
      font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const Inversores = styled.p`
-     margin-bottom: 0.3rem;
+     margin-bottom: 1rem;
      border-bottom: 1px solid blue;
      color: ${({theme}) => theme.colors.lighterGrey};
      font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const MinimaInversion = styled.p`
-     margin-bottom: 0.3rem;
+     margin-bottom: 1rem;
      border-bottom: 1px solid blue;
      color: ${({theme}) => theme.colors.lighterGrey};
      font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const Objetivos = styled.p`
-     margin-bottom: 0.3rem;
+     margin-bottom: 1rem;
      border-bottom: 1px solid blue;
      color: ${({theme}) => theme.colors.lighterGrey};
      font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const ValorLimite = styled.p`
-     margin-bottom: 0.3rem;
+     margin-bottom: 1rem;
      border-bottom: 1px solid blue;
      color: ${({theme}) => theme.colors.lighterGrey};
      font-weight: ${({theme}) => theme.fontWeights.bold};
