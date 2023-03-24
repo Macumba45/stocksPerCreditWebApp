@@ -1,5 +1,3 @@
 export type Props = {
-
-
-    video: string;
-}
+     video: string;
+};

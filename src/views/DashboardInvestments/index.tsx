@@ -113,6 +113,3 @@ const DashboardInvestment: FC = () => {
 };
 
 export default memo(DashboardInvestment);
-
-
-

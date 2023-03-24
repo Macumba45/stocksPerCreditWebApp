@@ -1,7 +1,7 @@
-import { Navigate, useLocation, useNavigate } from 'react-router-dom';
-import { FC, memo, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { getAuthenticatedToken } from '../../services/storage/token';
+import {Navigate, useLocation, useNavigate} from 'react-router-dom';
+import {FC, memo, useEffect} from 'react';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {getAuthenticatedToken} from '../../services/storage/token';
 import Landing from '../../views/Landing';
 import Profile from '../../views/Profile';
 import Login from '../../views/Auth/Login';
@@ -9,16 +9,16 @@ import SignUp from '../../views/Auth/SignUp';
 import NotFound404 from '../../views/NotFound404';
 import Dashboard from '../../views/Dashboard';
 import ProjectDetails from '../../views/ProjectDetails';
-import DashboardInvestment from '../../views/DashboardInvestments/index'
+import DashboardInvestment from '../../views/DashboardInvestments/index';
 import FormProject from '../../components/FormProject';
 
 const Router: FC = () => {
-     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
+     const ProtectedRoutes = ({children}: {children: JSX.Element}) => {
           const token = getAuthenticatedToken();
           const location = useLocation();
 
           if (!token || token === null) {
-               return <Navigate to="/login" replace state={{ from: location }} />;
+               return <Navigate to="/login" replace state={{from: location}} />;
           }
 
           return children;
@@ -56,7 +56,7 @@ const Router: FC = () => {
                if (token) {
                     // navigate('/feed', { replace: true });
                } else {
-                    navigate('/login', { replace: true });
+                    navigate('/login', {replace: true});
                }
           }, [navigate, token]);
 
@@ -109,6 +109,3 @@ const Router: FC = () => {
 };
 
 export default memo(Router);
-
-
-

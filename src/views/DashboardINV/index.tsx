@@ -1,12 +1,5 @@
-import { FC, memo } from 'react';
-import BigCard from '../../components/BigCard';
-import LittleCard from '../../components/LittleCard';
-import MediumCard from '../../components/MediumCard';
+import {FC, memo} from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
-import QueryStatsIcon from '@mui/icons-material/QueryStats';
-import PaidIcon from '@mui/icons-material/Paid';
-import HomeIcon from '@mui/icons-material/Home';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import {
      Container,
      MinMaxContainer,
@@ -14,10 +7,13 @@ import {
      TagDiv,
      FiltersDiv,
 } from './styles';
-import { FinishDatePickers, StartDatePickers } from '../../components/DatePicker';
-import { MaxDiscreteSlider, MinDiscreteSlider } from '../../components/MoneySlider';
+import {FinishDatePickers, StartDatePickers} from '../../components/DatePicker';
+import {
+     MaxDiscreteSlider,
+     MinDiscreteSlider,
+} from '../../components/MoneySlider';
 import Search from '../../components/Search';
-import { DiscreteSlider } from '../../components/StocksSlider';
+import {DiscreteSlider} from '../../components/StocksSlider';
 
 const DashboardINVe: FC = () => {
      return (
@@ -26,25 +22,24 @@ const DashboardINVe: FC = () => {
                     <ResponsiveDrawer />
                     <MinMaxContainer>
                          <FiltersDiv>
-                         <MinDiscreteSlider></MinDiscreteSlider>
-                         <MaxDiscreteSlider></MaxDiscreteSlider>
+                              <MinDiscreteSlider></MinDiscreteSlider>
+                              <MaxDiscreteSlider></MaxDiscreteSlider>
                          </FiltersDiv>
                     </MinMaxContainer>
 
                     <DateContainer>
-                    <FiltersDiv>
-                    <StartDatePickers></StartDatePickers>
-                         <FinishDatePickers></FinishDatePickers>
+                         <FiltersDiv>
+                              <StartDatePickers></StartDatePickers>
+                              <FinishDatePickers></FinishDatePickers>
                          </FiltersDiv>
                     </DateContainer>
 
                     <TagDiv>
-                    <FiltersDiv>
-                         <Search></Search>
-                         <DiscreteSlider></DiscreteSlider>
+                         <FiltersDiv>
+                              <Search></Search>
+                              <DiscreteSlider></DiscreteSlider>
                          </FiltersDiv>
                     </TagDiv>
-
                </Container>
           </>
      );

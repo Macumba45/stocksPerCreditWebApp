@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
      display: flex;
-     flex-wrap:wrap;
-     margin-top:5rem;
+     flex-wrap: wrap;
+     margin-top: 5rem;
      @media (min-width: 600px) {
           background-color: ${({theme}) => theme.colors.light};
           width: 100%;
@@ -22,16 +22,16 @@ export const FiltersDiv = styled.div`
 `;
 
 export const MinMaxContainer = styled.div`
-display:flex;
-flex-direction:row;
-`
+     display: flex;
+     flex-direction: row;
+`;
 
 export const DateContainer = styled.div`
-display:flex;
-flex-direction:row;
-`
+     display: flex;
+     flex-direction: row;
+`;
 
 export const TagDiv = styled.div`
-display:flex;
-flex-direction:row;
-`
+     display: flex;
+     flex-direction: row;
+`;

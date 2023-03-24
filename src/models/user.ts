@@ -10,7 +10,7 @@ export type ProfileInput = {
 
 export enum UserRole {
      INVESTOR = 'INVESTOR',
-     ENTREPRENEUR = 'ENTREPRENEUR'
+     ENTREPRENEUR = 'ENTREPRENEUR',
 }
 
 export const normalizeProfile = (input: any) => {

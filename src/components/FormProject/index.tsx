@@ -1,7 +1,7 @@
-import { FC, memo, useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Formik, Field, Form } from 'formik';
-import { initialValues, validationSchema } from './constants';
+import {FC, memo, useCallback, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {Formik, Field, Form} from 'formik';
+import {initialValues, validationSchema} from './constants';
 import {
      FormContainer,
      TitleForm,
@@ -15,7 +15,7 @@ import {
      Label,
      DivIcon,
      DivIcon1,
-     Formulario
+     Formulario,
 } from './styles';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LooksOneIcon from '@mui/icons-material/LooksOne';
@@ -28,7 +28,7 @@ const FormProject: FC = () => {
 
      const onSubmitForm = (
           values: any,
-          { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
+          {setSubmitting}: {setSubmitting: (isSubmitting: boolean) => void}
      ) => {
           // Handle submitting the form data
           setSubmitting(false);
@@ -47,7 +47,6 @@ const FormProject: FC = () => {
                     onSubmit={onSubmitForm} // quitar, solo esta para que deje de chillar la maricona
                     initialValues={initialValues}
                >
-
                     <Form>
                          <TitleForm>Create Your New Project</TitleForm>
 
@@ -57,16 +56,26 @@ const FormProject: FC = () => {
                                         <ArrowBackIcon />
                                    </BackButton>
                               }
-                              <BasicInformation><DivIcon1><LooksOneIcon /></DivIcon1>Informacion Basica</BasicInformation>
+                              <BasicInformation>
+                                   <DivIcon1>
+                                        <LooksOneIcon />
+                                   </DivIcon1>
+                                   Informacion Basica
+                              </BasicInformation>
 
                               <Field name="image">
-
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
-
                                              <LabelContainer>
                                                   <Label>Image* </Label>
-                                             </LabelContainer>                                        <Input
+                                             </LabelContainer>{' '}
+                                             <Input
                                                   $hasError={!!meta?.error}
                                                   type="url"
                                                   placeholder="IMAGEN"
@@ -79,7 +88,13 @@ const FormProject: FC = () => {
                                    )}
                               </Field>
                               <Field name="title">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
                                                   <Label>Title* </Label>
@@ -97,7 +112,13 @@ const FormProject: FC = () => {
                                    )}
                               </Field>
                               <Field name="country">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
                                                   <Label>Country* </Label>
@@ -115,7 +136,13 @@ const FormProject: FC = () => {
                                    )}
                               </Field>
                               <Field name="city">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
                                                   <Label>City* </Label>
@@ -135,9 +162,20 @@ const FormProject: FC = () => {
                          </Formulario>
 
                          <Formulario>
-                              <BasicInformation><DivIcon><LooksTwoIcon /></DivIcon>Informacion Del Proyecto</BasicInformation>
+                              <BasicInformation>
+                                   <DivIcon>
+                                        <LooksTwoIcon />
+                                   </DivIcon>
+                                   Informacion Del Proyecto
+                              </BasicInformation>
                               <Field name="description">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
                                                   <Label>Description* </Label>
@@ -155,7 +193,13 @@ const FormProject: FC = () => {
                                    )}
                               </Field>
                               <Field name="categories">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
                                                   <Label>Categories* </Label>
@@ -173,7 +217,13 @@ const FormProject: FC = () => {
                                    )}
                               </Field>
                               <Field name="collected">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
                                                   <Label>Collected* </Label>
@@ -191,7 +241,13 @@ const FormProject: FC = () => {
                                    )}
                               </Field>
                               <Field name="investors">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
                                                   <Label>Investors* </Label>
@@ -210,13 +266,25 @@ const FormProject: FC = () => {
                               </Field>
                          </Formulario>
                          <Formulario>
-
-                              <BasicInformation><DivIcon><Looks3Icon /></DivIcon>Informacion Economica</BasicInformation>
+                              <BasicInformation>
+                                   <DivIcon>
+                                        <Looks3Icon />
+                                   </DivIcon>
+                                   Informacion Economica
+                              </BasicInformation>
                               <Field name="minimuminvestment">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
-                                                  <Label>Minimum Investment* </Label>
+                                                  <Label>
+                                                       Minimum Investment*{' '}
+                                                  </Label>
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
@@ -231,7 +299,13 @@ const FormProject: FC = () => {
                                    )}
                               </Field>
                               <Field name="goals">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
                                                   <Label>Goals* </Label>
@@ -249,7 +323,13 @@ const FormProject: FC = () => {
                                    )}
                               </Field>
                               <Field name="limitvalue">
-                                   {({ field, meta }: { field: any; meta: any }) => (
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
                                         <InputContainer>
                                              <LabelContainer>
                                                   <Label>Limit Value* </Label>

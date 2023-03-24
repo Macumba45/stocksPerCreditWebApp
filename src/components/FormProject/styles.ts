@@ -1,117 +1,111 @@
-import styled, { css } from "styled-components";
-import { Form as DefaultForm } from 'formik'
-
+import styled, {css} from 'styled-components';
+import {Form as DefaultForm} from 'formik';
 
 export const FormContainer = styled.div`
-     margin-top:80px;
+     margin-top: 80px;
      align-items: center;
      display: flex;
      justify-content: center;
-     
-`
+`;
 
-export const Form = styled(DefaultForm)`
-`
+export const Form = styled(DefaultForm)``;
 export const Formulario = styled.div`
-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-margin-bottom:30px;
-     `
+     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+     margin-bottom: 30px;
+`;
 
 export const InputContainer = styled.div`
-min-width: 600px;
-border-radius:5px;
-padding: 20px;
-background-color: white;
-`
+     min-width: 600px;
+     border-radius: 5px;
+     padding: 20px;
+     background-color: white;
+`;
 
-export const Input = styled.input<{ $hasError?: boolean }>`
-font-family: 'Open Sans', sans-serif;
-width: 35rem;
-border-radius: 5px;
-border: 2px solid gray;
-font-size: 18px;
-padding: 10px;
-color: black;
-${({ $hasError, theme }) =>
+export const Input = styled.input<{$hasError?: boolean}>`
+     font-family: 'Open Sans', sans-serif;
+     width: 35rem;
+     border-radius: 5px;
+     border: 2px solid gray;
+     font-size: 18px;
+     padding: 10px;
+     color: black;
+     ${({$hasError, theme}) =>
           $hasError ? theme.colors.blue : theme.colors.white100};
-  padding: 10px 14px;
+     padding: 10px 14px;
 
-  ${({ $hasError, theme }) =>
+     ${({$hasError, theme}) =>
           $hasError &&
           css`
-      color: ${theme.colors.white100};
-    `}
-   
-`
+               color: ${theme.colors.white100};
+          `}
+`;
 
 export const Error = styled.span`
-  display: block; /* Agregamos esta propiedad para mostrar los span en una nueva línea */
-  color: ${({ theme }) => theme.colors.danger};
-  font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: 0.8rem;
-  margin-top: 0.8rem;
-  margin-left: 0.5rem;
+     display: block; /* Agregamos esta propiedad para mostrar los span en una nueva línea */
+     color: ${({theme}) => theme.colors.danger};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: 0.8rem;
+     margin-top: 0.8rem;
+     margin-left: 0.5rem;
 `;
 
 export const FormButton = styled.button`
-background-color: black;   
-  border-radius: 10px;
+     background-color: black;
+     border-radius: 10px;
      border: none;
      color: white;
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
      font-weight: 500;
      margin-left: 15rem;
      padding: 1rem 2rem 1rem 2rem;
      text-decoration: none;
 
      &:hover {
-background-color: gray;
-          color: ${({ theme }) => theme.colors.light};
+          background-color: gray;
+          color: ${({theme}) => theme.colors.light};
           cursor: pointer;
      }
-     `
+`;
 
 export const BackButton = styled.button`
-border:none;
-background: transparent;
-`
+     border: none;
+     background: transparent;
+`;
 
 export const LabelContainer = styled.div`
      margin-left: 2px;
      margin-bottom: 6px;
-
 `;
 
 export const Label = styled.label`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size:20px;
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
-
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: 20px;
+     font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const TitleForm = styled.h1`
-font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.mediumSmall};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.mediumSmall};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
      margin-bottom: 3.125rem;
      margin-left: 1.875rem;
-     margin-top: 3.125rem;`
-
+     margin-top: 3.125rem;
+`;
 
 export const BasicInformation = styled.h3`
-font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
-`
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
+`;
 export const DivIcon1 = styled.div`
-display: inline-block;
-margin-top: 10px;
-margin-left: 20px;
-`
+     display: inline-block;
+     margin-top: 10px;
+     margin-left: 20px;
+`;
 
 export const DivIcon = styled.div`
-display: inline-block;
-margin-top: 30px;
-margin-left: 20px;
-`
+     display: inline-block;
+     margin-top: 30px;
+     margin-left: 20px;
+`;
