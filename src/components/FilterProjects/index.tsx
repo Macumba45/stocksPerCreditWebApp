@@ -197,7 +197,7 @@ const BasicTabs: FC = () => {
                          </ContainerProjects>
                     </MainContainer>
                </TabPanel>
-          </Box>
+          </Box >
      );
 };
 
