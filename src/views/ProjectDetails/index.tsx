@@ -9,6 +9,7 @@ import {
      LocationContainer,
      LocationCountry,
      MainContainer,
+     MainContainerDesktop,
      SpanData,
      SpanLocation,
      StockersContainer,
@@ -23,82 +24,94 @@ import {
 import {Divider} from '@mui/material';
 
 const ProjectDetails: FC = () => {
+     const videoProject =
+          'https://www.youtube.com/embed/FR0yfiN1dEo?controls=0';
      return (
           <MainContainer>
                <NavBar />
-               <VideoHeader video="" />
-               <TitleContainer>
-                    <Title>
-                         Lorem ipsum dolor sit amet consectetur adipisicing
-                         elit. Blanditiis enim culpa possimus.
-                    </Title>
-               </TitleContainer>
-               <Divider
-                    sx={{
-                         marginTop: '3rem',
-                         marginBottom: '3rem',
-                         width: '300px',
-                         display: 'flex',
-                         marginLeft: 'auto',
-                         marginRight: 'auto',
-                    }}
-               />
-               <SubTitleContainer>
-                    <SubTitle>
-                         Lorem ipsum dolor sit amet consectetur adipisicing
-                         elit. A sit, ratione aut ipsam nemo repudiandae. Nemo
-                         ab, asperiores magnam aperiam tempora perferendis
-                         laboriosam deserunt minima magni mollitia ipsam sit
-                         quam.Lorem ipsum dolor sit amet consectetur adipisicing
-                         elit. A sit, ratione aut ipsam nemo repudiandae.Lorem
-                         ipsum dolor sit amet consectetur adipisicing elit. A
-                         sit, ratione aut ipsam nemo repudiandae.
-                    </SubTitle>
-               </SubTitleContainer>
-               <Divider
-                    sx={{
-                         marginTop: '3rem',
-                         marginBottom: '3rem',
-                         width: '300px',
-                         display: 'flex',
-                         marginLeft: 'auto',
-                         marginRight: 'auto',
-                    }}
-               />
-               <StockersContainer>
-                    <StockersFunds>
-                         Contributions: <br />
-                         <SpanData>57.900€</SpanData>
-                    </StockersFunds>
-                    <StockersInvestors>
-                         Stockers: <br /> <SpanData>458 stockers</SpanData>
-                    </StockersInvestors>
-                    <StockersTime>
-                         Time:
-                         <br />
-                         <SpanData>46 days more</SpanData>
-                    </StockersTime>
-               </StockersContainer>
-               <Divider
-                    sx={{
-                         marginTop: '3rem',
-                         marginBottom: '3rem',
-                         width: '300px',
-                         display: 'flex',
-                         marginLeft: 'auto',
-                         marginRight: 'auto',
-                    }}
-               />
-               <LocationContainer>
-                    <LocationCountry>
-                         <LanguageIcon />
-                         <SpanLocation>United States</SpanLocation>
-                    </LocationCountry>
-                    <LocationCity>
-                         <LocationCityIcon />{' '}
-                         <SpanLocation>New York</SpanLocation>
-                    </LocationCity>
-               </LocationContainer>
+               <MainContainerDesktop>
+                    <div>
+                         <VideoHeader src={videoProject} />
+                    </div>
+                    <div style={{marginTop: '3rem'}}>
+                         <TitleContainer>
+                              <Title>
+                                   Lorem ipsum dolor sit amet consectetur
+                                   adipisicing elit. Blanditiis enim culpa
+                                   possimus.
+                              </Title>
+                         </TitleContainer>
+                         <Divider
+                              sx={{
+                                   marginTop: '2rem',
+                                   marginBottom: '2rem',
+                                   width: '300px',
+                                   display: 'flex',
+                                   marginLeft: 'auto',
+                                   marginRight: 'auto',
+                              }}
+                         />
+                         <SubTitleContainer>
+                              <SubTitle>
+                                   Lorem ipsum dolor sit amet consectetur
+                                   adipisicing elit. A sit, ratione aut ipsam
+                                   nemo repudiandae. Nemo ab, asperiores magnam
+                                   aperiam tempora perferendis laboriosam
+                                   deserunt minima magni mollitia ipsam sit
+                                   quam.Lorem ipsum dolor sit amet consectetur
+                                   adipisicing elit. A sit, ratione aut ipsam
+                                   nemo repudiandae.Lorem ipsum dolor sit amet
+                                   consectetur adipisicing elit. A sit, ratione
+                                   aut ipsam nemo repudiandae.
+                              </SubTitle>
+                         </SubTitleContainer>
+                         <Divider
+                              sx={{
+                                   marginTop: '2rem',
+                                   marginBottom: '2rem',
+                                   width: '300px',
+                                   display: 'flex',
+                                   marginLeft: 'auto',
+                                   marginRight: 'auto',
+                              }}
+                         />
+                         <StockersContainer>
+                              <StockersFunds>
+                                   Contributions: <br />
+                                   <SpanData>57.900€</SpanData>
+                              </StockersFunds>
+                              <StockersInvestors>
+                                   Stockers: <br />{' '}
+                                   <SpanData>458 stockers</SpanData>
+                              </StockersInvestors>
+                              <StockersTime>
+                                   Time:
+                                   <br />
+                                   <SpanData>46 days more</SpanData>
+                              </StockersTime>
+                         </StockersContainer>
+                         <Divider
+                              sx={{
+                                   marginTop: '2rem',
+                                   marginBottom: '2rem',
+                                   width: '300px',
+                                   display: 'flex',
+                                   marginLeft: 'auto',
+                                   marginRight: 'auto',
+                              }}
+                         />
+                         <LocationContainer>
+                              <LocationCountry>
+                                   <LanguageIcon />
+                                   <SpanLocation>United States</SpanLocation>
+                              </LocationCountry>
+                              <LocationCity>
+                                   <LocationCityIcon />{' '}
+                                   <SpanLocation>New York</SpanLocation>
+                              </LocationCity>
+                         </LocationContainer>
+                    </div>
+               </MainContainerDesktop>
                <Divider
                     sx={{
                          marginTop: '3rem',
