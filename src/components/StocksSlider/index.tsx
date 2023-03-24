@@ -19,16 +19,16 @@ export const DiscreteSlider: FC = () => {
      return (
           <div className={classes.root}>
                <Typography id="discrete-slider-small-steps" gutterBottom>
-                    Small steps
+                    Stocks Per Credit
                </Typography>
                <Slider
-                    defaultValue={0.00000005}
+                    defaultValue={25}
                     getAriaValueText={valuetext}
                     aria-labelledby="discrete-slider-small-steps"
-                    step={100}
+                    step={50}
                     marks
                     min={0}
-                    max={1.0}
+                    max={1000}
                     valueLabelDisplay="auto"
                />
           </div>

@@ -35,3 +35,17 @@ export const TagDiv = styled.div`
      display: flex;
      flex-direction: row;
 `;
+
+export const MaxContainer = styled.div`
+     margin-top: 80px;
+     display: grid;
+     grid-template-columns:1fr 1fr 1fr 1fr;
+     justify-content: center;
+     margin-left:18rem;
+`;
+
+export const SearchDiv = styled.div`
+margin-bottom:3rem;
+`
+export const DiscretDiv = styled.div`
+`

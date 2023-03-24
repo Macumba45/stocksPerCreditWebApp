@@ -1,80 +1,35 @@
-import {FC, memo} from 'react';
-import {makeStyles, Theme, createStyles} from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import Slider from '@material-ui/core/Slider';
-
-const useStyles = makeStyles((theme: Theme) =>
-     createStyles({
-          root: {
-               width: 300,
-          },
-          margin: {
-               height: theme.spacing(3),
-          },
-     })
-);
-
-const marks = [
-     {
-          value: 0,
-          label: '0€',
-     },
-     {
-          value: 20,
-          label: '100€',
-     },
-     {
-          value: 37,
-          label: '300€',
-     },
-     {
-          value: 100,
-          label: '1000€',
-     },
-];
+import Box from '@mui/material/Box';
+import Slider from '@mui/material/Slider';
+import { useState } from 'react';
 
 function valuetext(value: number) {
-     return `${value}€`;
+  return `${value}°C`;
 }
 
-export const MaxDiscreteSlider: FC = () => {
-     const classes = useStyles();
+export default function RangeSlider() {
+  const [value, setValue] = useState<number[]>([0, 5000]);
 
-     return (
-          <div className={classes.root}>
-               <Typography id="discrete-slider-custom" gutterBottom>
-                    Maximum Investement
-               </Typography>
-               <Slider
-                    defaultValue={100}
-                    getAriaValueText={valuetext}
-                    aria-labelledby="discrete-slider-custom"
-                    step={1}
-                    valueLabelDisplay="auto"
-                    marks={marks}
-               />
-          </div>
-     );
-};
+  const handleChange = (event: Event, newValue: number | number[]) => {
+    setValue(newValue as number[]);
+  };
 
-export const MinDiscreteSlider: FC = () => {
-     const classes = useStyles();
+  const handleSliderChangeCommitted = (event: any, newValue: number | number[]) => {
+   };
 
-     return (
-          <div className={classes.root}>
-               <Typography id="discrete-slider-custom" gutterBottom>
-                    Minimun Investement
-               </Typography>
-               <Slider
-                    defaultValue={100}
-                    getAriaValueText={valuetext}
-                    aria-labelledby="discrete-slider-custom"
-                    step={1}
-                    valueLabelDisplay="auto"
-                    marks={marks}
-               />
-          </div>
-     );
-};
-export default memo(MinDiscreteSlider);
-export const MaxDiscreteSliderMemo = memo(MaxDiscreteSlider);
+  return (
+    <Box sx={{ width: 300 }}>
+     <div>
+      <Slider
+        getAriaLabel={() => 'Temperature range'}
+        value={value}
+        onChange={handleChange}
+        onChangeCommitted={handleSliderChangeCommitted}
+        valueLabelDisplay="auto"
+        getAriaValueText={valuetext}
+        max={10000}
+      />
+        <p>Precio: {value[0]}€ / {value[1]}€.</p>
+        </div>
+    </Box>
+  );
+}

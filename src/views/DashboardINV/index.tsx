@@ -6,14 +6,20 @@ import {
      DateContainer,
      TagDiv,
      FiltersDiv,
+     MaxContainer,
+     SearchDiv,
+     DiscretDiv
 } from './styles';
 import {FinishDatePickers, StartDatePickers} from '../../components/DatePicker';
-import {
-     MaxDiscreteSlider,
-     MinDiscreteSlider,
+import CustomizedSlider, {
+     // MaxDiscreteSlider,
+     // MinDiscreteSlider,
 } from '../../components/MoneySlider';
 import Search from '../../components/Search';
 import {DiscreteSlider} from '../../components/StocksSlider';
+import Card from '../../components/CardProjects';
+import RangeSlider from '../../components/MoneySlider';
+
 
 const DashboardINVe: FC = () => {
      return (
@@ -22,8 +28,9 @@ const DashboardINVe: FC = () => {
                     <ResponsiveDrawer />
                     <MinMaxContainer>
                          <FiltersDiv>
-                              <MinDiscreteSlider></MinDiscreteSlider>
-                              <MaxDiscreteSlider></MaxDiscreteSlider>
+                              <RangeSlider></RangeSlider>
+                              {/* <MinDiscreteSlider></MinDiscreteSlider>
+                              <MaxDiscreteSlider></MaxDiscreteSlider> */}
                          </FiltersDiv>
                     </MinMaxContainer>
 
@@ -35,13 +42,213 @@ const DashboardINVe: FC = () => {
                     </DateContainer>
 
                     <TagDiv>
-                         <FiltersDiv>
+                    <FiltersDiv>
+                         <SearchDiv>
                               <Search></Search>
+                              </SearchDiv>
+                              <DiscretDiv>
                               <DiscreteSlider></DiscreteSlider>
-                         </FiltersDiv>
+                              </DiscretDiv>
+                              </FiltersDiv>
                     </TagDiv>
                </Container>
-          </>
+         
+            <MaxContainer>
+            <Card
+                 image={''}
+                 showHeartButton={false}
+                 title={'Mind on me'}
+                 description={
+                      'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                 }
+                 country={'España'}
+                 city={'Madrid'}
+                 categories={'MEDICINA'}
+                 collected={3000}
+                 investors={4000}
+                 minimuminvestment={300}
+                 goals={600}
+                 limitvalue={500}
+            />
+              <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+                      <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+                      <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+                      <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+                      <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+                      <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+                      <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+                    <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+
+                    <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+                    <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+                    <Card
+                         image={''}
+                         showHeartButton={false}
+                         title={'Mind on me'}
+                         description={
+                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
+                         }
+                         country={'España'}
+                         city={'Madrid'}
+                         categories={'MEDICINA'}
+                         collected={3000}
+                         investors={4000}
+                         minimuminvestment={300}
+                         goals={600}
+                         limitvalue={500}
+                    />
+             </MaxContainer>
+             </>
      );
 };
 
