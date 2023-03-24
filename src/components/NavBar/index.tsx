@@ -15,7 +15,6 @@ import { useNavigate } from 'react-router-dom';
 import { LogoStocks } from './styles';
 
 const logo = require('./assets/logo.png');
-const userRole = window.localStorage.getItem('role');
 
 
 const pages = [

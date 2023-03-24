@@ -10,6 +10,7 @@ import DashboardProjectsInvest from '../../views/DashboardInvestments/index';
 import CreateNewProject from '../../views/NewProject/index';
 import NotFound404 from '../../views/NotFound404';
 import Dashboard from '../../views/Dashboard';
+import ProjectDetails from '../../views/ProjectDetails';
 
 const Router: FC = () => {
      const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -69,7 +70,6 @@ const Router: FC = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/welcome" element={<Landing />} />
-
                     <Route
                          path="/dashboard"
                          element={
@@ -86,7 +86,14 @@ const Router: FC = () => {
                               </ProtectedRoutes>
                          }
                     />
-
+                    <Route
+                         path="/projectdetails"
+                         element={
+                              <ProtectedRoutes>
+                                   <ProjectDetails />
+                              </ProtectedRoutes>
+                         }
+                    />
                     <Route path="/profile" element={<Profile />} />
                     <Route path="*" element={<NotFound />} />
                </Routes>
@@ -95,3 +102,6 @@ const Router: FC = () => {
 };
 
 export default memo(Router);
+
+
+
