@@ -6,9 +6,9 @@ import {MainContainer, SearchContainer} from './styles';
 const ProfileDashboard: FC = () => {
      return (
           <MainContainer>
-               <SearchContainer>
+               {/* <SearchContainer>
                     <Search />
-               </SearchContainer>
+               </SearchContainer> */}
                <UserAvatar />
           </MainContainer>
      );
