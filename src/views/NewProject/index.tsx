@@ -1,17 +1,3 @@
-// import {FC, memo} from 'react';
-// import FormProject from '../../components/FormProject';
-
-// const CreateNewProject: FC = () => {
-//      return (
-//           <>
-//                <div>PRUEBA</div>
-//                <FormProject />
-//           </>
-//      );
-// };
-
-// export default memo(CreateNewProject);
-
 import {FC, memo, useCallback, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Formik, Field, Form} from 'formik';
