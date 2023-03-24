@@ -9,6 +9,8 @@ import SignUp from '../../views/Auth/SignUp';
 import NotFound404 from '../../views/NotFound404';
 import Dashboard from '../../views/Dashboard';
 import ProjectDetails from '../../views/ProjectDetails';
+import DashboardInvestment from '../../views/DashboardInvestments/index'
+import FormProject from '../../components/FormProject';
 
 const Router: FC = () => {
      const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -79,7 +81,7 @@ const Router: FC = () => {
                          path="/dashboard/investments"
                          element={
                               <ProtectedRoutes>
-                                   <DashboardProjectsInvest />
+                                   <DashboardInvestment />
                               </ProtectedRoutes>
                          }
                     />
@@ -88,6 +90,14 @@ const Router: FC = () => {
                          element={
                               <ProtectedRoutes>
                                    <ProjectDetails />
+                              </ProtectedRoutes>
+                         }
+                    />
+                    <Route
+                         path="/dashboard/new-project"
+                         element={
+                              <ProtectedRoutes>
+                                   <FormProject />
                               </ProtectedRoutes>
                          }
                     />
