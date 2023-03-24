@@ -1,4 +1,4 @@
-import { FC, memo, useEffect, useState } from 'react';
+import {FC, memo, useEffect, useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,29 +11,27 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router-dom';
-import { LogoStocks } from './styles';
+import {useNavigate} from 'react-router-dom';
+import {LogoStocks} from './styles';
 
 const logo = require('./assets/logo.png');
 
-
 const pages = [
-     { label: 'Login', route: '/login' },
-     { label: 'Signup', route: '/signup' },
+     {label: 'Login', route: '/login'},
+     {label: 'Signup', route: '/signup'},
 ];
 
-const pagesLogged = [
-     { label: 'Dashboard', route: '/dashboard' },
-];
+const pagesLogged = [{label: 'Dashboard', route: '/dashboard'}];
 const settings = [
-
-     { label: 'Profile', route: '/profile' },
-     { label: 'Logout', route: '/logout' }
+     {label: 'Profile', route: '/profile'},
+     {label: 'Logout', route: '/logout'},
 ];
 
 const NavBar: FC = () => {
      const navigate = useNavigate();
-     const [token] = useState<string | null>(window.localStorage.getItem('token'));
+     const [token] = useState<string | null>(
+          window.localStorage.getItem('token')
+     );
      const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
      const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
      const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -64,20 +62,20 @@ const NavBar: FC = () => {
           if (token) {
                setIsAuthenticated(true);
           }
-     }, [token])
+     }, [token]);
 
      if (isAuthenticated) {
           return (
                <AppBar
                     position="fixed"
-                    sx={{ top: 0, backgroundColor: ' #222222' }}
+                    sx={{top: 0, backgroundColor: ' #222222'}}
                >
                     <Container>
                          <Toolbar disableGutters>
                               <Box
                                    sx={{
                                         flexGrow: 1,
-                                        display: { xs: 'flex', md: 'none' },
+                                        display: {xs: 'flex', md: 'none'},
                                    }}
                               >
                                    <IconButton
@@ -105,10 +103,10 @@ const NavBar: FC = () => {
                                         open={Boolean(anchorElNav)}
                                         onClose={handleCloseNavMenu}
                                         sx={{
-                                             display: { xs: 'block', md: 'none' },
+                                             display: {xs: 'block', md: 'none'},
                                         }}
                                    >
-                                        {pagesLogged.map(({ label, route }) => (
+                                        {pagesLogged.map(({label, route}) => (
                                              <MenuItem
                                                   key={label}
                                                   onClick={() =>
@@ -130,7 +128,7 @@ const NavBar: FC = () => {
                                    href="/"
                                    sx={{
                                         mr: 2,
-                                        display: { xs: 'none', md: 'flex' },
+                                        display: {xs: 'none', md: 'flex'},
                                         fontFamily: 'monospace',
                                         fontWeight: 700,
                                         letterSpacing: '.3rem',
@@ -152,7 +150,7 @@ const NavBar: FC = () => {
                                    href=""
                                    sx={{
                                         mr: 2,
-                                        display: { xs: 'flex', md: 'none' },
+                                        display: {xs: 'flex', md: 'none'},
                                         flexGrow: 1,
                                         fontFamily: 'monospace',
                                         fontWeight: 700,
@@ -167,10 +165,10 @@ const NavBar: FC = () => {
                               <Box
                                    sx={{
                                         flexGrow: 1,
-                                        display: { xs: 'none', md: 'flex' },
+                                        display: {xs: 'none', md: 'flex'},
                                    }}
                               >
-                                   {pagesLogged.map(({ label, route }) => (
+                                   {pagesLogged.map(({label, route}) => (
                                         <Button
                                              key={label}
                                              onClick={() =>
@@ -186,11 +184,11 @@ const NavBar: FC = () => {
                                         </Button>
                                    ))}
                               </Box>
-                              <Box sx={{ flexGrow: 0 }}>
+                              <Box sx={{flexGrow: 0}}>
                                    <Tooltip title="">
                                         <IconButton
                                              onClick={handleOpenUserMenu}
-                                             sx={{ p: 0 }}
+                                             sx={{p: 0}}
                                         >
                                              <Avatar
                                                   alt="Remy Sharp"
@@ -199,7 +197,7 @@ const NavBar: FC = () => {
                                         </IconButton>
                                    </Tooltip>
                                    <Menu
-                                        sx={{ mt: '45px' }}
+                                        sx={{mt: '45px'}}
                                         id="menu-appbar"
                                         anchorEl={anchorElUser}
                                         anchorOrigin={{
@@ -214,7 +212,7 @@ const NavBar: FC = () => {
                                         open={Boolean(anchorElUser)}
                                         onClose={handleCloseUserMenu}
                                    >
-                                        {settings.map(({ label, route }) => (
+                                        {settings.map(({label, route}) => (
                                              <MenuItem
                                                   key={label}
                                                   onClick={() =>
@@ -236,7 +234,7 @@ const NavBar: FC = () => {
           return (
                <AppBar
                     position="fixed"
-                    sx={{ top: 0, backgroundColor: ' #222222' }}
+                    sx={{top: 0, backgroundColor: ' #222222'}}
                >
                     <Container maxWidth="xl">
                          <Toolbar disableGutters>
@@ -249,7 +247,7 @@ const NavBar: FC = () => {
                                    href="/"
                                    sx={{
                                         mr: 2,
-                                        display: { xs: 'none', md: 'flex' },
+                                        display: {xs: 'none', md: 'flex'},
                                         flexGrow: 20,
                                         flexDirection: 'flex-end',
                                         fontFamily: 'monospace',
@@ -265,7 +263,7 @@ const NavBar: FC = () => {
                               <Box
                                    sx={{
                                         flexGrow: 1,
-                                        display: { xs: 'flex', md: 'none' },
+                                        display: {xs: 'flex', md: 'none'},
                                    }}
                               >
                                    <IconButton
@@ -293,10 +291,10 @@ const NavBar: FC = () => {
                                         open={Boolean(anchorElNav)}
                                         onClose={handleCloseNavMenu}
                                         sx={{
-                                             display: { xs: 'block', md: 'none' },
+                                             display: {xs: 'block', md: 'none'},
                                         }}
                                    >
-                                        {pages.map(({ label, route }) => (
+                                        {pages.map(({label, route}) => (
                                              <MenuItem
                                                   key={label}
                                                   onClick={() =>
@@ -317,7 +315,7 @@ const NavBar: FC = () => {
                                    href=""
                                    sx={{
                                         mr: 2,
-                                        display: { xs: 'flex', md: 'none' },
+                                        display: {xs: 'flex', md: 'none'},
                                         flexGrow: 1,
                                         fontFamily: 'monospace',
                                         fontWeight: 700,
@@ -331,10 +329,10 @@ const NavBar: FC = () => {
                               <Box
                                    sx={{
                                         flexGrow: 1,
-                                        display: { xs: 'none', md: 'flex' },
+                                        display: {xs: 'none', md: 'flex'},
                                    }}
                               >
-                                   {pages.map(({ label, route }) => (
+                                   {pages.map(({label, route}) => (
                                         <Button
                                              key={label}
                                              onClick={() =>

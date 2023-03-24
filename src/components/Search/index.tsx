@@ -5,22 +5,34 @@ import {Props} from './type';
 const Search: FC = () => {
      const tags: Props[] = [
           {
-               tag: 'Electronic',
+               tag: 'Arte',
           },
           {
-               tag: 'Mobile',
+               tag: 'Ilustraciones',
           },
           {
-               tag: 'Film',
+               tag: 'Tecnología',
           },
           {
-               tag: 'Travel',
+               tag: 'Cine',
           },
           {
-               tag: 'Business',
+               tag: 'Deportes',
           },
           {
-               tag: 'Audio',
+               tag: 'Videojuegos',
+          },
+          {
+               tag: 'Música',
+          },
+          {
+               tag: 'Salud',
+          },
+          {
+               tag: 'Diseño',
+          },
+          {
+               tag: 'Comida',
           },
      ];
 

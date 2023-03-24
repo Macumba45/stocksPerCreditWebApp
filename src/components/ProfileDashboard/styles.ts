@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const MainContainer = styled.div`
      display: flex;
+     justify-content:flex-end;
      /* background-color: white; */
      min-width: 180px;
      height: 50px;
