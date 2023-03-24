@@ -23,7 +23,7 @@ const pages = [
 ];
 
 const pagesLogged = [
-     { label: 'Dashboard', route: '/' },
+     { label: 'Dashboard', route: '/dashboard' },
 ];
 const settings = [
 

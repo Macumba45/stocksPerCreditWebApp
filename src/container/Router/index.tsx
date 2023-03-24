@@ -6,8 +6,6 @@ import Landing from '../../views/Landing';
 import Profile from '../../views/Profile';
 import Login from '../../views/Auth/Login';
 import SignUp from '../../views/Auth/SignUp';
-import DashboardProjectsInvest from '../../views/DashboardInvestments/index';
-import CreateNewProject from '../../views/NewProject/index';
 import NotFound404 from '../../views/NotFound404';
 import Dashboard from '../../views/Dashboard';
 import ProjectDetails from '../../views/ProjectDetails';
@@ -69,7 +67,6 @@ const Router: FC = () => {
                     <Route path="/" element={<Landing />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
-                    <Route path="/welcome" element={<Landing />} />
                     <Route
                          path="/dashboard"
                          element={
