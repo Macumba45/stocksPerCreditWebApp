@@ -2,46 +2,84 @@ import styled from 'styled-components';
 
 export const FooterContainer = styled.div`
      background-color: ${({ theme }) => theme.colors.secondary};
+   
 `;
 
 export const FooterSection = styled.div`
      padding: 4rem 4rem;
-     display: flex;
-     justify-content: space-between;
+
+    
+    
 `;
 export const FooterLinks = styled.div`
      display: flex;
-     justify-content: space-around;
      align-items: flex-start;
      flex-direction: row;
      flex-wrap: wrap;
      width: 100%;
      text-align: left;
      margin-bottom: 2rem;
+
+     @media screen and (min-width:600px) {
+
+         
+
+
+
+
+
+}
+    
 `;
 export const FooterAboutUsDiv = styled.div`
-     color: ${({theme}) => theme.colors.light};
-     font-family: ${({theme}) => theme.fonts.primary};
-     margin-left: -18.75rem;
+     color: ${({ theme }) => theme.colors.light};
+     font-family: ${({ theme }) => theme.fonts.primary};
+margin-bottom: 2rem;
+margin-right: 40rem;
+
+     @media screen and (min-width:600px) {
+
+         
+display: flex;
+flex-direction: column;
+
+
+
+
+}
 `;
 
 export const FooterLinksDiv = styled.div`
      width: 9.4rem;
      display: flex;
-     flex-direction: row;
+     flex-direction: column;
+     margin-right: 10rem;
      color: ${({ theme }) => theme.colors.light};
      font-family: ${({ theme }) => theme.fonts.primary};
+
+     @media screen and (min-width:600px) {
+
+         
+          flex-direction: row;
+        
+
+         
+
+
+}
+     
 `;
 export const InvestDiv = styled.div`
-     margin: 0 1rem;
+     margin: 1.2rem 1rem;
+     
 `;
 
 export const EmpDiv = styled.div`
-     margin: 0 1rem;
+     margin: 1.2rem 1rem;
 `;
 
 export const UsDiv = styled.div`
-     margin: 0 1rem;
+     margin: 1.2rem 1rem;
 `;
 
 export const SocialMedia = styled.div`
