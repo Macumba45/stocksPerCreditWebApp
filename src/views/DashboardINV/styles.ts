@@ -5,7 +5,7 @@ export const Container = styled.div`
      flex-wrap: wrap;
      margin-top: 5rem;
      @media (min-width: 600px) {
-          background-color: ${({theme}) => theme.colors.light};
+          background-color: ${({ theme }) => theme.colors.light};
           width: 100%;
           /* height: 200vh; */
      }
@@ -38,10 +38,13 @@ export const TagDiv = styled.div`
 
 export const MaxContainer = styled.div`
      margin-top: 80px;
-     display: grid;
-     grid-template-columns:1fr 1fr 1fr 1fr;
+     display: flex;
+    flex-wrap: wrap;
      justify-content: center;
      margin-left:18rem;
+     @media (max-width: 600px) {
+          margin-left:1rem;
+     }
 `;
 
 export const SearchDiv = styled.div`

@@ -1,10 +1,15 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import NavBar from '../../components/NavBar';
 import VideoHeader from '../../components/VideoHeader';
 import TabsDetails from '../../components/TabsDetails';
 import LanguageIcon from '@mui/icons-material/Language';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
+import LinearWithValueLabel from '../../components/ProgressLinear';
+import { Divider } from '@mui/material';
+
+
 import {
+     LinearProgress,
      LocationCity,
      LocationContainer,
      LocationCountry,
@@ -21,7 +26,6 @@ import {
      Title,
      TitleContainer,
 } from './styles';
-import {Divider} from '@mui/material';
 
 const ProjectDetails: FC = () => {
      const videoProject =
@@ -33,7 +37,7 @@ const ProjectDetails: FC = () => {
                     <div>
                          <VideoHeader src={videoProject} />
                     </div>
-                    <div style={{marginTop: '3rem'}}>
+                    <div style={{ marginTop: '3rem' }}>
                          <TitleContainer>
                               <Title>
                                    Lorem ipsum dolor sit amet consectetur
@@ -112,6 +116,20 @@ const ProjectDetails: FC = () => {
                          </LocationContainer>
                     </div>
                </MainContainerDesktop>
+               <Divider
+                    sx={{
+                         marginTop: '3rem',
+                         marginBottom: '3rem',
+                         width: '300px',
+                         display: 'flex',
+                         marginLeft: 'auto',
+                         marginRight: 'auto',
+                    }}
+               />
+               <LinearProgress>     <LinearWithValueLabel
+                    min={0}
+                    max={100} /></LinearProgress>
+
                <Divider
                     sx={{
                          marginTop: '3rem',

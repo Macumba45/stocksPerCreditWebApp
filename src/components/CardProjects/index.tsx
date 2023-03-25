@@ -1,4 +1,4 @@
-import {useState, memo} from 'react';
+import { useState, memo } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -48,7 +48,8 @@ import {
      Menu,
      MenuItem,
 } from './styles';
-import {useLocation} from 'react-router';
+import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const style = {
      position: 'absolute' as 'absolute',
@@ -94,6 +95,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
      const [liked, setLiked] = useState(false);
      const [open, setOpen] = React.useState(false);
+     const navigate = useNavigate()
      const handleOpen = () => setOpen(true);
      const handleClose = () => setOpen(false);
      const [showMenu, setShowMenu] = useState(false);
@@ -109,9 +111,19 @@ const Card: React.FC<CardProps> = ({
           setShowMenu(!showMenu);
      };
 
+     const handleMouseOver = () => {
+
+          setOpen(true);
+
+     };
+
+     const handleGoDetails = () => {
+          navigate('/projectdetails')
+     };
+
      return (
           <CardContainer>
-               <ContainerImg>
+               <ContainerImg >
                     <Image src={image} />
                </ContainerImg>
                <ContainerButton>
@@ -140,8 +152,8 @@ const Card: React.FC<CardProps> = ({
                <div>
                     <ContainerButtonModal>
                          <Button
-                              sx={{color: '#7E1B75', marginBottom: '12px'}}
-                              onClick={handleOpen}
+                              sx={{ color: '#7E1B75', marginBottom: '12px' }}
+                              onClick={handleGoDetails}
                          >
                               More Info
                          </Button>

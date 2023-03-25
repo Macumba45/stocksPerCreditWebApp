@@ -12,17 +12,20 @@ export const VideoContainer = styled.div`
      width: 100%;
      /* height: 300px; */
      /* background-color: black; */
-     margin-left: 1rem;
+     margin-left: 0rem;
      margin-top: 3.5rem;
      @media screen and (min-width: 600px) {
           /* height: 600px; */
           margin-top: 6rem;
           width: 100%;
           display: flex;
+          margin-left: 1rem;
+
      }
 `;
 export const VideoIframe = styled.iframe`
      height: 600px;
+     border-radius: 5px;
      @media screen and (max-width: 600px) {
           height: 300px;
      }

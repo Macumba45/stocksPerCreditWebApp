@@ -17,7 +17,7 @@ export const TitleContainer = styled.div`
      margin-bottom: 2rem;
      margin-top: 2rem;
      margin-right: 2rem;
-     width: 400px;
+     max-width: 600px;
 `;
 
 export const Title = styled.h1`
@@ -100,6 +100,22 @@ export const LocationContainer = styled.div`
      justify-content: center;
      align-items: center;
 `;
+
+
+export const LinearProgress = styled.div`
+
+width: 300px;
+margin:0 auto;
+
+@media screen and (min-width: 600px) {
+     
+          width: 600px;
+     }
+
+
+
+
+`
 
 export const LocationCountry = styled.div`
      font-family: ${({ theme }) => theme.fonts.primary};
