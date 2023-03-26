@@ -42,7 +42,7 @@ export const FinishDatePickers: FC = () => {
           <form className={classes.container} noValidate>
                <TextField
                     id="date"
-                    label="Finish Date"
+                    label="Return of investment"
                     type="date"
                     defaultValue="2023-03-24"
                     className={classes.textField}
