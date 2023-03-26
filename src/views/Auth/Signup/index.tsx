@@ -37,9 +37,9 @@ const SignUp: FC = () => {
                try {
                     const response: Response = await hadledSubmitSignup(values);
                     if (response.ok) {
-                         const token = '12345';
+                         const token =  await response.json();
                          setAuthenticatedToken(token);
-                         setUserRole(values.role);
+                         setUserRole(values.userRol);
                          navigate('/');
                     }
                } catch (error: any) {
@@ -63,7 +63,7 @@ const SignUp: FC = () => {
                               <RadioInput
                                    type="radio"
                                    id={option.value}
-                                   name="role"
+                                   name="userRol"
                                    value={option.value}
                                    checked={value === option.value}
                                    onChange={onChange}
@@ -201,7 +201,7 @@ const SignUp: FC = () => {
                                         </NameContainer>
                                    )}
                               </Field>
-                              <Field name="role">
+                              <Field name="userRol">
                                    {({field, meta}: FieldProps) => (
                                         <NameContainer>
                                              <LabelContainer>
