@@ -1,8 +1,26 @@
 import {FC, memo, useState} from 'react';
 import Autocomplete from '@mui/joy/Autocomplete';
 import {Props} from './type';
+import {makeStyles} from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+     autocomplete: {
+       width: '270px',
+       backgroundColor:'#7E1B75',
+       marginLeft: 0,
+       zIndex: 99,
+       '& .MuiAutocomplete-option:hover': {
+         backgroundColor: '#7E1B75',
+         color: 'white',
+         borderColor: '#7E1B75'
+       }
+     },
+   });
 
 const Search: FC = () => {
+     const classes = useStyles();
+     
+
      const tags: Props[] = [
           {
                tag: 'Arte',
@@ -40,7 +58,19 @@ const Search: FC = () => {
 
      return (
           <Autocomplete
-               sx={{width: '270px', marginLeft: 0, zIndex: 99}}
+          className={classes.autocomplete}
+
+               sx={{
+                    width: '270px',
+                    marginLeft: 0,
+                    zIndex: 99,
+                    // '& .MuiAutocomplete-option:hover': {
+                    //      backgroundColor: '#7E1B75 !important', // reemplazar con tu color de fondo deseado
+                    //      color: 'white',
+                    //      ":focus":'#7E1B75' // reemplazar con tu color de texto deseado
+                    // },
+                    
+               }}
                multiple
                id="tags-default"
                options={tags}

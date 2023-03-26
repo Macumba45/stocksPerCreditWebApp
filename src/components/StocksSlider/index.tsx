@@ -7,6 +7,20 @@ const useStyles = makeStyles({
   root: {
     width: 300,
   },
+  slider: {
+    "& .MuiSlider-thumb": {
+      backgroundColor: "#7E1B75" 
+    },
+    "& .MuiSlider-track": {
+      backgroundColor: "#7E1B75" 
+    },
+    "& .MuiSlider-rail": {
+      backgroundColor: "#7E1B75" 
+    },
+    "& .MuiSlider-valueLabel": {
+      color: "#7E1B75" // Cambia el color del texto de la etiqueta a naranja
+    }
+  }
 });
 
 function valuetext(value: number) {
@@ -15,7 +29,7 @@ function valuetext(value: number) {
 
 export const DiscreteSlider: FC = () => {
   const classes = useStyles();
-  const [value, setValue] = useState<number>(25);
+  const [value, setValue] = useState<number>(1);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
      const newValue = parseFloat(event.target.value);
@@ -42,6 +56,7 @@ export const DiscreteSlider: FC = () => {
         min={0}
         max={10}
         valueLabelDisplay="auto"
+        classes={{ root: classes.slider }}
       />
       <input
         type="text"

@@ -21,6 +21,7 @@ const theme = {
           secondary: 'Open Sans, sans-serif',
           display: 'Montserrat, sans-serif',
           body: 'Noto Sans, sans-serif',
+          diseñadora:'Proxima Nova'
      },
      fontWeights: {
           light: '100',

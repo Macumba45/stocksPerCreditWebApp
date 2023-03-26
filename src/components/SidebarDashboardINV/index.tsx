@@ -12,15 +12,29 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PaymentIcon from '@mui/icons-material/Payment';
-import FeedIcon from '@mui/icons-material/Feed';
 import Typography from '@mui/material/Typography';
 import {FC, memo, useState} from 'react';
 import React from 'react';
 import {Container, ContainerLogo, ContainerProfile, LogoStocks} from './styles';
 import {Link} from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
+import { makeStyles } from '@material-ui/core/styles';
+
 
 const drawerWidth = 240;
+
+const useStyles = makeStyles((theme) => ({
+     drawer: {
+       width: drawerWidth,
+       flexShrink: 0,
+       backgroundColor: 'red' // Cambia el color de fondo a rojo
+     },
+     drawerPaper: {
+       width: drawerWidth,
+       backgroundColor: 'red' // Cambia el color de fondo a rojo
+     },
+     toolbar: theme.mixins.toolbar,
+   }));
 
 interface Props {
      /**
@@ -70,16 +84,17 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                         cursor: 'pointer',
                                         '&:hover': {
                                              backgroundColor: 'lightgray',
+                                             fontFamily:'Proxima Nova'
                                         },
                                    }}
                                    button
                                    component={Link}
                                    to={link}
                               >
-                                   <ListItemIcon sx={{marginLeft: 2}}>
+                                   <ListItemIcon style={{color: 'white',}} sx={{marginLeft: 2}}>
                                         {React.createElement(IconComponent)}
                                    </ListItemIcon>
-                                   <ListItemText primary={text} />
+                                   <ListItemText primary={text} primaryTypographyProps={{ color: 'white' }} />
                               </ListItem>
                          )
                     )}
@@ -99,7 +114,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     }}
                >
                     <Toolbar
-                         sx={{justifyContent: 'space-between', height: '80px'}}
+                         sx={{justifyContent: 'space-between',backgroundColor:'#7E1B75', height: '120px'}}
                     >
                          <IconButton
                               color="inherit"
@@ -114,14 +129,14 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               variant="h6"
                               noWrap
                               component="div"
+                              style={{fontFamily:'Proxima Nova'}}
                               sx={{
                                    '@media screen and (max-width: 800px)': {
                                         display: 'none',
                                    },
                               }}
                          >
-                              Stocks Dashboard - Investor
-                         </Typography>
+Todas tus inversiones a tu disposición.<br/> Chequea los proyectos en los que has invertido<br/> y lánzate a por nuevos retos.                         </Typography>
                          <ContainerProfile>
                               <ProfileDashboard />
                          </ContainerProfile>
@@ -158,6 +173,8 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               '& .MuiDrawer-paper': {
                                    boxSizing: 'border-box',
                                    width: drawerWidth,
+                                   backgroundColor:'#343a40'
+
                               },
                          }}
                          open

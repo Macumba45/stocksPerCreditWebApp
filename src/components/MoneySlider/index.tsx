@@ -1,38 +1,3 @@
-// import Box from '@mui/material/Box';
-// import Slider from '@mui/material/Slider';
-// import { useState } from 'react';
-
-// function valuetext(value: number) {
-//   return `${value}€`;
-// }
-
-// export default function RangeSlider() {
-//   const [value, setValue] = useState<number[]>([0, 5000]);
-
-//   const handleChange = (event: Event, newValue: number | number[]) => {
-//     setValue(newValue as number[]);
-//   };
-
-//   const handleSliderChangeCommitted = (event: any, newValue: number | number[]) => {
-//    };
-
-//   return (
-//     <Box sx={{ width: 300 }}>
-//      <div>
-//       <Slider
-//         getAriaLabel={() => 'Money range'}
-//         value={value}
-//         onChange={handleChange}
-//         onChangeCommitted={handleSliderChangeCommitted}
-//         valueLabelDisplay="auto"
-//         getAriaValueText={valuetext}
-//         max={10000}
-//       />
-//         <p>Precio: {value[0]}€ / {value[1]}€.</p>
-//         </div>
-//     </Box>
-//   );
-// }
 
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
@@ -64,6 +29,21 @@ export default function RangeSlider() {
     <Box sx={{ width: 300 }}>
      <RangeSliderDiv>
       <Slider
+       sx={{
+        color: '#7E1B75',
+        '& .MuiSlider-thumb': {
+          backgroundColor: '#7E1B75',
+          "& .MuiSlider-track":{
+            backgroundColor: "#7E1B75"
+          },
+          "& .MuiSlider-rail": {
+            backgroundColor: "#7E1B75" 
+          },
+          "& .MuiSlider-valueLabel": {
+            color: "white" 
+          }
+        },
+      }}
         getAriaLabel={() => 'Money range'}
         value={value}
         onChange={handleChange}
@@ -73,7 +53,7 @@ export default function RangeSlider() {
         max={10000}
       />
       <InputContainer>
-        <MinLabel htmlFor="lower-input">Precio mínimo:</MinLabel>
+        <MinLabel htmlFor="lower-input">Mínimo:</MinLabel>
         <input
           id="lower-input"
           type="number"
@@ -82,7 +62,7 @@ export default function RangeSlider() {
         />
       </InputContainer>
       <InputContainer>
-        <MaxLabel htmlFor="upper-input">Precio máximo:</MaxLabel>
+        <MaxLabel htmlFor="upper-input">Máximo:</MaxLabel>
         <input
           id="upper-input"
           type="number"
