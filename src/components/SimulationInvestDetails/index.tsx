@@ -1,5 +1,5 @@
 import { FC, memo, useState } from "react";
-import { TextField, Select, MenuItem, InputLabel, Button, Box } from "@material-ui/core";
+import { TextField, Select, MenuItem, Button } from "@material-ui/core";
 import { CurrencySimulationContainer, InputLabelStyled, LabelSimulation, LabelSimulationContainer, MainContainer, MainContainerButtonSimulation, MainContainerSimulation, SpanTotal, TitleSimulation, TitleSimulationContainer, TotalActions } from "./styles";
 
 
@@ -78,4 +78,7 @@ const CalculadoraAcciones: FC = () => {
     );
 }
 
+
+
 export default memo(CalculadoraAcciones)
+

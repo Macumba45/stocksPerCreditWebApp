@@ -1,6 +1,7 @@
-import {FC, memo} from 'react';
+import { Fab } from '@mui/material';
+import { FC, memo, useCallback, useEffect, useState } from 'react';
 import {
-     FeaturedImg,
+
      MainContainer,
      ContainerText,
      ContainerImg,
@@ -10,16 +11,35 @@ import {
      ButtonContainer,
      ButtonSimulation,
 } from './styles';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import { useNavigate } from 'react-router-dom';
 
 const FeaturedCard: FC = () => {
+     const navigate = useNavigate();
+     const [token] = useState<string | null>(
+          window.localStorage.getItem('token')
+     );
+     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+
+     useEffect(() => {
+          if (token) {
+               setIsAuthenticated(true);
+          }
+     }, [token]);
+
+     const goDashboard = useCallback(() => {
+
+          navigate('/dashboard');
+     }, [navigate])
+
      return (
           <MainContainer>
                <ContainerText>
                     <Title>
                          <SpanFeatured>
-                              Inversores y emprendedores {<br />} conectados
+                              Inversores y emprendedores conectados
                          </SpanFeatured>{' '}
-                         para un {<br />} futuro mejor
+                         {<br />}para un futuro mejor
                     </Title>
                     <SubTitle>
                          Encuentra la startup en la que quieres invertir con el
@@ -27,6 +47,11 @@ const FeaturedCard: FC = () => {
                     </SubTitle>
                     <ButtonContainer>
                          <ButtonSimulation>Start</ButtonSimulation>
+                         {isAuthenticated && (
+                              <Fab onClick={goDashboard} size="small" sx={{ position: 'fixed', bottom: '2rem', right: 0, marginRight: '3rem', backgroundColor: '#7E1B75' }} color="primary" aria-label="add">
+                                   <DashboardIcon />
+                              </Fab>
+                         )}
                     </ButtonContainer>
                </ContainerText>
                <ContainerImg></ContainerImg>

@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import DashboardLanding from '../../components/DashboardLanding';
 import FeaturedCard from '../../components/FeaturedCard';
 import FirsTimeStocks from '../../components/FirsTimeStocks';
