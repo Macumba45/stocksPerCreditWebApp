@@ -103,8 +103,7 @@ const TabsDetails: FC = () => {
                 >
                     <Tab>Campagin</Tab>
                     <Tab>Pictures</Tab>
-                    <Tab>Rewards</Tab>
-                    <Tab>FAQ</Tab>
+                    <Tab>FAQS</Tab>
                 </TabList>
                 <TabPanel value={0}>
                     <CampaignTab />
@@ -124,9 +123,6 @@ const TabsDetails: FC = () => {
                     ))}
                 </TabPanel>
                 <TabPanel value={2}>
-                    <RewardsTab />
-                </TabPanel>
-                <TabPanel value={3}>
                     <FaqTab />
                 </TabPanel>
             </Tabs>

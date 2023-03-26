@@ -23,10 +23,15 @@ import {
      StockersFunds,
      StockersInvestors,
      StockersTime,
+     StockersTitles,
      SubTitle,
      SubTitleContainer,
+     SubTitleInvest,
+     SubTitleInvestContainer,
      Title,
      TitleContainer,
+     TitleInvest,
+     TitleInvestContainer,
 } from './styles';
 import ButtonInvest from '../../components/ButtonInvest';
 
@@ -72,7 +77,26 @@ const ProjectDetails: FC = () => {
                                    aut ipsam nemo repudiandae.
                               </SubTitle>
                          </SubTitleContainer>
+                         <Divider
+                              sx={{
+                                   marginTop: '3rem',
+                                   marginBottom: '2rem',
+                                   width: '300px',
+                                   display: 'flex',
+                                   marginLeft: 'auto',
+                                   marginRight: 'auto',
+                              }}
+                         />
                          <MainInvestContainer>
+                              <TitleInvestContainer>
+                                   <TitleInvest>
+                                        Invest in this project
+                                   </TitleInvest>
+                              </TitleInvestContainer>
+                              <SubTitleInvestContainer>
+                                   <SubTitleInvest>
+                                        Este proyecto sólo será financiado si alcanza la meta antes del lun, 27 de marzo de 2023 15:08 CEST.                                   </SubTitleInvest>
+                              </SubTitleInvestContainer>
                               <ButtonContainer>
                                    <ButtonInvest />
                               </ButtonContainer>
@@ -83,7 +107,7 @@ const ProjectDetails: FC = () => {
                <Divider
                     sx={{
                          marginTop: '3rem',
-                         marginBottom: '2rem',
+                         marginBottom: '3rem',
                          width: '300px',
                          display: 'flex',
                          marginLeft: 'auto',
@@ -92,23 +116,29 @@ const ProjectDetails: FC = () => {
                />
                <StockersContainer>
                     <StockersFunds>
-                         Contributions: <br />
+                         <StockersTitles>
+                              Contributions:
+                         </StockersTitles>
                          <SpanData>57.900€</SpanData>
                     </StockersFunds>
                     <StockersInvestors>
-                         Stockers: <br />{' '}
+                         <StockersTitles>
+                              Stockers:
+                         </StockersTitles>{' '}
                          <SpanData>458 stockers</SpanData>
                     </StockersInvestors>
                     <StockersTime>
-                         Time:
-                         <br />
+                         <StockersTitles>
+                              Time:
+                         </StockersTitles>
+
                          <SpanData>46 days more</SpanData>
                     </StockersTime>
                </StockersContainer>
                <Divider
                     sx={{
-                         marginTop: '2rem',
-                         marginBottom: '2rem',
+                         marginTop: '3rem',
+                         marginBottom: '3rem',
                          width: '300px',
                          display: 'flex',
                          marginLeft: 'auto',
@@ -128,7 +158,7 @@ const ProjectDetails: FC = () => {
                </LocationContainer>
                <Divider
                     sx={{
-                         marginTop: '2rem',
+                         marginTop: '3rem',
                          marginBottom: '3rem',
                          width: '300px',
                          display: 'flex',
@@ -144,7 +174,7 @@ const ProjectDetails: FC = () => {
 
                <Divider
                     sx={{
-                         marginTop: '3rem',
+                         marginTop: '6rem',
                          marginBottom: '3rem',
                          width: '300px',
                          display: 'flex',
