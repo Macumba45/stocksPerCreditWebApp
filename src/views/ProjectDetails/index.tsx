@@ -9,12 +9,14 @@ import { Divider } from '@mui/material';
 
 
 import {
+     ButtonContainer,
      LinearProgress,
      LocationCity,
      LocationContainer,
      LocationCountry,
      MainContainer,
      MainContainerDesktop,
+     MainInvestContainer,
      SpanData,
      SpanLocation,
      StockersContainer,
@@ -26,6 +28,7 @@ import {
      Title,
      TitleContainer,
 } from './styles';
+import ButtonInvest from '../../components/ButtonInvest';
 
 const ProjectDetails: FC = () => {
      const videoProject =
@@ -69,56 +72,63 @@ const ProjectDetails: FC = () => {
                                    aut ipsam nemo repudiandae.
                               </SubTitle>
                          </SubTitleContainer>
-                         <Divider
-                              sx={{
-                                   marginTop: '2rem',
-                                   marginBottom: '2rem',
-                                   width: '300px',
-                                   display: 'flex',
-                                   marginLeft: 'auto',
-                                   marginRight: 'auto',
-                              }}
-                         />
-                         <StockersContainer>
-                              <StockersFunds>
-                                   Contributions: <br />
-                                   <SpanData>57.900€</SpanData>
-                              </StockersFunds>
-                              <StockersInvestors>
-                                   Stockers: <br />{' '}
-                                   <SpanData>458 stockers</SpanData>
-                              </StockersInvestors>
-                              <StockersTime>
-                                   Time:
-                                   <br />
-                                   <SpanData>46 days more</SpanData>
-                              </StockersTime>
-                         </StockersContainer>
-                         <Divider
-                              sx={{
-                                   marginTop: '2rem',
-                                   marginBottom: '2rem',
-                                   width: '300px',
-                                   display: 'flex',
-                                   marginLeft: 'auto',
-                                   marginRight: 'auto',
-                              }}
-                         />
-                         <LocationContainer>
-                              <LocationCountry>
-                                   <LanguageIcon />
-                                   <SpanLocation>United States</SpanLocation>
-                              </LocationCountry>
-                              <LocationCity>
-                                   <LocationCityIcon />{' '}
-                                   <SpanLocation>New York</SpanLocation>
-                              </LocationCity>
-                         </LocationContainer>
+                         <MainInvestContainer>
+                              <ButtonContainer>
+                                   <ButtonInvest />
+                              </ButtonContainer>
+                         </MainInvestContainer>
+
                     </div>
                </MainContainerDesktop>
                <Divider
                     sx={{
                          marginTop: '3rem',
+                         marginBottom: '2rem',
+                         width: '300px',
+                         display: 'flex',
+                         marginLeft: 'auto',
+                         marginRight: 'auto',
+                    }}
+               />
+               <StockersContainer>
+                    <StockersFunds>
+                         Contributions: <br />
+                         <SpanData>57.900€</SpanData>
+                    </StockersFunds>
+                    <StockersInvestors>
+                         Stockers: <br />{' '}
+                         <SpanData>458 stockers</SpanData>
+                    </StockersInvestors>
+                    <StockersTime>
+                         Time:
+                         <br />
+                         <SpanData>46 days more</SpanData>
+                    </StockersTime>
+               </StockersContainer>
+               <Divider
+                    sx={{
+                         marginTop: '2rem',
+                         marginBottom: '2rem',
+                         width: '300px',
+                         display: 'flex',
+                         marginLeft: 'auto',
+                         marginRight: 'auto',
+                    }}
+               />
+
+               <LocationContainer>
+                    <LocationCountry>
+                         <LanguageIcon />
+                         <SpanLocation>United States</SpanLocation>
+                    </LocationCountry>
+                    <LocationCity>
+                         <LocationCityIcon />{' '}
+                         <SpanLocation>New York</SpanLocation>
+                    </LocationCity>
+               </LocationContainer>
+               <Divider
+                    sx={{
+                         marginTop: '2rem',
                          marginBottom: '3rem',
                          width: '300px',
                          display: 'flex',
@@ -126,9 +136,11 @@ const ProjectDetails: FC = () => {
                          marginRight: 'auto',
                     }}
                />
-               <LinearProgress>     <LinearWithValueLabel
-                    min={0}
-                    max={100} /></LinearProgress>
+               <LinearProgress>
+                    <LinearWithValueLabel
+                         min={0}
+                         max={100} />
+               </LinearProgress>
 
                <Divider
                     sx={{

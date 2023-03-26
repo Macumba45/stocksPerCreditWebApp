@@ -117,8 +117,10 @@ const TabsDetails: FC = () => {
                         justifyContent: 'center',
                     }}
                 >
-                    {itemData.map((item) => (
-                        <CustomImageList image={item.img} />
+                    {itemData.map((item, index) => (
+                        <CustomImageList
+                            key={index}
+                            image={item.img} />
                     ))}
                 </TabPanel>
                 <TabPanel value={2}>

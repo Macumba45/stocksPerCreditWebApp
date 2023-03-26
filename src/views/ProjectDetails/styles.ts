@@ -55,6 +55,20 @@ export const SubTitle = styled.h3`
      line-height: 1.8rem;
 `;
 
+export const MainInvestContainer = styled.div`
+
+display: flex;
+justify-content: center;
+
+`
+
+export const ButtonContainer = styled.div`
+
+display: flex;
+justify-content: center;
+
+`
+
 export const StockersContainer = styled.div`
      display: flex;
      justify-content: center;
