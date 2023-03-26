@@ -28,11 +28,7 @@ export const hadledSubmitSignup = async (values: SignUpProps) => {
                headers: {
                     'Content-Type': 'application/json',
                },
-               body: JSON.stringify({
-                    name: values.name,
-                    email: values.email,
-                    password: values.password,
-               }),
+               body: JSON.stringify(values),
           });
           return response;
      } catch (error: any) {

@@ -1,6 +1,9 @@
+import { UserRole } from "../../../models/user";
+
 export type Props = {
      email?: string;
      password?: string;
+
 };
 
 export type FieldProps = {

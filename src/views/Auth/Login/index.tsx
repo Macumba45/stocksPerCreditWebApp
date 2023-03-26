@@ -33,10 +33,8 @@ const Login: FC<Props> = () => {
                     const response: Response = await handledSubmitLogin(values);
 
                     if (response.ok) {
-                         // const data = await response.json();
-                         const data = '12345';
+                          const data = await response.json();
                          setAuthenticatedToken(data);
-                         setUserRole(UserRole.ENTREPRENEUR);
                          navigate('/');
                     }
                     if (response.status === 500) {
