@@ -6,10 +6,14 @@ import LanguageIcon from '@mui/icons-material/Language';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import LinearWithValueLabel from '../../components/ProgressLinear';
 import { Divider } from '@mui/material';
+import ButtonInvest from '../../components/ButtonInvest';
+import CalculadoraAcciones from '../../components/SimulationInvestDetails'
+
 
 
 import {
      ButtonContainer,
+     CalculadoraAccionesContainer,
      LinearProgress,
      LocationCity,
      LocationContainer,
@@ -17,6 +21,7 @@ import {
      MainContainer,
      MainContainerDesktop,
      MainInvestContainer,
+     MainInvestContainerFlex,
      SpanData,
      SpanLocation,
      StockersContainer,
@@ -33,7 +38,6 @@ import {
      TitleInvest,
      TitleInvestContainer,
 } from './styles';
-import ButtonInvest from '../../components/ButtonInvest';
 
 const ProjectDetails: FC = () => {
      const videoProject =
@@ -88,20 +92,37 @@ const ProjectDetails: FC = () => {
                               }}
                          />
                          <MainInvestContainer>
-                              <TitleInvestContainer>
-                                   <TitleInvest>
-                                        Invest in this project
-                                   </TitleInvest>
-                              </TitleInvestContainer>
-                              <SubTitleInvestContainer>
-                                   <SubTitleInvest>
-                                        Este proyecto sólo será financiado si alcanza la meta antes del lun, 27 de marzo de 2023 15:08 CEST.                                   </SubTitleInvest>
-                              </SubTitleInvestContainer>
-                              <ButtonContainer>
-                                   <ButtonInvest />
-                              </ButtonContainer>
+                              <MainInvestContainerFlex>
+                                   <TitleInvestContainer>
+                                        <TitleInvest>
+                                             Invest in this project
+                                        </TitleInvest>
+                                   </TitleInvestContainer>
+                                   <SubTitleInvestContainer>
+                                        <SubTitleInvest>
+                                             This project will only be funded if it reaches its goal before Mon, March 27, 2023 3:08 PM CEST.
+                                        </SubTitleInvest>
+                                   </SubTitleInvestContainer>
+                                   <ButtonContainer>
+                                        <ButtonInvest />
+                                   </ButtonContainer>
+                              </MainInvestContainerFlex>
+                              {/* <Divider
+                                   sx={{
+                                        marginTop: '3rem',
+                                        marginBottom: '3rem',
+                                        width: '300px',
+                                        display: 'flex',
+                                        marginLeft: 'auto',
+                                        marginRight: 'auto',
+                                   }}
+                              /> */}
+                              <MainInvestContainerFlex>
+                                   <CalculadoraAccionesContainer>
+                                        <CalculadoraAcciones />
+                                   </CalculadoraAccionesContainer>
+                              </MainInvestContainerFlex>
                          </MainInvestContainer>
-
                     </div>
                </MainContainerDesktop>
                <Divider

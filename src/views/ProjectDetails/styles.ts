@@ -6,7 +6,7 @@ export const MainContainerDesktop = styled.div`
      display: flex;
      width: 100%;
 
-     @media screen and (max-width: 600px) {
+     @media screen and (max-width: 1000px) {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -56,10 +56,19 @@ export const SubTitle = styled.h3`
 `;
 
 export const MainInvestContainer = styled.div`
-
-
+/* display: flex; */
 
 `
+export const MainInvestContainerFlex = styled.div`
+
+margin-bottom: 3rem;
+
+`
+
+export const CalculadoraAccionesContainer = styled.div`
+    display: flex;
+    margin-bottom: 1rem;
+    `
 
 export const TitleInvestContainer = styled.div`
 display: flex;
@@ -104,6 +113,7 @@ export const SubTitleInvest = styled.h3`
      text-align: center;
      margin-left: 2rem;
      margin-right: 2rem;
+     line-height: 1.5rem;
 
      @media screen and (min-width: 600px) {
        

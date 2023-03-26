@@ -41,9 +41,19 @@ function LinearProgressWithLabel(props: Props) {
 }
 
 const LinearWithValueLabel: FC<LinearWithValueLabelProps> = ({ min, max }) => {
+     const difference = max - min;
+     const maxInvest = 3000
+     const value = ((maxInvest - min) / difference);
+
      return (
           <Box sx={{ width: '100%', fontFamily: 'Roboto, sans-serif', fontSize: '12px' }}>
-               <SpanCollected><DateContainer>Collected:</DateContainer></SpanCollected><SpanCollectedMoney><br />{5000 + '€'} of {10000 + '€'}</SpanCollectedMoney>
+               <SpanCollected>
+                    <DateContainer>Collected:</DateContainer>
+               </SpanCollected>
+               <SpanCollectedMoney>
+                    <br />
+                    {5000 + '€'} of {10000 + '€'}
+               </SpanCollectedMoney>
                <LinearProgressWithLabel
                     sx={{
                          height: '10px',
@@ -54,7 +64,7 @@ const LinearWithValueLabel: FC<LinearWithValueLabelProps> = ({ min, max }) => {
                          },
                     }}
                     color="inherit"
-                    value={50}
+                    value={value}
                     min={min}
                     max={max}
                />
