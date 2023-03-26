@@ -6,7 +6,9 @@ export const InputContainer = styled.div`
      flex-direction: row;
      align-items: center;
      padding: 0.5 1.8rem;
-    
+     * {
+    box-sizing: border-box;
+  }
 `;
 
 export const MoneyOutput = styled.p`
@@ -14,7 +16,7 @@ export const MoneyOutput = styled.p`
 `;
 
 export const MinLabel = styled.label`
-     margin-right: 4%;
+     margin-right: 5%;
      font-family: ${({theme}) => theme.fonts.primary};
 `;
 export const MaxLabel = styled.label`

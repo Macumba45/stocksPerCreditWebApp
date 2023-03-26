@@ -14,27 +14,36 @@ export const Container = styled.div`
 export const FiltersDiv = styled.div`
      border-radius: 10px;
      padding: 2rem;
-     margin: 2rem 0.2rem;
+     margin: 4rem 0.2rem;
      width: auto;
      display: flex;
      flex-direction: column;
      align-items: center;
+     width:25rem;
+
 `;
 
 export const MinMaxContainer = styled.div`
      display: flex;
      flex-direction: row;
+     justify-content:space-between;
+
 `;
 
 export const DateContainer = styled.div`
      display: flex;
      flex-direction: row;
+     justify-content: space-between;
+
 `;
 
 export const TagDiv = styled.div`
      display: flex;
      flex-direction: row;
+          justify-content: space-between;
+
 `;
+
 
 export const MaxContainer = styled.div`
      margin-top: 80px;
