@@ -32,7 +32,7 @@ const DashboardINVe: FC = () => {
      const [selectedTags, setSelectedTags] = useState<string[]>([]);
      const [sliderValue, setSliderValue] = useState<number>(0);
      const [filteredData, setFilteredData] = useState<string[]>([]);
-     const [data, setData] = useState<string[]>([]);
+     // const [data, setData] = useState<string[]>([]);
 
      // const handleFilter = () => {
      //      // Filtrar por rango de valor
@@ -56,7 +56,13 @@ const DashboardINVe: FC = () => {
      //      setSliderValue(totalValue);
      //    };
      const handleFilter2 = () => {
-          console.log('Aplicar filtros');
+          console.log({
+               rangeValue,
+               selectedDate,
+               selectedTags,
+               sliderValue,
+               filteredData
+          });
      };
 
      return (

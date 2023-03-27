@@ -4,10 +4,9 @@ export const Container = styled.div`
      display: flex;
      flex-wrap: wrap;
      margin-top: 5rem;
-     @media (min-width: 600px) {
-          background-color: ${({theme}) => theme.colors.light};
-          width: 100%;
-          /* height: 200vh; */
+     background-color: ${({theme}) => theme.colors.light};
+     @media (max-width: 600px) {
+          display:inline-block;
      }
 `;
 
@@ -20,6 +19,9 @@ export const FiltersDiv = styled.div`
      align-items: center;
      justify-content: center;
      width: 16.5rem;
+     /* @media (min-width: 600px) {
+          display:block;
+     } */
 `;
 
 export const MinMaxContainer = styled.div`
