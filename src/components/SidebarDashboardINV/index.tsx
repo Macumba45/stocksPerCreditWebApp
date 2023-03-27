@@ -136,6 +136,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                    },
                               }}
                          >
+                              Stocks - Investor Dashboard
                          </Typography>
                          <Fab onClick={goDashboard} size="small" sx={{ position: 'fixed', bottom: '2rem', right: 0, marginRight: '3rem', backgroundColor: '#7E1B75' }} color="primary" aria-label="add">
                               <Home />

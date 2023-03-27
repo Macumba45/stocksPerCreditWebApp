@@ -6,7 +6,6 @@ import {makeStyles} from '@material-ui/core/styles';
 const useStyles = makeStyles({
      autocomplete: {
        width: '270px',
-       backgroundColor:'#7E1B75',
        marginLeft: 0,
        zIndex: 99,
        '& .MuiAutocomplete-option:hover': {

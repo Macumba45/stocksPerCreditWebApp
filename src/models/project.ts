@@ -1,45 +1,38 @@
-import {
-     ProjectCardResponse,
-     ProjectCardDetailsResponse,
-} from '../services/api/project';
+import {ProjectCardResponse} from '../services/api/project';
 
 export type ProjectCardInput = {
+     id: string;
      image: string;
-     time: string;
-     investment: string;
-     name: string;
-     category: string;
-     money: string;
-};
-
-export type ProjectCardDetailsInput = {
-     categoria: string;
-     titulo: string;
+     title: string;
      description: string;
-     imagenes: string;
+     country: string;
+     city: string;
+     categories: string;
+     collected: string;
+     investors: string;
+     minimuminvestment: number;
+     goals: number;
+     limitvalue: number;
+     createdAt: Date;
+     updatedAt: Date;
 };
 
 export const normalizeProjectCard = (input: ProjectCardResponse) => {
      return {
           image: input?.image || '',
-          tiempo: input?.tiempo || '',
-          dinero: input?.dinero || '',
-          nombre: input?.nombre || '',
-          categoria: input?.categoria || '',
-          inversiones: input?.inversiones || '',
+          title: input?.title || '',
+          description: input?.description || '',
+          country: input?.country || '',
+          city: input?.city || '',
+          categories: input?.categories || '',
+          collected: input?.collected || '',
+          investors: input?.investors || '',
+          minimuminvestment: input?.minimuminvestment || '',
+          goals: input?.goals || '',
+          limitvalue: input?.limitvalue || '',
      };
 };
 
-export const normalizeProjectCardDetails = (
-     input: ProjectCardDetailsResponse
-) => {
-     return {
-          categoria: input?.categoria || '',
-          titulo: input?.titulo || '',
-          description: input?.description || '',
-          imagenes: input?.imagenes || '',
-     };
-};
+
 
 export type ProjectCard = ReturnType<typeof normalizeProjectCard>;
-export type ProjectCardDetails = ReturnType<typeof normalizeProjectCardDetails>;
