@@ -21,7 +21,7 @@ export type ProjectResponse = {
      minimuminvestment: number;
      actionPerCredit:string;
      returnInvestment:number;
-     goals: number;
+     goal: number;
      tags:TagResponse[];
      limitvalue: number;
      createdAt: Date;
