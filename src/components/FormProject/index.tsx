@@ -31,9 +31,9 @@ import LimitTags from './Tags';
 import UploadButtons from './Camara';
 import MinHeightTextarea from './Text';
 import LimitCity from './City';
-import { InputDecorators } from './InputDetails';
-import InputCurrency from './InputCurrency';
 import { StartDatePickers } from './DatePicker';
+import InputCurrency from './InputCurrency';
+
 
 const FormProject: FC = () => {
      const navigate = useNavigate();
@@ -112,12 +112,18 @@ const FormProject: FC = () => {
                                                   $hasError={!!meta?.error}
                                                   type="text"
                                                   placeholder="Write your name on..."
+                                                  onKeyDown={(event) => {
+                                                       if (event.key === 'Enter') {
+                                                            event.preventDefault(); // Evita que se recargue la página
+                                                       }
+                                                  }}
                                                   {...field}
                                              />
 
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
+
                                         </InputContainer>
                                    )}
                               </Field>
@@ -133,6 +139,8 @@ const FormProject: FC = () => {
                                              <LabelContainer>
                                                   <Label>Indicate your country* </Label>
                                                   <CountrySelect />
+
+
                                              </LabelContainer>
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>

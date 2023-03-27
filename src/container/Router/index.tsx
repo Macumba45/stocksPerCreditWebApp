@@ -13,6 +13,7 @@ import DashboardInvestment from '../../views/DashboardInvestments/index';
 import FormProject from '../../components/FormProject';
 import Payment from '../../views/Payment';
 
+
 const Router: FC = () => {
      const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
           const token = getAuthenticatedToken();
@@ -96,7 +97,7 @@ const Router: FC = () => {
                     <Route
                          path="/dashboard/new-project"
                          element={
-                                   <FormProject />
+                              <FormProject />
                          }
                     />
                     <Route
@@ -107,7 +108,7 @@ const Router: FC = () => {
                               </ProtectedRoutes>
                          }
                     />
-                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
                     <Route path="*" element={<NotFound />} />
                </Routes>
           </BrowserRouter>

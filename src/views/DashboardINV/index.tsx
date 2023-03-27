@@ -1,4 +1,5 @@
 import {FC, memo, useState} from 'react';
+
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
 import {
      Container,
@@ -15,8 +16,9 @@ import {
      TopTitle,
 } from './styles';
 import {FinishDatePickers} from '../../components/DatePicker';
+
 import Search from '../../components/Search';
-import {DiscreteSlider} from '../../components/StocksSlider';
+import { DiscreteSlider } from '../../components/StocksSlider';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
 import ContainedButtons from '../../components/ContainedButton';
@@ -78,6 +80,7 @@ const DashboardINVe: FC = () => {
                          <FiltersDiv>
                               <DiscretDiv>
                                    <DiscreteSlider></DiscreteSlider>
+                                   <ContainedButtons />
                               </DiscretDiv>
                          </FiltersDiv>
                          <FiltersDiv>
