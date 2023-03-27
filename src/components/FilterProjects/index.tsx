@@ -1,9 +1,9 @@
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import {FC, memo, useState} from 'react';
+import { FC, memo, useState } from 'react';
 import Card from '../CardProjects';
-import {ContainerProjects, MainContainer, TabDiv} from './styles';
+import { ContainerProjects, MainContainer, TabDiv } from './styles';
 
 interface TabPanelProps {
      children?: React.ReactNode;
@@ -12,7 +12,7 @@ interface TabPanelProps {
 }
 
 function TabPanel(props: TabPanelProps) {
-     const {children, value, index, ...other} = props;
+     const { children, value, index, ...other } = props;
 
      return (
           <TabDiv
@@ -22,7 +22,7 @@ function TabPanel(props: TabPanelProps) {
                aria-labelledby={`simple-tab-${index}`}
                {...other}
           >
-               {value === index && <Box sx={{p: 3}}>{children}</Box>}
+               {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
           </TabDiv>
      );
 }
@@ -42,7 +42,7 @@ const BasicTabs: FC = () => {
      };
 
      return (
-          <Box sx={{margin: '0 auto', color: '#7E1B75'}}>
+          <Box sx={{ margin: '0 auto', color: '#7E1B75' }}>
                <Box
                     sx={{
                          borderBottom: 1,
@@ -51,23 +51,25 @@ const BasicTabs: FC = () => {
                     }}
                >
                     <Tabs
-                         sx={{color: '#7E1B75'}}
+                         sx={{ color: '#7E1B75', indicatorColor: '#7E1B75' }}
                          value={value}
                          onChange={handleChange}
                          aria-label="basic tabs example"
+                         TabIndicatorProps={{ sx: { bgcolor: '#7E1B75' } }}
+
                     >
                          <Tab
-                              sx={{color: '#7E1B75'}}
+                              sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
                               label="Top projects"
                               {...a11yProps(0)}
                          />
                          <Tab
-                              sx={{color: '#7E1B75'}}
+                              sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
                               label="Recents"
                               {...a11yProps(1)}
                          />
                          <Tab
-                              sx={{color: '#7E1B75'}}
+                              sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
                               label="Close soon"
                               {...a11yProps(2)}
                          />
