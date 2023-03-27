@@ -16,13 +16,7 @@ const ButtonInvest: FC = () => {
         if (token) {
             setIsAuthenticated(true);
         }
-    }, [token]);
-
-    const handleButton = useCallback(() => {
-
-        navigate('/login')
-
-    }, [navigate])
+    }, [token, isAuthenticated]);
 
     const goPayment = useCallback(() => {
 
@@ -30,54 +24,30 @@ const ButtonInvest: FC = () => {
 
     }, [navigate])
 
-    if (isAuthenticated) {
-
-        return (
-            <Stack>
-                <Button
-                    onClick={goPayment}
-                    size="large"
-                    sx={{
-                        backgroundColor: '#7E1B75',
-                        padding: '1rem 4rem',
-                        // margin: '0rem 10rem',
-                        '&:hover': {
-                            backgroundColor: '#9c27b0' // Cambia el color del hover aquí
-                        }
-                    }}
-                    variant="contained"
-                    endIcon={<PaymentIcon />}
-                >
-                    INVEST NOW
-                </Button>
-            </Stack>
-        );
+    const ButtonStyles = {
+        backgroundColor: '#7E1B75',
+        padding: '1rem 4rem',
+        // margin: '0rem 10rem',
+        '&:hover': {
+            backgroundColor: '#9c27b0' // Cambia el color del hover aquí
+        }
 
     }
-    else {
 
-        return (
-            <Stack>
-                <Button
-                    onClick={handleButton}
-                    size="large"
-                    sx={{
-                        backgroundColor: '#7E1B75',
-                        padding: '1rem 4rem',
-                        // margin: '0rem 10rem',
-                        '&:hover': {
-                            backgroundColor: '#9c27b0' // Cambia el color del hover aquí
-                        }
-                    }}
-                    variant="contained"
-                    endIcon={<PaymentIcon />}
-                >
-                    INVEST NOW
-                </Button>
-            </Stack>
-        );
+    return (
+        <Stack>
+            <Button
+                onClick={goPayment}
+                size="large"
+                style={ButtonStyles}
+                variant="contained"
+                endIcon={<PaymentIcon />}
+            >
+                INVEST NOW
+            </Button>
+        </Stack>
+    );
 
-    }
 
 
 }

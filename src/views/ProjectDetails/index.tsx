@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import { FC, memo, useCallback, useEffect } from 'react';
 import NavBar from '../../components/NavBar';
 import VideoHeader from '../../components/VideoHeader';
 import TabsDetails from '../../components/TabsDetails';
@@ -9,10 +9,10 @@ import { Divider } from '@mui/material';
 import ButtonInvest from '../../components/ButtonInvest';
 import InputDecorators from '../../components/InvestInputDetails'
 import CalculadoraAcciones from '../../components/SimulationInvestDetails'
-
-
-
-
+import Footer from '../../components/Footer';
+import { Fab, Tooltip } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { Dashboard, Home } from '@mui/icons-material';
 import {
      ButtonContainer,
      CalculadoraAccionesContainer,
@@ -40,13 +40,54 @@ import {
      TitleInvest,
      TitleInvestContainer,
 } from './styles';
-import Footer from '../../components/Footer';
+
+
 
 const ProjectDetails: FC = () => {
      const videoProject =
           'https://www.youtube.com/embed/FR0yfiN1dEo?controls=0';
+
+     const navigate = useNavigate();
+     const goDashboard = useCallback(() => {
+
+          navigate('/dashboard');
+     }, [navigate])
+
+
+     const CustomTooltip = ({ title, children }: any) => {
+          return (
+               <Tooltip title={title} placement="left">
+                    {children}
+               </Tooltip>
+          );
+     };
+
+
+
      return (
           <MainContainer>
+               <CustomTooltip title="Go to Landing">
+                    <Fab
+                         onClick={goDashboard}
+                         size="small"
+                         sx={{
+                              position: 'fixed',
+                              bottom: '2rem',
+                              right: 0,
+                              marginRight: '2rem',
+                              backgroundColor: '#7E1B75',
+                              '&:hover': {
+                                   backgroundColor: '#7e1b7655', // Cambiar color del hover
+                              },
+
+
+                         }}
+                         color="primary"
+                         aria-label="add"
+                    >
+                         <Dashboard />
+                    </Fab>
+               </CustomTooltip>
                <NavBar />
                <MainContainerDesktop>
                     <MainContainer>
