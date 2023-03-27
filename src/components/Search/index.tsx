@@ -63,12 +63,7 @@ const Search: FC = () => {
                     width: '270px',
                     marginLeft: 0,
                     zIndex: 99,
-                    // '& .MuiAutocomplete-option:hover': {
-                    //      backgroundColor: '#7E1B75 !important', // reemplazar con tu color de fondo deseado
-                    //      color: 'white',
-                    //      ":focus":'#7E1B75' // reemplazar con tu color de texto deseado
-                    // },
-                    
+             
                }}
                multiple
                id="tags-default"
@@ -79,6 +74,7 @@ const Search: FC = () => {
                     setSelectedTags(newValue);
                }}
           />
+          
      );
 };
 
