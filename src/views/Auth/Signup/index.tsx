@@ -1,9 +1,9 @@
-import {FC, memo, useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {initialValues} from '../SignUp/constants';
-import {Field, FieldProps, Formik} from 'formik';
-import {validationSchema} from './constants';
-import type {SignUpProps} from './type';
+import { FC, memo, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { initialValues } from '../SignUp/constants';
+import { Field, FieldProps, Formik } from 'formik';
+import { validationSchema } from './constants';
+import type { SignUpProps } from './type';
 import {
      MainFormContainer,
      Form,
@@ -23,10 +23,10 @@ import {
      RadioOption,
      RadioInput,
 } from './styles';
-import {setAuthenticatedToken} from '../../../services/storage/token';
-import {hadledSubmitSignup} from '../../../services/api/auth';
-import {UserRole} from '../../../models/user';
-import {setUserRole} from '../../../services/storage/userRole';
+import { setAuthenticatedToken } from '../../../services/storage/token';
+import { hadledSubmitSignup } from '../../../services/api/auth';
+import { UserRole } from '../../../models/user';
+import { setUserRole } from '../../../services/storage/userRole';
 
 const SignUp: FC = () => {
      const navigate = useNavigate();
@@ -37,7 +37,7 @@ const SignUp: FC = () => {
                try {
                     const response: Response = await hadledSubmitSignup(values);
                     if (response.ok) {
-                         const token =  await response.json();
+                         const token = await response.json();
                          setAuthenticatedToken(token);
                          setUserRole(values.userRol);
                          navigate('/');
@@ -50,12 +50,12 @@ const SignUp: FC = () => {
      );
 
      const roleOptions = [
-          {label: 'Entrepreneur', value: UserRole.ENTREPRENEUR},
-          {label: 'Investor', value: UserRole.INVESTOR},
+          { label: 'Entrepreneur', value: UserRole.ENTREPRENEUR },
+          { label: 'Investor', value: UserRole.INVESTOR },
      ];
 
      const renderRoleOptions = (field: any) => {
-          const {value, onChange} = field;
+          const { value, onChange } = field;
           return (
                <RadioGroup>
                     {roleOptions.map((option) => (
@@ -88,7 +88,7 @@ const SignUp: FC = () => {
                          <Form>
                               <SignUpTitle>SignUp</SignUpTitle>
                               <Field name="name">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <NameContainer>
                                              <LabelContainer>
                                                   <Label>Name* </Label>
@@ -107,7 +107,7 @@ const SignUp: FC = () => {
                                    )}
                               </Field>
                               <Field name="lastname">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <NameContainer>
                                              <LabelContainer>
                                                   <Label>Lastname* </Label>
@@ -126,7 +126,7 @@ const SignUp: FC = () => {
                                    )}
                               </Field>
                               <Field name="email">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <EmailContainer>
                                              <LabelContainer>
                                                   <Label>Email* </Label>
@@ -145,7 +145,7 @@ const SignUp: FC = () => {
                                    )}
                               </Field>
                               <Field name="country">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <NameContainer>
                                              <LabelContainer>
                                                   <Label>Country* </Label>
@@ -164,7 +164,7 @@ const SignUp: FC = () => {
                                    )}
                               </Field>
                               <Field name="city">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <NameContainer>
                                              <LabelContainer>
                                                   <Label>City* </Label>
@@ -183,7 +183,7 @@ const SignUp: FC = () => {
                                    )}
                               </Field>
                               <Field name="phone">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <NameContainer>
                                              <LabelContainer>
                                                   <Label>Phone* </Label>
@@ -202,7 +202,7 @@ const SignUp: FC = () => {
                                    )}
                               </Field>
                               <Field name="userRol">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <NameContainer>
                                              <LabelContainer>
                                                   <Label>
@@ -217,7 +217,7 @@ const SignUp: FC = () => {
                                    )}
                               </Field>
                               <Field name="password">
-                                   {({field, meta}: FieldProps) => (
+                                   {({ field, meta }: FieldProps) => (
                                         <PasswordContainer>
                                              <LabelContainer>
                                                   <Label>Password* </Label>
