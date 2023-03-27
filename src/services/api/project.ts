@@ -1,5 +1,6 @@
-import {normalizeProject, Project} from '../../models/project';
+import {normalizeProject, Project, ProjectInput} from '../../models/project';
 import {getAuthenticatedToken} from '../../services/storage/token';
+import { TagResponse } from './tag';
 
 export type ProjectResponse = {
      id: string;
@@ -21,7 +22,7 @@ export type ProjectResponse = {
      actionPerCredit:string;
      returnInvestment:number;
      goals: number;
-     tags:string;
+     tags:TagResponse[];
      limitvalue: number;
      createdAt: Date;
      updatedAt: Date;
@@ -77,7 +78,7 @@ export const removeProject = async (id: string) => {
      }
 };
 
-export const createProject = async (data: Omit<Project, 'id'>) => {
+export const createProject = async (data: ProjectInput) => {
      try {
           const token = getAuthenticatedToken();
           const response = await fetch(BASE_API_URL, {
