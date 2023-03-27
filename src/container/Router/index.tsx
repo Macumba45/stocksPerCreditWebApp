@@ -95,9 +95,7 @@ const Router: FC = () => {
                     <Route
                          path="/dashboard/new-project"
                          element={
-                              <ProtectedRoutes>
                                    <FormProject />
-                              </ProtectedRoutes>
                          }
                     />
                     <Route path="/profile" element={<Profile />} />

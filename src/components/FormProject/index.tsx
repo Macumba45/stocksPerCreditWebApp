@@ -28,10 +28,12 @@ import Looks3Icon from '@mui/icons-material/Looks3';
 import NavbarEmp from '../NavbarEmp';
 import CountrySelect from './Country';
 import LimitTags from './Tags';
-import ComboBox from './Title';
 import UploadButtons from './Camara';
 import MinHeightTextarea from './Text';
 import LimitCity from './City';
+import { InputDecorators } from './InputDetails';
+import InputCurrency from './InputCurrency';
+import { StartDatePickers } from './DatePicker';
 
 const FormProject: FC = () => {
      const navigate = useNavigate();
@@ -71,7 +73,7 @@ const FormProject: FC = () => {
                                    <DivIcon1>
                                         <LooksOneIcon />
                                    </DivIcon1>
-                                   Informacion Basica
+                                   Basic information
                               </BasicInformation>
 
                               <Field name="image">
@@ -109,7 +111,7 @@ const FormProject: FC = () => {
                                              <Input
                                                   $hasError={!!meta?.error}
                                                   type="text"
-                                                  placeholder="Write your proposal on..."
+                                                  placeholder="Write your name on..."
                                                   {...field}
                                              />
 
@@ -172,8 +174,7 @@ const FormProject: FC = () => {
                                    <DivIcon>
                                         <LooksTwoIcon />
                                    </DivIcon>
-                                   Informacion Del Proyecto
-                              </BasicInformation>
+                                   Project Information                              </BasicInformation>
                               <Field name="history">
                                    {({
                                         field,
@@ -227,12 +228,8 @@ const FormProject: FC = () => {
                                              <LabelContainer>
                                                   <Label>Indicate your proposal* </Label>
                                              </LabelContainer>
-                                             <Input
-                                                  $hasError={!!meta?.error}
-                                                  type="text"
-                                                  placeholder="Write your proposal on..."
-                                                  {...field}
-                                             />
+                                             <MinHeightTextarea />
+
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
@@ -255,12 +252,7 @@ const FormProject: FC = () => {
                                                        How long will your project last?*
                                                   </Label>
                                              </LabelContainer>
-                                             <Input
-                                                  $hasError={!!meta?.error}
-                                                  type="text"
-                                                  placeholder="Write your duration on..."
-                                                  {...field}
-                                             />
+                                             <StartDatePickers />
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
@@ -346,8 +338,7 @@ const FormProject: FC = () => {
                                    <DivIcon>
                                         <Looks3Icon />
                                    </DivIcon>
-                                   Informacion Economica
-                              </BasicInformation>
+                                   Economic Information                              </BasicInformation>
                               <Field name="goal">
                                    {({
                                         field,
@@ -362,13 +353,13 @@ const FormProject: FC = () => {
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
-                                                  type="text"
-                                                  placeholder="Write your goal on..."
+                                                  type="number"
+                                                  placeholder="Write your proposal on..."
                                                   {...field}
-                                             />
-                                             {meta?.error && (
+                                             />                                             {meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
+
                                         </InputContainer>
                                    )}
                               </Field>
@@ -384,12 +375,7 @@ const FormProject: FC = () => {
                                              <LabelContainer>
                                                   <Label>What type of currency do you use?* </Label>
                                              </LabelContainer>
-                                             <Input
-                                                  $hasError={!!meta?.error}
-                                                  type="text"
-                                                  placeholder="Write your currency on..."
-                                                  {...field}
-                                             />
+                                             <InputCurrency />
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
@@ -434,8 +420,8 @@ const FormProject: FC = () => {
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
-                                                  type="text"
-                                                  placeholder="Write your cost on..."
+                                                  type="number"
+                                                  placeholder="Write your proposal on..."
                                                   {...field}
                                              />
                                              {meta?.error && (
