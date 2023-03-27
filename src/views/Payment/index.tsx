@@ -109,9 +109,9 @@ const Payment: FC = () => {
                             </ContainerMastercard>
                         </ContainerPayment>
                     </ContainerTitle>
-                    {/* <ButtonPaymentContainer>
+                    <ButtonPaymentContainer>
                         <ButtonPay />
-                    </ButtonPaymentContainer> */}
+                    </ButtonPaymentContainer>
                 </ContainerForm>
             </MainContainer>
         </>
