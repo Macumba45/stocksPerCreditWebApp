@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
+
 
 export const Container = styled.div``;
 
@@ -16,7 +18,10 @@ export const ContainerProfile = styled.div`
      margin-top: 1rem;
 `;
 
-export const LogoStocks = styled.img`
+export const LogoStocks =styled(Link)`
+`;
+
+export const LogoImage =styled.img`
      width: 100px;
      height: 100px;
      margin-right: 1rem;

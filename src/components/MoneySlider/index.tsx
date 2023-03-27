@@ -8,7 +8,7 @@ function valuetext(value: number) {
 }
 
 export default function RangeSlider() {
-  const [value, setValue] = useState<number[]>([0, 5000]);
+  const [value, setValue] = useState<number[]>([1000, 5000]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);

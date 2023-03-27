@@ -3,9 +3,9 @@ import {getAuthenticatedToken} from '../../services/storage/token';
 
 export type ProjectCardResponse = {
      id: string;
-     image: string;
      title: string;
      description: string;
+     image: string;
      country: string;
      city: string;
      categories: string;

@@ -15,7 +15,7 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import Typography from '@mui/material/Typography';
 import { FC, memo, useCallback, useState } from 'react';
 import React from 'react';
-import { Container, ContainerLogo, ContainerProfile, LogoStocks } from './styles';
+import { Container, ContainerLogo, ContainerProfile, LogoImage, LogoStocks } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
 import { Fab, Tooltip } from '@mui/material';
@@ -24,7 +24,7 @@ import Person4Icon from '@mui/icons-material/Person4';
 
 
 
-const drawerWidth = 240;
+const drawerWidth = 220;
 
 
 interface Props {
@@ -81,7 +81,9 @@ const ResponsiveDrawer: FC = (props: Props) => {
      const drawer = (
           <Container>
                <ContainerLogo>
-                    <LogoStocks src={logo} />
+                    <LogoStocks  to={'/'}>
+                    <LogoImage src={logo}/>
+                    </LogoStocks>
                </ContainerLogo>
 
                <Divider />
@@ -143,7 +145,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               variant="h6"
                               noWrap
                               component="div"
-                              style={{ fontFamily: 'Proxima Nova' }}
+                              style={{ fontFamily: 'Roboto' }}
                               sx={{
                                    '@media screen and (max-width: 800px)': {
                                         display: 'none',
