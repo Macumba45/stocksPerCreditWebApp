@@ -15,6 +15,7 @@ import Search from '../../components/Search';
 import {DiscreteSlider} from '../../components/StocksSlider';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
+import ContainedButtons from '../../components/ContainedButton';
 
 const DashboardINVe: FC = () => {
      return (
@@ -40,6 +41,7 @@ const DashboardINVe: FC = () => {
                               </SearchDiv>
                               <DiscretDiv>
                                    <DiscreteSlider></DiscreteSlider>
+                                   <ContainedButtons/>
                               </DiscretDiv>
                          </FiltersDiv>
                     </TagDiv>
