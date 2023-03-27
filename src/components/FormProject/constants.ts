@@ -2,23 +2,24 @@ import * as Yup from 'yup';
 
 export const validationSchema = Yup.object().shape({
      image: Yup.string().required('The image field is required'),
-     name: Yup.string().required('The image field is required'),
-     history: Yup.string().required('The image field is required'),
-     country: Yup.string().required('The image field is required'),
-     city: Yup.string().required('The image field is required'),
-     description: Yup.string().required('The image field is required'),
+     name: Yup.string().required('You need a name to create your project'),
+     country: Yup.string().required('Indicate your country'),
+     city: Yup.string().required('Indicate your city'),
 
-
-     goal: Yup.string().required('The image field is required'),
-     miniInvest: Yup.string().required('The image field is required'),
-     totalInvest: Yup.string().required('The image field is required'),
-     currency: Yup.string().required('The image field is required'),
-     actionPerCredit: Yup.string().required('The image field is required'),
-     cost: Yup.string().required('The image field is required'),
+     history: Yup.string().required('Explain your start with a brief history'),
+     description: Yup.string().required('Write a brief description'),
+     proposal: Yup.string().required('write down your proposal'),
+     duration: Yup.string().required('Write how long you want your project to last'),
      commerce: Yup.string().required('The image field is required'),
 
-     duration: Yup.string().required('The image field is required'),
-     proposal: Yup.string().required('The image field is required'),
+     goal: Yup.string().required('Write your goal'),
+     currency: Yup.string().required('The image field is required'),
+     cost: Yup.string().required('The image field is required'),
+
+     // miniInvest: Yup.string().required('The image field is required'),
+     // totalInvest: Yup.string().required('The image field is required'),
+     // actionPerCredit: Yup.string().required('The image field is required'),
+
 
 });
 
