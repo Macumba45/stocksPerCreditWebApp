@@ -7,7 +7,9 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import LinearWithValueLabel from '../../components/ProgressLinear';
 import { Divider } from '@mui/material';
 import ButtonInvest from '../../components/ButtonInvest';
+import InputDecorators from '../../components/InvestInputDetails'
 import CalculadoraAcciones from '../../components/SimulationInvestDetails'
+
 
 
 
@@ -38,6 +40,7 @@ import {
      TitleInvest,
      TitleInvestContainer,
 } from './styles';
+import Footer from '../../components/Footer';
 
 const ProjectDetails: FC = () => {
      const videoProject =
@@ -46,10 +49,10 @@ const ProjectDetails: FC = () => {
           <MainContainer>
                <NavBar />
                <MainContainerDesktop>
-                    <div>
+                    <MainContainer>
                          <VideoHeader src={videoProject} />
-                    </div>
-                    <div style={{ marginTop: '3rem' }}>
+                    </MainContainer>
+                    <MainContainer style={{ marginTop: '3rem' }}>
                          <TitleContainer>
                               <Title>
                                    Lorem ipsum dolor sit amet consectetur
@@ -104,26 +107,28 @@ const ProjectDetails: FC = () => {
                                         </SubTitleInvest>
                                    </SubTitleInvestContainer>
                                    <ButtonContainer>
+                                        <InputDecorators />
+                                   </ButtonContainer>
+                                   <ButtonContainer>
                                         <ButtonInvest />
                                    </ButtonContainer>
                               </MainInvestContainerFlex>
-                              {/* <Divider
-                                   sx={{
-                                        marginTop: '3rem',
-                                        marginBottom: '3rem',
-                                        width: '300px',
-                                        display: 'flex',
-                                        marginLeft: 'auto',
-                                        marginRight: 'auto',
-                                   }}
-                              /> */}
                               <MainInvestContainerFlex>
+                                   <Divider
+                                        sx={{
+                                             marginBottom: '3rem',
+                                             width: '300px',
+                                             display: 'flex',
+                                             marginLeft: 'auto',
+                                             marginRight: 'auto',
+                                        }}
+                                   />
                                    <CalculadoraAccionesContainer>
                                         <CalculadoraAcciones />
                                    </CalculadoraAccionesContainer>
                               </MainInvestContainerFlex>
                          </MainInvestContainer>
-                    </div>
+                    </MainContainer>
                </MainContainerDesktop>
                <Divider
                     sx={{
@@ -204,6 +209,7 @@ const ProjectDetails: FC = () => {
                     }}
                />
                <TabsDetails />
+               <Footer />
           </MainContainer>
      );
 };

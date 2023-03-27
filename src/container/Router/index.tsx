@@ -1,7 +1,7 @@
-import {Navigate, useLocation, useNavigate} from 'react-router-dom';
-import {FC, memo, useEffect} from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import {getAuthenticatedToken} from '../../services/storage/token';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { FC, memo, useEffect } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { getAuthenticatedToken } from '../../services/storage/token';
 import Landing from '../../views/Landing';
 import Profile from '../../views/Profile';
 import Login from '../../views/Auth/Login';
@@ -13,40 +13,40 @@ import DashboardInvestment from '../../views/DashboardInvestments/index';
 import FormProject from '../../components/FormProject';
 
 const Router: FC = () => {
-     const ProtectedRoutes = ({children}: {children: JSX.Element}) => {
+     const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
           const token = getAuthenticatedToken();
           const location = useLocation();
 
           if (!token || token === null) {
-               return <Navigate to="/login" replace state={{from: location}} />;
+               return <Navigate to="/login" replace state={{ from: location }} />;
           }
 
           return children;
      };
 
-     // const PublicRoute = ({ children }: { children: JSX.Element }) => {
-     //      const token = getAuthenticatedToken();
-     //      const location = useLocation();
+     const PublicRoute = ({ children }: { children: JSX.Element }) => {
+          const token = getAuthenticatedToken();
+          const location = useLocation();
 
-     //      if (token) {
-     //           if (
-     //                location.pathname === '/login' ||
-     //                location.pathname === '/signup' ||
-     //                location.pathname === '/'
-     //           ) {
-     //                return (
-     //                     <Navigate
-     //                          to="/welcome"
-     //                          replace
-     //                          state={{ from: location }}
-     //                     />
-     //                );
-     //           }
-     //           return children;
-     //      }
+          if (token) {
+               if (
+                    location.pathname === '/login' ||
+                    location.pathname === '/signup' ||
+                    location.pathname === '/'
+               ) {
+                    return (
+                         <Navigate
+                              to="/"
+                              replace
+                              state={{ from: location }}
+                         />
+                    );
+               }
+               return children;
+          }
 
-     //      return children;
-     // };
+          return children;
+     };
 
      const NotFound = () => {
           const navigate = useNavigate();
@@ -56,7 +56,7 @@ const Router: FC = () => {
                if (token) {
                     // navigate('/feed', { replace: true });
                } else {
-                    navigate('/login', {replace: true});
+                    navigate('/login', { replace: true });
                }
           }, [navigate, token]);
 
@@ -67,8 +67,8 @@ const Router: FC = () => {
           <BrowserRouter>
                <Routes>
                     <Route path="/" element={<Landing />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/signup" element={<SignUp />} />
+                    <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+                    <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
                     <Route
                          path="/dashboard"
                          element={
@@ -88,9 +88,8 @@ const Router: FC = () => {
                     <Route
                          path="/projectdetails"
                          element={
-                              <ProtectedRoutes>
-                                   <ProjectDetails />
-                              </ProtectedRoutes>
+                              <ProjectDetails />
+
                          }
                     />
                     <Route

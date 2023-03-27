@@ -126,6 +126,15 @@ export const SubTitleInvest = styled.h3`
 export const ButtonContainer = styled.div`
 display: flex;
 justify-content: center;
+margin-bottom: 2rem;
+
+
+
+`
+
+export const InputContainer = styled.div`
+display: flex;
+justify-content: center;
 
 
 

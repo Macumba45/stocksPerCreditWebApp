@@ -1,9 +1,9 @@
-import {Divider} from '@mui/material';
+import { Divider } from '@mui/material';
 import Chip from '@mui/material/Chip';
-import {FC, memo} from 'react';
-import {Props} from './type';
+import { FC, memo } from 'react';
+import { Props } from './type';
 
-const Hr: FC<Props> = ({label, style}) => {
+const Hr: FC<Props> = ({ label, style }) => {
      return (
           <Divider
                sx={{
@@ -11,10 +11,11 @@ const Hr: FC<Props> = ({label, style}) => {
                     margin: '0 auto',
                     marginBottom: '8rem',
                     marginTop: '8rem',
+
                }}
           >
                <Chip
-                    sx={{backgroundColor: '#7E1B75', color: 'white'}}
+                    sx={{ backgroundColor: '#7E1B75', color: 'white' }}
                     label={label}
                />
           </Divider>

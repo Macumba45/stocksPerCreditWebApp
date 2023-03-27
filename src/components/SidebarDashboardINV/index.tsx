@@ -13,28 +13,17 @@ import Toolbar from '@mui/material/Toolbar';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PaymentIcon from '@mui/icons-material/Payment';
 import Typography from '@mui/material/Typography';
-import {FC, memo, useState} from 'react';
+import { FC, memo, useCallback, useState } from 'react';
 import React from 'react';
-import {Container, ContainerLogo, ContainerProfile, LogoStocks} from './styles';
-import {Link} from 'react-router-dom';
+import { Container, ContainerLogo, ContainerProfile, LogoStocks } from './styles';
+import { Link, useNavigate } from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
-import { makeStyles } from '@material-ui/core/styles';
+import { Fab } from '@mui/material';
+import { Home } from '@mui/icons-material';
 
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
-     drawer: {
-       width: drawerWidth,
-       flexShrink: 0,
-       backgroundColor: 'red' // Cambia el color de fondo a rojo
-     },
-     drawerPaper: {
-       width: drawerWidth,
-       backgroundColor: 'red' // Cambia el color de fondo a rojo
-     },
-     toolbar: theme.mixins.toolbar,
-   }));
 
 interface Props {
      /**
@@ -44,12 +33,22 @@ interface Props {
      window?: () => Window;
 }
 
+
 const ResponsiveDrawer: FC = (props: Props) => {
-     const {window} = props;
+     const { window } = props;
      const logo = require('../NavBar/assets/logo.png');
      const [mobileOpen, setMobileOpen] = useState(false);
      const container =
           window !== undefined ? () => window().document.body : undefined;
+
+
+     const navigate = useNavigate();
+
+
+     const goDashboard = useCallback(() => {
+
+          navigate('/');
+     }, [navigate])
 
      const handleDrawerToggle = () => {
           setMobileOpen(!mobileOpen);
@@ -60,9 +59,9 @@ const ResponsiveDrawer: FC = (props: Props) => {
           link: string;
      };
 
-     const iconMap: {[key: string]: IconMapItem} = {
-          'Stocks Dashboard': {icon: DashboardIcon, link: '/dashboard'},
-          'My investments': {icon: PaymentIcon, link: '/dashboard/investments'},
+     const iconMap: { [key: string]: IconMapItem } = {
+          'Stocks Dashboard': { icon: DashboardIcon, link: '/dashboard' },
+          'My investments': { icon: PaymentIcon, link: '/dashboard/investments' },
      };
 
      const drawer = (
@@ -74,7 +73,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                <Divider />
                <List>
                     {Object.entries(iconMap).map(
-                         ([text, {icon: IconComponent, link}], index) => (
+                         ([text, { icon: IconComponent, link }], index) => (
                               <ListItem
                                    key={text}
                                    disablePadding
@@ -84,14 +83,14 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                         cursor: 'pointer',
                                         '&:hover': {
                                              backgroundColor: 'lightgray',
-                                             fontFamily:'Proxima Nova'
+                                             fontFamily: 'Proxima Nova'
                                         },
                                    }}
                                    button
                                    component={Link}
                                    to={link}
                               >
-                                   <ListItemIcon style={{color: 'white',}} sx={{marginLeft: 2}}>
+                                   <ListItemIcon style={{ color: 'white', }} sx={{ marginLeft: 2 }}>
                                         {React.createElement(IconComponent)}
                                    </ListItemIcon>
                                    <ListItemText primary={text} primaryTypographyProps={{ color: 'white' }} />
@@ -103,25 +102,26 @@ const ResponsiveDrawer: FC = (props: Props) => {
      );
 
      return (
-          <Box sx={{display: 'flex'}}>
+          <Box sx={{ display: 'flex' }}>
                <CssBaseline />
                <AppBar
                     position="fixed"
                     sx={{
-                         width: {sm: `calc(100% - ${drawerWidth}px)`},
-                         ml: {sm: `${drawerWidth}px`},
+                         width: { sm: `calc(100% - ${drawerWidth}px)` },
+                         ml: { sm: `${drawerWidth}px` },
                          backgroundColor: '#343a40',
                     }}
                >
                     <Toolbar
                          sx={{justifyContent: 'space-between',backgroundColor:'#343a40', height: '90px'}}
+
                     >
                          <IconButton
                               color="inherit"
                               aria-label="open drawer"
                               edge="start"
                               onClick={handleDrawerToggle}
-                              sx={{mr: 2, display: {sm: 'none'}}}
+                              sx={{ mr: 2, display: { sm: 'none' } }}
                          >
                               <MenuIcon />
                          </IconButton>
@@ -129,7 +129,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               variant="h6"
                               noWrap
                               component="div"
-                              style={{fontFamily:'Proxima Nova'}}
+                              style={{ fontFamily: 'Proxima Nova' }}
                               sx={{
                                    '@media screen and (max-width: 800px)': {
                                         display: 'none',
@@ -137,6 +137,9 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               }}
                          >
                          </Typography>
+                         <Fab onClick={goDashboard} size="small" sx={{ position: 'fixed', bottom: '2rem', right: 0, marginRight: '3rem', backgroundColor: '#7E1B75' }} color="primary" aria-label="add">
+                              <Home />
+                         </Fab>
                          <ContainerProfile>
                               <ProfileDashboard />
                          </ContainerProfile>
@@ -144,7 +147,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                </AppBar>
                <Box
                     component="nav"
-                    sx={{width: {sm: drawerWidth}, flexShrink: {sm: 0}}}
+                    sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                     aria-label="mailbox folders"
                >
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -157,10 +160,12 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               keepMounted: true, // Better open performance on mobile.
                          }}
                          sx={{
-                              display: {xs: 'block', sm: 'none'},
+                              display: { xs: 'block', sm: 'none' },
                               '& .MuiDrawer-paper': {
                                    boxSizing: 'border-box',
                                    width: drawerWidth,
+                                   backgroundColor: '#343a40'
+
                               },
                          }}
                     >
@@ -169,11 +174,11 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     <Drawer
                          variant="permanent"
                          sx={{
-                              display: {xs: 'none', sm: 'block'},
+                              display: { xs: 'none', sm: 'block' },
                               '& .MuiDrawer-paper': {
                                    boxSizing: 'border-box',
                                    width: drawerWidth,
-                                   backgroundColor:'#343a40'
+                                   backgroundColor: '#343a40'
 
                               },
                          }}
@@ -187,7 +192,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     sx={{
                          flexGrow: 1,
                          p: 3,
-                         width: {sm: `calc(100% - ${drawerWidth}px)`},
+                         width: { sm: `calc(100% - ${drawerWidth}px)` },
                     }}
                >
                     <Toolbar />
