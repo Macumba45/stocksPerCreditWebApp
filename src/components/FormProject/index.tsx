@@ -31,9 +31,9 @@ import LimitTags from './Tags';
 import UploadButtons from './Camara';
 import MinHeightTextarea from './Text';
 import LimitCity from './City';
-import { InputDecorators } from './InputDetails';
-import InputCurrency from './InputCurrency';
 import { StartDatePickers } from './DatePicker';
+import InputCurrency from './InputCurrency';
+
 
 const FormProject: FC = () => {
      const navigate = useNavigate();
