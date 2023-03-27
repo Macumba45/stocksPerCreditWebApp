@@ -5,7 +5,7 @@ export const Container = styled.div`
      flex-wrap: wrap;
      margin-top: 5rem;
      @media (min-width: 600px) {
-          background-color: ${({ theme }) => theme.colors.light};
+          background-color: ${({theme}) => theme.colors.light};
           width: 100%;
           /* height: 200vh; */
      }
@@ -19,45 +19,59 @@ export const FiltersDiv = styled.div`
      display: flex;
      flex-direction: column;
      align-items: center;
-     width:25rem;
-
+     justify-content: center;
+     width: 20rem;
 `;
 
 export const MinMaxContainer = styled.div`
      display: flex;
      flex-direction: row;
-     justify-content:space-between;
-
+     justify-content: space-between;
 `;
 
 export const DateContainer = styled.div`
      display: flex;
      flex-direction: row;
      justify-content: space-between;
-
 `;
 
 export const TagDiv = styled.div`
      display: flex;
      flex-direction: row;
-          justify-content: space-between;
-
+     justify-content: space-between;
 `;
 
-
-export const MaxContainer = styled.div`
+export const CardsContainer = styled.div`
      margin-top: 80px;
      display: flex;
-    flex-wrap: wrap;
+     flex-wrap: wrap;
      justify-content: center;
-     margin-left:18rem;
+     margin-left: 18rem;
      @media (max-width: 600px) {
-          margin-left:1rem;
+          margin-left: 1rem;
      }
 `;
 
-export const SearchDiv = styled.div`
-margin-bottom:3rem;
-`
-export const DiscretDiv = styled.div`
-`
+export const TopContainer = styled.div`
+     display: flex;
+     flex-wrap: wrap;
+`;
+
+export const TopCards = styled.div`
+     display: flex;
+     flex-wrap: wrap;
+`;
+
+export const SearchDiv = styled.div``;
+
+export const DiscretDiv = styled.div``;
+
+export const TopTitle = styled.div`
+     margin: 1rem;
+`;
+
+export const HR = styled.hr`
+     background-color: white;
+     padding: 0 55rem;
+     margin:3rem;
+`;

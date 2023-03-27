@@ -41,7 +41,7 @@ export const DiscreteSlider: FC = () => {
   return (
     <div className={classes.root}>
       <Typography id="discrete-slider-small-steps" gutterBottom>
-        Stocks Per Credit
+      Select stocks quantity per credit
       </Typography>
       <Slider
         defaultValue={value}

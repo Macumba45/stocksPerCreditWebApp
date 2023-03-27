@@ -1,4 +1,3 @@
-
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { useState } from 'react';
@@ -53,7 +52,7 @@ export default function RangeSlider() {
         max={10000}
       />
       <InputContainer>
-        <MinLabel htmlFor="lower-input">Mínimo:</MinLabel>
+        <MinLabel htmlFor="lower-input">Minimum:</MinLabel>
         <input
           id="lower-input"
           type="number"
@@ -62,7 +61,7 @@ export default function RangeSlider() {
         />
       </InputContainer>
       <InputContainer>
-        <MaxLabel htmlFor="upper-input">Máximo:</MaxLabel>
+        <MaxLabel htmlFor="upper-input">Maximum:</MaxLabel>
         <input
           id="upper-input"
           type="number"
