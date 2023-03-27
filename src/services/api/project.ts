@@ -1,18 +1,27 @@
-import {normalizeProjectCard, ProjectCard} from '../../models/project';
+import {normalizeProject, Project} from '../../models/project';
 import {getAuthenticatedToken} from '../../services/storage/token';
 
-export type ProjectCardResponse = {
+export type ProjectResponse = {
      id: string;
      title: string;
      description: string;
-     image: string;
+     url: string;
+     duration:string;
+     totalInvest:number;
+     totalInvestor:number;
      country: string;
      city: string;
-     categories: string;
-     collected: string;
-     investors: string;
+     history:string;
+     commerce:string;
+     proposal:string;
+     images:string;
+     currency:string;
+     cost:number;
      minimuminvestment: number;
+     actionPerCredit:string;
+     returnInvestment:number;
      goals: number;
+     tags:string;
      limitvalue: number;
      createdAt: Date;
      updatedAt: Date;
@@ -28,8 +37,8 @@ export const getProjects = async () => {
                     Authorization: `Bearer ${token}`,
                },
           });
-          const data: ProjectCardResponse[] = await response.json();
-          return data.map(normalizeProjectCard);
+          const data: ProjectResponse[] = await response.json();
+          return data.map(normalizeProject);
      } catch (error) {
           console.log((error as Error).message);
      }
@@ -38,15 +47,15 @@ export const getProjects = async () => {
 
 export const getProjectById = async (
      id: string
-): Promise<ProjectCard | null> => {
+): Promise<Project | null> => {
      try {
           const token = getAuthenticatedToken();
           const response = await fetch(`${BASE_API_URL}/${id}`, {
                method: 'GET',
                headers: {Authorization: `Bearer ${token}`},
           });
-          const data: ProjectCardResponse = await response.json();
-          return normalizeProjectCard(data);
+          const data: ProjectResponse = await response.json();
+          return normalizeProject(data);
      } catch (error) {
           console.log((error as Error).message);
      }
@@ -68,7 +77,7 @@ export const removeProject = async (id: string) => {
      }
 };
 
-export const createProject = async (data: Omit<ProjectCard, 'id'>) => {
+export const createProject = async (data: Omit<Project, 'id'>) => {
      try {
           const token = getAuthenticatedToken();
           const response = await fetch(BASE_API_URL, {
@@ -76,8 +85,8 @@ export const createProject = async (data: Omit<ProjectCard, 'id'>) => {
                headers: {Authorization: `Bearer ${token}`},
                body: JSON.stringify(data),
           });
-          const project: ProjectCardResponse = await response.json();
-          return normalizeProjectCard(project);
+          const project: ProjectResponse = await response.json();
+          return normalizeProject(project);
      } catch (error) {
           console.log((error as Error).message);
      }
@@ -85,7 +94,7 @@ export const createProject = async (data: Omit<ProjectCard, 'id'>) => {
 
 export const updateProject = async (
      id: string,
-     data: Partial<ProjectCard>
+     data: Partial<Project>
    ) => {
      try {
        console.log({ data });
@@ -99,9 +108,9 @@ export const updateProject = async (
          body: JSON.stringify(data),
        });
    
-         const project: ProjectCardResponse = await response.json();
+         const project: ProjectResponse = await response.json();
          console.log({ project });
-         return normalizeProjectCard(project);
+         return normalizeProject(project);
        } catch (error) {
          console.log((error as Error).message);
        }
@@ -109,15 +118,15 @@ export const updateProject = async (
 
      export const getLatestProjects = async (
           id: string
-     ): Promise<ProjectCard | null> => {
+     ): Promise<Project | null> => {
           try {
                const token = getAuthenticatedToken();
                const response = await fetch(`${BASE_API_URL}/latest`, {
                     method: 'GET',
                     headers: {Authorization: `Bearer ${token}`},
                });
-               const data: ProjectCardResponse = await response.json();
-               return normalizeProjectCard(data);
+               const data: ProjectResponse = await response.json();
+               return normalizeProject(data);
           } catch (error) {
                console.log((error as Error).message);
           }
@@ -126,15 +135,15 @@ export const updateProject = async (
 
      export const getTopProjects = async (
           id: string
-     ): Promise<ProjectCard | null> => {
+     ): Promise<Project | null> => {
           try {
                const token = getAuthenticatedToken();
                const response = await fetch(`${BASE_API_URL}/top-project`, {
                     method: 'GET',
                     headers: {Authorization: `Bearer ${token}`},
                });
-               const data: ProjectCardResponse = await response.json();
-               return normalizeProjectCard(data);
+               const data: ProjectResponse = await response.json();
+               return normalizeProject(data);
           } catch (error) {
                console.log((error as Error).message);
           }
@@ -143,34 +152,34 @@ export const updateProject = async (
 
      export const getSuccesProjects = async (
           id: string
-     ): Promise<ProjectCard | null> => {
+     ): Promise<Project | null> => {
           try {
                const token = getAuthenticatedToken();
                const response = await fetch(`${BASE_API_URL}/success`, {
                     method: 'GET',
                     headers: {Authorization: `Bearer ${token}`},
                });
-               const data: ProjectCardResponse = await response.json();
-               return normalizeProjectCard(data);
+               const data: ProjectResponse = await response.json();
+               return normalizeProject(data);
           } catch (error) {
                console.log((error as Error).message);
           }
           return null;
      };
 
-     export const getTotalAmountProjects = async (
-          id: string
-     ): Promise<ProjectCard | null> => {
-          try {
-               const token = getAuthenticatedToken();
-               const response = await fetch(`${BASE_API_URL}/totalamount`, {
-                    method: 'GET',
-                    headers: {Authorization: `Bearer ${token}`},
-               });
-               const data: ProjectCardResponse = await response.json();
-               return normalizeProjectCard(data);
-          } catch (error) {
-               console.log((error as Error).message);
-          }
-          return null;
-     };
+     // export const getTotalAmountProjects = async (
+     //      id: string
+     // ): Promise<ProjectDetail | null> => {
+     //      try {
+     //           const token = getAuthenticatedToken();
+     //           const response = await fetch(`${BASE_API_URL}/totalamount`, {
+     //                method: 'GET',
+     //                headers: {Authorization: `Bearer ${token}`},
+     //           });
+     //           const data: ProjectDetailResponse = await response.json();
+     //           return normalizeProjectCard(data);
+     //      } catch (error) {
+     //           console.log((error as Error).message);
+     //      }
+     //      return null;
+     // };
