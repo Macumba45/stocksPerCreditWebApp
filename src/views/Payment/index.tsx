@@ -24,6 +24,7 @@ const Payment: FC = () => {
 
     const navigate = useNavigate();
     const goBack = useCallback(() => {
+        window.scrollTo(0, 0)
         window.history.back();
     }, [navigate])
 
