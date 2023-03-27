@@ -15,10 +15,10 @@ export const TitleContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.mediumSmall};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
-     color: ${({theme}) => theme.colors.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.mediumSmall};
+     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+     color: ${({ theme }) => theme.colors.primary};
      margin-top: 3rem;
      margin-left: 1rem;
      margin-right: 1rem;
@@ -30,11 +30,12 @@ export const SubTitleContainer = styled.div`
 `;
 
 export const SubTitle = styled.h2`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
      line-height: 30px;
      margin: 3rem 2rem 0 2rem;
+     max-width: 500px;
 `;
 
 export const ButtonContainer = styled.div`
