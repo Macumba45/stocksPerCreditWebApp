@@ -113,7 +113,8 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     }}
                >
                     <Toolbar
-                         sx={{ justifyContent: 'space-between', backgroundColor: '#7E1B75', height: '120px' }}
+                         sx={{justifyContent: 'space-between',backgroundColor:'#343a40', height: '90px'}}
+
                     >
                          <IconButton
                               color="inherit"
@@ -135,7 +136,6 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                    },
                               }}
                          >
-                              Todas tus inversiones a tu disposición.<br /> Chequea los proyectos en los que has invertido<br /> y lánzate a por nuevos retos.
                          </Typography>
                          <Fab onClick={goDashboard} size="small" sx={{ position: 'fixed', bottom: '2rem', right: 0, marginRight: '3rem', backgroundColor: '#7E1B75' }} color="primary" aria-label="add">
                               <Home />
