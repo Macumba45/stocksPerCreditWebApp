@@ -112,7 +112,6 @@ const Card: React.FC<CardProps> = ({
      }, []);
 
 
-
      const handleGoDetails = useCallback(() => {
           navigate('/projectdetails')
           window.scrollTo(0, 0)

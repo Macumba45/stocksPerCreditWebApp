@@ -8,7 +8,7 @@ export const MainContainer = styled.div`
 
     display: flex;
     justify-content:center;
-    margin-top: 6rem;
+    margin-top: 7rem;
 
 
 `
