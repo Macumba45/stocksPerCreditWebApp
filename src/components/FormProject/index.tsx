@@ -112,12 +112,18 @@ const FormProject: FC = () => {
                                                   $hasError={!!meta?.error}
                                                   type="text"
                                                   placeholder="Write your name on..."
+                                                  onKeyDown={(event) => {
+                                                       if (event.key === 'Enter') {
+                                                            event.preventDefault(); // Evita que se recargue la página
+                                                       }
+                                                  }}
                                                   {...field}
                                              />
 
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
+
                                         </InputContainer>
                                    )}
                               </Field>
@@ -133,6 +139,8 @@ const FormProject: FC = () => {
                                              <LabelContainer>
                                                   <Label>Indicate your country* </Label>
                                                   <CountrySelect />
+
+
                                              </LabelContainer>
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>
