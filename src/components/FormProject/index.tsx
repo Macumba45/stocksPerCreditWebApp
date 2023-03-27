@@ -2,6 +2,8 @@ import { FC, memo, useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Field, Form } from 'formik';
 import { initialValues, validationSchema } from './constants';
+
+
 import {
      FormContainer,
      TitleForm,
@@ -24,6 +26,12 @@ import LooksOneIcon from '@mui/icons-material/LooksOne';
 import LooksTwoIcon from '@mui/icons-material/LooksTwo';
 import Looks3Icon from '@mui/icons-material/Looks3';
 import NavbarEmp from '../NavbarEmp';
+import CountrySelect from './Country';
+import LimitTags from './Tags';
+import ComboBox from './Title';
+import UploadButtons from './Camara';
+import MinHeightTextarea from './Text';
+import LimitCity from './City';
 
 const FormProject: FC = () => {
      const navigate = useNavigate();
@@ -76,14 +84,10 @@ const FormProject: FC = () => {
                                    }) => (
                                         <InputContainer>
                                              <LabelContainer>
-                                                  <Label>Image* </Label>
+                                                  <Label>Upload the images for your project* </Label>
+                                                  <UploadButtons />
                                              </LabelContainer>{' '}
-                                             <Input
-                                                  $hasError={!!meta?.error}
-                                                  type="url"
-                                                  placeholder="IMAGEN"
-                                                  {...field}
-                                             />
+
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
@@ -100,21 +104,22 @@ const FormProject: FC = () => {
                                    }) => (
                                         <InputContainer>
                                              <LabelContainer>
-                                                  <Label>Name* </Label>
+                                                  <Label>Write the name of your project* </Label>
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
                                                   type="text"
-                                                  placeholder="Write your name on..."
+                                                  placeholder="Write your proposal on..."
                                                   {...field}
                                              />
+
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
                                         </InputContainer>
                                    )}
                               </Field>
-                              <Field name="history">
+                              <Field name="country">
                                    {({
                                         field,
                                         meta,
@@ -124,20 +129,36 @@ const FormProject: FC = () => {
                                    }) => (
                                         <InputContainer>
                                              <LabelContainer>
-                                                  <Label>History* </Label>
+                                                  <Label>Indicate your country* </Label>
+                                                  <CountrySelect />
                                              </LabelContainer>
-                                             <Input
-                                                  $hasError={!!meta?.error}
-                                                  type="text"
-                                                  placeholder="Write your history on..."
-                                                  {...field}
-                                             />
                                              {meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
                                         </InputContainer>
                                    )}
                               </Field>
+                              <Field name="City">
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
+                                        <InputContainer>
+                                             <LabelContainer>
+                                                  <Label>Indicate your city* </Label>
+                                                  <LimitCity />
+                                             </LabelContainer>
+
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
+                                             )}
+                                        </InputContainer>
+                                   )}
+                              </Field>
+
                          </Formulario>
 
 
@@ -153,7 +174,7 @@ const FormProject: FC = () => {
                                    </DivIcon>
                                    Informacion Del Proyecto
                               </BasicInformation>
-                              <Field name="goal">
+                              <Field name="history">
                                    {({
                                         field,
                                         meta,
@@ -163,12 +184,81 @@ const FormProject: FC = () => {
                                    }) => (
                                         <InputContainer>
                                              <LabelContainer>
-                                                  <Label>Goal* </Label>
+                                                  <Label>Writte your history* </Label>
+                                                  <MinHeightTextarea />
+                                             </LabelContainer>
+
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
+                                             )}
+                                        </InputContainer>
+                                   )}
+                              </Field>
+                              <Field name="description">
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
+                                        <InputContainer>
+                                             <LabelContainer>
+                                                  <Label>Writte a description* </Label>
+                                                  <MinHeightTextarea />
+
+                                             </LabelContainer>
+
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
+                                             )}
+                                        </InputContainer>
+                                   )}
+                              </Field>
+                              <Field name="proposal">
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
+                                        <InputContainer>
+                                             <LabelContainer>
+                                                  <Label>Indicate your proposal* </Label>
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
                                                   type="text"
-                                                  placeholder="Write your goal on..."
+                                                  placeholder="Write your proposal on..."
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
+                                             )}
+                                        </InputContainer>
+
+                                   )}
+
+                              </Field>
+                              <Field name="duration">
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
+                                        <InputContainer>
+                                             <LabelContainer>
+                                                  <Label>
+                                                       How long will your project last?*
+                                                  </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="text"
+                                                  placeholder="Write your duration on..."
                                                   {...field}
                                              />
                                              {meta?.error && (
@@ -177,7 +267,7 @@ const FormProject: FC = () => {
                                         </InputContainer>
                                    )}
                               </Field>
-                              <Field name="miniInvest">
+                              {/* <Field name="miniInvest">
                                    {({
                                         field,
                                         meta,
@@ -224,6 +314,63 @@ const FormProject: FC = () => {
                                              )}
                                         </InputContainer>
                                    )}
+                              </Field> */}
+
+                              <Field name="commerce">
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
+                                        <InputContainer>
+                                             <LabelContainer>
+                                                  <Label>Indicate your type project* </Label>
+                                                  <LimitTags />
+                                             </LabelContainer>
+
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
+                                             )}
+                                        </InputContainer>
+                                   )}
+                              </Field>
+                         </Formulario>
+                              <ButtonPrevious onClick={() => setStep(1)}>Previous</ButtonPrevious>
+                              <ButtonNext onClick={() => setStep(3)}>Next</ButtonNext>
+                         </>
+                         )}
+                         {step === 3 && (<> <Formulario>
+                              <BasicInformation>
+                                   <DivIcon>
+                                        <Looks3Icon />
+                                   </DivIcon>
+                                   Informacion Economica
+                              </BasicInformation>
+                              <Field name="goal">
+                                   {({
+                                        field,
+                                        meta,
+                                   }: {
+                                        field: any;
+                                        meta: any;
+                                   }) => (
+                                        <InputContainer>
+                                             <LabelContainer>
+                                                  <Label>Indicate yout goal* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="text"
+                                                  placeholder="Write your goal on..."
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
+                                             )}
+                                        </InputContainer>
+                                   )}
                               </Field>
                               <Field name="currency">
                                    {({
@@ -235,7 +382,7 @@ const FormProject: FC = () => {
                                    }) => (
                                         <InputContainer>
                                              <LabelContainer>
-                                                  <Label>Currency* </Label>
+                                                  <Label>What type of currency do you use?* </Label>
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
@@ -249,7 +396,7 @@ const FormProject: FC = () => {
                                         </InputContainer>
                                    )}
                               </Field>
-                              <Field name="actionPerCredit">
+                              {/* <Field name="actionPerCredit">
                                    {({
                                         field,
                                         meta,
@@ -272,7 +419,7 @@ const FormProject: FC = () => {
                                              )}
                                         </InputContainer>
                                    )}
-                              </Field>
+                              </Field> */}
                               <Field name="cost">
                                    {({
                                         field,
@@ -297,94 +444,9 @@ const FormProject: FC = () => {
                                         </InputContainer>
                                    )}
                               </Field>
-                              <Field name="commerce">
-                                   {({
-                                        field,
-                                        meta,
-                                   }: {
-                                        field: any;
-                                        meta: any;
-                                   }) => (
-                                        <InputContainer>
-                                             <LabelContainer>
-                                                  <Label>Commerce* </Label>
-                                             </LabelContainer>
-                                             <Input
-                                                  $hasError={!!meta?.error}
-                                                  type="text"
-                                                  placeholder="Write your commerce on..."
-                                                  {...field}
-                                             />
-                                             {meta?.error && (
-                                                  <Error>{meta.error}</Error>
-                                             )}
-                                        </InputContainer>
-                                   )}
-                              </Field>
-                         </Formulario>
-                              <ButtonPrevious onClick={() => setStep(1)}>Previous</ButtonPrevious>
-                              <ButtonNext onClick={() => setStep(3)}>Next</ButtonNext>
-                         </>
-                         )}
-                         {step === 3 && (<> <Formulario>
-                              <BasicInformation>
-                                   <DivIcon>
-                                        <Looks3Icon />
-                                   </DivIcon>
-                                   Informacion Economica
-                              </BasicInformation>
-                              <Field name="duration">
-                                   {({
-                                        field,
-                                        meta,
-                                   }: {
-                                        field: any;
-                                        meta: any;
-                                   }) => (
-                                        <InputContainer>
-                                             <LabelContainer>
-                                                  <Label>
-                                                       Duration*
-                                                  </Label>
-                                             </LabelContainer>
-                                             <Input
-                                                  $hasError={!!meta?.error}
-                                                  type="text"
-                                                  placeholder="Write your duration on..."
-                                                  {...field}
-                                             />
-                                             {meta?.error && (
-                                                  <Error>{meta.error}</Error>
-                                             )}
-                                        </InputContainer>
-                                   )}
-                              </Field>
-                              <Field name="proposal">
-                                   {({
-                                        field,
-                                        meta,
-                                   }: {
-                                        field: any;
-                                        meta: any;
-                                   }) => (
-                                        <InputContainer>
-                                             <LabelContainer>
-                                                  <Label>Proposal* </Label>
-                                             </LabelContainer>
-                                             <Input
-                                                  $hasError={!!meta?.error}
-                                                  type="text"
-                                                  placeholder="Write your proposal on..."
-                                                  {...field}
-                                             />
-                                             {meta?.error && (
-                                                  <Error>{meta.error}</Error>
-                                             )}
-                                        </InputContainer>
 
-                                   )}
 
-                              </Field>
+
                               <FormButton type="submit">Save</FormButton>
                          </Formulario>
                               <ButtonPrevious onClick={() => setStep(2)}>Previous</ButtonPrevious>

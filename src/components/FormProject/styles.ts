@@ -9,10 +9,24 @@ export const FormContainer = styled.div`
      margin-bottom: 4rem;
 `;
 
-export const Form = styled(DefaultForm)``;
+export const Form = styled(DefaultForm)`
+ @media (max-width: 480px) {
+          margin-top: 6.25rem;
+          width: 25rem;
+     }`;
 export const Formulario = styled.div`
-     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+     /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); */
      margin-bottom: 30px;
+     @media (max-width: 761px) {
+          margin-top: 6.25rem;
+          margin-left: 6.25rem;
+          width: 20rem;
+     }
+     @media (max-width: 480px) {
+          margin-top: 6.25rem;
+          margin-left: 6.25rem;
+          width: 20rem;
+     }
 `;
 
 export const InputContainer = styled.div`
@@ -24,21 +38,13 @@ export const InputContainer = styled.div`
 
 export const Input = styled.input<{ $hasError?: boolean }>`
      font-family: 'Open Sans', sans-serif;
-     width: 35rem;
+     width: 17.5rem;
+     height: 2rem;
      border-radius: 5px;
-     border: 2px solid gray;
      font-size: 18px;
      padding: 10px;
      color: black;
-     ${({ $hasError, theme }) =>
-          $hasError ? theme.colors.blue : theme.colors.white100};
-     padding: 10px 14px;
-
-     ${({ $hasError, theme }) =>
-          $hasError &&
-          css`
-               color: ${theme.colors.white100};
-          `}
+     border: 0.5px solid lightgray;
 `;
 
 export const Error = styled.span`
@@ -56,13 +62,13 @@ export const FormButton = styled.button`
   padding: 10px;
   font-size: 16px;
   color: #fff;
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.primary};
   border: none;
   border-radius: 5px;
   cursor: pointer;
   
   &:hover {
-    background-color: gray;
+     background-color: ${({ theme }) => theme.colors.primarydark};
   }
 `;
 
@@ -77,6 +83,8 @@ export const LabelContainer = styled.div`
 `;
 
 export const Label = styled.label`
+     display: block;
+     margin-bottom: 10px;
      font-family: ${({ theme }) => theme.fonts.primary};
      font-size: 20px;
      font-weight: ${({ theme }) => theme.fontWeights.bold};
@@ -89,6 +97,10 @@ export const TitleForm = styled.h1`
      margin-bottom: 3.125rem;
      margin-left: 1.875rem;
      margin-top: 3.125rem;
+     @media (max-width: 480px) {
+          margin-left: 6.25rem;
+          width: 20rem;
+     }
 `;
 
 export const BasicInformation = styled.h3`
@@ -114,14 +126,22 @@ export const ButtonNext = styled.button`
   padding: 10px;
   font-size: 16px;
   color: #fff;
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.primary};
   border: none;
   border-radius: 5px;
   cursor: pointer;
   
   &:hover {
-     background-color: gray;
+     background-color: ${({ theme }) => theme.colors.primarydark};
   }
+  @media (max-width: 761px) {
+     margin-left: 7.50rem;
+          width: 20rem;
+     }
+  @media (max-width: 480px) {
+          margin-left: 6.25rem;
+          width: 20rem;
+     }
 `;
 
 export const ButtonPrevious = styled.button`
@@ -130,12 +150,22 @@ export const ButtonPrevious = styled.button`
   padding: 10px;
   font-size: 16px;
   color: #fff;
-  background-color: black;
+  background-color: ${({ theme }) => theme.colors.primary};
   border: none;
   border-radius: 5px;
   cursor: pointer;
   
   &:hover {
-     background-color: gray;
+     background-color: ${({ theme }) => theme.colors.primarydark};
   }
+  @media (max-width: 761px) {
+     margin-bottom: 1rem;
+          margin-left: 7.50rem;
+          width: 20rem;
+     }
+  @media (max-width: 480px) {
+          margin-bottom: 1rem;
+          margin-left: 6.25rem;
+          width: 20rem;
+     }
 `;
