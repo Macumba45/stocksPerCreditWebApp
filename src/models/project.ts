@@ -16,7 +16,7 @@ export type ProjectInput = {
      minimuminvestment: number;
      actionPerCredit: string;
      returnInvestment: number;
-     goals: number;
+     goal: number;
      tags: string[];  
 };
 
@@ -40,7 +40,7 @@ export const normalizeProject = (input: ProjectResponse) => {
           minimuminvestment: input?.minimuminvestment || '',
           actionPerCredit: input?.actionPerCredit || '',
           returnInvestment: input?.returnInvestment || '',
-          goals: input?.goals || '',
+          goal: input?.goal || '',
           tags: input?.tags ? input.tags.map(normalizeTag) : [] ,
           limitvalue: input?.limitvalue || '',
           createdAt: input?.createdAt || new Date(),
