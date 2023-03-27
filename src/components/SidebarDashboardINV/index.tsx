@@ -18,8 +18,10 @@ import React from 'react';
 import { Container, ContainerLogo, ContainerProfile, LogoStocks } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
-import { Fab } from '@mui/material';
+import { Fab, Tooltip } from '@mui/material';
 import { Home } from '@mui/icons-material';
+import Person4Icon from '@mui/icons-material/Person4';
+
 
 
 const drawerWidth = 240;
@@ -41,13 +43,25 @@ const ResponsiveDrawer: FC = (props: Props) => {
      const container =
           window !== undefined ? () => window().document.body : undefined;
 
+     const CustomTooltip = ({ title, children }: any) => {
+          return (
+               <Tooltip title={title} placement="left">
+                    {children}
+               </Tooltip>
+          );
+     };
 
      const navigate = useNavigate();
 
 
-     const goDashboard = useCallback(() => {
+     const goLanding = useCallback(() => {
 
           navigate('/');
+     }, [navigate])
+
+     const goProfile = useCallback(() => {
+
+          navigate('/profile');
      }, [navigate])
 
      const handleDrawerToggle = () => {
@@ -113,7 +127,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     }}
                >
                     <Toolbar
-                         sx={{justifyContent: 'space-between',backgroundColor:'#343a40', height: '90px'}}
+                         sx={{ justifyContent: 'space-between', backgroundColor: '#343a40', height: '90px' }}
 
                     >
                          <IconButton
@@ -137,9 +151,51 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               }}
                          >
                          </Typography>
-                         <Fab onClick={goDashboard} size="small" sx={{ position: 'fixed', bottom: '2rem', right: 0, marginRight: '3rem', backgroundColor: '#7E1B75' }} color="primary" aria-label="add">
-                              <Home />
-                         </Fab>
+                         <CustomTooltip title="Go to Landing">
+                              <Fab
+                                   onClick={goLanding}
+                                   size="small"
+                                   sx={{
+                                        position: 'fixed',
+                                        bottom: '2rem',
+                                        right: 0,
+                                        marginRight: '2rem',
+                                        backgroundColor: '#7E1B75',
+                                        '&:hover': {
+                                             backgroundColor: '#7e1b7655', // Cambiar color del hover
+                                        },
+
+
+                                   }}
+                                   color="primary"
+                                   aria-label="add"
+                              >
+                                   <Home />
+                              </Fab>
+                         </CustomTooltip>
+                         <CustomTooltip title="Profile">
+                              <Fab
+                                   onClick={goProfile}
+                                   size="small"
+                                   sx={{
+                                        position: 'fixed',
+                                        bottom: '6rem',
+                                        right: 0,
+                                        marginRight: '2rem',
+                                        backgroundColor: '#7E1B75',
+                                        '&:hover': {
+                                             backgroundColor: '#7e1b7655', // Cambiar color del hover
+                                        },
+
+
+                                   }}
+                                   color="primary"
+                                   aria-label="add"
+                              >
+                                   <Person4Icon />
+                              </Fab>
+
+                         </CustomTooltip>
                          <ContainerProfile>
                               <ProfileDashboard />
                          </ContainerProfile>
