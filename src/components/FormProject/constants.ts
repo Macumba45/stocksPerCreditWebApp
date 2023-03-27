@@ -4,6 +4,10 @@ export const validationSchema = Yup.object().shape({
      image: Yup.string().required('The image field is required'),
      name: Yup.string().required('The image field is required'),
      history: Yup.string().required('The image field is required'),
+     country: Yup.string().required('The image field is required'),
+     city: Yup.string().required('The image field is required'),
+     description: Yup.string().required('The image field is required'),
+
 
      goal: Yup.string().required('The image field is required'),
      miniInvest: Yup.string().required('The image field is required'),
@@ -31,5 +35,8 @@ export const initialValues = {
      proposal: '',
      cost: '',
      commerce: '',
+     country: '',
+     city: '',
+     description: '',
     
 };
