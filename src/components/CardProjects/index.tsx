@@ -1,4 +1,4 @@
-import { useState, memo } from 'react';
+import { useState, memo, useCallback } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import * as React from 'react';
 import Box from '@mui/material/Box';
@@ -103,23 +103,20 @@ const Card: React.FC<CardProps> = ({
      const showMenuItems =
           location.pathname !== '/' && location.pathname !== '/welcome';
 
-     const handleClick = () => {
+     const handleClick = useCallback(() => {
           setLiked(!liked);
-     };
+     }, []);
 
-     const handleMenuClick = () => {
+     const handleMenuClick = useCallback(() => {
           setShowMenu(!showMenu);
-     };
+     }, []);
 
-     const handleMouseOver = () => {
 
-          setOpen(true);
 
-     };
-
-     const handleGoDetails = () => {
+     const handleGoDetails = useCallback(() => {
           navigate('/projectdetails')
-     };
+          window.scrollTo(0, 0)
+     }, [navigate]);
 
      return (
           <CardContainer>

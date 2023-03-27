@@ -5,7 +5,7 @@ import { MainContainer, ContainerForm, ContainerSteps, TextSteps2, TextSteps1, C
 import InputDecorators from '../../components/InvestInputDetails'
 import Radio from '@mui/material/Radio';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
-import ButtonPay from "../../components/ButtonPay";
+// import ButtonPay from "../../components/ButtonPay";
 
 
 
@@ -67,9 +67,9 @@ const Payment: FC = () => {
                             </ContainerMastercard>
                         </ContainerPayment>
                     </ContainerTitle>
-                    <ButtonPaymentContainer>
+                    {/* <ButtonPaymentContainer>
                         <ButtonPay />
-                    </ButtonPaymentContainer>
+                    </ButtonPaymentContainer> */}
                 </ContainerForm>
             </MainContainer>
         </>
