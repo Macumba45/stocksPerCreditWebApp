@@ -38,7 +38,7 @@ const InputDecorators: FC = () => {
                 </>
             }
             sx={{
-                width: 180
+                width: 200
             }}
         />
     );
