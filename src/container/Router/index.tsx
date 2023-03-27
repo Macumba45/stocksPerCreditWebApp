@@ -11,6 +11,7 @@ import Dashboard from '../../views/Dashboard';
 import ProjectDetails from '../../views/ProjectDetails';
 import DashboardInvestment from '../../views/DashboardInvestments/index';
 import FormProject from '../../components/FormProject';
+import Payment from '../../views/Payment';
 
 const Router: FC = () => {
      const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -96,6 +97,14 @@ const Router: FC = () => {
                          path="/dashboard/new-project"
                          element={
                                    <FormProject />
+                         }
+                    />
+                    <Route
+                         path="/payment"
+                         element={
+                              <ProtectedRoutes>
+                                   <Payment />
+                              </ProtectedRoutes>
                          }
                     />
                     <Route path="/profile" element={<Profile />} />

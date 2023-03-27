@@ -24,11 +24,18 @@ const ButtonInvest: FC = () => {
 
     }, [navigate])
 
+    const goPayment = useCallback(() => {
+
+        navigate('/payment')
+
+    }, [navigate])
+
     if (isAuthenticated) {
 
         return (
             <Stack>
                 <Button
+                    onClick={goPayment}
                     size="large"
                     sx={{
                         backgroundColor: '#7E1B75',
