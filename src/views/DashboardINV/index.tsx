@@ -32,7 +32,7 @@ const DashboardINVe: FC = () => {
      const [selectedTags, setSelectedTags] = useState<string[]>([]);
      const [sliderValue, setSliderValue] = useState<number>(0);
      const [filteredData, setFilteredData] = useState<string[]>([]);
-     // const [data, setData] = useState<string[]>([]);
+     //const [data, setData] = useState<string[]>([]);
 
      // const handleFilter = () => {
      //      // Filtrar por rango de valor
@@ -86,11 +86,11 @@ const DashboardINVe: FC = () => {
                                    <Search></Search>
                               </SearchDiv>
                          </FiltersDiv>
-                         <FiltersDiv>
+                         {/* <FiltersDiv>
                               <DiscretDiv>
                                    <DiscreteSlider></DiscreteSlider>
                               </DiscretDiv>
-                         </FiltersDiv>
+                         </FiltersDiv> */}
                          <FiltersDiv>
                               {/* <ContainedButtons/> */}
                               <ContainedButtons onClick={handleFilter2} />

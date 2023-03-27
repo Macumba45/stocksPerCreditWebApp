@@ -1,38 +1,54 @@
-import {ProjectCardResponse} from '../services/api/project';
+import {ProjectResponse} from '../services/api/project';
 
-export type ProjectCardInput = {
+export type ProjectInput = {
      id: string;
-     image: string;
      title: string;
      description: string;
+     url: string;
+     duration: string;
+     totalInvest: number;
+     totalInvestor: number;
      country: string;
      city: string;
-     categories: string;
-     collected: string;
-     investors: string;
+     history: string;
+     commerce: string;
+     proposal: string;
+     images: string;
+     currency: string;
+     cost: number;
      minimuminvestment: number;
+     actionPerCredit: string;
+     returnInvestment: number;
      goals: number;
+     tags: string;
      limitvalue: number;
      createdAt: Date;
      updatedAt: Date;
 };
 
-export const normalizeProjectCard = (input: ProjectCardResponse) => {
+export const normalizeProject = (input: ProjectResponse) => {
      return {
-          image: input?.image || '',
           title: input?.title || '',
           description: input?.description || '',
+          url: input?.url || '',
+          duration: input?.duration || '',
+          totalInvest: input?.totalInvest || '',
+          totalInvestor: input?.totalInvestor || '',
           country: input?.country || '',
           city: input?.city || '',
-          categories: input?.categories || '',
-          collected: input?.collected || '',
-          investors: input?.investors || '',
+          history: input?.history || '',
+          commerce: input?.commerce || '',
+          proposal: input?.proposal || '',
+          images: input?.images || '',
+          currency: input?.currency || '',
+          cost: input?.cost || '',
           minimuminvestment: input?.minimuminvestment || '',
+          actionPerCredit: input?.actionPerCredit || '',
+          returnInvestment: input?.returnInvestment || '',
           goals: input?.goals || '',
+          tags: input?.tags || '',
           limitvalue: input?.limitvalue || '',
      };
 };
 
-
-
-export type ProjectCard = ReturnType<typeof normalizeProjectCard>;
+export type Project = ReturnType<typeof normalizeProject>;
