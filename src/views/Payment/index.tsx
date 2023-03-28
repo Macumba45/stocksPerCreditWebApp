@@ -5,7 +5,6 @@ import InputDecorators from '../../components/InvestInputDetails'
 import Radio from '@mui/material/Radio';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import ButtonPay from "../../components/ButtonPay";
-import { useNavigate } from "react-router-dom";
 import { Fab, Tooltip } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { MainContainer, ContainerForm, ContainerSteps, TextSteps2, TextSteps1, ContainerTitle, TitleStartup, ContainerAmount, ContainerPayment, TitlePayment, MastercardPayment, ContainerMastercard, IconPaymentCard, LabelPaymentCard, IconPaymentCardPaypal, ButtonPaymentContainer } from "./styles";
@@ -22,11 +21,11 @@ const Payment: FC = () => {
         setSelectedValue(event.target.value);
     };
 
-    const navigate = useNavigate();
     const goBack = useCallback(() => {
-        window.scrollTo(0, 0)
         window.history.back();
-    }, [navigate])
+        window.scrollTo(0, 0)
+
+    }, [])
 
 
     const CustomTooltip = ({ title, children }: any) => {

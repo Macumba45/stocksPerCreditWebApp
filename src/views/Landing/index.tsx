@@ -8,8 +8,15 @@ import InsightLanding from '../../components/InsightLanding';
 import NavBar from '../../components/NavBar';
 import PopularProjects from '../../components/PopularProjects';
 import TagsLanding from '../../components/TagsLanding';
+import { LandingLogic } from './logic';
 
 const Landing: FC = () => {
+
+     const {
+          landingData
+     } = LandingLogic();
+
+     console.log(landingData)
      return (
           <>
                <NavBar />

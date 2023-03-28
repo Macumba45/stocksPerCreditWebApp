@@ -1,4 +1,4 @@
-import {ProjectResponse} from '../services/api/project';
+import { ProjectResponse } from '../services/api/project';
 
 export type ProjectInput = {
      id: string;
@@ -19,7 +19,7 @@ export type ProjectInput = {
      minimuminvestment: number;
      actionPerCredit: string;
      returnInvestment: number;
-     goals: number;
+     goal: number;
      tags: string;
      limitvalue: number;
      createdAt: Date;

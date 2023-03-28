@@ -1,4 +1,4 @@
-import {FC, memo, useState} from 'react';
+import { FC, memo, useState } from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
 import {
      Container,
@@ -18,9 +18,8 @@ import {
      FinalCards,
      H3,
 } from './styles';
-import {FinishDatePickers} from '../../components/DatePicker';
+import { FinishDatePickers } from '../../components/DatePicker';
 import Search from '../../components/Search';
-import {DiscreteSlider} from '../../components/StocksSlider';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
 import ContainedButtons from '../../components/ContainedButton';
@@ -205,7 +204,7 @@ const DashboardINVe: FC = () => {
 
                     <NewContainer>
                          <SectionTitle>
-                              <H3>DESPEGANDO</H3>
+                              <H3>LANDING</H3>
                          </SectionTitle>
                          <NewCards>
                               <Card
@@ -308,7 +307,7 @@ const DashboardINVe: FC = () => {
                     </NewContainer>
                     <FinalContainer>
                          <SectionTitle>
-                              <H3>RECTA FINAL</H3>
+                              <H3>CLOSE SOON</H3>
                          </SectionTitle>
                          <FinalCards>
                               <Card
