@@ -11,6 +11,12 @@ import { useState, useCallback, useEffect } from 'react';
 import { getUserInfo } from '../../services/api/profile';
 import { useNavigate } from 'react-router-dom';
 import { User } from '../../models/profile';
+import PersonIcon from '@mui/icons-material/Person';
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import PublicIcon from '@mui/icons-material/Public';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
+import EmailIcon from '@mui/icons-material/Email';
+import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 
 export default function FolderList() {
     const [userinfo, setUserInfo] = useState<User | null>(null);
@@ -41,7 +47,7 @@ export default function FolderList() {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <ImageIcon />
+            <PersonIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Name" secondary={userinfo?.name} />
@@ -49,15 +55,7 @@ export default function FolderList() {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <WorkIcon />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="Id" secondary={userinfo?.id} />
-      </ListItem>
-      <ListItem>
-        <ListItemAvatar>
-          <Avatar>
-            <BeachAccessIcon />
+            <PersonIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="LastName" secondary={userinfo?.lastName} />
@@ -65,7 +63,7 @@ export default function FolderList() {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <BeachAccessIcon />
+            <EmailIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="EMAIL" secondary={userinfo?.email} />
@@ -73,7 +71,7 @@ export default function FolderList() {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <BeachAccessIcon />
+            <PublicIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Country" secondary={userinfo?.country} />
@@ -81,7 +79,7 @@ export default function FolderList() {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <BeachAccessIcon />
+            <LocationCityIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="City" secondary={userinfo?.city} />
@@ -89,7 +87,7 @@ export default function FolderList() {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <BeachAccessIcon />
+            <LocalPhoneIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Phone" secondary={userinfo?.phone} />
@@ -97,7 +95,7 @@ export default function FolderList() {
       <ListItem>
         <ListItemAvatar>
           <Avatar>
-            <BeachAccessIcon />
+            <SupervisedUserCircleIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Rol" secondary={userinfo?.userRol} />
