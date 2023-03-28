@@ -38,7 +38,7 @@ const SignUp: FC = () => {
                     const response: Response = await hadledSubmitSignup(values);
                     if (response.ok) {
                          const token = await response.json();
-                         setAuthenticatedToken(token);
+                         setAuthenticatedToken(token.token);
                          setUserRole(values.userRol);
                          navigate('/');
                     }
@@ -106,17 +106,17 @@ const SignUp: FC = () => {
                                         </NameContainer>
                                    )}
                               </Field>
-                              <Field name="lastname">
+                              <Field name="lastName">
                                    {({ field, meta }: FieldProps) => (
                                         <NameContainer>
                                              <LabelContainer>
-                                                  <Label>Lastname* </Label>
+                                                  <Label>Last Name* </Label>
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
-                                                  type="lastname"
+                                                  type="lastName"
                                                   placeholder="Insert your lastname"
-                                                  autoComplete="lastname"
+                                                  autoComplete="lastName"
                                                   {...field}
                                              />
                                              {!!meta?.error && (

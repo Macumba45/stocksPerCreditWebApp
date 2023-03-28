@@ -4,11 +4,11 @@ import {UserRole} from '../../../models/user';
 export const validationSchema = Yup.object().shape({
      name: Yup.string()
           .min(4, 'Too Short!')
-          .max(16, 'Too Long!')
+          .max(25, 'Too Long!')
           .required('Name is required'),
-     lastname: Yup.string()
+     lastName: Yup.string()
           .min(4, 'Too Short!')
-          .max(16, 'Too Long!')
+          .max(40, 'Too Long!')
           .required('Lastname is required'),
      userRol: Yup.string().required('Role is required'),
      email: Yup.string()
@@ -16,22 +16,22 @@ export const validationSchema = Yup.object().shape({
           .required('Email is required'),
      country: Yup.string()
           .min(4, 'Too Short!')
-          .max(16, 'Too Long!')
+          .max(20, 'Too Long!')
           .required('Country is required'),
      city: Yup.string()
           .min(4, 'Too Short!')
-          .max(16, 'Too Long!')
+          .max(25, 'Too Long!')
           .required('City is required'),
      phone: Yup.number().required('Phone is required'),
      password: Yup.string()
           .min(4, 'Too Short!')
-          .max(8, 'Too Long!')
+          .max(12, 'Too Long!')
           .required('Password is required'),
 });
 
 export const initialValues = {
      name: '',
-     lastname: '',
+     lastName: '',
      userRol: UserRole.ENTREPRENEUR,
      email: '',
      country: '',
