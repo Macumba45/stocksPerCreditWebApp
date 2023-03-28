@@ -19,7 +19,7 @@ export const CardContainer = styled.div`
      background-color: #ffffff;
      &:hover {
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
-          transform: scale(1.02);
+          transform: scale(1.008);
           transition: box-shadow 0.5s ease, transform 0.5s ease;
      }
 `;
@@ -48,6 +48,8 @@ export const Title = styled.h2`
      font-family: ${({ theme }) => theme.fonts.primary};
      font-size: ${({ theme }) => theme.fontSizes.small};
      font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.primary};
+
      text-align: left;
 `;
 export const ContainerInvestor = styled.div`
@@ -249,7 +251,7 @@ export const ContainerRecaudacciones = styled.div``;
 export const Recaudado = styled.p`
      margin-bottom: 1rem;
      border-bottom: 1px solid blue;
-     color: ${({ theme }) => theme.colors.lighterGrey};
+     color: ${({ theme }) => theme.colors.primary};
      font-weight: ${({ theme }) => theme.fontWeights.bold};
 `;
 

@@ -1,9 +1,16 @@
-import { FC, memo, useCallback, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { FC, memo, useState } from 'react';
 import { Formik, Field, Form } from 'formik';
 import { initialValues, validationSchema } from './constants';
-
-
+import LooksOneIcon from '@mui/icons-material/LooksOne';
+import LooksTwoIcon from '@mui/icons-material/LooksTwo';
+import Looks3Icon from '@mui/icons-material/Looks3';
+import NavbarEmp from '../NavbarEmp';
+import CountrySelect from './Country';
+import LimitTags from './Tags';
+import MinHeightTextarea from './Text';
+import LimitCity from './City';
+import { StartDatePickers } from './DatePicker';
+import InputCurrency from './InputCurrency';
 import {
      FormContainer,
      TitleForm,
@@ -12,7 +19,6 @@ import {
      Input,
      Error,
      FormButton,
-     BackButton,
      LabelContainer,
      Label,
      DivIcon,
@@ -21,22 +27,10 @@ import {
      ButtonNext,
      ButtonPrevious
 } from './styles';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import LooksOneIcon from '@mui/icons-material/LooksOne';
-import LooksTwoIcon from '@mui/icons-material/LooksTwo';
-import Looks3Icon from '@mui/icons-material/Looks3';
-import NavbarEmp from '../NavbarEmp';
-import CountrySelect from './Country';
-import LimitTags from './Tags';
-import UploadButtons from './Camara';
-import MinHeightTextarea from './Text';
-import LimitCity from './City';
-import { StartDatePickers } from './DatePicker';
-import InputCurrency from './InputCurrency';
+
 
 
 const FormProject: FC = () => {
-     const navigate = useNavigate();
      const [step, setStep] = useState(1);
 
      const onSubmitForm = (
@@ -47,7 +41,7 @@ const FormProject: FC = () => {
           setSubmitting(false);
      };
 
-     
+
 
      return (
           <FormContainer>
@@ -62,7 +56,7 @@ const FormProject: FC = () => {
                          <TitleForm>Create Your New Project</TitleForm>
 
                          {step === 1 && (<><Formulario>
-                            
+
                               <BasicInformation>
                                    <DivIcon1>
                                         <LooksOneIcon />

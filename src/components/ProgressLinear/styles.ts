@@ -21,6 +21,9 @@ font-family: ${({ theme }) => theme.fonts.primary};
 
 export const DateContainer = styled.div`
 
+color: ${({ theme }) => theme.colors.primary};
+
+
 
 
 `

@@ -85,7 +85,9 @@ export const TopCards = styled.div`
 export const NewCards = styled.div`
      display: flex;
      flex-wrap: wrap;
-     margin-bottom: 5rem;
+     justify-content: center;
+     margin-bottom:5rem;
+
 `;
 
 export const FinalCards = styled.div`

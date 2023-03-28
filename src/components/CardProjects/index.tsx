@@ -1,4 +1,4 @@
-import { useState, memo, useCallback } from 'react';
+import { useState, memo, useCallback, FC } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -7,15 +7,15 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useLocation } from 'react-router';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import { Props } from './type';
+import VideoThumbail from './video/index'
 
 import {
      CardContainer,
      Title,
      HeartButton,
      ContainerImg,
-     Image,
      ContainerButton,
      ContainerTitle,
      ContainerDesc,
@@ -26,24 +26,6 @@ import {
      ContainerCategories,
      Categories,
      ContainerLinear,
-     ContainerImgModal,
-     ImageModal,
-     ContainerTitleModal,
-     TitleModal,
-     ContainerDescModal,
-     DescriptionModal,
-     ContainerLocationsModal,
-     CountryModal,
-     CityModal,
-     ContainerCategoriesModal,
-     CategoriesModal,
-     ContainerRecaudacciones,
-     Recaudado,
-     Inversores,
-     MinimaInversion,
-     Objetivos,
-     ValorLimite,
-     LabelSpan,
      ContainerButtonModal,
      MenuButton,
      Menu,
@@ -55,7 +37,7 @@ import {
 
 
 
-const Card: React.FC<Props> = ({
+const Card: FC<Props> = ({
      id,
      title,
      description,
@@ -90,11 +72,11 @@ const Card: React.FC<Props> = ({
 
      const handleClick = useCallback(() => {
           setLiked(!liked);
-     }, []);
+     }, [liked]);
 
      const handleMenuClick = useCallback(() => {
           setShowMenu(!showMenu);
-     }, []);
+     }, [showMenu]);
 
 
      const handleGoDetails = useCallback(() => {
@@ -107,7 +89,7 @@ const Card: React.FC<Props> = ({
           <CardContainer>
                <ContainerImg >
                     {/* <Image style={{ objectFit: 'cover' }} src={`${url}?autoplay=0&mute=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0`} /> */}
-                    <Image src={url + "?h=648d0eee28&autoplay=0&loop=1&title=0&byline=0&portrait=0"}
+                    <VideoThumbail src={url}
                          // width="270"
                          // height="270"
                          style={{ width: '100%', margin: 'auto' }}

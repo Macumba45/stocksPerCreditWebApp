@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -51,10 +51,6 @@ const NavBarEmp: FC = () => {
                navigate('/welcome');
           }
      };
-
-     const createProject = useCallback(() => {
-          navigate('/dashboard/new-project');
-     }, [navigate]);
 
      return (
           <AppBar position="fixed" sx={{ top: 0, backgroundColor: ' #222222' }}>
