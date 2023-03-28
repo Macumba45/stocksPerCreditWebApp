@@ -4,7 +4,7 @@ export type SignUpProps = {
      name: string;
      email: string;
      password: string;
-     lastname: string;
+     lastName: string;
      userRol: UserRole;
      country: string;
      city: string;
