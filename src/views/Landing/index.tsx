@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 import Hr from '../../components/Hr';
 import InsightLanding from '../../components/InsightLanding';
 import NavBar from '../../components/NavBar';
-import PopularProjects from '../../components/PopularProjects';
+import BasicTabs from '../../components/FilterProjects';
 import TagsLanding from '../../components/TagsLanding';
 import { LandingLogic } from './logic';
 
@@ -22,11 +22,15 @@ const Landing: FC = () => {
                <NavBar />
                <FeaturedCard />
                <Hr label="Stadistics" />
-               <InsightLanding />
+               <InsightLanding
+                    ratioSuccess={landingData.ratioSuccess}
+                    totalAmount={landingData.totalAmount}
+                    totalProjects={landingData.totalProjects}
+               />
                <Hr label="Login in Stocks" />
                <FirsTimeStocks />
                <Hr label="Projects" />
-               <PopularProjects />
+               <BasicTabs />
                <Hr label="Top Categories" />
                <TagsLanding />
                <Hr label="All in your Dashboard" />

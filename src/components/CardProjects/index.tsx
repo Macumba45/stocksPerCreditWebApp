@@ -50,6 +50,7 @@ import {
 } from './styles';
 import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
+import { Props } from './type';
 
 const style = {
      position: 'absolute' as 'absolute',
@@ -63,35 +64,32 @@ const style = {
      p: 4,
 };
 
-type CardProps = {
-     image?: string;
-     title?: string;
-     description?: string;
-     onClick?: () => void;
-     showHeartButton?: boolean;
-     country?: string;
-     city?: string;
-     categories?: string;
-     collected?: number;
-     investors?: number;
-     minimuminvestment?: number;
-     goals?: number;
-     limitvalue?: number;
-};
-const Card: React.FC<CardProps> = ({
-     image,
+
+const Card: React.FC<Props> = ({
+     id,
      title,
      description,
-     onClick,
-     showHeartButton,
+     url,
+     duration,
+     totalInvest,
+     totalInvestor,
      country,
      city,
-     categories,
-     collected,
-     investors,
+     history,
+     commerce,
+     proposal,
+     images,
+     currency,
+     cost,
      minimuminvestment,
-     goals,
+     actionPerCredit,
+     returnInvestment,
+     goal,
+     tags,
      limitvalue,
+     createdAt,
+     updatedAt,
+     showHeartButton
 }) => {
      const [liked, setLiked] = useState(false);
      const [open, setOpen] = React.useState(false);
@@ -120,7 +118,7 @@ const Card: React.FC<CardProps> = ({
      return (
           <CardContainer>
                <ContainerImg >
-                    <Image src={image} />
+                    <Image src={url} />
                </ContainerImg>
                <ContainerButton>
                     {showHeartButton && (
@@ -140,7 +138,7 @@ const Card: React.FC<CardProps> = ({
                     <City>, {city}</City>
                </ContainerLocations>
                <ContainerCategories>
-                    <Categories>{categories}</Categories>
+                    <Categories>{tags ? tags.map(tag => tag.name).join(' ') : ''}</Categories>
                </ContainerCategories>
                <ContainerLinear>
                     <LinearWithValueLabel min={0} max={100} />
@@ -164,58 +162,6 @@ const Card: React.FC<CardProps> = ({
                               </MenuItem>
                          </Menu>
                     )}
-                    <Modal
-                         open={open}
-                         onClose={handleClose}
-                         aria-labelledby="modal-modal-title"
-                         aria-describedby="modal-modal-description"
-                    >
-                         <Box sx={style}>
-                              <ContainerImgModal>
-                                   <ImageModal src={image} />
-                              </ContainerImgModal>
-                              <ContainerTitleModal>
-                                   <TitleModal>{title}</TitleModal>
-                              </ContainerTitleModal>
-                              <ContainerDescModal>
-                                   <DescriptionModal>
-                                        {description}
-                                   </DescriptionModal>
-                              </ContainerDescModal>
-                              <ContainerLocationsModal>
-                                   <CountryModal>{country}</CountryModal>
-                                   <CityModal>, {city}</CityModal>
-                              </ContainerLocationsModal>
-                              <ContainerCategoriesModal>
-                                   <CategoriesModal>
-                                        {categories}
-                                   </CategoriesModal>
-                              </ContainerCategoriesModal>
-                              <ContainerRecaudacciones>
-                                   <Recaudado>
-                                        {collected}{' '}
-                                        <LabelSpan>Collected</LabelSpan>
-                                   </Recaudado>
-                                   <Inversores>
-                                        {investors}{' '}
-                                        <LabelSpan>Investors</LabelSpan>
-                                   </Inversores>
-                                   <MinimaInversion>
-                                        {minimuminvestment}{' '}
-                                        <LabelSpan>
-                                             Minimum Investment
-                                        </LabelSpan>
-                                   </MinimaInversion>
-                                   <Objetivos>
-                                        {goals} <LabelSpan>Goals</LabelSpan>
-                                   </Objetivos>
-                                   <ValorLimite>
-                                        {limitvalue}{' '}
-                                        <LabelSpan>Limit Value</LabelSpan>
-                                   </ValorLimite>
-                              </ContainerRecaudacciones>
-                         </Box>
-                    </Modal>
                </div>
           </CardContainer>
      );

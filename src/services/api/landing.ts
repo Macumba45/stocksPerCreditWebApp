@@ -1,12 +1,13 @@
 import { getAuthenticatedToken } from '../../services/storage/token';
-import { normalizeProject} from '../../models/project';
-import {ProjectResponse} from './project'
+import { normalizeProject } from '../../models/project';
+import { ProjectResponse } from './project'
 
 export type LandingResponse = {
     latestProjects: ProjectResponse[]
-    ratioSuccess: number;
     topProjects: ProjectResponse[]
-    totalAmount:number
+    ratioSuccess: number;
+    totalAmount: number
+    totalProjects: number
 };
 
 
@@ -29,12 +30,15 @@ export const fetchLandingData = async () => {
             topProjects: data?.topProjects?.map(normalizeProject),
             latestProjects: data?.latestProjects?.map(normalizeProject),
             totalAmount: data?.totalAmount,
-            ratioSuccess: data?.ratioSuccess
+            ratioSuccess: data?.ratioSuccess,
+            totalProjects: data?.totalProjects // corregir la clave
+
+
         }
 
         return values
     } catch (error) {
         console.log((error as Error).message);
     }
-    return [];
+    return null;
 };

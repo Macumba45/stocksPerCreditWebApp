@@ -102,7 +102,7 @@ const DashboardINVe: FC = () => {
                          </SectionTitle>
                          <TopCards>
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -110,15 +110,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -126,15 +126,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -142,15 +142,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -158,15 +158,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -174,15 +174,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -190,11 +190,11 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                          </TopCards>
@@ -206,7 +206,7 @@ const DashboardINVe: FC = () => {
                          </SectionTitle>
                          <NewCards>
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -214,15 +214,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -230,15 +230,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -246,15 +246,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -262,15 +262,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -278,15 +278,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -294,11 +294,11 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                          </NewCards>
@@ -309,7 +309,7 @@ const DashboardINVe: FC = () => {
                          </SectionTitle>
                          <FinalCards>
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -317,15 +317,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -333,15 +333,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -349,15 +349,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -365,15 +365,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -381,15 +381,15 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                               <Card
-                                   image={''}
+                                   url={''}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -397,11 +397,11 @@ const DashboardINVe: FC = () => {
                                    }
                                    country={'España'}
                                    city={'Madrid'}
-                                   categories={'MEDICINA'}
+                                   tags={[]}
                                    collected={3000}
                                    investors={4000}
                                    minimuminvestment={300}
-                                   goals={600}
+                                   goal={600}
                                    limitvalue={500}
                               />
                          </FinalCards>

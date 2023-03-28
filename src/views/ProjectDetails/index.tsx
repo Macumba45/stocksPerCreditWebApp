@@ -26,6 +26,7 @@ import {
      MainInvestContainerFlex,
      SpanData,
      SpanLocation,
+     SpanTags,
      StockersContainer,
      StockersFunds,
      StockersInvestors,
@@ -35,6 +36,8 @@ import {
      SubTitleContainer,
      SubTitleInvest,
      SubTitleInvestContainer,
+     Tags,
+     TagsContainer,
      Title,
      TitleContainer,
      TitleInvest,
@@ -242,6 +245,24 @@ const ProjectDetails: FC = () => {
                <Divider
                     sx={{
                          marginTop: '6rem',
+                         marginBottom: '3rem',
+                         width: '300px',
+                         display: 'flex',
+                         marginLeft: 'auto',
+                         marginRight: 'auto',
+                    }}
+               />
+               <TagsContainer>
+                    <Tags>
+                         <SpanTags>TAG NUMERO 1</SpanTags>
+                    </Tags>
+                    <Tags>
+                         <SpanTags>TAG NUMERO 2</SpanTags>
+                    </Tags>
+               </TagsContainer>
+               <Divider
+                    sx={{
+                         marginTop: '3rem',
                          marginBottom: '3rem',
                          width: '300px',
                          display: 'flex',

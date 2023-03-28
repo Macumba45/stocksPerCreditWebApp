@@ -264,7 +264,6 @@ export const SpanLocation = styled.span`
      font-weight: ${({ theme }) => theme.fontWeights.bold};
      color: ${({ theme }) => theme.colors.primary};
      line-height: 1.5rem;
-     margin-left: 0.5rem;
      @media screen and (min-width: 600px) {
           font-size: ${({ theme }) => theme.fontSizes.small};
          
@@ -272,3 +271,39 @@ export const SpanLocation = styled.span`
        
      }
 `;
+
+export const SpanTags = styled.span`
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.light};
+     line-height: 1.5rem;
+     @media screen and (min-width: 600px) {
+          font-size: ${({ theme }) => theme.fontSizes.smallest};
+         
+
+       
+     }
+`;
+
+export const TagsContainer = styled.div`
+     display: flex;
+     justify-content: center;
+     align-items: center;
+`;
+
+
+export const Tags = styled.div`
+ display: inline-block;
+     padding: 1px;
+     background-color: #7e1b75;
+     color: white;
+     border-radius: 10px;
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: 5px;
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     padding: 0.2rem;
+     margin-left: 1rem;
+     margin-right: 1rem;
+     
+`;
+

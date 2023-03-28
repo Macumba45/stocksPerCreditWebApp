@@ -42,160 +42,90 @@ const BasicTabs: FC = () => {
      };
 
      return (
-          <Box sx={{ margin: '0 auto', color: '#7E1B75' }}>
-               <Box
-                    sx={{
-                         borderBottom: 1,
-                         borderColor: 'divider',
-                         color: '#7E1B75',
-                    }}
-               >
-                    <Tabs
-                         sx={{ color: '#7E1B75', indicatorColor: '#7E1B75' }}
-                         value={value}
-                         onChange={handleChange}
-                         aria-label="basic tabs example"
-                         TabIndicatorProps={{ sx: { bgcolor: '#7E1B75' } }}
-
+          <MainContainer>
+               <Box sx={{ margin: '0 auto', color: '#7E1B75' }}>
+                    <Box
+                         sx={{
+                              borderBottom: 1,
+                              borderColor: 'divider',
+                              color: '#7E1B75',
+                         }}
                     >
-                         <Tab
-                              sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
-                              label="Top projects"
-                              {...a11yProps(0)}
-                         />
-                         <Tab
-                              sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
-                              label="Recents"
-                              {...a11yProps(1)}
-                         />
-                         <Tab
-                              sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
-                              label="Close soon"
-                              {...a11yProps(2)}
-                         />
-                    </Tabs>
+                         <Tabs
+                              sx={{ color: '#7E1B75', indicatorColor: '#7E1B75' }}
+                              value={value}
+                              onChange={handleChange}
+                              aria-label="basic tabs example"
+                              TabIndicatorProps={{ sx: { bgcolor: '#7E1B75' } }}
+
+                         >
+                              <Tab
+                                   sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
+                                   label="Top projects"
+                                   {...a11yProps(0)}
+                              />
+                              <Tab
+                                   sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
+                                   label="Recents"
+                                   {...a11yProps(1)}
+                              />
+                              <Tab
+                                   sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
+                                   label="Close soon"
+                                   {...a11yProps(2)}
+                              />
+                         </Tabs>
+                    </Box>
+                    <TabPanel value={value} index={0}>
+                         <MainContainer>
+                              <ContainerProjects>
+                                   <Card
+                                        url={''}
+                                        // showHeartButton={true}
+                                        title={''}
+                                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+                                        tags={[]}
+                                        country={''}
+                                        city={''}
+                                        onClick={() => console.log('prueba')}
+                                   />
+                              </ContainerProjects>
+                         </MainContainer>
+                    </TabPanel>
+                    <TabPanel value={value} index={1}>
+                         <MainContainer>
+                              <ContainerProjects>
+                                   <Card
+                                        url={''}
+                                        // showHeartButton={true}
+                                        title={''}
+                                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+                                        tags={[]}
+                                        country={''}
+                                        city={''}
+                                        onClick={() => console.log('prueba')}
+                                   />
+                              </ContainerProjects>
+                         </MainContainer>
+                    </TabPanel>
+                    <TabPanel value={value} index={2}>
+                         <MainContainer>
+                              <ContainerProjects>
+                                   <Card
+                                        url={''}
+                                        // showHeartButton={true}
+                                        title={''}
+                                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
+                                        tags={[]}
+                                        country={''}
+                                        city={''}
+                                        onClick={() => console.log('prueba')}
+                                   />
+                              </ContainerProjects>
+                         </MainContainer>
+                    </TabPanel>
                </Box>
-               <TabPanel value={value} index={0}>
-                    <MainContainer>
-                         <ContainerProjects>
-                              <Card
-                                   image="Hola"
-                                   // showHeartButton={true}
-                                   title="Esto es un proyecto TOP"
-                                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                   categories="Medicina"
-                                   country="United States"
-                                   city="NewYork"
-                                   onClick={() => console.log('prueba')}
-                              />
-                         </ContainerProjects>
-                         <ContainerProjects>
-                              <Card
-                                   image="Hola"
-                                   // showHeartButton={true}
-                                   title="Esto es un proyecto TOP"
-                                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                   categories="Medicina"
-                                   country="United States"
-                                   city="NewYork"
-                                   onClick={() => console.log('prueba')}
-                              />
-                         </ContainerProjects>
-                         <ContainerProjects>
-                              <Card
-                                   image="Hola"
-                                   // showHeartButton={true}
-                                   title="Esto es un proyecto TOP"
-                                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                   categories="Medicina"
-                                   country="United States"
-                                   city="NewYork"
-                                   onClick={() => console.log('prueba')}
-                              />
-                         </ContainerProjects>
-                    </MainContainer>
-               </TabPanel>
-               <TabPanel value={value} index={1}>
-                    <MainContainer>
-                         <ContainerProjects>
-                              <Card
-                                   image="Hola"
-                                   // showHeartButton={true}
-                                   title="Esto es un proyecto RECIENTE"
-                                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                   categories="Medicina"
-                                   country="United States"
-                                   city="NewYork"
-                                   onClick={() => console.log('prueba')}
-                              />
-                         </ContainerProjects>
-                         <ContainerProjects>
-                              <Card
-                                   image="Hola"
-                                   // showHeartButton={true}
-                                   title="Esto es un proyecto RECIENTE"
-                                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                   categories="Medicina"
-                                   country="United States"
-                                   city="NewYork"
-                                   onClick={() => console.log('prueba')}
-                              />
-                         </ContainerProjects>
-                         <ContainerProjects>
-                              <Card
-                                   image="Hola"
-                                   // showHeartButton={true}
-                                   title="Esto es un proyecto RECIENTE"
-                                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                   categories="Medicina"
-                                   country="United States"
-                                   city="NewYork"
-                                   onClick={() => console.log('prueba')}
-                              />
-                         </ContainerProjects>
-                    </MainContainer>
-               </TabPanel>
-               <TabPanel value={value} index={2}>
-                    <MainContainer>
-                         <ContainerProjects>
-                              <Card
-                                   image="Hola"
-                                   // showHeartButton={true}
-                                   title="Esto es un proyecto CIERRA PRONTO"
-                                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                   categories="Medicina"
-                                   country="United States"
-                                   city="NewYork"
-                                   onClick={() => console.log('prueba')}
-                              />
-                         </ContainerProjects>
-                         <ContainerProjects>
-                              <Card
-                                   image="Hola"
-                                   // showHeartButton={true}
-                                   title="Esto es un proyecto CIERRA PRONTO"
-                                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                   categories="Medicina"
-                                   country="United States"
-                                   city="NewYork"
-                                   onClick={() => console.log('prueba')}
-                              />
-                         </ContainerProjects>
-                         <ContainerProjects>
-                              <Card
-                                   image="Hola"
-                                   // showHeartButton={true}
-                                   title="Esto es un proyecto CIERRA PRONTO"
-                                   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                   categories="Medicina"
-                                   country="United States"
-                                   city="NewYork"
-                                   onClick={() => console.log('prueba')}
-                              />
-                         </ContainerProjects>
-                    </MainContainer>
-               </TabPanel>
-          </Box>
+          </MainContainer>
      );
 };
 

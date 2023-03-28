@@ -80,7 +80,7 @@ const RangeSlider: FC<RangeProps> = ({ handleRangeChange }) => {
             onChange={(event) => handleInputChange(event, 1)}
           />
         </InputContainer>
-        <MoneyOutput>Price: {value[0]}€ / {value[1]}€.</MoneyOutput>
+        <MoneyOutput>Total: {value[0]}€ / {value[1]}€.</MoneyOutput>
       </RangeSliderDiv>
     </Box>
   );
