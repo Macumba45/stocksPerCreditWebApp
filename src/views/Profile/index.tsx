@@ -53,9 +53,9 @@
 
 import { FC, useState, useCallback, useEffect, memo } from 'react';
 import { getUserInfo } from '../../services/api/profile';
-import type { User } from '../../models/profile';
 import { useNavigate, useParams } from 'react-router-dom';
 import { App, ButtonBack, ButtonContainer, Container, Info } from './styles';
+import { User } from '../../models/profile';
 
 const Profile: FC = () => {
   const [userinfo, setUserInfo] = useState<User | null>(null);

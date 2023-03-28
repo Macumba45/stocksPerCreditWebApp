@@ -91,6 +91,7 @@ const BasicTabs: FC = () => {
                                         url={item.url}
                                         tags={item.tags}
                                         // showHeartButton={true}
+                                        totalInvestor={item.totalInvestor}
                                         title={item.title}
                                         description={item.description}
                                         country={item.country}
