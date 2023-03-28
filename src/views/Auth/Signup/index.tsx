@@ -27,6 +27,7 @@ import { setAuthenticatedToken } from '../../../services/storage/token';
 import { hadledSubmitSignup } from '../../../services/api/auth';
 import { UserRole } from '../../../models/user';
 import { setUserRole } from '../../../services/storage/userRole';
+import CountrySelectSignup from './Country';
 
 const SignUp: FC = () => {
      const navigate = useNavigate();
@@ -153,11 +154,10 @@ const SignUp: FC = () => {
                                              <Input
                                                   $hasError={!!meta?.error}
                                                   type="country"
-                                                  placeholder="Insert your country"
-                                                  autoComplete="country"
+                                                  placeholder="Insert your city"
+                                                  autoComplete="city"
                                                   {...field}
-                                             />
-                                             {!!meta?.error && (
+                                             />                                             {!!meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
                                         </NameContainer>
@@ -171,7 +171,7 @@ const SignUp: FC = () => {
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
-                                                  type="country"
+                                                  type="city"
                                                   placeholder="Insert your city"
                                                   autoComplete="city"
                                                   {...field}

@@ -16,8 +16,7 @@ export const validationSchema = Yup.object().shape({
           .required('Email is required'),
      country: Yup.string()
           .min(4, 'Too Short!')
-          .max(20, 'Too Long!')
-          .required('Country is required'),
+          .max(20, 'Too Long!'),
      city: Yup.string()
           .min(4, 'Too Short!')
           .max(25, 'Too Long!')
