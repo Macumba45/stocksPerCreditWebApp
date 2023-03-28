@@ -11,7 +11,7 @@ const ContainedButton: FC<Props> = ({  onClick }) => {
         borderRadius: '5px',
         padding: '10px 20px',
         boxShadow: 'none',
-        margin:'auto;'
+        margin:'auto'
       };
     
 

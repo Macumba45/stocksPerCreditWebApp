@@ -24,7 +24,8 @@ import {DiscreteSlider} from '../../components/StocksSlider';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
 import ContainedButtons from '../../components/ContainedButton';
-// import {Divider} from '@mui/material';
+import Divider from '@mui/material/Divider';
+
 
 const DashboardINVe: FC = () => {
      const [rangeValue, setRangeValue] = useState([0, 100]);
@@ -101,6 +102,7 @@ const DashboardINVe: FC = () => {
                <CardsContainer>
                     <TopContainer>
                          <SectionTitle>
+                         <Divider />
                               <H3>TOP PROJECTS</H3>
                          </SectionTitle>
                          <TopCards>
