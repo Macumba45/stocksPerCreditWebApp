@@ -20,7 +20,7 @@ const pagesLogged = [{ label: 'New Project', route: '/dashboard/new-project' }];
 const settings = [
      {
           label: 'Profile',
-          route: '/dashboardemp/profile',
+          route: '/profile',
      },
      { label: 'Logout', route: '/logout' },
 ];

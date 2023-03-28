@@ -1,33 +1,34 @@
-import { ProjectResponse } from '../services/api/project';
+
+import {ProjectResponse} from '../services/api/project';
+import { normalizeTag } from './tag';
+
 
 export type ProjectInput = {
-     id: string;
      title: string;
      description: string;
      url: string;
      duration: string;
-     totalInvest: number;
-     totalInvestor: number;
      country: string;
      city: string;
      history: string;
      commerce: string;
      proposal: string;
-     images: string;
      currency: string;
      cost: number;
      minimuminvestment: number;
      actionPerCredit: string;
      returnInvestment: number;
      goal: number;
-     tags: string;
      limitvalue: number;
      createdAt: Date;
      updatedAt: Date;
+     tags: string[];  
+
 };
 
 export const normalizeProject = (input: ProjectResponse) => {
      return {
+          id: input?.id || '',
           title: input?.title || '',
           description: input?.description || '',
           url: input?.url || '',
@@ -45,9 +46,11 @@ export const normalizeProject = (input: ProjectResponse) => {
           minimuminvestment: input?.minimuminvestment || '',
           actionPerCredit: input?.actionPerCredit || '',
           returnInvestment: input?.returnInvestment || '',
-          goals: input?.goals || '',
-          tags: input?.tags || '',
+          goal: input?.goal || '',
+          tags: input?.tags ? input.tags.map(normalizeTag) : [] ,
           limitvalue: input?.limitvalue || '',
+          createdAt: input?.createdAt || new Date(),
+          updatedAt: input?.updatedAt || new Date(),
      };
 };
 
