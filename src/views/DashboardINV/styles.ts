@@ -88,6 +88,7 @@ export const TopCards = styled.div`
 export const NewCards = styled.div`
      display: flex;
      flex-wrap: wrap;
+     justify-content: center;
      margin-bottom:5rem;
 
 `;

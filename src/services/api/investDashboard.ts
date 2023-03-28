@@ -1,6 +1,6 @@
-import {getAuthenticatedToken} from '../storage/token';
-import {normalizeProject} from '../../models/project';
-import {ProjectResponse} from './project';
+import { getAuthenticatedToken } from '../storage/token';
+import { normalizeProject } from '../../models/project';
+import { ProjectResponse } from './project';
 
 export type InvestDashboardResponse = {
      allProjects: ProjectResponse[];
@@ -18,9 +18,10 @@ export const getProjects = async () => {
                method: 'GET',
                headers: {
                     Authorization: `Bearer ${token}`,
-               },   
+               },
           });
           const data: InvestDashboardResponse = await response.json();
+          console.log(data);
 
           const values = {
                allProjects: data?.allProjects?.map(normalizeProject),

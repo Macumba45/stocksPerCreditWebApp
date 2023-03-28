@@ -56,7 +56,7 @@ import { getUserInfo } from '../../services/api/profile';
 import { useNavigate, useParams } from 'react-router-dom';
 import { App, ButtonBack, ButtonContainer, Container, Info } from './styles';
 import { User } from '../../models/profile';
-import { NavBarProfile } from '../../components/NavbarEmp copy';
+import { NavBarProfile } from '../../components/NavbarProfile';
 
 const Profile: FC = () => {
   const [userinfo, setUserInfo] = useState<User | null>(null);
