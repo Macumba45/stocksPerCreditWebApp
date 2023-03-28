@@ -18,12 +18,12 @@ export type ProjectResponse = {
      images: string;
      currency: string;
      cost: string | number;
-     minimuminvestment: string | number;
+     minimuminvestment: number;
      actionPerCredit: string;
-     returnInvestment: string | number;
+     returnInvestment: number;
      goal: number;
      tags: TagResponse[];
-     limitvalue: string | number;
+     limitvalue: number;
      createdAt: Date;
      updatedAt: Date;
 };

@@ -1,6 +1,6 @@
-import {FC, memo, useCallback, useEffect, useState} from 'react';
+import { FC, memo, useCallback, useEffect, useState } from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
-import {FinishDatePickers} from '../../components/DatePicker';
+import { FinishDatePickers } from '../../components/DatePicker';
 import Search from '../../components/Search';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
@@ -23,17 +23,17 @@ import {
      H3,
      ButtonContainer,
 } from './styles';
-import {getAuthenticatedToken} from '../../services/storage/token';
-import {getProjects} from '../../services/api/investDashboard';
-import {InvestDashboardResponse} from '../../services/api/investDashboard';
+import { getAuthenticatedToken } from '../../services/storage/token';
+import { getProjects } from '../../services/api/investDashboard';
+import { InvestDashboardResponse } from '../../services/api/investDashboard';
 
 const DashboardINVe: FC = () => {
      const [selectedRange, setSelectedRange] = useState<{
           min: number;
           max: number;
-     }>({min: 0, max: 0});
-     const [filters, setFilters] = useState({selectedTags: []});
-     const [selectedDate, setSelectedDate] = useState({finishDate: ''});
+     }>({ min: 0, max: 0 });
+     const [filters, setFilters] = useState({ selectedTags: [] });
+     const [selectedDate, setSelectedDate] = useState({ finishDate: '' });
      const [projectData, setprojectData] = useState<InvestDashboardResponse>();
 
      const getProjectData = useCallback(async () => {
@@ -63,7 +63,7 @@ const DashboardINVe: FC = () => {
           }));
      };
 
-     const handleRangeChange = (range: {min: number; max: number}) => {
+     const handleRangeChange = (range: { min: number; max: number }) => {
           setSelectedRange(range);
      };
 
@@ -116,7 +116,7 @@ const DashboardINVe: FC = () => {
                               <H3>ALL PROJECTS</H3>
                          </SectionTitle>
                          <NewCards>
-                              {projectData?.allProjects.map(
+                              {/* {projectData?.allProjects.map(
                                    (project, index) => (
                                         <div key={index}>
                                              <Card
@@ -145,7 +145,7 @@ const DashboardINVe: FC = () => {
                                              />
                                         </div>
                                    )
-                              )}
+                              )} */}
                          </NewCards>
                     </NewContainer>
                     <TopContainer>
@@ -154,7 +154,7 @@ const DashboardINVe: FC = () => {
                               <H3>TOP PROJECTS</H3>
                          </SectionTitle>
                          <TopCards>
-                            
+
                          </TopCards>
                     </TopContainer>
 
@@ -163,7 +163,7 @@ const DashboardINVe: FC = () => {
                               <H3>LANDING</H3>
                          </SectionTitle>
                          <NewCards>
-                              
+
                          </NewCards>
                     </NewContainer>
                     <FinalContainer>
@@ -171,7 +171,7 @@ const DashboardINVe: FC = () => {
                               <H3>CLOSE SOON</H3>
                          </SectionTitle>
                          <FinalCards>
-                            
+
                          </FinalCards>
                     </FinalContainer>
                </CardsContainer>

@@ -18,7 +18,7 @@ export type Props = {
     images?: string;
     currency?: string;
     cost?: number;
-    minimuminvestment?: number;
+    minimuminvestment?: number | undefined;
     actionPerCredit?: string;
     returnInvestment?: number;
     goal?: number;
