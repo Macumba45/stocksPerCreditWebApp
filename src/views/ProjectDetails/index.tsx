@@ -239,7 +239,8 @@ const ProjectDetails: FC = () => {
                <LinearProgress>
                     <LinearWithValueLabel
                          min={0}
-                         max={100} />
+                         max={100}
+                         current={50} />
                </LinearProgress>
 
                <Divider

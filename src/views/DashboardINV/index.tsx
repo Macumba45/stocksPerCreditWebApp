@@ -102,7 +102,7 @@ const DashboardINVe: FC = () => {
                          </SectionTitle>
                          <TopCards>
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -118,7 +118,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -134,7 +134,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -150,7 +150,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -166,7 +166,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -182,7 +182,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -206,7 +206,7 @@ const DashboardINVe: FC = () => {
                          </SectionTitle>
                          <NewCards>
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -222,7 +222,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -238,7 +238,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -254,7 +254,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -270,7 +270,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -286,7 +286,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -309,7 +309,7 @@ const DashboardINVe: FC = () => {
                          </SectionTitle>
                          <FinalCards>
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -325,7 +325,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -341,7 +341,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -357,7 +357,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -373,7 +373,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={
@@ -389,7 +389,7 @@ const DashboardINVe: FC = () => {
                                    limitvalue={500}
                               />
                               <Card
-                                   url={''}
+                                   url={'https://www.youtube.com/embed/2cl5HKZ6iS4'}
                                    showHeartButton={false}
                                    title={'Mind on me'}
                                    description={

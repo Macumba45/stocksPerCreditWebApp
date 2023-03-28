@@ -1,19 +1,17 @@
 import { useCallback, useEffect, useState } from "react";
 import { fetchLandingData } from "../../services/api/landing";
-import { getAuthenticatedToken } from "../../services/storage/token";
+import { ProjectResponse } from "../../services/api/project";
 
 export const LandingLogic = () => {
 
-    interface LandingData {
-        ratioSuccess: number;
-        totalAmount: number;
-        totalProjects: number;
-        // ... otras propiedades que necesites
-    }
-    const [landingData, setLandingData] = useState<LandingData>({ ratioSuccess: 0, totalAmount: 0, totalProjects: 0 });
+    type LandingResponse = {
+        latestProjects: ProjectResponse[]
+        topProjects: ProjectResponse[]
+
+    };
+    const [landingData, setLandingData] = useState<LandingResponse>({ latestProjects: [], topProjects: [] });
 
     const getLandingData = useCallback(async () => {
-        getAuthenticatedToken(); // Obtener el token de localStorage
         const data = await fetchLandingData();
         if (data) {
             setLandingData(data);

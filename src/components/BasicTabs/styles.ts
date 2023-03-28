@@ -1,9 +1,14 @@
 import styled from 'styled-components';
 
-export const ContainerProjects = styled.div``;
+export const ContainerProjects = styled.div`
+   display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;`;
 
 export const MainContainer = styled.div`
      display: flex;
+     flex-direction: row;
      flex-wrap: wrap;
      justify-content: center;
 `;

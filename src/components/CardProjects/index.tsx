@@ -1,9 +1,7 @@
 import { useState, memo, useCallback } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
 import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
@@ -115,10 +113,29 @@ const Card: React.FC<Props> = ({
           window.scrollTo(0, 0)
      }, [navigate]);
 
+     const options = {
+          width: '100%',
+          height: '100%',
+          modestbranding: 1,
+          autoplay: 0,
+          mute: 1,
+          controls: 0,
+          showinfo: 0,
+          iv_load_policy: 3,
+          rel: 0,
+          src: url,
+     };
      return (
           <CardContainer>
                <ContainerImg >
-                    <Image src={url} />
+                    {/* <Image style={{ objectFit: 'cover' }} src={`${url}?autoplay=0&mute=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0`} /> */}
+                    <Image src="https://player.vimeo.com/video/800507584?h=648d0eee28?autoplay=0&loop=1&title=0&byline=0&portrait=0"
+                         // width="270"
+                         // height="270"
+                         style={{ width: '100%', margin: 'auto' }}
+
+                    />
+
                </ContainerImg>
                <ContainerButton>
                     {showHeartButton && (
@@ -141,7 +158,7 @@ const Card: React.FC<Props> = ({
                     <Categories>{tags ? tags.map(tag => tag.name).join(' ') : ''}</Categories>
                </ContainerCategories>
                <ContainerLinear>
-                    <LinearWithValueLabel min={0} max={100} />
+                    <LinearWithValueLabel current={totalInvest || 0} min={0} max={goal || 0} />
                </ContainerLinear>
                <div>
                     <ContainerButtonModal>
@@ -163,7 +180,7 @@ const Card: React.FC<Props> = ({
                          </Menu>
                     )}
                </div>
-          </CardContainer>
+          </CardContainer >
      );
 };
 

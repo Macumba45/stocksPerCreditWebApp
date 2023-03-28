@@ -10,16 +10,19 @@ interface Props extends LinearProgressProps {
      max: number;
      min: number;
      value: number;
+     current: number
+
 }
 
 interface LinearWithValueLabelProps {
-     min: number;
      max: number;
+     min: number;
+     current: number
 }
 
 function LinearProgressWithLabel(props: Props) {
      const { value, min, max, ...otherProps } = props;
-     const percentage = ((value - min) / (max - min)) * 100;
+     const percentage = value * 100;
      return (
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
                <Box sx={{ width: '100%', mr: 1 }}>
@@ -40,10 +43,12 @@ function LinearProgressWithLabel(props: Props) {
      );
 }
 
-const LinearWithValueLabel: FC<LinearWithValueLabelProps> = ({ min, max }) => {
-     const difference = max - min;
-     const maxInvest = 3000
-     const value = ((maxInvest - min) / difference);
+const LinearWithValueLabel: FC<LinearWithValueLabelProps> = ({ min, max, current }) => {
+     const difference = max - current;
+     const value = ((difference) / max);
+     const remaining = 1 - value; // calcula el porcentaje restante
+
+
 
      return (
           <Box sx={{ width: '100%', fontFamily: 'Roboto, sans-serif', fontSize: '12px' }}>
@@ -52,7 +57,7 @@ const LinearWithValueLabel: FC<LinearWithValueLabelProps> = ({ min, max }) => {
                </SpanCollected>
                <SpanCollectedMoney>
                     <br />
-                    {5000 + '€'} of {10000 + '€'}
+                    {current + '€'} of {max + '€'}
                </SpanCollectedMoney>
                <LinearProgressWithLabel
                     sx={{
@@ -64,7 +69,8 @@ const LinearWithValueLabel: FC<LinearWithValueLabelProps> = ({ min, max }) => {
                          },
                     }}
                     color="inherit"
-                    value={value}
+                    value={remaining}
+                    current={current}
                     min={min}
                     max={max}
                />

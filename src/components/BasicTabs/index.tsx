@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import { FC, memo, useState } from 'react';
 import Card from '../CardProjects';
 import { ContainerProjects, MainContainer, TabDiv } from './styles';
+import { LandingLogic } from './logic';
 
 interface TabPanelProps {
      children?: React.ReactNode;
@@ -41,6 +42,12 @@ const BasicTabs: FC = () => {
           setValue(newValue);
      };
 
+     const { landingData } = LandingLogic()
+     const topProjects = landingData.topProjects
+     const lastestProjects = landingData.latestProjects.slice(0, 3)
+     const closeSoon = landingData.latestProjects.slice(-3)
+
+
      return (
           <MainContainer>
                <Box sx={{ margin: '0 auto', color: '#7E1B75' }}>
@@ -77,50 +84,64 @@ const BasicTabs: FC = () => {
                          </Tabs>
                     </Box>
                     <TabPanel value={value} index={0}>
-                         <MainContainer>
-                              <ContainerProjects>
+                         <ContainerProjects>
+                              {topProjects.map((item, index) =>
                                    <Card
-                                        url={''}
+                                        key={index}
+                                        url={item.url}
+                                        tags={item.tags}
                                         // showHeartButton={true}
-                                        title={''}
-                                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                        tags={[]}
-                                        country={''}
-                                        city={''}
+                                        title={item.title}
+                                        description={item.description}
+                                        country={item.country}
+                                        city={item.city}
+                                        totalInvest={item.totalInvest}
+                                        goal={item.goal}
                                         onClick={() => console.log('prueba')}
                                    />
-                              </ContainerProjects>
-                         </MainContainer>
+                              )}
+                         </ContainerProjects>
+
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                          <MainContainer>
                               <ContainerProjects>
-                                   <Card
-                                        url={''}
-                                        // showHeartButton={true}
-                                        title={''}
-                                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                        tags={[]}
-                                        country={''}
-                                        city={''}
-                                        onClick={() => console.log('prueba')}
-                                   />
+                                   {lastestProjects.map((item, index) =>
+                                        <Card
+                                             key={index}
+                                             url={item.url}
+                                             tags={item.tags}
+                                             // showHeartButton={true}
+                                             totalInvest={item.totalInvest}
+                                             goal={item.goal}
+                                             title={item.title}
+                                             description={item.description}
+                                             country={item.country}
+                                             city={item.city}
+                                             onClick={() => console.log('prueba')}
+                                        />
+                                   )}
                               </ContainerProjects>
                          </MainContainer>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                          <MainContainer>
                               <ContainerProjects>
-                                   <Card
-                                        url={''}
-                                        // showHeartButton={true}
-                                        title={''}
-                                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam"
-                                        tags={[]}
-                                        country={''}
-                                        city={''}
-                                        onClick={() => console.log('prueba')}
-                                   />
+                                   {closeSoon.map((item, index) =>
+                                        <Card
+                                             key={index}
+                                             url={item.url}
+                                             tags={item.tags}
+                                             // showHeartButton={true}
+                                             totalInvest={item.totalInvest}
+                                             goal={item.goal}
+                                             title={item.title}
+                                             description={item.description}
+                                             country={item.country}
+                                             city={item.city}
+                                             onClick={() => console.log('prueba')}
+                                        />
+                                   )}
                               </ContainerProjects>
                          </MainContainer>
                     </TabPanel>

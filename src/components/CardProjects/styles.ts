@@ -25,12 +25,17 @@ export const CardContainer = styled.div`
 `;
 export const ContainerImg = styled.div`
      border: none;
+ max-width: 270px;
+ display: flex;
+ justify-content: center;
+ margin-bottom: 2rem;
+
 `;
 
-export const Image = styled.img`
-     width: 270px;
-     height: 270px;
+export const Image = styled.iframe`
+     
      border: none;
+     object-fit: cover;
 `;
 export const ContainerTitle = styled.div`
      position: relative;
