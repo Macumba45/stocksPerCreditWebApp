@@ -6,7 +6,9 @@ import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import GroupIcon from '@mui/icons-material/Group';
+import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router-dom';
+import { Props } from './type';
 
 import {
      CardContainer,
@@ -49,21 +51,8 @@ import {
      TotalInvestor,
      ContainerInvestor,
 } from './styles';
-import { useLocation } from 'react-router';
-import { useNavigate } from 'react-router-dom';
-import { Props } from './type';
 
-const style = {
-     position: 'absolute' as 'absolute',
-     top: '50%',
-     left: '50%',
-     transform: 'translate(-50%, -50%)',
-     width: 350,
-     height: 550,
-     bgcolor: 'background.paper',
-     boxShadow: 24,
-     p: 4,
-};
+
 
 
 const Card: React.FC<Props> = ({
@@ -122,9 +111,7 @@ const Card: React.FC<Props> = ({
                          // width="270"
                          // height="270"
                          style={{ width: '100%', margin: 'auto' }}
-
                     />
-
                </ContainerImg>
                <ContainerButton>
                     {showHeartButton && (
@@ -138,6 +125,9 @@ const Card: React.FC<Props> = ({
                </ContainerTitle>
                <ContainerInvestor>
                     <TotalInvestor>Total investors: {totalInvestor}</TotalInvestor>
+               </ContainerInvestor>
+               <ContainerInvestor>
+                    <TotalInvestor>Finish at: {duration}</TotalInvestor>
                </ContainerInvestor>
                <ContainerDesc>
                     <Description>{description}</Description>
