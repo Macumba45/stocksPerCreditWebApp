@@ -1,8 +1,6 @@
 import { TagResponse } from "../../services/api/tag";
 
 export type Props = {
-
-
     id?: string;
     title?: string;
     description?: string;
