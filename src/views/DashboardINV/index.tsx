@@ -1,5 +1,11 @@
 import { FC, memo, useState } from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
+import { FinishDatePickers } from '../../components/DatePicker';
+import Search from '../../components/Search';
+import Card from '../../components/CardProjects';
+import RangeSlider from '../../components/MoneySlider';
+import ContainedButtons from '../../components/ContainedButton';
+import Divider from '@mui/material/Divider';
 import {
      Container,
      MinMaxContainer,
@@ -7,7 +13,6 @@ import {
      TagDiv,
      FiltersDiv,
      SearchDiv,
-     DiscretDiv,
      TopContainer,
      CardsContainer,
      TopCards,
@@ -18,54 +23,42 @@ import {
      FinalCards,
      H3,
 } from './styles';
-import { FinishDatePickers } from '../../components/DatePicker';
-import Search from '../../components/Search';
-import Card from '../../components/CardProjects';
-import RangeSlider from '../../components/MoneySlider';
-import ContainedButtons from '../../components/ContainedButton';
-import Divider from '@mui/material/Divider';
 
 
 const DashboardINVe: FC = () => {
-     const [rangeValue, setRangeValue] = useState([0, 100]);
-     const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-     const [selectedTags, setSelectedTags] = useState<string[]>([]);
-     const [sliderValue, setSliderValue] = useState<number>(0);
-     // const [filteredData, setFilteredData] = useState<string[]>([]);
-     //const [data, setData] = useState<string[]>([]);
 
+     const [selectedRange, setSelectedRange] = useState<{ min: number, max: number }>({ min: 0, max: 0 });
+     const [filters, setFilters] = useState({ selectedTags: [] });
+     const [selectedDate, setSelectedDate] = useState({ finishDate: '' });
 
-      
-     // const handleFilter = () => {
-     //      // Filtrar por rango de valor
-     //      const filteredDataByRange = data.filter((item) => item.value >= rangeValue[0] && item.value <= rangeValue[1]);
+     const handleDateChange = (newDates: any) => {
+          setSelectedDate((prevDates) => ({
+               ...prevDates,
+               ...newDates
+          }));
+     };
 
-     //      // Filtrar por fecha seleccionada
-     //      const filteredDataByDate = selectedDate
-     //        ? filteredDataByRange.filter((item) => item.date.toDateString() === selectedDate.toDateString())
-     //        : filteredDataByRange;
+     const handleFiltersChange = (newFilters: any) => {
+          setFilters((prevFilters) => ({
+               ...prevFilters,
+               ...newFilters
+          }));
+     };
 
-     //      // Filtrar por etiquetas seleccionadas
-     //      const filteredDataByTags = selectedTags.length > 0
-     //        ? filteredDataByDate.filter((item) => selectedTags.every((tag) => item.tags.includes(tag)))
-     //        : filteredDataByDate;
+     const handleRangeChange = (range: { min: number, max: number }) => {
+          setSelectedRange(range);
+     };
 
-     //      // Actualizar el estado de la aplicación con los datos filtrados
-     //      setFilteredData(filteredDataByTags);
-
-     //      // Actualizar el valor del slider con la suma de los valores filtrados
-     //      const totalValue = filteredDataByTags.reduce((acc, item) => acc + item.value, 0);
-     //      setSliderValue(totalValue);
-     //    };
      const handleFilter2 = () => {
           console.log({
-               rangeValue,
+               selectedRange,
                selectedDate,
-               selectedTags,
-               sliderValue,
-               // filteredData
+
+               selectedTags: filters.selectedTags,
+
           });
      };
+
 
      return (
           <>
@@ -73,19 +66,20 @@ const DashboardINVe: FC = () => {
                     <ResponsiveDrawer />
                     <MinMaxContainer>
                          <FiltersDiv>
-                              <RangeSlider />
+
+                              <RangeSlider handleRangeChange={handleRangeChange} />
                          </FiltersDiv>
                     </MinMaxContainer>
                     <DateContainer>
                          <FiltersDiv>
-                              <FinishDatePickers></FinishDatePickers>
+                              <FinishDatePickers handleDateChange={handleDateChange} />
                          </FiltersDiv>
                     </DateContainer>
                     <TagDiv>
                          <FiltersDiv>
                               <SearchDiv>
                                    <p>Select tags to filter your search </p>
-                                   <Search></Search>
+                                   <Search handleFiltersChange={handleFiltersChange} />
                               </SearchDiv>
                          </FiltersDiv>
                          {/* <FiltersDiv>
@@ -104,6 +98,7 @@ const DashboardINVe: FC = () => {
                     <TopContainer>
                          <SectionTitle>
                          <Divider style={{ width: '100' }} />
+                              <Divider />
                               <H3>TOP PROJECTS</H3>
                          </SectionTitle>
                          <TopCards>
