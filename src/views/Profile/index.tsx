@@ -54,9 +54,12 @@
 import { FC, useState, useCallback, useEffect, memo } from 'react';
 import { getUserInfo } from '../../services/api/profile';
 import { useNavigate } from 'react-router-dom';
-import { App, ButtonBack, ButtonContainer, Container } from './styles';
+import { App, ButtonBack, ButtonContainer, Container, AvatarContainer } from './styles';
 import { User } from '../../models/profile';
-
+import { NavBarProfile } from '../../components/NavbarProfile';
+import FolderList from '../../components/ProfileMui';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Profile: FC = () => {
   const [userinfo, setUserInfo] = useState<User | null>(null);
@@ -84,16 +87,19 @@ const Profile: FC = () => {
   }
 
   return (
-    <>    
-    <NavBarProfile/>
-    <App>
-      <Container>
-      <ButtonContainer>
-        <ButtonBack onClick={goToBack}><KeyboardBackspaceIcon/></ButtonBack>
-      </ButtonContainer>
-      <FolderList/>
-      </Container>
-    </App>
+    <>
+      <NavBarProfile />
+      <App>
+        <Container>
+          <ButtonContainer>
+            <ButtonBack onClick={goToBack}><KeyboardBackspaceIcon /></ButtonBack>
+          </ButtonContainer>
+          <AvatarContainer>
+            <AccountCircleIcon />
+          </AvatarContainer>
+          <FolderList />
+        </Container>
+      </App>
     </>
 
   );
