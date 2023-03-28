@@ -98,18 +98,18 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                         marginBottom: 2,
                                         cursor: 'pointer',
                                         '&:hover': {
-                                             backgroundColor: 'lightgray',
-                                             fontFamily: 'Proxima Nova'
+                                             backgroundColor: 'black',
+                                             fontFamily: 'Roboto'
                                         },
                                    }}
                                    button
                                    component={Link}
                                    to={link}
                               >
-                                   <ListItemIcon style={{ color: 'white', }} sx={{ marginLeft: 2 }}>
+                                   <ListItemIcon style={{ color: 'black', }} sx={{ marginLeft: 2 }}>
                                         {React.createElement(IconComponent)}
                                    </ListItemIcon>
-                                   <ListItemText primary={text} primaryTypographyProps={{ color: 'white' }} />
+                                   <ListItemText primary={text} primaryTypographyProps={{ color: 'black' }} />
                               </ListItem>
                          )
                     )}
@@ -125,11 +125,11 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     sx={{
                          width: { sm: `calc(100% - ${drawerWidth}px)` },
                          ml: { sm: `${drawerWidth}px` },
-                         backgroundColor: '#343a40',
+                         backgroundColor: 'white',
                     }}
                >
                     <Toolbar
-                         sx={{ justifyContent: 'space-between', backgroundColor: '#343a40', height: '90px' }}
+                         sx={{ justifyContent: 'space-between', backgroundColor: 'white', height: '90px' }}
 
                     >
                          <IconButton
@@ -170,7 +170,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
 
 
                                    }}
-                                   color="primary"
+                                   color="secondary"
                                    aria-label="add"
                               >
                                    <Home />
@@ -223,7 +223,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               '& .MuiDrawer-paper': {
                                    boxSizing: 'border-box',
                                    width: drawerWidth,
-                                   backgroundColor: '#343a40'
+                                   backgroundColor: 'white'
 
                               },
                          }}
@@ -237,7 +237,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               '& .MuiDrawer-paper': {
                                    boxSizing: 'border-box',
                                    width: drawerWidth,
-                                   backgroundColor: '#343a40'
+                                   backgroundColor: 'white'
 
                               },
                          }}
