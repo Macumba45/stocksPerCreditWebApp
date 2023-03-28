@@ -14,7 +14,7 @@ const InsightLanding: FC<Props> = ({ ratioSuccess, totalAmount, totalProjects })
                          style={{ marginTop: '1rem', color: '#7E1B75' }}
                     />
                     <TitleInsight>Financial projects</TitleInsight>
-                    <DataContainer>{totalProjects.toLocaleString()}</DataContainer>
+                    <DataContainer>{totalProjects}</DataContainer>
                </Container>
                <Container>
                     <GroupWorkIcon
@@ -30,7 +30,7 @@ const InsightLanding: FC<Props> = ({ ratioSuccess, totalAmount, totalProjects })
                          style={{ marginTop: '1rem', color: '#7E1B75' }}
                     />
                     <TitleInsight>Contributions</TitleInsight>
-                    <DataContainer>{totalAmount.toLocaleString()}€</DataContainer>
+                    <DataContainer>{totalAmount}€</DataContainer>
                </Container>
           </MainContainer>
      );
