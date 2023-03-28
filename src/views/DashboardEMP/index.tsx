@@ -76,7 +76,6 @@ const DashboardEMP: FC = () => {
                                    backgroundColor: '#7e1b7655', // Cambiar color del hover
                               },
 
-
                          }}
                          color="primary"
                          aria-label="add"
@@ -110,7 +109,7 @@ const DashboardEMP: FC = () => {
                </CustomTooltip>
                <MaxContainer>
                     <Card
-                         url={''}
+                         url={'https://player.vimeo.com/video/800507584'}
                          showHeartButton={false}
                          title={'Mind on me'}
                          description={

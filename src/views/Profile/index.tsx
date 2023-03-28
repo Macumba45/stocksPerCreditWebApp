@@ -56,6 +56,7 @@ import { getUserInfo } from '../../services/api/profile';
 import { useNavigate, useParams } from 'react-router-dom';
 import { App, ButtonBack, ButtonContainer, Container, Info } from './styles';
 import { User } from '../../models/profile';
+import { NavBarProfile } from '../../components/NavbarEmp copy';
 
 const Profile: FC = () => {
   const [userinfo, setUserInfo] = useState<User | null>(null);
@@ -83,6 +84,8 @@ const Profile: FC = () => {
   }
 
   return (
+    <>    
+    <NavBarProfile/>
     <App>
       <ButtonContainer>
         <ButtonBack onClick={goToBack}>Go Back!</ButtonBack>
@@ -98,6 +101,8 @@ const Profile: FC = () => {
         <Info>Rol: {userinfo?.userRol}</Info>
       </Container>
     </App>
+    </>
+
   );
 };
 export default memo(Profile);

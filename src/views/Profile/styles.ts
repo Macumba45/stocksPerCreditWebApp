@@ -4,6 +4,7 @@ export const App = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 4rem;
 `;
 
 export const Container = styled.div`
@@ -13,7 +14,7 @@ export const Container = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
   @media screen and (max-width: 768px) {
-    max-width: 100%;
+    max-width: 60%;
   }
 `;
 
@@ -98,7 +99,7 @@ export const Section = styled.div`
   margin-bottom: 2rem;
 
   @media screen and (max-width: 768px) {
-    width: 100%;
+    width: 60%;
   }
 `;
 
