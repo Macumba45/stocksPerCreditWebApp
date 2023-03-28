@@ -56,9 +56,7 @@ import { getUserInfo } from '../../services/api/profile';
 import { useNavigate } from 'react-router-dom';
 import { App, ButtonBack, ButtonContainer, Container } from './styles';
 import { User } from '../../models/profile';
-import { NavBarProfile } from '../../components/NavbarEmp copy';
-import FolderList from '../../components/ProfileMui';
-import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+
 
 const Profile: FC = () => {
   const [userinfo, setUserInfo] = useState<User | null>(null);

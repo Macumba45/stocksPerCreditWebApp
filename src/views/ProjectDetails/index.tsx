@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useEffect } from 'react';
+import { FC, memo, useCallback } from 'react';
 import NavBar from '../../components/NavBar';
 import VideoHeader from '../../components/VideoHeader';
 import TabsDetails from '../../components/TabsDetails';
@@ -12,7 +12,7 @@ import CalculadoraAcciones from '../../components/SimulationInvestDetails'
 import Footer from '../../components/Footer';
 import { Fab, Tooltip } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { Dashboard, Home } from '@mui/icons-material';
+import { Dashboard } from '@mui/icons-material';
 import {
      ButtonContainer,
      CalculadoraAccionesContainer,

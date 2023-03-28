@@ -1,6 +1,6 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { FC, memo, useState } from 'react';
+import { FC } from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>
      createStyles({
@@ -68,5 +68,5 @@ const FinishDatePickers: FC<DatePickersProps> = ({ handleDateChange }) => {
      );
 };
 
-export {StartDatePickers, FinishDatePickers};
+export { StartDatePickers, FinishDatePickers };
 
