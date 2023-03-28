@@ -4,10 +4,11 @@ export const Container = styled.div`
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
-     background-color: ${({ theme }) => theme.colors.light};
+     background-color: ${({theme}) => theme.colors.light};
+     border-radius: 10px;
      margin-left: 1rem;
      margin-right: 1rem;
-     
+
      @media (min-width: 600px) {
           margin-left: 15rem;
      }
@@ -30,15 +31,11 @@ export const MinMaxContainer = styled.div`
      display: flex;
      margin-right: 2rem;
      margin-left: 2rem;
-
-    
 `;
 export const ButtonContainer = styled.div`
      display: flex;
      justify-content: center;
      margin-bottom: 5rem;
-
-    
 `;
 
 export const DateContainer = styled.div`
@@ -82,21 +79,19 @@ export const FinalContainer = styled.div`
 export const TopCards = styled.div`
      display: flex;
      flex-wrap: wrap;
-     margin-bottom:5rem;
+     margin-bottom: 5rem;
 `;
 
 export const NewCards = styled.div`
      display: flex;
      flex-wrap: wrap;
-     margin-bottom:5rem;
-
+     margin-bottom: 5rem;
 `;
 
 export const FinalCards = styled.div`
      display: flex;
      flex-wrap: wrap;
-     margin-bottom:5rem;
-
+     margin-bottom: 5rem;
 `;
 
 export const SearchDiv = styled.div``;
@@ -110,11 +105,10 @@ export const SectionTitle = styled.div`
 export const HR = styled.hr`
      background-color: white;
      padding: 0 55rem;
-     margin:3rem;
+     margin: 3rem;
 `;
 
 export const H3 = styled.h3`
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
-     font-size: ${({ theme }) => theme.fontSizes.small};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
+     font-size: ${({theme}) => theme.fontSizes.small};
 `;
-
