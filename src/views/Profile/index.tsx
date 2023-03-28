@@ -53,10 +53,10 @@
 
 import { FC, useState, useCallback, useEffect, memo } from 'react';
 import { getUserInfo } from '../../services/api/profile';
-import { useNavigate, useParams } from 'react-router-dom';
-import { App, ButtonBack, ButtonContainer, Container, Info } from './styles';
+import { useNavigate } from 'react-router-dom';
+import { App, ButtonBack, ButtonContainer, Container } from './styles';
 import { User } from '../../models/profile';
-import { NavBarProfile } from '../../components/NavbarProfile';
+
 
 const Profile: FC = () => {
   const [userinfo, setUserInfo] = useState<User | null>(null);
@@ -87,18 +87,11 @@ const Profile: FC = () => {
     <>    
     <NavBarProfile/>
     <App>
-      <ButtonContainer>
-        <ButtonBack onClick={goToBack}>Go Back!</ButtonBack>
-      </ButtonContainer>
       <Container>
-        <Info>ID: {userinfo?.id}</Info>
-        <Info>Name: {userinfo?.name}</Info>
-        <Info>LastName: {userinfo?.lastName}</Info>
-        <Info>EMAIL: {userinfo?.email}</Info>
-        <Info>Country: {userinfo?.country}</Info>
-        <Info>City: {userinfo?.city}</Info>
-        <Info>Phone: {userinfo?.phone}</Info>
-        <Info>Rol: {userinfo?.userRol}</Info>
+      <ButtonContainer>
+        <ButtonBack onClick={goToBack}><KeyboardBackspaceIcon/></ButtonBack>
+      </ButtonContainer>
+      <FolderList/>
       </Container>
     </App>
     </>
