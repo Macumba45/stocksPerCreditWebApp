@@ -132,7 +132,7 @@ const DashboardINVe: FC = () => {
                                                   collected={
                                                        project.totalInvest
                                                   }
-                                                  investors={
+                                                  totalInvestor={
                                                        project.totalInvestor
                                                   }
                                                   minimuminvestment={
@@ -142,6 +142,7 @@ const DashboardINVe: FC = () => {
                                                   limitvalue={
                                                        project.limitvalue
                                                   }
+                                                  totalInvest={project.totalInvest}
                                              />
                                         </div>
                                    )
@@ -155,6 +156,39 @@ const DashboardINVe: FC = () => {
                          </SectionTitle>
                          <TopCards>
 
+
+
+                         {projectData?.topProjects.map(
+                                   (project, index) => (
+                                        <div key={index}>
+                                             <Card
+                                                  url={project.url}
+                                                  showHeartButton={false}
+                                                  title={project.title}
+                                                  description={
+                                                       project.description
+                                                  }
+                                                  country={project.country}
+                                                  city={project.city}
+                                                  tags={[]}
+                                                  collected={
+                                                       project.totalInvest
+                                                  }
+                                                  totalInvestor={
+                                                       project.totalInvestor
+                                                  }
+                                                  minimuminvestment={
+                                                       project.minimuminvestment
+                                                  }
+                                                  goal={project.goal}
+                                                  limitvalue={
+                                                       project.limitvalue
+                                                  }
+                                                  totalInvest={project.totalInvest}
+                                             />
+                                        </div>
+                                   )
+                              )}
                          </TopCards>
                     </TopContainer>
 
@@ -164,6 +198,37 @@ const DashboardINVe: FC = () => {
                          </SectionTitle>
                          <NewCards>
 
+                         {projectData?.latestProjects.map(
+                                   (project, index) => (
+                                        <div key={index}>
+                                             <Card
+                                                  url={project.url}
+                                                  showHeartButton={false}
+                                                  title={project.title}
+                                                  description={
+                                                       project.description
+                                                  }
+                                                  country={project.country}
+                                                  city={project.city}
+                                                  tags={[]}
+                                                  collected={
+                                                       project.totalInvest
+                                                  }
+                                                  totalInvestor={
+                                                       project.totalInvestor
+                                                  }
+                                                  minimuminvestment={
+                                                       project.minimuminvestment
+                                                  }
+                                                  goal={project.goal}
+                                                  limitvalue={
+                                                       project.limitvalue
+                                                  }
+                                                  totalInvest={project.totalInvest}
+                                             />
+                                        </div>
+                                   )
+                              )}
                          </NewCards>
                     </NewContainer>
                     <FinalContainer>
@@ -171,7 +236,37 @@ const DashboardINVe: FC = () => {
                               <H3>CLOSE SOON</H3>
                          </SectionTitle>
                          <FinalCards>
-
+                         {projectData?.closeSoonProjects.map(
+                                   (project, index) => (
+                                        <div key={index}>
+                                             <Card
+                                                  url={project.url}
+                                                  showHeartButton={false}
+                                                  title={project.title}
+                                                  description={
+                                                       project.description
+                                                  }
+                                                  country={project.country}
+                                                  city={project.city}
+                                                  tags={[]}
+                                                  collected={
+                                                       project.totalInvest
+                                                  }
+                                                  totalInvestor={
+                                                       project.totalInvestor
+                                                  }
+                                                  minimuminvestment={
+                                                       project.minimuminvestment
+                                                  }
+                                                  goal={project.goal}
+                                                  limitvalue={
+                                                       project.limitvalue
+                                                  }
+                                                  totalInvest={project.totalInvest}
+                                             />
+                                        </div>
+                                   )
+                              )}
                          </FinalCards>
                     </FinalContainer>
                </CardsContainer>

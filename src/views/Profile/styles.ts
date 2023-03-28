@@ -7,11 +7,14 @@ export const App = styled.div`
 `;
 
 export const Container = styled.div`
-padding: 3rem;
+  padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
+  @media screen and (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const SpinnerContainer = styled.h1`
@@ -93,6 +96,10 @@ export const Sections = styled.div`
 export const Section = styled.div`
   width: 48%;
   margin-bottom: 2rem;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const SectionTitle = styled.h4`

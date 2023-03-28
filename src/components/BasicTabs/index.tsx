@@ -43,9 +43,9 @@ const BasicTabs: FC = () => {
      };
 
      const { landingData } = LandingLogic()
-     const topProjects = landingData.topProjects
-     const lastestProjects = landingData.latestProjects.slice(0, 3)
-     const closeSoon = landingData.latestProjects.slice(-3)
+     const topProjects = landingData?.topProjects || []
+     const lastestProjects = landingData.latestProjects?.slice(0, 3) || [] 
+     const closeSoon = landingData.latestProjects?.slice(-3) || []
 
 
      return (

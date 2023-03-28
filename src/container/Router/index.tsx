@@ -108,7 +108,7 @@ const Router: FC = () => {
                               </ProtectedRoutes>
                          }
                     />
-                    <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
+                    <Route path="/profile" element={<Profile />} />
                     <Route path="*" element={<NotFound />} />
                </Routes>
           </BrowserRouter>
