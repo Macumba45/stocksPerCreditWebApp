@@ -26,6 +26,7 @@ import {
 
 
 const DashboardINVe: FC = () => {
+
      const [selectedRange, setSelectedRange] = useState<{ min: number, max: number }>({ min: 0, max: 0 });
      const [filters, setFilters] = useState({ selectedTags: [] });
      const [selectedDate, setSelectedDate] = useState({ finishDate: '' });
@@ -52,6 +53,7 @@ const DashboardINVe: FC = () => {
           console.log({
                selectedRange,
                selectedDate,
+
                selectedTags: filters.selectedTags,
 
           });
@@ -64,6 +66,7 @@ const DashboardINVe: FC = () => {
                     <ResponsiveDrawer />
                     <MinMaxContainer>
                          <FiltersDiv>
+
                               <RangeSlider handleRangeChange={handleRangeChange} />
                          </FiltersDiv>
                     </MinMaxContainer>
@@ -94,6 +97,7 @@ const DashboardINVe: FC = () => {
                <CardsContainer>
                     <TopContainer>
                          <SectionTitle>
+                         <Divider style={{ width: '100' }} />
                               <Divider />
                               <H3>TOP PROJECTS</H3>
                          </SectionTitle>

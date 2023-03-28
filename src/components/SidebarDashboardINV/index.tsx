@@ -98,7 +98,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                         marginBottom: 2,
                                         cursor: 'pointer',
                                         '&:hover': {
-                                             backgroundColor: 'black',
+                                             backgroundColor: '#EEEEEE',
                                              fontFamily: 'Roboto'
                                         },
                                    }}
