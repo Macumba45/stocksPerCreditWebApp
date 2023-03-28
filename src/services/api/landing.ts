@@ -26,6 +26,7 @@ export const fetchLandingData = async () => {
         });
         const data: LandingResponse = await response.json();
 
+
         const values = {
             topProjects: data?.topProjects?.map(normalizeProject),
             latestProjects: data?.latestProjects?.map(normalizeProject),

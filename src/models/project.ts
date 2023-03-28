@@ -1,5 +1,5 @@
 
-import {ProjectResponse} from '../services/api/project';
+import { ProjectResponse } from '../services/api/project';
 import { normalizeTag } from './tag';
 
 
@@ -22,7 +22,7 @@ export type ProjectInput = {
      limitvalue: number;
      createdAt: Date;
      updatedAt: Date;
-     tags: string[];  
+     tags: string[];
 
 };
 
@@ -49,6 +49,7 @@ export const normalizeProject = (input: ProjectResponse) => {
           goal: input?.goal || 0,
           tags: input?.tags ? input.tags.map(normalizeTag) : [] ,
           limitvalue: input?.limitvalue || 0,
+
           createdAt: input?.createdAt || new Date(),
           updatedAt: input?.updatedAt || new Date(),
      };

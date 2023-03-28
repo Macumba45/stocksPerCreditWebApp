@@ -153,11 +153,10 @@ const SignUp: FC = () => {
                                              <Input
                                                   $hasError={!!meta?.error}
                                                   type="country"
-                                                  placeholder="Insert your country"
-                                                  autoComplete="country"
+                                                  placeholder="Insert your city"
+                                                  autoComplete="city"
                                                   {...field}
-                                             />
-                                             {!!meta?.error && (
+                                             />                                             {!!meta?.error && (
                                                   <Error>{meta.error}</Error>
                                              )}
                                         </NameContainer>
@@ -171,7 +170,7 @@ const SignUp: FC = () => {
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
-                                                  type="country"
+                                                  type="city"
                                                   placeholder="Insert your city"
                                                   autoComplete="city"
                                                   {...field}

@@ -1,13 +1,12 @@
 import { useState, memo, useCallback } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
 import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import GroupIcon from '@mui/icons-material/Group';
 
 import {
      CardContainer,
@@ -47,6 +46,8 @@ import {
      MenuButton,
      Menu,
      MenuItem,
+     TotalInvestor,
+     ContainerInvestor,
 } from './styles';
 import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
@@ -92,10 +93,7 @@ const Card: React.FC<Props> = ({
      showHeartButton
 }) => {
      const [liked, setLiked] = useState(false);
-     const [open, setOpen] = React.useState(false);
      const navigate = useNavigate()
-     const handleOpen = () => setOpen(true);
-     const handleClose = () => setOpen(false);
      const [showMenu, setShowMenu] = useState(false);
      const location = useLocation();
      const showMenuItems =
@@ -115,10 +113,18 @@ const Card: React.FC<Props> = ({
           window.scrollTo(0, 0)
      }, [navigate]);
 
+
      return (
           <CardContainer>
                <ContainerImg >
-                    <Image src={url} />
+                    {/* <Image style={{ objectFit: 'cover' }} src={`${url}?autoplay=0&mute=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0`} /> */}
+                    <Image src={url + "?h=648d0eee28&autoplay=0&loop=1&title=0&byline=0&portrait=0"}
+                         // width="270"
+                         // height="270"
+                         style={{ width: '100%', margin: 'auto' }}
+
+                    />
+
                </ContainerImg>
                <ContainerButton>
                     {showHeartButton && (
@@ -130,23 +136,38 @@ const Card: React.FC<Props> = ({
                <ContainerTitle>
                     <Title>{title}</Title>
                </ContainerTitle>
+               <ContainerInvestor>
+                    <TotalInvestor>Total investors: {totalInvestor}</TotalInvestor>
+               </ContainerInvestor>
                <ContainerDesc>
                     <Description>{description}</Description>
                </ContainerDesc>
                <ContainerLocations>
                     <Country>{country}</Country>
-                    <City>, {city}</City>
+               </ContainerLocations>
+               <ContainerLocations>
+                    <City>{city}</City>
                </ContainerLocations>
                <ContainerCategories>
                     <Categories>{tags ? tags.map(tag => tag.name).join(' ') : ''}</Categories>
                </ContainerCategories>
                <ContainerLinear>
-                    <LinearWithValueLabel min={0} max={100} />
+                    <LinearWithValueLabel current={totalInvest || 0} min={0} max={goal || 0} />
                </ContainerLinear>
                <div>
                     <ContainerButtonModal>
                          <Button
-                              sx={{ color: '#7E1B75', marginBottom: '12px' }}
+                              variant='outlined'
+                              sx={{
+                                   color: '#7E1B75',
+                                   marginBottom: '12px',
+                                   borderColor: '#7E1B75',
+                                   '&:hover': {
+                                        backgroundColor: '#7E1B75',
+                                        borderColor: '#7E1B75',
+                                        color: 'white'
+                                   }
+                              }}
                               onClick={handleGoDetails}
                          >
                               More Info
@@ -163,7 +184,7 @@ const Card: React.FC<Props> = ({
                          </Menu>
                     )}
                </div>
-          </CardContainer>
+          </CardContainer >
      );
 };
 

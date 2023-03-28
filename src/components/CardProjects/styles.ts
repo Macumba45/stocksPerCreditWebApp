@@ -10,7 +10,7 @@ export const CardContainer = styled.div`
      display: flex;
      margin: 1rem;
      width: 270px;
-     min-height: 600px;
+     min-height: 500px;
      flex-direction: column;
      border-radius: 10px;
      border-bottom-left-radius: 0px;
@@ -25,12 +25,17 @@ export const CardContainer = styled.div`
 `;
 export const ContainerImg = styled.div`
      border: none;
+ max-width: 270px;
+ display: flex;
+ justify-content: center;
+ margin-bottom: 2rem;
+
 `;
 
-export const Image = styled.img`
-     width: 270px;
-     height: 270px;
+export const Image = styled.iframe`
+     
      border: none;
+     object-fit: cover;
 `;
 export const ContainerTitle = styled.div`
      position: relative;
@@ -45,6 +50,25 @@ export const Title = styled.h2`
      font-weight: ${({ theme }) => theme.fontWeights.bold};
      text-align: left;
 `;
+export const ContainerInvestor = styled.div`
+     position: relative;
+     left: 1rem;
+     max-width: 220px; /* establecer un ancho máximo para el contenedor */
+    
+`;
+
+export const TotalInvestor = styled.h2`
+     margin: 10px 0px;
+    font-family: Roboto, sans-serif;
+    color: #606060;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: left;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+     
+     `;
 
 export const ContainerDesc = styled.div`
      width: 100%;
@@ -96,7 +120,7 @@ export const Container = styled.div`
 
 export const ContainerLocations = styled.div`
      margin-left: 1rem;
-     margin-bottom: 1rem;
+     margin-bottom: 0.3rem;
      margin-top: 1rem;
 `;
 
