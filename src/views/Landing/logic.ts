@@ -19,7 +19,6 @@ const [landingData, setLandingData] = useState<LandingData>({ ratioSuccess: 0, t
             setLandingData(data);
         }
     }, []);
-
     useEffect(() => {
         getLandingData()
     }, [getLandingData])
