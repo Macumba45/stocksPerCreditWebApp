@@ -23,3 +23,8 @@ export const MaxLabel = styled.label`
      margin-right: 4%;
      font-family: ${({theme}) => theme.fonts.primary};
 `;
+
+export const Input = styled.input`
+     border-radius:8px;
+     margin:.3rem auto;
+`;
