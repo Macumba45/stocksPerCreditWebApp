@@ -31,9 +31,11 @@ const DashboardINVe: FC = () => {
      const [selectedDate, setSelectedDate] = useState<Date | null>(null);
      const [selectedTags, setSelectedTags] = useState<string[]>([]);
      const [sliderValue, setSliderValue] = useState<number>(0);
-     const [filteredData, setFilteredData] = useState<string[]>([]);
+     // const [filteredData, setFilteredData] = useState<string[]>([]);
      //const [data, setData] = useState<string[]>([]);
 
+
+      
      // const handleFilter = () => {
      //      // Filtrar por rango de valor
      //      const filteredDataByRange = data.filter((item) => item.value >= rangeValue[0] && item.value <= rangeValue[1]);
@@ -61,7 +63,7 @@ const DashboardINVe: FC = () => {
                selectedDate,
                selectedTags,
                sliderValue,
-               filteredData
+               // filteredData
           });
      };
 
@@ -71,7 +73,7 @@ const DashboardINVe: FC = () => {
                     <ResponsiveDrawer />
                     <MinMaxContainer>
                          <FiltersDiv>
-                              <RangeSlider></RangeSlider>
+                              <RangeSlider />
                          </FiltersDiv>
                     </MinMaxContainer>
                     <DateContainer>
@@ -101,7 +103,7 @@ const DashboardINVe: FC = () => {
                <CardsContainer>
                     <TopContainer>
                          <SectionTitle>
-                         <Divider />
+                         <Divider style={{ width: '100' }} />
                               <H3>TOP PROJECTS</H3>
                          </SectionTitle>
                          <TopCards>
