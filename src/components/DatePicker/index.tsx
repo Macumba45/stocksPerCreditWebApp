@@ -1,6 +1,6 @@
-import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import {FC, memo} from 'react';
+import { FC, memo, useState } from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>
      createStyles({
@@ -16,9 +16,16 @@ const useStyles = makeStyles((theme: Theme) =>
      })
 );
 
-export const StartDatePickers: FC = () => {
+interface DatePickersProps {
+     handleDateChange: (dates: any) => void;
+}
+
+const StartDatePickers: FC<DatePickersProps> = ({ handleDateChange }) => {
      const classes = useStyles();
 
+     const handleStartDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+          handleDateChange({ startDate: event.target.value });
+     };
      return (
           <form className={classes.container} noValidate>
                <TextField
@@ -30,13 +37,18 @@ export const StartDatePickers: FC = () => {
                     InputLabelProps={{
                          shrink: true,
                     }}
+                    onChange={handleStartDateChange}
+
                />
           </form>
      );
 };
 
-export const FinishDatePickers: FC = () => {
+const FinishDatePickers: FC<DatePickersProps> = ({ handleDateChange }) => {
      const classes = useStyles();
+     const handleFinishDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+          handleDateChange({ finishDate: event.target.value });
+     };
 
      return (
           <form className={classes.container} noValidate>
@@ -49,11 +61,12 @@ export const FinishDatePickers: FC = () => {
                     InputLabelProps={{
                          shrink: true,
                     }}
+                    onChange={handleFinishDateChange}
+
                />
           </form>
      );
 };
 
-export default memo(StartDatePickers);
+export {StartDatePickers, FinishDatePickers};
 
-export const FinishDatePickersmemo = memo(FinishDatePickers);
