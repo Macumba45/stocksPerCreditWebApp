@@ -15,6 +15,7 @@ const ContainedButton: FC<Props> = ({  onClick }) => {
       };
     
 
+
   return (
     <Stack direction="column" spacing={2}>
       <Button onClick={onClick} variant="contained" style={buttonStyle}>Apply Filters</Button>

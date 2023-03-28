@@ -1,5 +1,7 @@
+
 import {ProjectResponse} from '../services/api/project';
 import { normalizeTag } from './tag';
+
 
 export type ProjectInput = {
      title: string;
@@ -17,7 +19,11 @@ export type ProjectInput = {
      actionPerCredit: string;
      returnInvestment: number;
      goal: number;
+     limitvalue: number;
+     createdAt: Date;
+     updatedAt: Date;
      tags: string[];  
+
 };
 
 export const normalizeProject = (input: ProjectResponse) => {
