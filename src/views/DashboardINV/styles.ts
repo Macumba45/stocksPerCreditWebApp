@@ -3,10 +3,13 @@ import styled from 'styled-components';
 export const Container = styled.div`
      display: flex;
      flex-wrap: wrap;
-     margin-top: 5rem;
-     background-color: ${({theme}) => theme.colors.light};
-     @media (max-width: 600px) {
-          display:inline-block;
+     justify-content: center;
+     background-color: ${({ theme }) => theme.colors.light};
+     margin-left: 1rem;
+     margin-right: 1rem;
+     
+     @media (min-width: 600px) {
+          margin-left: 15rem;
      }
 `;
 
@@ -18,7 +21,6 @@ export const FiltersDiv = styled.div`
      flex-direction: column;
      align-items: center;
      justify-content: center;
-     width: 16.5rem;
      /* @media (min-width: 600px) {
           display:block;
      } */
@@ -26,20 +28,29 @@ export const FiltersDiv = styled.div`
 
 export const MinMaxContainer = styled.div`
      display: flex;
-     flex-direction: row;
-     justify-content: space-between;
+     margin-right: 2rem;
+     margin-left: 2rem;
+
+    
+`;
+export const ButtonContainer = styled.div`
+     display: flex;
+     justify-content: center;
+     margin-bottom: 5rem;
+
+    
 `;
 
 export const DateContainer = styled.div`
      display: flex;
-     flex-direction: row;
-     justify-content: space-between;
+     margin-right: 2rem;
+     margin-left: 2rem;
 `;
 
 export const TagDiv = styled.div`
      display: flex;
-     flex-direction: row;
-     justify-content: space-between;
+     margin-right: 2rem;
+     margin-left: 2rem;
 `;
 
 export const CardsContainer = styled.div`
