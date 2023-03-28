@@ -52,6 +52,7 @@ const RangeSlider: FC<RangeProps> = ({ handleRangeChange }) => {
                 color: "white"
               }
             },
+            marginBottom: '1rem'
           }}
           getAriaLabel={() => 'Money range'}
           value={value}
@@ -79,7 +80,7 @@ const RangeSlider: FC<RangeProps> = ({ handleRangeChange }) => {
             onChange={(event) => handleInputChange(event, 1)}
           />
         </InputContainer>
-        <MoneyOutput>Precio: {value[0]}€ / {value[1]}€.</MoneyOutput>
+        <MoneyOutput>Price: {value[0]}€ / {value[1]}€.</MoneyOutput>
       </RangeSliderDiv>
     </Box>
   );

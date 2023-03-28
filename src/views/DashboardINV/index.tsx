@@ -22,6 +22,7 @@ import {
      FinalContainer,
      FinalCards,
      H3,
+     ButtonContainer,
 } from './styles';
 
 
@@ -61,9 +62,8 @@ const DashboardINVe: FC = () => {
 
 
      return (
-          <>
+          <>  <ResponsiveDrawer />
                <Container>
-                    <ResponsiveDrawer />
                     <MinMaxContainer>
                          <FiltersDiv>
 
@@ -77,22 +77,21 @@ const DashboardINVe: FC = () => {
                     </DateContainer>
                     <TagDiv>
                          <FiltersDiv>
-                              <SearchDiv>
-                                   <p>Select tags to filter your search </p>
-                                   <Search handleFiltersChange={handleFiltersChange} />
-                              </SearchDiv>
-                         </FiltersDiv>
-                         {/* <FiltersDiv>
-                              <DiscretDiv>
-                                   <DiscreteSlider></DiscreteSlider>
-                              </DiscretDiv>
-                         </FiltersDiv> */}
-                         <FiltersDiv>
+
+                              <p>Select tags to filter your search </p>
+                              <Search handleFiltersChange={handleFiltersChange} />
+
                               {/* <ContainedButtons/> */}
-                              <ContainedButtons onClick={handleFilter2} />
                          </FiltersDiv>
                     </TagDiv>
+
                </Container>
+               <Container>
+                    <ButtonContainer>
+                         <ContainedButtons onClick={handleFilter2} />
+                    </ButtonContainer>
+               </Container>
+
 
                <CardsContainer>
                     <TopContainer>
