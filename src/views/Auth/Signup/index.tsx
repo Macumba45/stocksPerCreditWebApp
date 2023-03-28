@@ -27,7 +27,6 @@ import { setAuthenticatedToken } from '../../../services/storage/token';
 import { hadledSubmitSignup } from '../../../services/api/auth';
 import { UserRole } from '../../../models/user';
 import { setUserRole } from '../../../services/storage/userRole';
-import CountrySelectSignup from './Country';
 
 const SignUp: FC = () => {
      const navigate = useNavigate();
