@@ -44,7 +44,7 @@ const BasicTabs: FC = () => {
 
      const { landingData } = LandingLogic()
      const topProjects = landingData?.topProjects || []
-     const lastestProjects = landingData.latestProjects?.slice(0, 3) || [] 
+     const lastestProjects = landingData.latestProjects?.slice(0, 3) || []
      const closeSoon = landingData.latestProjects?.slice(-3) || []
 
 
@@ -90,6 +90,7 @@ const BasicTabs: FC = () => {
                                         key={index}
                                         url={item.url}
                                         tags={item.tags}
+                                        duration={item.duration}
                                         // showHeartButton={true}
                                         totalInvestor={item.totalInvestor}
                                         title={item.title}
@@ -112,7 +113,9 @@ const BasicTabs: FC = () => {
                                              key={index}
                                              url={item.url}
                                              tags={item.tags}
+                                             duration={item.duration}
                                              // showHeartButton={true}
+                                             totalInvestor={item.totalInvestor}
                                              totalInvest={item.totalInvest}
                                              goal={item.goal}
                                              title={item.title}
@@ -133,6 +136,8 @@ const BasicTabs: FC = () => {
                                              key={index}
                                              url={item.url}
                                              tags={item.tags}
+                                             duration={item.duration}
+                                             totalInvestor={item.totalInvestor}
                                              // showHeartButton={true}
                                              totalInvest={item.totalInvest}
                                              goal={item.goal}
