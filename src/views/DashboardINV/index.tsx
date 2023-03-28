@@ -25,9 +25,6 @@ import {
      ButtonContainer,
 } from './styles';
 
-
-
-
 const DashboardINVe: FC = () => {
 
      const {
@@ -40,6 +37,7 @@ const DashboardINVe: FC = () => {
      } = DashboardInvLogic()
 
      console.log(projectData)
+
 
 
      return (
@@ -90,6 +88,7 @@ const DashboardINVe: FC = () => {
                                                   url={project.url}
                                                   showHeartButton={false}
                                                   title={project.title}
+                                                  duration={project.duration}
                                                   description={
                                                        project.description
                                                   }
@@ -129,6 +128,7 @@ const DashboardINVe: FC = () => {
                                                   url={project.url}
                                                   showHeartButton={false}
                                                   title={project.title}
+                                                  duration={project.duration}
                                                   description={
                                                        project.description
                                                   }
@@ -170,6 +170,7 @@ const DashboardINVe: FC = () => {
                                                   url={project.url}
                                                   showHeartButton={false}
                                                   title={project.title}
+                                                  duration={project.duration}
                                                   description={
                                                        project.description
                                                   }
@@ -211,6 +212,7 @@ const DashboardINVe: FC = () => {
                                                   url={project.url}
                                                   showHeartButton={false}
                                                   title={project.title}
+                                                  duration={project.duration}
                                                   description={
                                                        project.description
                                                   }
