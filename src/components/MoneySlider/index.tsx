@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { FC, memo, useState } from 'react';
-import { InputContainer, MaxLabel, MinLabel, MoneyOutput, RangeSliderDiv } from './styles';
+import { Input, InputContainer, MaxLabel, MinLabel, MoneyOutput, RangeSliderDiv } from './styles';
 
 function valuetext(value: number) {
   return `${value}€`;
@@ -64,7 +64,7 @@ const RangeSlider: FC<RangeProps> = ({ handleRangeChange }) => {
         />
         <InputContainer>
           <MinLabel htmlFor="lower-input">Minimum:</MinLabel>
-          <input
+          <Input
             id="lower-input"
             type="number"
             value={value[0]}
@@ -73,7 +73,7 @@ const RangeSlider: FC<RangeProps> = ({ handleRangeChange }) => {
         </InputContainer>
         <InputContainer>
           <MaxLabel htmlFor="upper-input">Maximum:</MaxLabel>
-          <input
+          <Input
             id="upper-input"
             type="number"
             value={value[1]}
