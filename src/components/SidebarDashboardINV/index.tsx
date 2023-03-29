@@ -13,19 +13,22 @@ import Toolbar from '@mui/material/Toolbar';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PaymentIcon from '@mui/icons-material/Payment';
 import Typography from '@mui/material/Typography';
-import { FC, memo, useCallback, useState } from 'react';
+import {FC, memo, useCallback, useState} from 'react';
 import React from 'react';
-import { Container, ContainerLogo, ContainerProfile, LogoImage, LogoStocks } from './styles';
-import { Link, useNavigate } from 'react-router-dom';
+import {
+     Container,
+     ContainerLogo,
+     ContainerProfile,
+     LogoImage,
+     LogoStocks,
+} from './styles';
+import {Link, useNavigate} from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
-import { Fab, Tooltip } from '@mui/material';
-import { Home } from '@mui/icons-material';
+import {Fab, Tooltip} from '@mui/material';
+import {Home} from '@mui/icons-material';
 import Person4Icon from '@mui/icons-material/Person4';
 
-
-
 const drawerWidth = 220;
-
 
 interface Props {
      /**
@@ -35,15 +38,14 @@ interface Props {
      window?: () => Window;
 }
 
-
 const ResponsiveDrawer: FC = (props: Props) => {
-     const { window } = props;
+     const {window} = props;
      const logo = require('../NavBar/assets/logo.png');
      const [mobileOpen, setMobileOpen] = useState(false);
      const container =
           window !== undefined ? () => window().document.body : undefined;
 
-     const CustomTooltip = ({ title, children }: any) => {
+     const CustomTooltip = ({title, children}: any) => {
           return (
                <Tooltip title={title} placement="left">
                     {children}
@@ -53,16 +55,13 @@ const ResponsiveDrawer: FC = (props: Props) => {
 
      const navigate = useNavigate();
 
-
      const goLanding = useCallback(() => {
-
           navigate('/');
-     }, [navigate])
+     }, [navigate]);
 
      const goProfile = useCallback(() => {
-
           navigate('/profile');
-     }, [navigate])
+     }, [navigate]);
 
      const handleDrawerToggle = () => {
           setMobileOpen(!mobileOpen);
@@ -73,23 +72,23 @@ const ResponsiveDrawer: FC = (props: Props) => {
           link: string;
      };
 
-     const iconMap: { [key: string]: IconMapItem } = {
-          'Stocks Dashboard': { icon: DashboardIcon, link: '/dashboard' },
-          'My investments': { icon: PaymentIcon, link: '/dashboard/investments' },
+     const iconMap: {[key: string]: IconMapItem} = {
+          'Stocks Dashboard': {icon: DashboardIcon, link: '/dashboard'},
+          'My investments': {icon: PaymentIcon, link: '/dashboard/investments'},
      };
 
      const drawer = (
           <Container>
                <ContainerLogo>
-                    <LogoStocks  to={'/'}>
-                    <LogoImage src={logo}/>
+                    <LogoStocks to={'/'}>
+                         <LogoImage src={logo} />
                     </LogoStocks>
                </ContainerLogo>
 
                <Divider />
                <List>
                     {Object.entries(iconMap).map(
-                         ([text, { icon: IconComponent, link }], index) => (
+                         ([text, {icon: IconComponent, link}], index) => (
                               <ListItem
                                    key={text}
                                    disablePadding
@@ -99,17 +98,25 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                         cursor: 'pointer',
                                         '&:hover': {
                                              backgroundColor: '#EEEEEE',
-                                             fontFamily: 'Roboto'
+                                             fontFamily: 'Roboto',
                                         },
                                    }}
                                    button
                                    component={Link}
                                    to={link}
                               >
-                                   <ListItemIcon style={{ color: 'black', }} sx={{ marginLeft: 2 }}>
+                                   <ListItemIcon
+                                        style={{color: 'black'}}
+                                        sx={{marginLeft: 2}}
+                                   >
                                         {React.createElement(IconComponent)}
                                    </ListItemIcon>
-                                   <ListItemText primary={text} primaryTypographyProps={{ color: 'black' }} />
+                                   <ListItemText
+                                        primary={text}
+                                        primaryTypographyProps={{
+                                             color: 'black',
+                                        }}
+                                   />
                               </ListItem>
                          )
                     )}
@@ -118,26 +125,29 @@ const ResponsiveDrawer: FC = (props: Props) => {
      );
 
      return (
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{display: 'flex'}}>
                <CssBaseline />
                <AppBar
                     position="fixed"
                     sx={{
-                         width: { sm: `calc(100% - ${drawerWidth}px)` },
-                         ml: { sm: `${drawerWidth}px` },
+                         width: {sm: `calc(100% - ${drawerWidth}px)`},
+                         ml: {sm: `${drawerWidth}px`},
                          backgroundColor: 'white',
                     }}
                >
                     <Toolbar
-                         sx={{ justifyContent: 'space-between', backgroundColor: 'white', height: '90px' }}
-
+                         sx={{
+                              justifyContent: 'space-between',
+                              backgroundColor: 'white',
+                              height: '90px',
+                         }}
                     >
                          <IconButton
                               color="inherit"
                               aria-label="open drawer"
                               edge="start"
                               onClick={handleDrawerToggle}
-                              sx={{ mr: 2, display: { sm: 'none' } }}
+                              sx={{mr: 2, display: {sm: 'none'}}}
                          >
                               <MenuIcon />
                          </IconButton>
@@ -145,7 +155,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               variant="h6"
                               noWrap
                               component="div"
-                              style={{ fontFamily: 'Roboto' }}
+                              style={{fontFamily: 'Roboto'}}
                               sx={{
                                    '@media screen and (max-width: 800px)': {
                                         display: 'none',
@@ -167,8 +177,6 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                         '&:hover': {
                                              backgroundColor: '#7e1b7655', // Cambiar color del hover
                                         },
-
-
                                    }}
                                    color="secondary"
                                    aria-label="add"
@@ -189,15 +197,12 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                         '&:hover': {
                                              backgroundColor: '#7e1b7655', // Cambiar color del hover
                                         },
-
-
                                    }}
                                    color="primary"
                                    aria-label="add"
                               >
                                    <Person4Icon />
                               </Fab>
-
                          </CustomTooltip>
                          <ContainerProfile>
                               <ProfileDashboard />
@@ -206,7 +211,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                </AppBar>
                <Box
                     component="nav"
-                    sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+                    sx={{width: {sm: drawerWidth}, flexShrink: {sm: 0}}}
                     aria-label="mailbox folders"
                >
                     {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
@@ -219,12 +224,11 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               keepMounted: true, // Better open performance on mobile.
                          }}
                          sx={{
-                              display: { xs: 'block', sm: 'none' },
+                              display: {xs: 'block', sm: 'none'},
                               '& .MuiDrawer-paper': {
                                    boxSizing: 'border-box',
                                    width: drawerWidth,
-                                   backgroundColor: 'white'
-
+                                   backgroundColor: 'white',
                               },
                          }}
                     >
@@ -233,12 +237,11 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     <Drawer
                          variant="permanent"
                          sx={{
-                              display: { xs: 'none', sm: 'block' },
+                              display: {xs: 'none', sm: 'block'},
                               '& .MuiDrawer-paper': {
                                    boxSizing: 'border-box',
                                    width: drawerWidth,
-                                   backgroundColor: 'white'
-
+                                   backgroundColor: 'white',
                               },
                          }}
                          open
@@ -251,7 +254,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     sx={{
                          flexGrow: 1,
                          p: 3,
-                         width: { sm: `calc(100% - ${drawerWidth}px)` },
+                         width: {sm: `calc(100% - ${drawerWidth}px)`},
                     }}
                >
                     <Toolbar />
