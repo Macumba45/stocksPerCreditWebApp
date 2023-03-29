@@ -16,7 +16,7 @@ const VideoThumbnail = ({ url }: any) => {
         <div>
             {thumbnailUrl && !isPlaying && (
                 <>
-                    <div style={{ position: 'relative', width: '270px', backgroundColor: 'black', display:'flex', justifyContent:'center' }}>
+                    <div style={{ position: 'relative', width: '270px', backgroundColor: 'black', display: 'flex', justifyContent: 'center' }}>
                         <img width={'170px'} src={thumbnailUrl} alt="Video thumbnail" onClick={handleThumbnailClick} />
                         <PlayArrowIcon style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0, margin: 'auto', fontSize: '4em', color: 'white' }} />
                     </div>
