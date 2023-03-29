@@ -27,7 +27,7 @@ export const ButtonContainer = styled.div``;
 
 export const ButtonBack = styled.button`
      background-color: transparent;
-     color: white;
+     color: black;
      font-size: 1.2rem;
      border-radius: 4px;
      border: none;

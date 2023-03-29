@@ -28,14 +28,9 @@ import {
 } from './styles';
 import {Link, useNavigate} from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
-import {Fab, Tooltip} from '@mui/material';
-import {Home} from '@mui/icons-material';
 import Person4Icon from '@mui/icons-material/Person4';
-
-const drawerWidth = 220;
 import {Fab, ListItemButton, Tooltip} from '@mui/material';
 import {Home} from '@mui/icons-material';
-import Person4Icon from '@mui/icons-material/Person4';
 
 const drawerWidth = 230;
 
@@ -185,8 +180,6 @@ const ResponsiveDrawer: FC = (props: Props) => {
                          sx={{
                               justifyContent: 'space-between',
                               backgroundColor: 'white',
-                              height: '90px',
-                              backgroundColor: 'black',
                               height: '90px',
                               background:
                                    'linear-gradient(90deg, rgba(0,0,0,1) 45%, rgba(126,27,117,1) 100%)',
