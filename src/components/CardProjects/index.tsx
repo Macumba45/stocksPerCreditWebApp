@@ -33,6 +33,7 @@ import {
      TotalInvestor,
      ContainerInvestor,
 } from './styles';
+import { togglePostFav } from '../../services/api/user';
 
 const Card: FC<Props> = ({
      id,
@@ -59,6 +60,8 @@ const Card: FC<Props> = ({
      createdAt,
      updatedAt,
      showHeartButton,
+     toggleFav,
+  isFavorite,
 }) => {
      const [liked, setLiked] = useState(false);
      const navigate = useNavigate();
@@ -67,9 +70,17 @@ const Card: FC<Props> = ({
      const showMenuItems =
           location.pathname !== '/' && location.pathname !== '/welcome';
 
-     const handleClick = useCallback(() => {
-          setLiked(!liked);
-     }, [liked]);
+     // const handleClick = useCallback(() => {
+     //      setLiked(!liked);
+     //      togglePostFav(projectId)
+     // }, [liked]);
+
+     const [isFav, setIsFav] = useState(isFavorite);
+  const handleToggleFav = useCallback(() => {
+    setIsFav(!isFav);
+    toggleFav(id);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFav]);
 
      const handleMenuClick = useCallback(() => {
           setShowMenu(!showMenu);
@@ -91,13 +102,13 @@ const Card: FC<Props> = ({
                          style={{width: '100%', margin: 'auto'}}
                     />
                </ContainerImg>
-               <ContainerButton>
+               {/* <ContainerButton>
                     {showHeartButton && (
                          <HeartButton liked={liked} onClick={handleClick}>
                               <FavoriteBorderIcon />
                          </HeartButton>
                     )}
-               </ContainerButton>
+               </ContainerButton> */}
                <ContainerTitle>
                     <Title>{title}</Title>
                </ContainerTitle>
@@ -130,6 +141,10 @@ const Card: FC<Props> = ({
                          max={goal || 0}
                     />
                </ContainerLinear>
+               <HeartButton
+        className={isFav ? 'active' : ''}
+        onClick={handleToggleFav}
+      />
                <div>
                     <ContainerButtonModal>
                          <Button

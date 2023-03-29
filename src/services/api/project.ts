@@ -49,6 +49,8 @@ export const getProjects = async () => {
      return [];
 };
 
+
+
 export const getProjectById = async (id: string): Promise<Project | null> => {
      try {
           const token = getAuthenticatedToken();

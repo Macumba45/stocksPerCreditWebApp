@@ -46,7 +46,7 @@ const ProfileDashboard: FC = () => {
                {/* <SearchContainer>
                     <Search />
                </SearchContainer> */}
-               <LogoutIcon sx={{cursor: 'pointer'}} />
+               {/* <LogoutIcon sx={{cursor: 'pointer'}} /> */}
           </MainContainer>
      );
 };
