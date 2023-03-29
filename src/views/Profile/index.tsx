@@ -100,13 +100,13 @@ const Profile: FC = () => {
           <>
                <NavBarProfile />
                <App>
-               <ButtonContainer>
-                              <ButtonBack onClick={goToBack}>
-                                   <KeyboardBackspaceIcon />
-                              </ButtonBack>
-                         </ButtonContainer>
-                    <Container>
                     <ButtonContainer>
+                         <ButtonBack onClick={goToBack}>
+                              <KeyboardBackspaceIcon />
+                         </ButtonBack>
+                    </ButtonContainer>
+                    <Container>
+                         <ButtonContainer>
                               <ButtonBack onClick={goToEditProfile}>
                                    <button>Edit</button>
                               </ButtonBack>

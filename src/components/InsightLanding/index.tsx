@@ -1,9 +1,9 @@
-import { FC, memo } from 'react';
+import {FC, memo} from 'react';
 import PaidIcon from '@mui/icons-material/Paid';
 import GroupWorkIcon from '@mui/icons-material/GroupWork';
 import GroupsIcon from '@mui/icons-material/Groups';
-import { Container, DataContainer, MainContainer, TitleInsight } from './styles';
-import { Props } from './types';
+import {Container, DataContainer, MainContainer, TitleInsight} from './styles';
+import {Props} from './types';
 
 const InsightLanding: FC<Props> = ({
      ratioSuccess,
@@ -15,7 +15,7 @@ const InsightLanding: FC<Props> = ({
                <Container>
                     <PaidIcon
                          fontSize="large"
-                         style={{ marginTop: '1rem', color: '#7E1B75' }}
+                         style={{marginTop: '1rem', color: '#7E1B75'}}
                     />
                     <TitleInsight>Financial projects</TitleInsight>
                     <DataContainer>{totalProjects}</DataContainer>
@@ -23,7 +23,7 @@ const InsightLanding: FC<Props> = ({
                <Container>
                     <GroupWorkIcon
                          fontSize="large"
-                         style={{ marginTop: '1rem', color: '#7E1B75' }}
+                         style={{marginTop: '1rem', color: '#7E1B75'}}
                     />
                     <TitleInsight>Project success ratio</TitleInsight>
                     <DataContainer>
@@ -33,14 +33,11 @@ const InsightLanding: FC<Props> = ({
                <Container>
                     <GroupsIcon
                          fontSize="large"
-                         style={{ marginTop: '1rem', color: '#7E1B75' }}
+                         style={{marginTop: '1rem', color: '#7E1B75'}}
                     />
 
                     <TitleInsight>Contributions</TitleInsight>
-                    <DataContainer>
-                         {totalAmount}€
-                    </DataContainer>
-
+                    <DataContainer>{totalAmount}€</DataContainer>
                </Container>
           </MainContainer>
      );

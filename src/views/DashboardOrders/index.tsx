@@ -1,5 +1,6 @@
 import {FC, memo} from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
+import {InvestmentViewLogic} from './logic';
 
 import {Container} from './styles';
 

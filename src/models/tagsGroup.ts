@@ -1,10 +1,10 @@
 import {} from '../services/api/tag';
 
-export const normalizeTag = (input: any) => {
+export const normalizeTagGroup = (input: any) => {
      return {
           id: input?.id || '',
           name: input?.name || '',
      };
 };
 
-export type Tag = ReturnType<typeof normalizeTag>;
+export type Tag = ReturnType<typeof normalizeTagGroup>;

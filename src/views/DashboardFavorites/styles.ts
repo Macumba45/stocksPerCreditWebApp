@@ -9,9 +9,6 @@ export const Container = styled.div`
      }
 `;
 
-
-
-
 export const FiltersDiv = styled.div`
      border-radius: 10px;
      margin: 4rem 1.2rem;

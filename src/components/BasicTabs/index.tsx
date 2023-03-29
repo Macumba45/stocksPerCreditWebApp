@@ -5,7 +5,7 @@ import {FC, memo, useCallback, useState} from 'react';
 import Card from '../CardProjects';
 import {ContainerProjects, MainContainer, TabDiv} from './styles';
 import {LandingLogic} from './logic';
-import { togglePostFav } from '../../services/api/user';
+import {togglePostFav} from '../../services/api/user';
 
 interface TabPanelProps {
      children?: React.ReactNode;
@@ -36,9 +36,9 @@ function a11yProps(index: number) {
      };
 }
 
-const toggleFavorite = (async (id: string) => {
+const toggleFavorite = async (id: string) => {
      await togglePostFav(id);
-   });
+};
 
 const BasicTabs: FC = () => {
      const [value, setValue] = useState(0);
@@ -101,7 +101,7 @@ const BasicTabs: FC = () => {
                          <ContainerProjects>
                               {topProjects.map((item, index) => (
                                    <Card
-                                   id={item.id}
+                                        id={item.id}
                                         key={index}
                                         url={item.url}
                                         tags={item.tags}
@@ -115,9 +115,7 @@ const BasicTabs: FC = () => {
                                         totalInvest={item.totalInvest}
                                         goal={item.goal}
                                         onClick={() => console.log('prueba')}
-                                        toggleFav={
-                                             toggleFavorite
-                                        }
+                                        toggleFav={toggleFavorite}
                                    />
                               ))}
                          </ContainerProjects>
@@ -127,7 +125,7 @@ const BasicTabs: FC = () => {
                               <ContainerProjects>
                                    {lastestProjects.map((item, index) => (
                                         <Card
-                                        id={item.id}
+                                             id={item.id}
                                              key={index}
                                              url={item.url}
                                              tags={item.tags}
@@ -143,9 +141,7 @@ const BasicTabs: FC = () => {
                                              onClick={() =>
                                                   console.log('prueba')
                                              }
-                                             toggleFav={
-                                                  toggleFavorite
-                                             }
+                                             toggleFav={toggleFavorite}
                                         />
                                    ))}
                               </ContainerProjects>
@@ -156,7 +152,7 @@ const BasicTabs: FC = () => {
                               <ContainerProjects>
                                    {closeSoon.map((item, index) => (
                                         <Card
-                                        id={item.id}
+                                             id={item.id}
                                              key={index}
                                              url={item.url}
                                              tags={item.tags}
@@ -172,9 +168,7 @@ const BasicTabs: FC = () => {
                                              onClick={() =>
                                                   console.log('prueba')
                                              }
-                                             toggleFav={
-                                                  toggleFavorite
-                                             }
+                                             toggleFav={toggleFavorite}
                                         />
                                    ))}
                               </ContainerProjects>

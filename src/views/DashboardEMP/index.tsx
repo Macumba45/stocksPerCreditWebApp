@@ -7,7 +7,7 @@ import {Fab, Tooltip} from '@mui/material';
 import {Home} from '@mui/icons-material';
 import AddIcon from '@mui/icons-material/Add';
 import Person4Icon from '@mui/icons-material/Person4';
-import { togglePostFav } from '../../services/api/user';
+import {togglePostFav} from '../../services/api/user';
 
 const DashboardEMP: FC = () => {
      const navigate = useNavigate();
@@ -33,7 +33,7 @@ const DashboardEMP: FC = () => {
 
      const toggleFavorite = useCallback(async (id: string) => {
           await togglePostFav(id);
-        }, []);
+     }, []);
 
      return (
           <>
@@ -101,7 +101,7 @@ const DashboardEMP: FC = () => {
                </CustomTooltip>
                <MaxContainer>
                     <Card
-                    id={'id'}
+                         id={'id'}
                          url={'https://player.vimeo.com/video/800507584'}
                          showHeartButton={false}
                          title={'Mind on me'}
