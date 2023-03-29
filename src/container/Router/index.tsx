@@ -14,6 +14,7 @@ import FormProject from '../../components/FormProject';
 import Payment from '../../views/Payment';
 import DashboardFavorites from '../../views/DashboardFavorites';
 import DashboardOrders from '../../views/DashboardOrders';
+import ProfileEditar from '../../views/ProfileEditar';
 
 const Router: FC = () => {
      const ProtectedRoutes = ({children}: {children: JSX.Element}) => {
@@ -129,6 +130,8 @@ const Router: FC = () => {
                          }
                     />
                     <Route path="/profile" element={<Profile />} />
+                    <Route path="/editprofile" element={<ProfileEditar />} />
+
                     <Route path="*" element={<NotFound />} />
                </Routes>
           </BrowserRouter>

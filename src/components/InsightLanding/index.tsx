@@ -35,10 +35,12 @@ const InsightLanding: FC<Props> = ({
                          fontSize="large"
                          style={{ marginTop: '1rem', color: '#7E1B75' }}
                     />
+
                     <TitleInsight>Contributions</TitleInsight>
                     <DataContainer>
                          {totalAmount}€
                     </DataContainer>
+
                </Container>
           </MainContainer>
      );

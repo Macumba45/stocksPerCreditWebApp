@@ -48,6 +48,7 @@ const ProfileDashboard: FC = () => {
                </SearchContainer> */}
         </MainContainer>
     );
+
 };
 
 export default memo(ProfileDashboard);

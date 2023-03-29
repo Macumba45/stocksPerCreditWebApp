@@ -33,6 +33,7 @@ const DashboardINVe: FC = () => {
           handleRangeChange,
           handleFiltersChange,
           handleDateChange,
+          toggleFavorite,
      } = DashboardInvLogic();
 
      console.log(projectData);
@@ -142,6 +143,7 @@ const DashboardINVe: FC = () => {
                               </Button>
                          </ButtonSeeMore>
                     )}
+
                     <TopContainer>
                          <SectionTitle>
                               <H3>TOP PROJECTS</H3>
@@ -157,8 +159,9 @@ const DashboardINVe: FC = () => {
                                    (project, index) => (
                                         <div key={index}>
                                              <Card
+                                                  id={project.id}
                                                   url={project.url}
-                                                  showHeartButton={false}
+                                                  // showHeartButton={true}
                                                   title={project.title}
                                                   duration={project.duration}
                                                   description={
@@ -183,6 +186,7 @@ const DashboardINVe: FC = () => {
                                                   totalInvest={
                                                        project.totalInvest
                                                   }
+                                                  toggleFav={toggleFavorite}
                                              />
                                         </div>
                                    )
@@ -205,6 +209,7 @@ const DashboardINVe: FC = () => {
                                    (project, index) => (
                                         <div key={index}>
                                              <Card
+                                                  id={project.id}
                                                   url={project.url}
                                                   showHeartButton={false}
                                                   title={project.title}
@@ -231,6 +236,7 @@ const DashboardINVe: FC = () => {
                                                   totalInvest={
                                                        project.totalInvest
                                                   }
+                                                  toggleFav={toggleFavorite}
                                              />
                                         </div>
                                    )
@@ -252,6 +258,7 @@ const DashboardINVe: FC = () => {
                                    (project, index) => (
                                         <div key={index}>
                                              <Card
+                                             id={project.id}
                                                   url={project.url}
                                                   showHeartButton={false}
                                                   title={project.title}
@@ -278,9 +285,92 @@ const DashboardINVe: FC = () => {
                                                   totalInvest={
                                                        project.totalInvest
                                                   }
+                                                  toggleFav={toggleFavorite}
                                              />
                                         </div>
                                    )
+                              )}
+                              <NewContainer>
+                                   <SectionTitle>
+                                        <H3>ALL PROJECTS</H3>
+                                        <Divider
+                                             sx={{
+                                                  backgroundColor: '#7E1B75',
+                                                  height: '5px',
+                                             }}
+                                        />
+                                   </SectionTitle>
+                                   <NewCards>
+                                        {/* Mapear solo los proyectos que son visibles en la página actual */}
+                                        {visibleProjects.map(
+                                             (project, index) => (
+                                                  <div key={index}>
+                                                       <Card
+                                                       id={project.id}
+                                                            url={project.url}
+                                                            showHeartButton={
+                                                                 false
+                                                            }
+                                                            title={
+                                                                 project.title
+                                                            }
+                                                            duration={
+                                                                 project.duration
+                                                            }
+                                                            description={
+                                                                 project.description
+                                                            }
+                                                            country={
+                                                                 project.country
+                                                            }
+                                                            city={project.city}
+                                                            tags={[]}
+                                                            collected={
+                                                                 project.totalInvest
+                                                            }
+                                                            totalInvestor={
+                                                                 project.totalInvestor
+                                                            }
+                                                            minimuminvestment={
+                                                                 project.minimuminvestment
+                                                            }
+                                                            goal={project.goal}
+                                                            limitvalue={
+                                                                 project.limitvalue
+                                                            }
+                                                            totalInvest={
+                                                                 project.totalInvest
+                                                            }
+                                                            toggleFav={
+                                                                 toggleFavorite
+                                                            }
+                                                       />
+                                                  </div>
+                                             )
+                                        )}
+                                   </NewCards>
+                                   {/* Botón que carga la siguiente sección de la lista de proyectos */}
+                              </NewContainer>
+                              {visibleProjects.length < projects.length && (
+                                   <ButtonSeeMore>
+                                        <Button
+                                             sx={{
+                                                  color: '#7E1B75',
+                                                  marginBottom: '12px',
+                                                  borderColor: '#7E1B75',
+                                                  '&:hover': {
+                                                       backgroundColor:
+                                                            '#7E1B75',
+                                                       borderColor: '#7E1B75',
+                                                       color: 'white',
+                                                  },
+                                             }}
+                                             variant="outlined"
+                                             onClick={handleLoadMore}
+                                        >
+                                             See more
+                                        </Button>
+                                   </ButtonSeeMore>
                               )}
                          </FinalCards>
                     </FinalContainer>

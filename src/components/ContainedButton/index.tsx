@@ -4,7 +4,7 @@ import { FC, memo } from 'react';
 import { Props } from './types';
 
 
-const ContainedButton: FC<Props> = ({onClick}) => {
+const ContainedButton: FC<Props> = ({ onClick }) => {
      const buttonStyle = {
           backgroundColor: '#7E1B75',
           color: 'white',

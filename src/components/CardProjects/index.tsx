@@ -1,6 +1,5 @@
 import { useState, memo, useCallback, FC } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -33,8 +32,8 @@ import {
      TotalInvestor,
      ContainerInvestor,
 } from './styles';
-import { UserRole } from '../../models/user';
-import { getUserRole } from '../../services/storage/userRole';
+
+import { togglePostFav } from '../../services/api/user';
 
 const Card: FC<Props> = ({
      id,
@@ -61,8 +60,11 @@ const Card: FC<Props> = ({
      createdAt,
      updatedAt,
      showHeartButton,
+     toggleFav,
+  isFavorite,
 }) => {
-     const [liked, setLiked] = useState(false);
+     // const [liked, setLiked] = useState(false);
+     const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();
      const [showMenu, setShowMenu] = useState(false);
      const location = useLocation();
@@ -70,9 +72,15 @@ const Card: FC<Props> = ({
           location.pathname !== '/' && location.pathname !== '/welcome' && getUserRole() !== 'INVESTOR'
      console.log(showMenuItems);
 
-     const handleClick = useCallback(() => {
-          setLiked(!liked);
-     }, [liked]);
+     // const handleClick = useCallback(() => {
+     //      setLiked(!liked);
+     //      togglePostFav(projectId)
+     // }, [liked]);
+
+  const handleToggleFav = useCallback(() => {
+    setIsFav(!isFav);
+    toggleFav(id);
+  }, [isFav]);
 
      const handleMenuClick = useCallback(() => {
           setShowMenu(!showMenu);
@@ -102,13 +110,13 @@ const Card: FC<Props> = ({
                          style={{ width: '100%', margin: 'auto' }}
                     />
                </ContainerImg>
-               <ContainerButton>
+               {/* <ContainerButton>
                     {showHeartButton && (
                          <HeartButton liked={liked} onClick={handleClick}>
                               <FavoriteBorderIcon />
                          </HeartButton>
                     )}
-               </ContainerButton>
+               </ContainerButton> */}
                <ContainerTitle>
                     <Title>{title}</Title>
                </ContainerTitle>
@@ -141,6 +149,10 @@ const Card: FC<Props> = ({
                          max={goal || 0}
                     />
                </ContainerLinear>
+               <HeartButton
+        className={isFav ? 'active' : ''}
+        onClick={handleToggleFav}
+      />
                <div>
                     <ContainerButtonModal>
                          <Button
