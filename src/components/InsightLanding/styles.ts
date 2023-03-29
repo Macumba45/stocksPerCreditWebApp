@@ -32,16 +32,16 @@ export const Container = styled.div`
 `;
 
 export const TitleInsight = styled.h1`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.small};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.small};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
      margin-top: 1rem;
 `;
 
 export const DataContainer = styled.div`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-     color: ${({ theme }) => theme.colors.primary};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     color: ${({theme}) => theme.colors.primary};
      margin-top: 1.5rem;
 `;

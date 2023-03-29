@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { UserRole } from '../../../models/user';
+import {UserRole} from '../../../models/user';
 
 export const validationSchema = Yup.object().shape({
      email: Yup.string()
@@ -17,4 +17,4 @@ export const initialValues = {
      email: '',
      password: '',
      role: UserRole.ENTREPRENEUR,
-}
+};

@@ -20,13 +20,12 @@ export const VideoContainer = styled.div`
           width: 100%;
           display: flex;
           margin-left: 1rem;
-
      }
 `;
 export const VideoIframe = styled.iframe`
      height: 600px;
-     border-bottom-right-radius:5px;
-     border-bottom-left-radius:5px;
+     border-bottom-right-radius: 5px;
+     border-bottom-left-radius: 5px;
      @media screen and (max-width: 600px) {
           height: 300px;
      }

@@ -1,54 +1,54 @@
 import * as React from 'react';
 import SelectUnstyled, {
-  selectUnstyledClasses,
-  SelectUnstyledProps,
-  SelectUnstyledRootSlotProps,
+     selectUnstyledClasses,
+     SelectUnstyledProps,
+     SelectUnstyledRootSlotProps,
 } from '@mui/base/SelectUnstyled';
-import OptionUnstyled, { optionUnstyledClasses } from '@mui/base/OptionUnstyled';
+import OptionUnstyled, {optionUnstyledClasses} from '@mui/base/OptionUnstyled';
 import PopperUnstyled from '@mui/base/PopperUnstyled';
-import { styled } from '@mui/system';
+import {styled} from '@mui/system';
 import UnfoldMoreRoundedIcon from '@mui/icons-material/UnfoldMoreRounded';
 
 const blue = {
-  100: '#DAECFF',
-  200: '#99CCF3',
-  400: '#3399FF',
-  500: '#007FFF',
-  600: '#0072E5',
-  900: '#003A75',
+     100: '#DAECFF',
+     200: '#99CCF3',
+     400: '#3399FF',
+     500: '#007FFF',
+     600: '#0072E5',
+     900: '#003A75',
 };
 
 const grey = {
-  50: '#f6f8fa',
-  100: '#eaeef2',
-  200: '#d0d7de',
-  300: '#afb8c1',
-  400: '#8c959f',
-  500: '#6e7781',
-  600: '#57606a',
-  700: '#424a53',
-  800: '#32383f',
-  900: '#24292f',
+     50: '#f6f8fa',
+     100: '#eaeef2',
+     200: '#d0d7de',
+     300: '#afb8c1',
+     400: '#8c959f',
+     500: '#6e7781',
+     600: '#57606a',
+     700: '#424a53',
+     800: '#32383f',
+     900: '#24292f',
 };
 
 const Button = React.forwardRef(function Button<
-  TValue extends {},
-  Multiple extends boolean,
+     TValue extends {},
+     Multiple extends boolean
 >(
-  props: SelectUnstyledRootSlotProps<TValue, Multiple>,
-  ref: React.ForwardedRef<HTMLButtonElement>,
+     props: SelectUnstyledRootSlotProps<TValue, Multiple>,
+     ref: React.ForwardedRef<HTMLButtonElement>
 ) {
-  const { ownerState, ...other } = props;
-  return (
-    <button type="button" {...other} ref={ref}>
-      {other.children}
-      <UnfoldMoreRoundedIcon />
-    </button>
-  );
+     const {ownerState, ...other} = props;
+     return (
+          <button type="button" {...other} ref={ref}>
+               {other.children}
+               <UnfoldMoreRoundedIcon />
+          </button>
+     );
 });
 
-const StyledButton = styled(Button, { shouldForwardProp: () => true })(
-  ({ theme }) => `
+const StyledButton = styled(Button, {shouldForwardProp: () => true})(
+     ({theme}) => `
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
@@ -84,11 +84,11 @@ const StyledButton = styled(Button, { shouldForwardProp: () => true })(
     top: 0;
     right: 10px;
   }
-  `,
+  `
 );
 
 const StyledListbox = styled('ul')(
-  ({ theme }) => `
+     ({theme}) => `
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
@@ -101,12 +101,14 @@ const StyledListbox = styled('ul')(
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
   color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-  box-shadow: 0px 4px 30px ${theme.palette.mode === 'dark' ? grey[900] : grey[200]};
-  `,
+  box-shadow: 0px 4px 30px ${
+       theme.palette.mode === 'dark' ? grey[900] : grey[200]
+  };
+  `
 );
 
 const StyledOption = styled(OptionUnstyled)(
-  ({ theme }) => `
+     ({theme}) => `
   list-style: none;
   padding: 8px;
   border-radius: 8px;
@@ -139,37 +141,36 @@ const StyledOption = styled(OptionUnstyled)(
     background-color: ${theme.palette.mode === 'dark' ? grey[800] : grey[100]};
     color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
   }
-  `,
+  `
 );
 
 const StyledPopper = styled(PopperUnstyled)`
-  z-index: 1;
+     z-index: 1;
 `;
 
 const CustomSelect = React.forwardRef(function CustomSelect<
-  TValue extends {},
-  Multiple extends boolean,
+     TValue extends {},
+     Multiple extends boolean
 >(
-  props: SelectUnstyledProps<TValue, Multiple>,
-  ref: React.ForwardedRef<HTMLButtonElement>,
+     props: SelectUnstyledProps<TValue, Multiple>,
+     ref: React.ForwardedRef<HTMLButtonElement>
 ) {
-  const slots = {
-    root: StyledButton,
-    listbox: StyledListbox,
-    popper: StyledPopper,
-    ...props.slots,
-  };
+     const slots = {
+          root: StyledButton,
+          listbox: StyledListbox,
+          popper: StyledPopper,
+          ...props.slots,
+     };
 
-  return <SelectUnstyled {...props} ref={ref} slots={slots} />;
+     return <SelectUnstyled {...props} ref={ref} slots={slots} />;
 });
 
 export default function UnstyledSelectIntroduction() {
-  return (
-    <CustomSelect defaultValue={10}>
-      <StyledOption value={10}>€</StyledOption>
-      <StyledOption value={20}>£</StyledOption>
-      <StyledOption value={30}>$</StyledOption>
-    </CustomSelect>
-  );
+     return (
+          <CustomSelect defaultValue={10}>
+               <StyledOption value={10}>€</StyledOption>
+               <StyledOption value={20}>£</StyledOption>
+               <StyledOption value={30}>$</StyledOption>
+          </CustomSelect>
+     );
 }
-

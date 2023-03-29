@@ -1,10 +1,10 @@
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { FC, memo, useState } from 'react';
+import {FC, memo, useState} from 'react';
 import Card from '../CardProjects';
-import { ContainerProjects, MainContainer, TabDiv } from './styles';
-import { LandingLogic } from './logic';
+import {ContainerProjects, MainContainer, TabDiv} from './styles';
+import {LandingLogic} from './logic';
 
 interface TabPanelProps {
      children?: React.ReactNode;
@@ -13,7 +13,7 @@ interface TabPanelProps {
 }
 
 function TabPanel(props: TabPanelProps) {
-     const { children, value, index, ...other } = props;
+     const {children, value, index, ...other} = props;
 
      return (
           <TabDiv
@@ -23,7 +23,7 @@ function TabPanel(props: TabPanelProps) {
                aria-labelledby={`simple-tab-${index}`}
                {...other}
           >
-               {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+               {value === index && <Box sx={{p: 3}}>{children}</Box>}
           </TabDiv>
      );
 }
@@ -42,15 +42,14 @@ const BasicTabs: FC = () => {
           setValue(newValue);
      };
 
-     const { landingData } = LandingLogic()
-     const topProjects = landingData?.topProjects || []
-     const lastestProjects = landingData.latestProjects?.slice(0, 3) || []
-     const closeSoon = landingData.latestProjects?.slice(-3) || []
-
+     const {landingData} = LandingLogic();
+     const topProjects = landingData?.topProjects || [];
+     const lastestProjects = landingData.latestProjects?.slice(0, 3) || [];
+     const closeSoon = landingData.latestProjects?.slice(-3) || [];
 
      return (
           <MainContainer>
-               <Box sx={{ margin: '0 auto', color: '#7E1B75' }}>
+               <Box sx={{margin: '0 auto', color: '#7E1B75'}}>
                     <Box
                          sx={{
                               borderBottom: 1,
@@ -59,25 +58,33 @@ const BasicTabs: FC = () => {
                          }}
                     >
                          <Tabs
-                              sx={{ color: '#7E1B75', indicatorColor: '#7E1B75' }}
+                              sx={{color: '#7E1B75', indicatorColor: '#7E1B75'}}
                               value={value}
                               onChange={handleChange}
                               aria-label="basic tabs example"
-                              TabIndicatorProps={{ sx: { bgcolor: '#7E1B75' } }}
-
+                              TabIndicatorProps={{sx: {bgcolor: '#7E1B75'}}}
                          >
                               <Tab
-                                   sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
+                                   sx={{
+                                        color: '#7E1B75',
+                                        '&.Mui-selected': {color: '#7e1b76c6'},
+                                   }}
                                    label="Top projects"
                                    {...a11yProps(0)}
                               />
                               <Tab
-                                   sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
+                                   sx={{
+                                        color: '#7E1B75',
+                                        '&.Mui-selected': {color: '#7e1b76c6'},
+                                   }}
                                    label="Recents"
                                    {...a11yProps(1)}
                               />
                               <Tab
-                                   sx={{ color: '#7E1B75', '&.Mui-selected': { color: '#7e1b76c6' } }}
+                                   sx={{
+                                        color: '#7E1B75',
+                                        '&.Mui-selected': {color: '#7e1b76c6'},
+                                   }}
                                    label="Close soon"
                                    {...a11yProps(2)}
                               />
@@ -85,7 +92,7 @@ const BasicTabs: FC = () => {
                     </Box>
                     <TabPanel value={value} index={0}>
                          <ContainerProjects>
-                              {topProjects.map((item, index) =>
+                              {topProjects.map((item, index) => (
                                    <Card
                                         key={index}
                                         url={item.url}
@@ -101,14 +108,13 @@ const BasicTabs: FC = () => {
                                         goal={item.goal}
                                         onClick={() => console.log('prueba')}
                                    />
-                              )}
+                              ))}
                          </ContainerProjects>
-
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                          <MainContainer>
                               <ContainerProjects>
-                                   {lastestProjects.map((item, index) =>
+                                   {lastestProjects.map((item, index) => (
                                         <Card
                                              key={index}
                                              url={item.url}
@@ -122,16 +128,18 @@ const BasicTabs: FC = () => {
                                              description={item.description}
                                              country={item.country}
                                              city={item.city}
-                                             onClick={() => console.log('prueba')}
+                                             onClick={() =>
+                                                  console.log('prueba')
+                                             }
                                         />
-                                   )}
+                                   ))}
                               </ContainerProjects>
                          </MainContainer>
                     </TabPanel>
                     <TabPanel value={value} index={2}>
                          <MainContainer>
                               <ContainerProjects>
-                                   {closeSoon.map((item, index) =>
+                                   {closeSoon.map((item, index) => (
                                         <Card
                                              key={index}
                                              url={item.url}
@@ -145,9 +153,11 @@ const BasicTabs: FC = () => {
                                              description={item.description}
                                              country={item.country}
                                              city={item.city}
-                                             onClick={() => console.log('prueba')}
+                                             onClick={() =>
+                                                  console.log('prueba')
+                                             }
                                         />
-                                   )}
+                                   ))}
                               </ContainerProjects>
                          </MainContainer>
                     </TabPanel>

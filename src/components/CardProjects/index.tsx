@@ -1,4 +1,4 @@
-import { useState, memo, useCallback, FC } from 'react';
+import {useState, memo, useCallback, FC} from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -6,10 +6,10 @@ import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useLocation } from 'react-router';
-import { useNavigate } from 'react-router-dom'
-import { Props } from './type';
-import VideoThumbail from './video/index'
+import {useLocation} from 'react-router';
+import {useNavigate} from 'react-router-dom';
+import {Props} from './type';
+import VideoThumbail from './video/index';
 
 import {
      CardContainer,
@@ -33,9 +33,6 @@ import {
      TotalInvestor,
      ContainerInvestor,
 } from './styles';
-
-
-
 
 const Card: FC<Props> = ({
      id,
@@ -61,10 +58,10 @@ const Card: FC<Props> = ({
      limitvalue,
      createdAt,
      updatedAt,
-     showHeartButton
+     showHeartButton,
 }) => {
      const [liked, setLiked] = useState(false);
-     const navigate = useNavigate()
+     const navigate = useNavigate();
      const [showMenu, setShowMenu] = useState(false);
      const location = useLocation();
      const showMenuItems =
@@ -78,21 +75,20 @@ const Card: FC<Props> = ({
           setShowMenu(!showMenu);
      }, [showMenu]);
 
-
      const handleGoDetails = useCallback(() => {
-          navigate('/projectdetails')
-          window.scrollTo(0, 0)
+          navigate('/projectdetails');
+          window.scrollTo(0, 0);
      }, [navigate]);
-
 
      return (
           <CardContainer>
-               <ContainerImg >
+               <ContainerImg>
                     {/* <Image style={{ objectFit: 'cover' }} src={`${url}?autoplay=0&mute=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0`} /> */}
-                    <VideoThumbail src={url}
+                    <VideoThumbail
+                         src={url}
                          // width="270"
                          // height="270"
-                         style={{ width: '100%', margin: 'auto' }}
+                         style={{width: '100%', margin: 'auto'}}
                     />
                </ContainerImg>
                <ContainerButton>
@@ -106,7 +102,9 @@ const Card: FC<Props> = ({
                     <Title>{title}</Title>
                </ContainerTitle>
                <ContainerInvestor>
-                    <TotalInvestor>Total investors: {totalInvestor}</TotalInvestor>
+                    <TotalInvestor>
+                         Total investors: {totalInvestor}
+                    </TotalInvestor>
                </ContainerInvestor>
                <ContainerInvestor>
                     <TotalInvestor>Finish at: {duration}</TotalInvestor>
@@ -121,15 +119,21 @@ const Card: FC<Props> = ({
                     <City>{city}</City>
                </ContainerLocations>
                <ContainerCategories>
-                    <Categories>{tags ? tags.map(tag => tag.name).join(' ') : ''}</Categories>
+                    <Categories>
+                         {tags ? tags.map((tag) => tag.name).join(' ') : ''}
+                    </Categories>
                </ContainerCategories>
                <ContainerLinear>
-                    <LinearWithValueLabel current={totalInvest || 0} min={0} max={goal || 0} />
+                    <LinearWithValueLabel
+                         current={totalInvest || 0}
+                         min={0}
+                         max={goal || 0}
+                    />
                </ContainerLinear>
                <div>
                     <ContainerButtonModal>
                          <Button
-                              variant='outlined'
+                              variant="outlined"
                               sx={{
                                    color: '#7E1B75',
                                    marginBottom: '12px',
@@ -137,8 +141,8 @@ const Card: FC<Props> = ({
                                    '&:hover': {
                                         backgroundColor: '#7E1B75',
                                         borderColor: '#7E1B75',
-                                        color: 'white'
-                                   }
+                                        color: 'white',
+                                   },
                               }}
                               onClick={handleGoDetails}
                          >
@@ -156,7 +160,7 @@ const Card: FC<Props> = ({
                          </Menu>
                     )}
                </div>
-          </CardContainer >
+          </CardContainer>
      );
 };
 

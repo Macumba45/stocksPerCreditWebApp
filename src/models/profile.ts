@@ -1,4 +1,3 @@
-
 export type ProfileInput = {
      name: string;
      lastName: string;

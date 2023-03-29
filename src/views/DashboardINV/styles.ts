@@ -4,7 +4,7 @@ export const Container = styled.div`
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
-     background-color: ${({ theme }) => theme.colors.light};
+     background-color: ${({theme}) => theme.colors.light};
      border-radius: 10px;
      margin-left: 1rem;
      margin-right: 1rem;
@@ -42,7 +42,6 @@ export const ButtonSeeMore = styled.div`
      display: flex;
      justify-content: center;
      margin-bottom: 5rem;
-
 `;
 
 export const DateContainer = styled.div`
@@ -76,7 +75,6 @@ export const TopContainer = styled.div`
 export const NewContainer = styled.div`
      display: flex;
      flex-wrap: wrap;
-     
 `;
 
 export const FinalContainer = styled.div`
@@ -94,8 +92,7 @@ export const NewCards = styled.div`
      display: flex;
      flex-wrap: wrap;
      /* justify-content: center; */
-     margin-bottom:5rem;
-
+     margin-bottom: 5rem;
 `;
 
 export const FinalCards = styled.div`
@@ -119,6 +116,6 @@ export const HR = styled.hr`
 `;
 
 export const H3 = styled.h3`
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
-     font-size: ${({ theme }) => theme.fontSizes.small};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
+     font-size: ${({theme}) => theme.fontSizes.small};
 `;

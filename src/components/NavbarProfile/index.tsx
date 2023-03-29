@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useState } from 'react';
+import {FC, memo, useCallback, useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,8 +11,8 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { useNavigate } from 'react-router-dom';
-import { LogoStocks } from './styles';
+import {useNavigate} from 'react-router-dom';
+import {LogoStocks} from './styles';
 
 const logo = require('./assets/logo.png');
 
@@ -21,7 +21,7 @@ const settings = [
           label: 'Profile',
           route: '/profile',
      },
-     { label: 'Logout', route: '/logout' },
+     {label: 'Logout', route: '/logout'},
 ];
 
 export const NavBarProfile: FC = () => {
@@ -56,13 +56,13 @@ export const NavBarProfile: FC = () => {
      }, [navigate]);
 
      return (
-          <AppBar position="fixed" sx={{ top: 0, backgroundColor: ' #222222' }}>
+          <AppBar position="fixed" sx={{top: 0, backgroundColor: ' #222222'}}>
                <Container>
                     <Toolbar disableGutters>
                          <Box
                               sx={{
                                    flexGrow: 1,
-                                   display: { xs: 'flex', md: 'none' },
+                                   display: {xs: 'flex', md: 'none'},
                               }}
                          >
                               <IconButton
@@ -90,11 +90,9 @@ export const NavBarProfile: FC = () => {
                                    open={Boolean(anchorElNav)}
                                    onClose={handleCloseNavMenu}
                                    sx={{
-                                        display: { xs: 'block', md: 'none' },
+                                        display: {xs: 'block', md: 'none'},
                                    }}
-                              >
-                                  
-                              </Menu>
+                              ></Menu>
                          </Box>
                          <LogoStocks src={`${logo}`} />
                          <Typography
@@ -104,7 +102,7 @@ export const NavBarProfile: FC = () => {
                               href="/"
                               sx={{
                                    mr: 2,
-                                   display: { xs: 'none', md: 'flex' },
+                                   display: {xs: 'none', md: 'flex'},
                                    fontFamily: 'monospace',
                                    fontWeight: 700,
                                    letterSpacing: '.3rem',
@@ -125,7 +123,7 @@ export const NavBarProfile: FC = () => {
                               href=""
                               sx={{
                                    mr: 2,
-                                   display: { xs: 'flex', md: 'none' },
+                                   display: {xs: 'flex', md: 'none'},
                                    flexGrow: 1,
                                    fontFamily: 'monospace',
                                    fontWeight: 700,
@@ -140,15 +138,14 @@ export const NavBarProfile: FC = () => {
                          <Box
                               sx={{
                                    flexGrow: 1,
-                                   display: { xs: 'none', md: 'flex' },
+                                   display: {xs: 'none', md: 'flex'},
                               }}
-                         >
-                         </Box>
-                         <Box sx={{ flexGrow: 0 }}>
+                         ></Box>
+                         <Box sx={{flexGrow: 0}}>
                               <Tooltip title="Open settings">
                                    <IconButton
                                         onClick={handleOpenUserMenu}
-                                        sx={{ p: 0 }}
+                                        sx={{p: 0}}
                                    >
                                         <Avatar
                                              alt="Remy Sharp"
@@ -157,7 +154,7 @@ export const NavBarProfile: FC = () => {
                                    </IconButton>
                               </Tooltip>
                               <Menu
-                                   sx={{ mt: '45px' }}
+                                   sx={{mt: '45px'}}
                                    id="menu-appbar"
                                    anchorEl={anchorElUser}
                                    anchorOrigin={{
@@ -172,7 +169,7 @@ export const NavBarProfile: FC = () => {
                                    open={Boolean(anchorElUser)}
                                    onClose={handleCloseUserMenu}
                               >
-                                   {settings.map(({ label, route }) => (
+                                   {settings.map(({label, route}) => (
                                         <MenuItem
                                              key={label}
                                              onClick={() =>
