@@ -1,13 +1,13 @@
-import { useState, memo, useCallback, FC } from 'react';
+import {useState, memo, useCallback, FC} from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Button from '@mui/material/Button';
 import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useLocation } from 'react-router';
-import { useNavigate } from 'react-router-dom';
-import { Props } from './type';
+import {useLocation} from 'react-router';
+import {useNavigate} from 'react-router-dom';
+import {Props} from './type';
 import VideoThumbail from './video/index';
 
 import {
@@ -33,8 +33,8 @@ import {
      ContainerInvestor,
 } from './styles';
 
-import { togglePostFav } from '../../services/api/user';
-import { getUserRole } from '../../services/storage/userRole';
+import {togglePostFav} from '../../services/api/user';
+import {getUserRole} from '../../services/storage/userRole';
 
 const Card: FC<Props> = ({
      id,
@@ -62,7 +62,7 @@ const Card: FC<Props> = ({
      updatedAt,
      showHeartButton,
      toggleFav,
-  isFavorite,
+     isFavorite,
 }) => {
      // const [liked, setLiked] = useState(false);
      const [isFav, setIsFav] = useState(isFavorite);
@@ -70,30 +70,27 @@ const Card: FC<Props> = ({
      const [showMenu, setShowMenu] = useState(false);
      const location = useLocation();
      const showMenuItems =
-          location.pathname !== '/' && location.pathname !== '/welcome' && getUserRole() !== 'INVESTOR'
-     console.log(showMenuItems);
+          location.pathname !== '/' &&
+          location.pathname !== '/welcome' &&
+          getUserRole() !== 'INVESTOR';
 
      // const handleClick = useCallback(() => {
      //      setLiked(!liked);
      //      togglePostFav(projectId)
      // }, [liked]);
 
-  const handleToggleFav = useCallback(() => {
-    setIsFav(!isFav);
-    toggleFav(id);
-  }, [isFav]);
+     const handleToggleFav = useCallback(() => {
+          setIsFav(!isFav);
+          toggleFav(id);
+     }, [isFav]);
 
      const handleMenuClick = useCallback(() => {
           setShowMenu(!showMenu);
      }, [showMenu]);
 
-
      const handleMenuClickClose = useCallback(() => {
           setShowMenu(showMenu);
      }, [showMenu]);
-
-
-
 
      const handleGoDetails = useCallback(() => {
           navigate('/projectdetails');
@@ -108,7 +105,7 @@ const Card: FC<Props> = ({
                          src={url}
                          // width="270"
                          // height="270"
-                         style={{ width: '100%', margin: 'auto' }}
+                         style={{width: '100%', margin: 'auto'}}
                     />
                </ContainerImg>
                {/* <ContainerButton>
@@ -151,9 +148,9 @@ const Card: FC<Props> = ({
                     />
                </ContainerLinear>
                <HeartButton
-        className={isFav ? 'active' : ''}
-        onClick={handleToggleFav}
-      />
+                    className={isFav ? 'active' : ''}
+                    onClick={handleToggleFav}
+               />
                <div>
                     <ContainerButtonModal>
                          <Button
@@ -177,8 +174,7 @@ const Card: FC<Props> = ({
                          </MenuButton>
                     </ContainerButtonModal>
                     {showMenuItems && showMenu && (
-                         <Menu
-                              onClick={handleMenuClickClose}>
+                         <Menu onClick={handleMenuClickClose}>
                               <MenuItem>
                                    <DeleteIcon /> <EditIcon />
                               </MenuItem>

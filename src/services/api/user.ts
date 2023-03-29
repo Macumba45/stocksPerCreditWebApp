@@ -1,8 +1,13 @@
-import { normalizeProject, Project } from '../../models/project';
+import {normalizeProject, Project} from '../../models/project';
 import {getAuthenticatedToken} from '../storage/token';
-import { ProjectResponse } from './project';
+import {ProjectResponse} from './project';
 
-const BASE_API_URL = 'http://localhost:8000/users';
+export type UserInfoResponse = {
+     favorites: ProjectResponse[];
+     investment: ProjectResponse[];
+};
+
+const BASE_API_URL = 'http://localhost:8000/dashboard';
 
 export const togglePostFav = async (projectId: string) => {
      try {
@@ -22,19 +27,19 @@ export const togglePostFav = async (projectId: string) => {
      }
 };
 
-export const getUserFavorites = async (): Promise<Project | null> => {
-  const token = getAuthenticatedToken();
-  const response = await fetch(`${BASE_API_URL}/favorites`,{
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "content-type": "application/json",
-    },
-  });
+export const getUserInfo = async (): Promise<Project | null> => {
+     const token = getAuthenticatedToken();
+     const response = await fetch(`${BASE_API_URL}/favorites`, {
+          headers: {
+               Authorization: `Bearer ${token}`,
+               'content-type': 'application/json',
+          },
+     });
 
-  if (!response.ok) {
-    return null;
-  }
-  const data: ProjectResponse = await response.json();
+     if (!response.ok) {
+          return null;
+     }
+     const data: ProjectResponse = await response.json();
 
-  return normalizeProject(data);
+     return normalizeProject(data);
 };

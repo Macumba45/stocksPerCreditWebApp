@@ -29,26 +29,30 @@ import {
 const DashboardINVe: FC = () => {
      const {
           projectData,
-          handleFilter2,
+          handleApplyFilters,
           handleRangeChange,
-          handleFiltersChange,
+          handleFiltersTagsChange,
           handleDateChange,
           toggleFavorite,
+          isLoading,
+          tags
      } = DashboardInvLogic();
-
-     console.log(projectData);
 
      const pageSize = 5;
      const [page, setPage] = useState(1); // Estado que controla la cantidad de partes cargadas
      const projects = projectData?.allProjects || []; // La lista de proyectos
 
      // Obtener la sección de la lista de proyectos que se debe mostrar en función del estado actual
-     const visibleProjects = projects.slice(0, pageSize * page);
+     const visibleProjects = projects.slice(0, pageSize * page)|| [];
 
      // Función que se ejecuta cuando se hace clic en el botón "ver más proyectos"
      const handleLoadMore = () => {
           setPage(page + 1);
      };
+
+     if (isLoading) {
+          return (<p>cargando</p>)
+     }
 
      return (
           <>
@@ -71,8 +75,9 @@ const DashboardINVe: FC = () => {
                     <TagDiv>
                          <FiltersDiv>
                               <p>Select tags to filter your search </p>
-                              <Search
-                                   handleFiltersChange={handleFiltersChange}
+                              <Search 
+                                   handleFiltersChange={handleFiltersTagsChange}
+                                   options={tags}
                               />
                               {/* <ContainedButtons/> */}
                          </FiltersDiv>
@@ -80,7 +85,7 @@ const DashboardINVe: FC = () => {
                </Container>
                <Container>
                     <ButtonContainer>
-                         <ContainedButtons onClick={handleFilter2} />
+                         <ContainedButtons onClick={handleApplyFilters} />
                     </ButtonContainer>
                </Container>
                <CardsContainer>
@@ -121,7 +126,7 @@ const DashboardINVe: FC = () => {
                                              toggleFav={toggleFavorite}
                                         />
                                    </div>
-                              ))}  
+                              ))}
                          </NewCards>
                          {/* Botón que carga la siguiente sección de la lista de proyectos */}
                     </NewContainer>
@@ -260,7 +265,7 @@ const DashboardINVe: FC = () => {
                                    (project, index) => (
                                         <div key={index}>
                                              <Card
-                                             id={project.id}
+                                                  id={project.id}
                                                   url={project.url}
                                                   showHeartButton={false}
                                                   title={project.title}
@@ -308,7 +313,7 @@ const DashboardINVe: FC = () => {
                                              (project, index) => (
                                                   <div key={index}>
                                                        <Card
-                                                       id={project.id}
+                                                            id={project.id}
                                                             url={project.url}
                                                             showHeartButton={
                                                                  false

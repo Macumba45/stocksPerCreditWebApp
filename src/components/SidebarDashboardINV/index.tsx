@@ -13,7 +13,7 @@ import Toolbar from '@mui/material/Toolbar';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PaymentIcon from '@mui/icons-material/Payment';
 import Typography from '@mui/material/Typography';
-import { FC, memo, useCallback, useState } from 'react';
+import {FC, memo, useCallback, useState} from 'react';
 
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -25,15 +25,11 @@ import {
      LogoImage,
      LogoStocks,
 } from './styles';
-import { Link, useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
-import { Fab, ListItemButton, Tooltip } from '@mui/material';
-import { Home } from '@mui/icons-material';
+import {Fab, ListItemButton, Tooltip} from '@mui/material';
+import {Home} from '@mui/icons-material';
 import Person4Icon from '@mui/icons-material/Person4';
-
-
-
-
 
 const drawerWidth = 230;
 
@@ -46,13 +42,13 @@ interface Props {
 }
 
 const ResponsiveDrawer: FC = (props: Props) => {
-     const { window } = props;
+     const {window} = props;
      const logo = require('../NavBar/assets/logo.png');
      const [mobileOpen, setMobileOpen] = useState(false);
      const container =
           window !== undefined ? () => window().document.body : undefined;
 
-     const CustomTooltip = ({ title, children }: any) => {
+     const CustomTooltip = ({title, children}: any) => {
           return (
                <Tooltip title={title} placement="left">
                     {children}
@@ -79,9 +75,9 @@ const ResponsiveDrawer: FC = (props: Props) => {
           link: string;
      };
 
-     const iconMap: { [key: string]: IconMapItem } = {
-          'Stocks Dashboard': { icon: DashboardIcon, link: '/dashboard' },
-          'My investments': { icon: PaymentIcon, link: '/dashboard/investments' },
+     const iconMap: {[key: string]: IconMapItem} = {
+          'Stocks Dashboard': {icon: DashboardIcon, link: '/dashboard'},
+          'My investments': {icon: PaymentIcon, link: '/dashboard/investments'},
      };
 
      const listItems = [
@@ -108,7 +104,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                <Divider />
                <List>
                     {Object.entries(iconMap).map(
-                         ([text, { icon: IconComponent, link }], index) => (
+                         ([text, {icon: IconComponent, link}], index) => (
                               <ListItem
                                    key={index}
                                    disablePadding
@@ -126,8 +122,8 @@ const ResponsiveDrawer: FC = (props: Props) => {
                                    to={link}
                               >
                                    <ListItemIcon
-                                        style={{ color: 'black' }}
-                                        sx={{ marginLeft: 2 }}
+                                        style={{color: 'black'}}
+                                        sx={{marginLeft: 2}}
                                    >
                                         {React.createElement(IconComponent)}
                                    </ListItemIcon>
@@ -157,7 +153,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               disablePadding
                          >
                               <ListItemButton component={Link} to={item.link}>
-                                   <ListItemIcon style={{ color: 'black' }}>
+                                   <ListItemIcon style={{color: 'black'}}>
                                         {item.icon}
                                    </ListItemIcon>
                                    <ListItemText primary={item.text} />
@@ -307,7 +303,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     <Typography paragraph></Typography>
                     <Typography paragraph></Typography>
                </Box>
-          </Box >
+          </Box>
      );
 };
 

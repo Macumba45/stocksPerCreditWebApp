@@ -1,19 +1,19 @@
-import { FC, memo, useCallback } from 'react';
+import {FC, memo, useCallback} from 'react';
 import NavBar from '../../components/NavBar';
 import VideoHeader from '../../components/VideoHeader';
 import TabsDetails from '../../components/TabsDetails';
 import LanguageIcon from '@mui/icons-material/Language';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import LinearWithValueLabel from '../../components/ProgressLinear';
-import { Divider } from '@mui/material';
+import {Divider} from '@mui/material';
 import ButtonInvest from '../../components/ButtonInvest';
 import InputDecorators from '../../components/InvestInputDetails';
 import CalculadoraAcciones from '../../components/SimulationInvestDetails';
 import Footer from '../../components/Footer';
-import { Fab, Tooltip } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { Dashboard } from '@mui/icons-material';
-import { DetailsLogic } from './logic';
+import {Fab, Tooltip} from '@mui/material';
+import {useNavigate} from 'react-router-dom';
+import {Dashboard} from '@mui/icons-material';
+import {DetailsLogic} from './logic';
 
 import {
      ButtonContainer,
@@ -47,7 +47,6 @@ import {
 } from './styles';
 
 const ProjectDetails: FC = () => {
-
      const videoProject =
           'https://www.youtube.com/embed/FR0yfiN1dEo?controls=0';
 
@@ -56,7 +55,7 @@ const ProjectDetails: FC = () => {
           navigate('/dashboard');
      }, [navigate]);
 
-     const CustomTooltip = ({ title, children }: any) => {
+     const CustomTooltip = ({title, children}: any) => {
           return (
                <Tooltip title={title} placement="left">
                     {children}
@@ -64,8 +63,8 @@ const ProjectDetails: FC = () => {
           );
      };
 
-     const { dataDetails } = DetailsLogic();
-     console.log(dataDetails)
+     const {dataDetails} = DetailsLogic();
+     console.log(dataDetails);
 
      return (
           <MainContainer>
@@ -94,7 +93,7 @@ const ProjectDetails: FC = () => {
                     <MainContainer>
                          <VideoHeader src={videoProject} />
                     </MainContainer>
-                    <MainContainer style={{ marginTop: '3rem' }}>
+                    <MainContainer style={{marginTop: '3rem'}}>
                          <TitleContainer>
                               <Title>
                                    Lorem ipsum dolor sit amet consectetur
