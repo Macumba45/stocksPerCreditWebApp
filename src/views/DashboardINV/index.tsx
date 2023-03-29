@@ -99,6 +99,7 @@ const DashboardINVe: FC = () => {
                               {visibleProjects.map((project, index) => (
                                    <div key={index}>
                                         <Card
+                                             id={project.id}
                                              url={project.url}
                                              showHeartButton={false}
                                              title={project.title}
@@ -117,6 +118,7 @@ const DashboardINVe: FC = () => {
                                              goal={project.goal}
                                              limitvalue={project.limitvalue}
                                              totalInvest={project.totalInvest}
+                                             toggleFav={toggleFavorite}
                                         />
                                    </div>
                               ))}  
