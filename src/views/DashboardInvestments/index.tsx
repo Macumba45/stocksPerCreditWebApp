@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import BigCard from '../../components/BigCard';
 import LittleCard from '../../components/LittleCard';
 import MediumCard from '../../components/MediumCard';
@@ -16,86 +16,63 @@ import {
 } from './styles';
 
 const DashboardInvestment: FC = () => {
+
+     const iconStyle = {
+          color: '#7E1B75',
+          fontSize: 40,
+     };
+
+     const data = [
+          {
+               label: 'Total Invest:',
+               data: '423.34€',
+               icon: <QueryStatsIcon sx={iconStyle} />,
+          },
+          {
+               label: 'Total Projects:',
+               data: '3',
+               icon: <PaidIcon sx={iconStyle} />,
+          },
+          {
+               label: 'Revenue:',
+               data: '2423.34€',
+               icon: <HomeIcon sx={iconStyle} />,
+          },
+          {
+               label: 'Earning:',
+               data: '423.34€',
+               icon: <QueryStatsIcon sx={iconStyle} />,
+          },
+          {
+               label: 'Earning:',
+               data: '423.34€',
+               icon: <AccountBalanceIcon sx={iconStyle} />,
+          },
+          {
+               label: 'Earning:',
+               data: '423.34€',
+               icon: <AccountBalanceIcon sx={iconStyle} />,
+          },
+     ];
+
+
+
      return (
           <>
                <Container>
                     <ResponsiveDrawer />
                     <MainContainer>
-                         <LilDivContainer>
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <QueryStatsIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Total Projects:"
-                                   data="423.34€"
-                                   icon={
-                                        <PaidIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <HomeIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <QueryStatsIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <AccountBalanceIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                              <LittleCard
-                                   label="Earning:"
-                                   data="423.34€"
-                                   icon={
-                                        <AccountBalanceIcon
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  fontSize: 40,
-                                             }}
-                                        />
-                                   }
-                              />
-                         </LilDivContainer>
 
+                         <LilDivContainer>
+                              {data.map((item, index) => (
+                                   <LittleCard
+                                        key={index}
+                                        label={item.label}
+                                        data={item.data}
+                                        icon={item.icon}
+                                   />
+                              ))}
+                         </LilDivContainer>
                          <ContainerMediumCards>
                               <MediumCard />
                               <MediumCard />

@@ -42,7 +42,6 @@ const DashboardINVe: FC = () => {
 
      return (
           <>
-               {' '}
                <ResponsiveDrawer />
                <Container>
                     <MinMaxContainer>
@@ -157,12 +156,14 @@ const DashboardINVe: FC = () => {
                               )}
                          </TopCards>
                     </TopContainer>
-                    <NewContainer>
+
+                    <TopContainer>
                          <SectionTitle>
                               <H3>LANDING</H3>
                               <Divider sx={{ backgroundColor: '#7E1B75', height: '5px' }} />
                          </SectionTitle>
-                         <NewCards>
+                         <TopCards>
+
                               {projectData?.latestProjects.map(
                                    (project, index) => (
                                         <div key={index}>
@@ -197,8 +198,8 @@ const DashboardINVe: FC = () => {
                                         </div>
                                    )
                               )}
-                         </NewCards>
-                    </NewContainer>
+                         </TopCards>
+                    </TopContainer>
                     <FinalContainer>
                          <SectionTitle>
                               <H3>CLOSE SOON</H3>
