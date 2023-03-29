@@ -1,4 +1,4 @@
-import {UserRole} from '../../models/user';
+import { UserRole } from '../../models/user';
 
 const USER_ROLE_KEY = 'user-role';
 

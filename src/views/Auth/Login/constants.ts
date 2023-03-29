@@ -8,7 +8,7 @@ export const validationSchema = Yup.object().shape({
 
      password: Yup.string()
           .min(4, 'Too Short!')
-          .max(8, 'Too Long!')
+          .max(16, 'Too Long!')
           .required('Password is required'),
      role: Yup.string().required('Role is required'),
 });
@@ -17,4 +17,4 @@ export const initialValues = {
      email: '',
      password: '',
      role: UserRole.ENTREPRENEUR,
-};
+}

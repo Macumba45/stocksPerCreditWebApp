@@ -4,7 +4,7 @@ export const Container = styled.div`
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
-     background-color: ${({theme}) => theme.colors.light};
+     background-color: ${({ theme }) => theme.colors.light};
      border-radius: 10px;
      margin-left: 1rem;
      margin-right: 1rem;
@@ -69,6 +69,7 @@ export const TopContainer = styled.div`
 export const NewContainer = styled.div`
      display: flex;
      flex-wrap: wrap;
+     
 `;
 
 export const FinalContainer = styled.div`
@@ -85,7 +86,7 @@ export const TopCards = styled.div`
 export const NewCards = styled.div`
      display: flex;
      flex-wrap: wrap;
-     justify-content: center;
+     /* justify-content: center; */
      margin-bottom:5rem;
 
 `;
@@ -111,6 +112,6 @@ export const HR = styled.hr`
 `;
 
 export const H3 = styled.h3`
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     font-size: ${({theme}) => theme.fontSizes.small};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-size: ${({ theme }) => theme.fontSizes.small};
 `;

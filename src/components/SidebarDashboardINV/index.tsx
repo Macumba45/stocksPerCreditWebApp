@@ -14,17 +14,20 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import PaymentIcon from '@mui/icons-material/Payment';
 import Typography from '@mui/material/Typography';
 import { FC, memo, useCallback, useState } from 'react';
+import MailIcon from '@mui/icons-material/Mail';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import React from 'react';
 import { Container, ContainerLogo, ContainerProfile, LogoImage, LogoStocks } from './styles';
 import { Link, useNavigate } from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
-import { Fab, Tooltip } from '@mui/material';
+import { Fab, ListItemButton, Tooltip } from '@mui/material';
 import { Home } from '@mui/icons-material';
 import Person4Icon from '@mui/icons-material/Person4';
 
 
 
-const drawerWidth = 220;
+const drawerWidth = 230;
 
 
 interface Props {
@@ -81,8 +84,8 @@ const ResponsiveDrawer: FC = (props: Props) => {
      const drawer = (
           <Container>
                <ContainerLogo>
-                    <LogoStocks  to={'/'}>
-                    <LogoImage src={logo}/>
+                    <LogoStocks to={'/'}>
+                         <LogoImage src={logo} />
                     </LogoStocks>
                </ContainerLogo>
 
@@ -91,7 +94,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     {Object.entries(iconMap).map(
                          ([text, { icon: IconComponent, link }], index) => (
                               <ListItem
-                                   key={text}
+                                   key={index}
                                    disablePadding
                                    sx={{
                                         padding: 1,
@@ -114,7 +117,27 @@ const ResponsiveDrawer: FC = (props: Props) => {
                          )
                     )}
                </List>
-          </Container>
+               <Divider />
+               <List>
+                    {['Favorites', 'My Orders'].map((text, index) => (
+                         <ListItem sx={{
+                              padding: 1,
+                              cursor: 'pointer',
+                              '&:hover': {
+                                   backgroundColor: '#EEEEEE',
+                                   fontFamily: 'Roboto'
+                              },
+                         }} key={text} disablePadding>
+                              <ListItemButton>
+                                   <ListItemIcon style={{ color: 'black', }}>
+                                        {index % 2 === 0 ? <FavoriteIcon /> : <MonetizationOnIcon />}
+                                   </ListItemIcon>
+                                   <ListItemText primary={text} />
+                              </ListItemButton>
+                         </ListItem>
+                    ))}
+               </List>
+          </Container >
      );
 
      return (
@@ -129,8 +152,12 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     }}
                >
                     <Toolbar
-                         sx={{ justifyContent: 'space-between', backgroundColor: 'white', height: '90px' }}
-
+                         sx={{
+                              justifyContent: 'space-between',
+                              backgroundColor: 'black',
+                              height: '90px',
+                              background: 'linear-gradient(90deg, rgba(0,0,0,1) 45%, rgba(126,27,117,1) 100%)'
+                         }}
                     >
                          <IconButton
                               color="inherit"
