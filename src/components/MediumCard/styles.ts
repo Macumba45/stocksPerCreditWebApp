@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
      background-color: ${({theme}) => theme.colors.white};
+     display: flex;
+     justify-content: center;
      min-width: 20rem;
      height: 25rem;
      border-radius: 20px;

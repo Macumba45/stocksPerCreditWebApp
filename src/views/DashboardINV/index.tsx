@@ -1,11 +1,12 @@
-import {FC, memo, useCallback, useEffect, useState} from 'react';
+import {FC, memo, useState} from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
+import {DashboardInvLogic} from './logic';
 import {FinishDatePickers} from '../../components/DatePicker';
 import Search from '../../components/Search';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
 import ContainedButtons from '../../components/ContainedButton';
-import Divider from '@mui/material/Divider';
+import {Button, Divider} from '@mui/material';
 import {
      Container,
      MinMaxContainer,
@@ -22,62 +23,34 @@ import {
      FinalCards,
      H3,
      ButtonContainer,
+     ButtonSeeMore,
 } from './styles';
-import {getAuthenticatedToken} from '../../services/storage/token';
-import {getProjects} from '../../services/api/investDashboard';
-import {InvestDashboardResponse} from '../../services/api/investDashboard';
 
 const DashboardINVe: FC = () => {
-     const [selectedRange, setSelectedRange] = useState<{
-          min: number;
-          max: number;
-     }>({min: 0, max: 0});
-     const [filters, setFilters] = useState({selectedTags: []});
-     const [selectedDate, setSelectedDate] = useState({finishDate: ''});
-     const [projectData, setprojectData] = useState<InvestDashboardResponse>();
+     const {
+          projectData,
+          handleFilter2,
+          handleRangeChange,
+          handleFiltersChange,
+          handleDateChange,
+     } = DashboardInvLogic();
 
-     const getProjectData = useCallback(async () => {
-          getAuthenticatedToken();
-          const data = await getProjects();
-          if (data) {
-               setprojectData(data);
-          }
-     }, []);
      console.log(projectData);
 
-     useEffect(() => {
-          getProjectData();
-     }, [getProjectData]);
+     const pageSize = 5;
+     const [page, setPage] = useState(1); // Estado que controla la cantidad de partes cargadas
+     const projects = projectData?.allProjects || []; // La lista de proyectos
 
-     const handleDateChange = (newDates: any) => {
-          setSelectedDate((prevDates) => ({
-               ...prevDates,
-               ...newDates,
-          }));
-     };
+     // Obtener la sección de la lista de proyectos que se debe mostrar en función del estado actual
+     const visibleProjects = projects.slice(0, pageSize * page);
 
-     const handleFiltersChange = (newFilters: any) => {
-          setFilters((prevFilters) => ({
-               ...prevFilters,
-               ...newFilters,
-          }));
-     };
-
-     const handleRangeChange = (range: {min: number; max: number}) => {
-          setSelectedRange(range);
-     };
-
-     const handleFilter2 = () => {
-          console.log({
-               selectedRange,
-               selectedDate,
-               selectedTags: filters.selectedTags,
-          });
+     // Función que se ejecuta cuando se hace clic en el botón "ver más proyectos"
+     const handleLoadMore = () => {
+          setPage(page + 1);
      };
 
      return (
           <>
-               {' '}
                <ResponsiveDrawer />
                <Container>
                     <MinMaxContainer>
@@ -100,7 +73,6 @@ const DashboardINVe: FC = () => {
                               <Search
                                    handleFiltersChange={handleFiltersChange}
                               />
-
                               {/* <ContainedButtons/> */}
                          </FiltersDiv>
                     </TagDiv>
@@ -114,46 +86,71 @@ const DashboardINVe: FC = () => {
                     <NewContainer>
                          <SectionTitle>
                               <H3>ALL PROJECTS</H3>
+                              <Divider
+                                   sx={{
+                                        backgroundColor: '#7E1B75',
+                                        height: '5px',
+                                   }}
+                              />
                          </SectionTitle>
                          <NewCards>
-                              {projectData?.allProjects.map(
-                                   (project, index) => (
-                                        <div key={index}>
-                                             <Card
-                                                  url={project.url}
-                                                  showHeartButton={false}
-                                                  title={project.title}
-                                                  duration={project.duration}
-                                                  description={
-                                                       project.description
-                                                  }
-                                                  country={project.country}
-                                                  city={project.city}
-                                                  tags={[]}
-                                                  collected={
-                                                       project.totalInvest
-                                                  }
-                                                  totalInvestor={
-                                                       project.totalInvestor
-                                                  }
-                                                  minimuminvestment={
-                                                       project.minimuminvestment
-                                                  }
-                                                  goal={project.goal}
-                                                  limitvalue={
-                                                       project.limitvalue
-                                                  }
-                                                  totalInvest={project.totalInvest}
-                                             />
-                                        </div>
-                                   )
-                              )}
+                              {/* Mapear solo los proyectos que son visibles en la página actual */}
+                              {visibleProjects.map((project, index) => (
+                                   <div key={index}>
+                                        <Card
+                                             url={project.url}
+                                             showHeartButton={false}
+                                             title={project.title}
+                                             duration={project.duration}
+                                             description={project.description}
+                                             country={project.country}
+                                             city={project.city}
+                                             tags={[]}
+                                             collected={project.totalInvest}
+                                             totalInvestor={
+                                                  project.totalInvestor
+                                             }
+                                             minimuminvestment={
+                                                  project.minimuminvestment
+                                             }
+                                             goal={project.goal}
+                                             limitvalue={project.limitvalue}
+                                             totalInvest={project.totalInvest}
+                                        />
+                                   </div>
+                              ))}
                          </NewCards>
+                         {/* Botón que carga la siguiente sección de la lista de proyectos */}
                     </NewContainer>
+                    {visibleProjects.length < projects.length && (
+                         <ButtonSeeMore>
+                              <Button
+                                   sx={{
+                                        color: '#7E1B75',
+                                        marginBottom: '12px',
+                                        borderColor: '#7E1B75',
+                                        '&:hover': {
+                                             backgroundColor: '#7E1B75',
+                                             borderColor: '#7E1B75',
+                                             color: 'white',
+                                        },
+                                   }}
+                                   variant="outlined"
+                                   onClick={handleLoadMore}
+                              >
+                                   See more
+                              </Button>
+                         </ButtonSeeMore>
+                    )}
                     <TopContainer>
                          <SectionTitle>
-                              <Divider />
                               <H3>TOP PROJECTS</H3>
+                              <Divider
+                                   sx={{
+                                        backgroundColor: '#7E1B75',
+                                        height: '5px',
+                                   }}
+                              />
                          </SectionTitle>
                          <TopCards>
                               {projectData?.topProjects.map(
@@ -193,11 +190,17 @@ const DashboardINVe: FC = () => {
                          </TopCards>
                     </TopContainer>
 
-                    <NewContainer>
+                    <TopContainer>
                          <SectionTitle>
-                              <H3>LANDING</H3>
+                              <H3>RECENTS PROJECTS</H3>
+                              <Divider
+                                   sx={{
+                                        backgroundColor: '#7E1B75',
+                                        height: '5px',
+                                   }}
+                              />
                          </SectionTitle>
-                         <NewCards>
+                         <TopCards>
                               {projectData?.latestProjects.map(
                                    (project, index) => (
                                         <div key={index}>
@@ -232,11 +235,17 @@ const DashboardINVe: FC = () => {
                                         </div>
                                    )
                               )}
-                         </NewCards>
-                    </NewContainer>
+                         </TopCards>
+                    </TopContainer>
                     <FinalContainer>
                          <SectionTitle>
-                              <H3>CLOSE SOON</H3>
+                              <H3>PROJECTS CLOSE SOON</H3>
+                              <Divider
+                                   sx={{
+                                        backgroundColor: '#7E1B75',
+                                        height: '5px',
+                                   }}
+                              />
                          </SectionTitle>
                          <FinalCards>
                               {projectData?.closeSoonProjects.map(
@@ -279,5 +288,4 @@ const DashboardINVe: FC = () => {
           </>
      );
 };
-
 export default memo(DashboardINVe);

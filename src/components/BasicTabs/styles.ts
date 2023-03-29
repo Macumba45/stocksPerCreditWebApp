@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const ContainerProjects = styled.div`
-   display: flex;
+     display: flex;
      flex-direction: row;
      flex-wrap: wrap;
-     justify-content: center;`;
+     justify-content: center;
+`;
 
 export const MainContainer = styled.div`
      display: flex;

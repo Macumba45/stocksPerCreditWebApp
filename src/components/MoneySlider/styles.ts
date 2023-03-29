@@ -7,25 +7,25 @@ export const InputContainer = styled.div`
      align-items: center;
      padding: 0.5 1.8rem;
      * {
-    box-sizing: border-box;
-  }
+          box-sizing: border-box;
+     }
 `;
 
 export const MoneyOutput = styled.p`
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const MinLabel = styled.label`
      margin-right: 5%;
-     font-family: ${({ theme }) => theme.fonts.primary};
+     font-family: ${({theme}) => theme.fonts.primary};
 `;
 export const MaxLabel = styled.label`
      margin-right: 4%;
-     font-family: ${({ theme }) => theme.fonts.primary};
+     font-family: ${({theme}) => theme.fonts.primary};
 `;
 
 export const Input = styled.input`
-     border-radius:8px;
-     border: 0.5px solid ${({ theme }) => theme.colors.primary};
-     margin:0.5rem auto;
+     border-radius: 8px;
+     border: 0.5px solid ${({theme}) => theme.colors.primary};
+     margin: 0.5rem auto;
 `;

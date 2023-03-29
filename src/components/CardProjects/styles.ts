@@ -19,21 +19,19 @@ export const CardContainer = styled.div`
      background-color: #ffffff;
      &:hover {
           box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
-          transform: scale(1.02);
+          transform: scale(1.008);
           transition: box-shadow 0.5s ease, transform 0.5s ease;
      }
 `;
 export const ContainerImg = styled.div`
      border: none;
- max-width: 270px;
- display: flex;
- justify-content: center;
- margin-bottom: 2rem;
-
+     max-width: 270px;
+     display: flex;
+     justify-content: center;
+     margin-bottom: 2rem;
 `;
 
 export const Image = styled.iframe`
-     
      border: none;
      object-fit: cover;
 `;
@@ -45,30 +43,30 @@ export const ContainerTitle = styled.div`
 
 export const Title = styled.h2`
      margin: 10px 0;
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.small};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.small};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
+     color: ${({theme}) => theme.colors.primary};
+
      text-align: left;
 `;
 export const ContainerInvestor = styled.div`
      position: relative;
      left: 1rem;
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
-    
 `;
 
 export const TotalInvestor = styled.h2`
      margin: 10px 0px;
-    font-family: Roboto, sans-serif;
-    color: #606060;
-    font-size: 1rem;
-    font-weight: 300;
-    text-align: left;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-     
-     `;
+     font-family: Roboto, sans-serif;
+     color: #606060;
+     font-size: 1rem;
+     font-weight: 300;
+     text-align: left;
+     display: flex;
+     -webkit-box-align: center;
+     align-items: center;
+`;
 
 export const ContainerDesc = styled.div`
      width: 100%;
@@ -83,13 +81,13 @@ export const Description = styled.p`
      line-height: 1.5;
      word-wrap: break-word; /* permitir que las palabras se dividan en varias líneas si no caben en una sola */
      color: #606060;
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
 `;
 export const ContainerButton = styled.div``;
 
-export const HeartButton = styled.button<{ liked: boolean }>`
+export const HeartButton = styled.button<{liked: boolean}>`
      background-color: transparent;
      border: none;
      cursor: pointer;
@@ -125,19 +123,19 @@ export const ContainerLocations = styled.div`
 `;
 
 export const Country = styled.p`
-     color: ${({ theme }) => theme.colors.lighterGrey};
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      display: inline-block;
 `;
 
 export const City = styled.p`
-     color: ${({ theme }) => theme.colors.lighterGrey};
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      display: inline-block;
 `;
@@ -155,9 +153,9 @@ export const Categories = styled.p`
      background-color: #7e1b75;
      color: white;
      border-radius: 10px;
-     font-family: ${({ theme }) => theme.fonts.primary};
+     font-family: ${({theme}) => theme.fonts.primary};
      font-size: 13px;
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
      padding: 0.3rem;
 `;
 
@@ -184,9 +182,9 @@ export const ContainerTitleModal = styled.div`
 `;
 export const TitleModal = styled.p`
      margin: 10px 0;
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
      text-align: left;
 `;
 
@@ -201,9 +199,9 @@ export const DescriptionModal = styled.p`
      line-height: 1.5;
      word-wrap: break-word; /* permitir que las palabras se dividan en varias líneas si no caben en una sola */
      color: #606060;
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
 `;
 
 export const ContainerLocationsModal = styled.div`
@@ -211,18 +209,18 @@ export const ContainerLocationsModal = styled.div`
      margin-top: 1rem;
 `;
 export const CountryModal = styled.p`
-     color: ${({ theme }) => theme.colors.lighterGrey};
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      display: inline-block;
 `;
 export const CityModal = styled.p`
-     color: ${({ theme }) => theme.colors.lighterGrey};
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      display: inline-block;
 `;
@@ -238,9 +236,9 @@ export const CategoriesModal = styled.p`
      background-color: #7e1b75;
      color: white;
      border-radius: 10px;
-     font-family: ${({ theme }) => theme.fonts.primary};
+     font-family: ${({theme}) => theme.fonts.primary};
      font-size: 13px;
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
      padding: 0.3rem;
 `;
 
@@ -249,43 +247,43 @@ export const ContainerRecaudacciones = styled.div``;
 export const Recaudado = styled.p`
      margin-bottom: 1rem;
      border-bottom: 1px solid blue;
-     color: ${({ theme }) => theme.colors.lighterGrey};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({theme}) => theme.colors.primary};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const Inversores = styled.p`
      margin-bottom: 1rem;
      border-bottom: 1px solid blue;
-     color: ${({ theme }) => theme.colors.lighterGrey};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const MinimaInversion = styled.p`
      margin-bottom: 1rem;
      border-bottom: 1px solid blue;
-     color: ${({ theme }) => theme.colors.lighterGrey};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const Objetivos = styled.p`
      margin-bottom: 1rem;
      border-bottom: 1px solid blue;
-     color: ${({ theme }) => theme.colors.lighterGrey};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const ValorLimite = styled.p`
      margin-bottom: 1rem;
      border-bottom: 1px solid blue;
-     color: ${({ theme }) => theme.colors.lighterGrey};
-     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({theme}) => theme.colors.lighterGrey};
+     font-weight: ${({theme}) => theme.fontWeights.bold};
 `;
 
 export const LabelSpan = styled.span`
-     color: ${({ theme }) => theme.colors.black};
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.verysmall};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+     color: ${({theme}) => theme.colors.black};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.verysmall};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
 `;
 
 export const ContainerButtonModal = styled.div`

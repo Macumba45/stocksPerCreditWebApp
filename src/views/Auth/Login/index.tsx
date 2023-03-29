@@ -3,6 +3,8 @@ import {useNavigate} from 'react-router-dom';
 import {Field, FieldProps, Formik} from 'formik';
 import {validationSchema, initialValues} from './constants';
 import {Props} from './type';
+import {setAuthenticatedToken} from '../../../services/storage/token';
+import {handledSubmitLogin} from '../../../services/api/auth';
 import {
      MainFormContainer,
      LoginTitle,
@@ -19,10 +21,7 @@ import {
      Error,
      ErrorLogin,
 } from './styles';
-import {setAuthenticatedToken} from '../../../services/storage/token';
-import {handledSubmitLogin} from '../../../services/api/auth';
-import {setUserRole} from '../../../services/storage/userRole';
-import {UserRole} from '../../../models/user';
+import {getUserRole, setUserRole} from '../../../services/storage/userRole';
 
 const Login: FC<Props> = () => {
      const navigate = useNavigate();
@@ -33,8 +32,9 @@ const Login: FC<Props> = () => {
                     const response: Response = await handledSubmitLogin(values);
 
                     if (response.ok) {
-                          const data = await response.json();
-                         setAuthenticatedToken(data);
+                         const data = await response.json();
+                         setAuthenticatedToken(data.token);
+                         setUserRole(data.role);
                          navigate('/');
                     }
                     if (response.status === 500) {

@@ -18,9 +18,10 @@ export const getProjects = async () => {
                method: 'GET',
                headers: {
                     Authorization: `Bearer ${token}`,
-               },   
+               },
           });
           const data: InvestDashboardResponse = await response.json();
+          console.log(data);
 
           const values = {
                allProjects: data?.allProjects?.map(normalizeProject),

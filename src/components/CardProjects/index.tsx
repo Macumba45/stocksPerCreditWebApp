@@ -1,4 +1,4 @@
-import { useState, memo, useCallback } from 'react';
+import {useState, memo, useCallback, FC} from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -6,16 +6,16 @@ import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useLocation } from 'react-router';
-import { useNavigate } from 'react-router-dom';
-import { Props } from './type';
+import {useLocation} from 'react-router';
+import {useNavigate} from 'react-router-dom';
+import {Props} from './type';
+import VideoThumbail from './video/index';
 
 import {
      CardContainer,
      Title,
      HeartButton,
      ContainerImg,
-     Image,
      ContainerButton,
      ContainerTitle,
      ContainerDesc,
@@ -26,24 +26,6 @@ import {
      ContainerCategories,
      Categories,
      ContainerLinear,
-     ContainerImgModal,
-     ImageModal,
-     ContainerTitleModal,
-     TitleModal,
-     ContainerDescModal,
-     DescriptionModal,
-     ContainerLocationsModal,
-     CountryModal,
-     CityModal,
-     ContainerCategoriesModal,
-     CategoriesModal,
-     ContainerRecaudacciones,
-     Recaudado,
-     Inversores,
-     MinimaInversion,
-     Objetivos,
-     ValorLimite,
-     LabelSpan,
      ContainerButtonModal,
      MenuButton,
      Menu,
@@ -52,10 +34,7 @@ import {
      ContainerInvestor,
 } from './styles';
 
-
-
-
-const Card: React.FC<Props> = ({
+const Card: FC<Props> = ({
      id,
      title,
      description,
@@ -79,10 +58,10 @@ const Card: React.FC<Props> = ({
      limitvalue,
      createdAt,
      updatedAt,
-     showHeartButton
+     showHeartButton,
 }) => {
      const [liked, setLiked] = useState(false);
-     const navigate = useNavigate()
+     const navigate = useNavigate();
      const [showMenu, setShowMenu] = useState(false);
      const location = useLocation();
      const showMenuItems =
@@ -90,27 +69,26 @@ const Card: React.FC<Props> = ({
 
      const handleClick = useCallback(() => {
           setLiked(!liked);
-     }, []);
+     }, [liked]);
 
      const handleMenuClick = useCallback(() => {
           setShowMenu(!showMenu);
-     }, []);
-
+     }, [showMenu]);
 
      const handleGoDetails = useCallback(() => {
-          navigate('/projectdetails')
-          window.scrollTo(0, 0)
+          navigate('/projectdetails');
+          window.scrollTo(0, 0);
      }, [navigate]);
-
 
      return (
           <CardContainer>
-               <ContainerImg >
+               <ContainerImg>
                     {/* <Image style={{ objectFit: 'cover' }} src={`${url}?autoplay=0&mute=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0`} /> */}
-                    <Image src={url + "?h=648d0eee28&autoplay=0&loop=1&title=0&byline=0&portrait=0"}
+                    <VideoThumbail
+                         src={url}
                          // width="270"
                          // height="270"
-                         style={{ width: '100%', margin: 'auto' }}
+                         style={{width: '100%', margin: 'auto'}}
                     />
                </ContainerImg>
                <ContainerButton>
@@ -124,7 +102,9 @@ const Card: React.FC<Props> = ({
                     <Title>{title}</Title>
                </ContainerTitle>
                <ContainerInvestor>
-                    <TotalInvestor>Total investors: {totalInvestor}</TotalInvestor>
+                    <TotalInvestor>
+                         Total investors: {totalInvestor}
+                    </TotalInvestor>
                </ContainerInvestor>
                <ContainerInvestor>
                     <TotalInvestor>Finish at: {duration}</TotalInvestor>
@@ -139,15 +119,21 @@ const Card: React.FC<Props> = ({
                     <City>{city}</City>
                </ContainerLocations>
                <ContainerCategories>
-                    <Categories>{tags ? tags.map(tag => tag.name).join(' ') : ''}</Categories>
+                    <Categories>
+                         {tags ? tags.map((tag) => tag.name).join(' ') : ''}
+                    </Categories>
                </ContainerCategories>
                <ContainerLinear>
-                    <LinearWithValueLabel current={totalInvest || 0} min={0} max={goal || 0} />
+                    <LinearWithValueLabel
+                         current={totalInvest || 0}
+                         min={0}
+                         max={goal || 0}
+                    />
                </ContainerLinear>
                <div>
                     <ContainerButtonModal>
                          <Button
-                              variant='outlined'
+                              variant="outlined"
                               sx={{
                                    color: '#7E1B75',
                                    marginBottom: '12px',
@@ -155,8 +141,8 @@ const Card: React.FC<Props> = ({
                                    '&:hover': {
                                         backgroundColor: '#7E1B75',
                                         borderColor: '#7E1B75',
-                                        color: 'white'
-                                   }
+                                        color: 'white',
+                                   },
                               }}
                               onClick={handleGoDetails}
                          >
@@ -174,7 +160,7 @@ const Card: React.FC<Props> = ({
                          </Menu>
                     )}
                </div>
-          </CardContainer >
+          </CardContainer>
      );
 };
 

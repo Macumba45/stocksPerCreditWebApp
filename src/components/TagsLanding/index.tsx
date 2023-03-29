@@ -1,5 +1,5 @@
-import { FC, memo, useCallback } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {FC, memo, useCallback} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import ModeOfTravelIcon from '@mui/icons-material/ModeOfTravel';
@@ -44,12 +44,12 @@ const TagsLanding: FC = () => {
                <ContainerTags>
                     <Link
                          to="/dashboard"
-                         style={{ textDecoration: 'none', color: 'black' }}
+                         style={{textDecoration: 'none', color: 'black'}}
                     >
                          <IndividualTags>
                               <HomeIcon
                                    fontSize="large"
-                                   sx={{ color: '#7E1B75' }}
+                                   sx={{color: '#7E1B75'}}
                               />
                               <LabelTag>Home</LabelTag>
                          </IndividualTags>
@@ -57,12 +57,12 @@ const TagsLanding: FC = () => {
 
                     <Link
                          to="/dashboard"
-                         style={{ textDecoration: 'none', color: 'black' }}
+                         style={{textDecoration: 'none', color: 'black'}}
                     >
                          <IndividualTags>
                               <PhoneIphoneIcon
                                    fontSize="large"
-                                   sx={{ color: '#7E1B75' }}
+                                   sx={{color: '#7E1B75'}}
                               />
                               <LabelTag>Phone</LabelTag>
                          </IndividualTags>
@@ -70,12 +70,12 @@ const TagsLanding: FC = () => {
 
                     <Link
                          to="/dashboard"
-                         style={{ textDecoration: 'none', color: 'black' }}
+                         style={{textDecoration: 'none', color: 'black'}}
                     >
                          <IndividualTags>
                               <ModeOfTravelIcon
                                    fontSize="large"
-                                   sx={{ color: '#7E1B75' }}
+                                   sx={{color: '#7E1B75'}}
                               />
                               <LabelTag>Travel</LabelTag>
                          </IndividualTags>
@@ -83,12 +83,12 @@ const TagsLanding: FC = () => {
 
                     <Link
                          to="/dashboard"
-                         style={{ textDecoration: 'none', color: 'black' }}
+                         style={{textDecoration: 'none', color: 'black'}}
                     >
                          <IndividualTags>
                               <FitnessCenterIcon
                                    fontSize="large"
-                                   sx={{ color: '#7E1B75' }}
+                                   sx={{color: '#7E1B75'}}
                               />
                               <LabelTag>Fitness</LabelTag>
                          </IndividualTags>
@@ -96,12 +96,12 @@ const TagsLanding: FC = () => {
 
                     <Link
                          to="/dashboard"
-                         style={{ textDecoration: 'none', color: 'black' }}
+                         style={{textDecoration: 'none', color: 'black'}}
                     >
                          <IndividualTags>
                               <AlbumIcon
                                    fontSize="large"
-                                   sx={{ color: '#7E1B75' }}
+                                   sx={{color: '#7E1B75'}}
                               />
                               <LabelTag>Audio</LabelTag>
                          </IndividualTags>
@@ -109,12 +109,12 @@ const TagsLanding: FC = () => {
 
                     <Link
                          to="/dashboard"
-                         style={{ textDecoration: 'none', color: 'black' }}
+                         style={{textDecoration: 'none', color: 'black'}}
                     >
                          <IndividualTags>
                               <LiveTvIcon
                                    fontSize="large"
-                                   sx={{ color: '#7E1B75' }}
+                                   sx={{color: '#7E1B75'}}
                               />
                               <LabelTag>Film</LabelTag>
                          </IndividualTags>

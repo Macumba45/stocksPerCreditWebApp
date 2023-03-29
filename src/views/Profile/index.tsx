@@ -51,53 +51,64 @@
 
 // export default memo(Profile);
 
-import { FC, useState, useCallback, useEffect, memo } from 'react';
-import { getUserInfo } from '../../services/api/profile';
-import { useNavigate, useParams } from 'react-router-dom';
-import { App, ButtonBack, ButtonContainer, Container, Info } from './styles';
-import { User } from '../../models/profile';
+import {FC, useState, useCallback, useEffect, memo} from 'react';
+import {getUserInfo} from '../../services/api/profile';
+import {useNavigate} from 'react-router-dom';
+import {
+     App,
+     ButtonBack,
+     ButtonContainer,
+     Container,
+     AvatarContainer,
+} from './styles';
+import {User} from '../../models/profile';
+import {NavBarProfile} from '../../components/NavbarProfile';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import FolderList from '../../components/ProfileMui';
 
 const Profile: FC = () => {
-  const [userinfo, setUserInfo] = useState<User | null>(null);
-  const [isloading, setIsLoading] = useState<boolean>(false);
-  const navigate = useNavigate();
+     const [userinfo, setUserInfo] = useState<User | null>(null);
+     const [isloading, setIsLoading] = useState<boolean>(false);
+     const navigate = useNavigate();
 
-  const getProfileInfo = useCallback(async () => {
-    setIsLoading(true);
-    const userprofile = await getUserInfo();
-    console.log('esto es el userprofile' + userprofile)
-    setUserInfo(userprofile);
-    setIsLoading(false);
-  }, []);
+     const getProfileInfo = useCallback(async () => {
+          setIsLoading(true);
+          const userprofile = await getUserInfo();
+          console.log('esto es el userprofile' + userprofile);
+          setUserInfo(userprofile);
+          setIsLoading(false);
+     }, []);
 
-  const goToBack = useCallback(() => {
-    navigate('/dashboard', { replace: true });
-  }, [navigate]);
+     const goToBack = useCallback(() => {
+          navigate('/dashboard', {replace: true});
+     }, [navigate]);
 
-  useEffect(() => {
-    getProfileInfo();
-  }, [getProfileInfo]);
+     useEffect(() => {
+          getProfileInfo();
+     }, [getProfileInfo]);
 
-  if (isloading) {
-    return <div>LOADING</div>;
-  }
+     if (isloading) {
+          return <div>LOADING</div>;
+     }
 
-  return (
-    <App>
-      <ButtonContainer>
-        <ButtonBack onClick={goToBack}>Go Back!</ButtonBack>
-      </ButtonContainer>
-      <Container>
-        <Info>ID: {userinfo?.id}</Info>
-        <Info>Name: {userinfo?.name}</Info>
-        <Info>LastName: {userinfo?.lastName}</Info>
-        <Info>EMAIL: {userinfo?.email}</Info>
-        <Info>Country: {userinfo?.country}</Info>
-        <Info>City: {userinfo?.city}</Info>
-        <Info>Phone: {userinfo?.phone}</Info>
-        <Info>Rol: {userinfo?.userRol}</Info>
-      </Container>
-    </App>
-  );
+     return (
+          <>
+               <NavBarProfile />
+               <App>
+                    <Container>
+                         <ButtonContainer>
+                              <ButtonBack onClick={goToBack}>
+                                   <KeyboardBackspaceIcon />
+                              </ButtonBack>
+                         </ButtonContainer>
+                         <AvatarContainer>
+                              <AccountCircleIcon />
+                         </AvatarContainer>
+                         <FolderList />
+                    </Container>
+               </App>
+          </>
+     );
 };
 export default memo(Profile);

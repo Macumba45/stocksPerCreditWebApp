@@ -14,6 +14,10 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import PaymentIcon from '@mui/icons-material/Payment';
 import Typography from '@mui/material/Typography';
 import {FC, memo, useCallback, useState} from 'react';
+
+import MailIcon from '@mui/icons-material/Mail';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import React from 'react';
 import {
      Container,
@@ -29,6 +33,11 @@ import {Home} from '@mui/icons-material';
 import Person4Icon from '@mui/icons-material/Person4';
 
 const drawerWidth = 220;
+import {Fab, ListItemButton, Tooltip} from '@mui/material';
+import {Home} from '@mui/icons-material';
+import Person4Icon from '@mui/icons-material/Person4';
+
+const drawerWidth = 230;
 
 interface Props {
      /**
@@ -77,6 +86,19 @@ const ResponsiveDrawer: FC = (props: Props) => {
           'My investments': {icon: PaymentIcon, link: '/dashboard/investments'},
      };
 
+     const listItems = [
+          {
+               text: 'Favorites',
+               icon: <FavoriteIcon />,
+               link: '/dashboard/favorites',
+          },
+          {
+               text: 'My Orders',
+               icon: <MonetizationOnIcon />,
+               link: '/dashboard/orders',
+          },
+     ];
+
      const drawer = (
           <Container>
                <ContainerLogo>
@@ -90,7 +112,7 @@ const ResponsiveDrawer: FC = (props: Props) => {
                     {Object.entries(iconMap).map(
                          ([text, {icon: IconComponent, link}], index) => (
                               <ListItem
-                                   key={text}
+                                   key={index}
                                    disablePadding
                                    sx={{
                                         padding: 1,
@@ -121,6 +143,30 @@ const ResponsiveDrawer: FC = (props: Props) => {
                          )
                     )}
                </List>
+               <Divider />
+               <List>
+                    {listItems.map((item) => (
+                         <ListItem
+                              key={item.text}
+                              sx={{
+                                   padding: 1,
+                                   cursor: 'pointer',
+                                   '&:hover': {
+                                        backgroundColor: '#EEEEEE',
+                                        fontFamily: 'Roboto',
+                                   },
+                              }}
+                              disablePadding
+                         >
+                              <ListItemButton component={Link} to={item.link}>
+                                   <ListItemIcon style={{color: 'black'}}>
+                                        {item.icon}
+                                   </ListItemIcon>
+                                   <ListItemText primary={item.text} />
+                              </ListItemButton>
+                         </ListItem>
+                    ))}
+               </List>
           </Container>
      );
 
@@ -140,6 +186,10 @@ const ResponsiveDrawer: FC = (props: Props) => {
                               justifyContent: 'space-between',
                               backgroundColor: 'white',
                               height: '90px',
+                              backgroundColor: 'black',
+                              height: '90px',
+                              background:
+                                   'linear-gradient(90deg, rgba(0,0,0,1) 45%, rgba(126,27,117,1) 100%)',
                          }}
                     >
                          <IconButton

@@ -1,4 +1,4 @@
-import { LandingResponse } from '../services/api/landing';
+import {LandingResponse} from '../services/api/landing';
 
 // export type LandingInput = {
 //     id: string;
@@ -19,7 +19,6 @@ import { LandingResponse } from '../services/api/landing';
 //     updatedAt: Date;
 // };
 
-
 // export const normalizeLanding = (input: LandingResponse) => {
 //      return {
 //           image: input?.image || '',
@@ -35,7 +34,5 @@ import { LandingResponse } from '../services/api/landing';
 //           limitvalue: input?.limitvalue || '',
 //      };
 // };
-
-
 
 // export type ProjectCard = ReturnType<typeof normalizeProjectCard>;

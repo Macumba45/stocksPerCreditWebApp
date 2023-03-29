@@ -38,6 +38,12 @@ export const ButtonContainer = styled.div`
      margin-bottom: 5rem;
 `;
 
+export const ButtonSeeMore = styled.div`
+     display: flex;
+     justify-content: center;
+     margin-bottom: 5rem;
+`;
+
 export const DateContainer = styled.div`
      display: flex;
      margin-right: 2rem;
@@ -85,6 +91,7 @@ export const TopCards = styled.div`
 export const NewCards = styled.div`
      display: flex;
      flex-wrap: wrap;
+     /* justify-content: center; */
      margin-bottom: 5rem;
 `;
 
