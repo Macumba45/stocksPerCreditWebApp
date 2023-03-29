@@ -1,12 +1,12 @@
-import {FC, memo, useState} from 'react';
+import { FC, memo, useState } from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
-import {DashboardInvLogic} from './logic';
-import {FinishDatePickers} from '../../components/DatePicker';
+import { DashboardInvLogic } from './logic';
+import { FinishDatePickers } from '../../components/DatePicker';
 import Search from '../../components/Search';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
 import ContainedButtons from '../../components/ContainedButton';
-import {Button, Divider} from '@mui/material';
+import { Button, Divider } from '@mui/material';
 import {
      Container,
      MinMaxContainer,
@@ -379,6 +379,7 @@ const DashboardINVe: FC = () => {
                                         </Button>
                                    </ButtonSeeMore>
                               )}
+
                          </FinalCards>
                     </FinalContainer>
                </CardsContainer>

@@ -9,6 +9,8 @@ import {useLocation} from 'react-router';
 import {useNavigate} from 'react-router-dom';
 import {Props} from './type';
 import VideoThumbail from './video/index';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 import {
      CardContainer,
@@ -31,6 +33,9 @@ import {
      MenuItem,
      TotalInvestor,
      ContainerInvestor,
+     MainContainer,
+     StyledFavoriteIcon,
+     StyledFavoriteBorderOutlinedIcon,
 } from './styles';
 
 import {togglePostFav} from '../../services/api/user';
@@ -74,6 +79,7 @@ const Card: FC<Props> = ({
           location.pathname !== '/welcome' &&
           getUserRole() !== 'INVESTOR';
 
+
      // const handleClick = useCallback(() => {
      //      setLiked(!liked);
      //      togglePostFav(projectId)
@@ -115,8 +121,22 @@ const Card: FC<Props> = ({
                          </HeartButton>
                     )}
                </ContainerButton> */}
+               {/* <MainContainer>
+                    <HeartButton
+                         className={isFav ? 'active' : ''}
+                         onClick={handleToggleFav}
+                    />
+               </MainContainer> */}
                <ContainerTitle>
                     <Title>{title}</Title>
+                    {isFav ? (
+                         <StyledFavoriteIcon onClick={handleToggleFav} />
+                    ) : (
+                         <StyledFavoriteBorderOutlinedIcon
+                              className={isFav ? 'active' : ''}
+                              onClick={handleToggleFav}
+                         />
+                    )}
                </ContainerTitle>
                <ContainerInvestor>
                     <TotalInvestor>
@@ -151,6 +171,7 @@ const Card: FC<Props> = ({
                     className={isFav ? 'active' : ''}
                     onClick={handleToggleFav}
                />
+
                <div>
                     <ContainerButtonModal>
                          <Button
@@ -181,7 +202,7 @@ const Card: FC<Props> = ({
                          </Menu>
                     )}
                </div>
-          </CardContainer>
+          </CardContainer >
      );
 };
 
