@@ -84,6 +84,10 @@ const Profile: FC = () => {
           navigate('/dashboard', {replace: true});
      }, [navigate]);
 
+     const goToEditProfile = useCallback(() => {
+          navigate('/editprofile', {replace: true});
+     }, [navigate]);
+
      useEffect(() => {
           getProfileInfo();
      }, [getProfileInfo]);
@@ -96,10 +100,15 @@ const Profile: FC = () => {
           <>
                <NavBarProfile />
                <App>
-                    <Container>
-                         <ButtonContainer>
+               <ButtonContainer>
                               <ButtonBack onClick={goToBack}>
                                    <KeyboardBackspaceIcon />
+                              </ButtonBack>
+                         </ButtonContainer>
+                    <Container>
+                    <ButtonContainer>
+                              <ButtonBack onClick={goToEditProfile}>
+                                   <button>Edit</button>
                               </ButtonBack>
                          </ButtonContainer>
                          <AvatarContainer>

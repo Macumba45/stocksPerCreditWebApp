@@ -26,9 +26,10 @@ import {
 } from './styles';
 import {Link, useNavigate} from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
+
+import Person4Icon from '@mui/icons-material/Person4';
 import {Fab, ListItemButton, Tooltip} from '@mui/material';
 import {Home} from '@mui/icons-material';
-import Person4Icon from '@mui/icons-material/Person4';
 
 const drawerWidth = 230;
 
