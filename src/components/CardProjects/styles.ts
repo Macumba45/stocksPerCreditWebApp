@@ -106,6 +106,7 @@ export const ContainerButton = styled.div``;
 //      }
 // `;
 export const HeartButton = styled.button`
+
   background-image: url('https://rithmi.com/wp-content/uploads/2021/05/png-transparent-computer-icons-heart-outline-love-text-heart.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -373,4 +374,3 @@ export const MenuItem = styled.button`
      color: #333;
      cursor: pointer;
 `;
-

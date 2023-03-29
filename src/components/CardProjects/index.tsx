@@ -1,13 +1,13 @@
-import { useState, memo, useCallback, FC } from 'react';
+import {useState, memo, useCallback, FC} from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Button from '@mui/material/Button';
 import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useLocation } from 'react-router';
-import { useNavigate } from 'react-router-dom';
-import { Props } from './type';
+import {useLocation} from 'react-router';
+import {useNavigate} from 'react-router-dom';
+import {Props} from './type';
 import VideoThumbail from './video/index';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
@@ -43,6 +43,7 @@ import {
 import { DetailsLogic } from '../../views/ProjectDetails/logic';
 import { getUserRole } from '../../services/storage/userRole';
 
+
 const Card: FC<Props> = ({
      id,
      title,
@@ -77,7 +78,10 @@ const Card: FC<Props> = ({
      const [showMenu, setShowMenu] = useState(false);
      const location = useLocation();
      const showMenuItems =
-          location.pathname !== '/' && location.pathname !== '/welcome' && getUserRole() !== 'INVESTOR'
+          location.pathname !== '/' &&
+          location.pathname !== '/welcome' &&
+          getUserRole() !== 'INVESTOR';
+
 
      // const handleClick = useCallback(() => {
      //      setLiked(!liked);
@@ -92,7 +96,6 @@ const Card: FC<Props> = ({
      const handleMenuClick = useCallback(() => {
           setShowMenu(!showMenu);
      }, [showMenu]);
-
 
      const handleMenuClickClose = useCallback(() => {
           setShowMenu(showMenu);
@@ -113,6 +116,7 @@ const Card: FC<Props> = ({
                     <VideoThumbail
                          src={url}
                          style={{ width: '100%', margin: 'auto' }}
+
                     />
                </ContainerImg>
                <ContainerTitle>
@@ -144,6 +148,10 @@ const Card: FC<Props> = ({
                          max={goal || 0}
                     />
                </ContainerLinear>
+               <HeartButton
+                    className={isFav ? 'active' : ''}
+                    onClick={handleToggleFav}
+               />
 
                <div>
                     <ContainerButtonModal>
@@ -177,8 +185,7 @@ const Card: FC<Props> = ({
                          </MenuButton>
                     </ContainerButtonModal>
                     {showMenuItems && showMenu && (
-                         <Menu
-                              onClick={handleMenuClickClose}>
+                         <Menu onClick={handleMenuClickClose}>
                               <MenuItem>
                                    <DeleteIcon /> <EditIcon />
                               </MenuItem>

@@ -19,6 +19,7 @@ const FormProject: FC = () => {
           {setSubmitting}: {setSubmitting: (isSubmitting: boolean) => void}
      ) => {
           // Handle submitting the form data
+          console.log(values)
           setSubmitting(false);
      };
 

@@ -1,6 +1,6 @@
 import {getAuthenticatedToken} from '../storage/token';
-import {normalizeProject} from '../../models/project';
-import {ProjectResponse} from './project';
+import {normalizeProject, ProjectFilters} from '../../models/project';
+import type {ProjectResponse} from './project';
 
 export type InvestDashboardResponse = {
      allProjects: ProjectResponse[];
@@ -11,10 +11,26 @@ export type InvestDashboardResponse = {
 
 const BASE_API_URL = 'http://localhost:8000/projects/dashboard-investor';
 
-export const getProjects = async () => {
+export const getProjects = async (filters?: ProjectFilters) => {
      try {
+          console.log(filters)
           const token = getAuthenticatedToken();
-          const response = await fetch(BASE_API_URL, {
+          let queryParams = ''
+          if (filters) {
+               if (filters.date) {
+                    queryParams += `date=${filters.date}&`
+               }
+               if (filters.tags) {
+                    queryParams += `tags=[${filters.tags}]&`
+               }
+               if (filters.investmentAmount) {
+                    queryParams += `investmentAmount={min:${filters.investmentAmount.min},max:${filters.investmentAmount.max}}`
+               }
+          }
+
+          console.log(queryParams)
+
+          const response = await fetch(`${BASE_API_URL}?${queryParams}`, {
                method: 'GET',
                headers: {
                     Authorization: `Bearer ${token}`,

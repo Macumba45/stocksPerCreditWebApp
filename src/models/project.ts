@@ -23,6 +23,15 @@ export type ProjectInput = {
      tags: string[];
 };
 
+export type ProjectFilters = {
+     date?: string;
+     investmentAmount?: {
+          min?: number;
+          max?: number;
+     };
+     tags?: string[];
+};
+
 export const normalizeProject = (input: ProjectResponse) => {
      return {
           id: input?.id || '',

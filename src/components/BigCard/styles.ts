@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MainContainer = styled.div``;
 
 export const Container = styled.div`
-     background-color: ${({ theme }) => theme.colors.white};
+     background-color: ${({theme}) => theme.colors.white};
      min-width: 400px;
      height: 25rem;
      border-radius: 20px;

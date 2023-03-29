@@ -29,26 +29,30 @@ import {
 const DashboardINVe: FC = () => {
      const {
           projectData,
-          handleFilter2,
+          handleApplyFilters,
           handleRangeChange,
-          handleFiltersChange,
+          handleFiltersTagsChange,
           handleDateChange,
           toggleFavorite,
+          isLoading,
+          tags
      } = DashboardInvLogic();
-
-     console.log(projectData);
 
      const pageSize = 5;
      const [page, setPage] = useState(1); // Estado que controla la cantidad de partes cargadas
      const projects = projectData?.allProjects || []; // La lista de proyectos
 
      // Obtener la sección de la lista de proyectos que se debe mostrar en función del estado actual
-     const visibleProjects = projects.slice(0, pageSize * page);
+     const visibleProjects = projects.slice(0, pageSize * page)|| [];
 
      // Función que se ejecuta cuando se hace clic en el botón "ver más proyectos"
      const handleLoadMore = () => {
           setPage(page + 1);
      };
+
+     if (isLoading) {
+          return (<p>cargando</p>)
+     }
 
      return (
           <>
@@ -71,8 +75,9 @@ const DashboardINVe: FC = () => {
                     <TagDiv>
                          <FiltersDiv>
                               <p>Select tags to filter your search </p>
-                              <Search
-                                   handleFiltersChange={handleFiltersChange}
+                              <Search 
+                                   handleFiltersChange={handleFiltersTagsChange}
+                                   options={tags}
                               />
                               {/* <ContainedButtons/> */}
                          </FiltersDiv>
@@ -80,7 +85,7 @@ const DashboardINVe: FC = () => {
                </Container>
                <Container>
                     <ButtonContainer>
-                         <ContainedButtons onClick={handleFilter2} />
+                         <ContainedButtons onClick={handleApplyFilters} />
                     </ButtonContainer>
                </Container>
                <CardsContainer>
@@ -292,6 +297,89 @@ const DashboardINVe: FC = () => {
                                         </div>
                                    )
                               )}
+                              <NewContainer>
+                                   <SectionTitle>
+                                        <H3>ALL PROJECTS</H3>
+                                        <Divider
+                                             sx={{
+                                                  backgroundColor: '#7E1B75',
+                                                  height: '5px',
+                                             }}
+                                        />
+                                   </SectionTitle>
+                                   <NewCards>
+                                        {/* Mapear solo los proyectos que son visibles en la página actual */}
+                                        {visibleProjects.map(
+                                             (project, index) => (
+                                                  <div key={index}>
+                                                       <Card
+                                                            id={project.id}
+                                                            url={project.url}
+                                                            showHeartButton={
+                                                                 false
+                                                            }
+                                                            title={
+                                                                 project.title
+                                                            }
+                                                            duration={
+                                                                 project.duration
+                                                            }
+                                                            description={
+                                                                 project.description
+                                                            }
+                                                            country={
+                                                                 project.country
+                                                            }
+                                                            city={project.city}
+                                                            tags={[]}
+                                                            collected={
+                                                                 project.totalInvest
+                                                            }
+                                                            totalInvestor={
+                                                                 project.totalInvestor
+                                                            }
+                                                            minimuminvestment={
+                                                                 project.minimuminvestment
+                                                            }
+                                                            goal={project.goal}
+                                                            limitvalue={
+                                                                 project.limitvalue
+                                                            }
+                                                            totalInvest={
+                                                                 project.totalInvest
+                                                            }
+                                                            toggleFav={
+                                                                 toggleFavorite
+                                                            }
+                                                       />
+                                                  </div>
+                                             )
+                                        )}
+                                   </NewCards>
+                                   {/* Botón que carga la siguiente sección de la lista de proyectos */}
+                              </NewContainer>
+                              {visibleProjects.length < projects.length && (
+                                   <ButtonSeeMore>
+                                        <Button
+                                             sx={{
+                                                  color: '#7E1B75',
+                                                  marginBottom: '12px',
+                                                  borderColor: '#7E1B75',
+                                                  '&:hover': {
+                                                       backgroundColor:
+                                                            '#7E1B75',
+                                                       borderColor: '#7E1B75',
+                                                       color: 'white',
+                                                  },
+                                             }}
+                                             variant="outlined"
+                                             onClick={handleLoadMore}
+                                        >
+                                             See more
+                                        </Button>
+                                   </ButtonSeeMore>
+                              )}
+
                          </FinalCards>
                     </FinalContainer>
                </CardsContainer>

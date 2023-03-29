@@ -30,5 +30,4 @@ export type Props = {
      onClick?: () => void;
      toggleFav: (id: string) => void;
      isFavorite?: boolean;
-
 };

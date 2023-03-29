@@ -39,4 +39,3 @@ export const DetailsLogic = () => {
         dataDetails,
         daysLeft
     };
-};

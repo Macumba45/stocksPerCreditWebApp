@@ -1,3 +1,6 @@
+import { Tag } from "../../models/tag";
+
 export type Props = {
-     tag: string;
+     handleFiltersChange: (filters: any) => void;
+     options:Tag[]
 };
