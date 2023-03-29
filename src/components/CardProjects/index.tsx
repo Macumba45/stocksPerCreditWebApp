@@ -9,6 +9,8 @@ import { useLocation } from 'react-router';
 import { useNavigate } from 'react-router-dom';
 import { Props } from './type';
 import VideoThumbail from './video/index';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 import {
      CardContainer,
@@ -31,6 +33,9 @@ import {
      MenuItem,
      TotalInvestor,
      ContainerInvestor,
+     MainContainer,
+     StyledFavoriteIcon,
+     StyledFavoriteBorderOutlinedIcon,
 } from './styles';
 
 import { togglePostFav } from '../../services/api/user';
@@ -62,7 +67,7 @@ const Card: FC<Props> = ({
      updatedAt,
      showHeartButton,
      toggleFav,
-  isFavorite,
+     isFavorite,
 }) => {
      // const [liked, setLiked] = useState(false);
      const [isFav, setIsFav] = useState(isFavorite);
@@ -71,17 +76,16 @@ const Card: FC<Props> = ({
      const location = useLocation();
      const showMenuItems =
           location.pathname !== '/' && location.pathname !== '/welcome' && getUserRole() !== 'INVESTOR'
-     console.log(showMenuItems);
 
      // const handleClick = useCallback(() => {
      //      setLiked(!liked);
      //      togglePostFav(projectId)
      // }, [liked]);
 
-  const handleToggleFav = useCallback(() => {
-    setIsFav(!isFav);
-    toggleFav(id);
-  }, [isFav]);
+     const handleToggleFav = useCallback(() => {
+          setIsFav(!isFav);
+          toggleFav(id);
+     }, [isFav]);
 
      const handleMenuClick = useCallback(() => {
           setShowMenu(!showMenu);
@@ -118,8 +122,22 @@ const Card: FC<Props> = ({
                          </HeartButton>
                     )}
                </ContainerButton> */}
+               {/* <MainContainer>
+                    <HeartButton
+                         className={isFav ? 'active' : ''}
+                         onClick={handleToggleFav}
+                    />
+               </MainContainer> */}
                <ContainerTitle>
                     <Title>{title}</Title>
+                    {isFav ? (
+                         <StyledFavoriteIcon onClick={handleToggleFav} />
+                    ) : (
+                         <StyledFavoriteBorderOutlinedIcon
+                              className={isFav ? 'active' : ''}
+                              onClick={handleToggleFav}
+                         />
+                    )}
                </ContainerTitle>
                <ContainerInvestor>
                     <TotalInvestor>
@@ -150,10 +168,7 @@ const Card: FC<Props> = ({
                          max={goal || 0}
                     />
                </ContainerLinear>
-               <HeartButton
-        className={isFav ? 'active' : ''}
-        onClick={handleToggleFav}
-      />
+
                <div>
                     <ContainerButtonModal>
                          <Button
@@ -185,7 +200,7 @@ const Card: FC<Props> = ({
                          </Menu>
                     )}
                </div>
-          </CardContainer>
+          </CardContainer >
      );
 };
 

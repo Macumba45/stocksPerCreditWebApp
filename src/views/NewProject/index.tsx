@@ -34,21 +34,7 @@ const FormProject: FC = () => {
                     initialValues={initialValues}
                >
                     <Form>
-                         <Field name="image">
-                              {({field, meta}: {field: any; meta: any}) => (
-                                   <InputContainer>
-                                        <Input
-                                             $hasError={!!meta?.error}
-                                             type="url"
-                                             placeholder="IMAGEN"
-                                             {...field}
-                                        />
-                                        {meta?.error && (
-                                             <Error>{meta.error}</Error>
-                                        )}
-                                   </InputContainer>
-                              )}
-                         </Field>
+                         
                          <Field name="title">
                               {({field, meta}: {field: any; meta: any}) => (
                                    <InputContainer>

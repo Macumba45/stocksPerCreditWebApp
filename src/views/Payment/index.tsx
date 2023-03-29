@@ -1,12 +1,12 @@
-import {Avatar, Divider} from '@mui/material';
-import {FC, memo, useCallback, useState} from 'react';
+import { Avatar, Divider } from '@mui/material';
+import { FC, memo, useCallback, useState } from 'react';
 import NavBar from '../../components/NavBar';
 import InputDecorators from '../../components/InvestInputDetails';
 import Radio from '@mui/material/Radio';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
-import ButtonPay from '../../components/ButtonPay';
-import {Fab, Tooltip} from '@mui/material';
+import { Fab, Tooltip } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ButtonPayment from '../../components/ButtonPay'
 import {
      MainContainer,
      ContainerForm,
@@ -28,6 +28,7 @@ import {
 
 const Payment: FC = () => {
      const [selectedValue, setSelectedValue] = useState('');
+     const [investAmount, setInvestAmount] = useState(10);
 
      const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           setSelectedValue(event.target.value);
@@ -38,7 +39,8 @@ const Payment: FC = () => {
           window.scrollTo(0, 0);
      }, []);
 
-     const CustomTooltip = ({title, children}: any) => {
+
+     const CustomTooltip = ({ title, children }: any) => {
           return (
                <Tooltip title={title} placement="left">
                     {children}
@@ -104,9 +106,9 @@ const Payment: FC = () => {
                                    Titulo del Projecto a invertir
                               </TitleStartup>
                               <ContainerAmount>
-                                   <InputDecorators />
+                                   <InputDecorators value={investAmount} onChange={setInvestAmount} />
                               </ContainerAmount>
-                              <Divider sx={{width: '300px'}} />
+                              <Divider sx={{ width: '300px' }} />
                               <ContainerPayment>
                                    <TitlePayment>PAYMENT METHODS</TitlePayment>
                                    <ContainerMastercard>
@@ -152,7 +154,7 @@ const Payment: FC = () => {
                               </ContainerPayment>
                          </ContainerTitle>
                          <ButtonPaymentContainer>
-                              <ButtonPay />
+                              <ButtonPayment investAmount={investAmount} />
                          </ButtonPaymentContainer>
                     </ContainerForm>
                </MainContainer>
