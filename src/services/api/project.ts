@@ -59,7 +59,6 @@ export const getProjectById = async (id: string): Promise<Project | null> => {
                headers: { Authorization: `Bearer ${token}` },
           });
           const data: ProjectResponse = await response.json();
-          console.log(data);
           return normalizeProject(data);
      } catch (error) {
           console.log((error as Error).message);

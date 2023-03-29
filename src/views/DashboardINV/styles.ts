@@ -4,8 +4,7 @@ export const Container = styled.div`
      display: flex;
      flex-wrap: wrap;
      justify-content: center;
-     background-color: ${({theme}) => theme.colors.light};
-     border-radius: 10px;
+     background-color: ${({ theme }) => theme.colors.light};
      margin-left: 1rem;
      margin-right: 1rem;
 
@@ -15,7 +14,6 @@ export const Container = styled.div`
 `;
 
 export const FiltersDiv = styled.div`
-     border-radius: 10px;
      margin: 4rem 1.2rem;
      width: auto;
      display: flex;
@@ -106,7 +104,7 @@ export const SearchDiv = styled.div``;
 export const DiscretDiv = styled.div``;
 
 export const SectionTitle = styled.div`
-     margin: 5rem;
+     margin: 1rem;
 `;
 
 export const HR = styled.hr`
@@ -116,6 +114,6 @@ export const HR = styled.hr`
 `;
 
 export const H3 = styled.h3`
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     font-size: ${({theme}) => theme.fontSizes.small};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-size: ${({ theme }) => theme.fontSizes.small};
 `;
