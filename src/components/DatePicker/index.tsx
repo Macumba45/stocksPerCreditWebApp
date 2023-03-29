@@ -1,6 +1,6 @@
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { FC } from 'react';
+import {FC} from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>
      createStyles({
@@ -20,11 +20,13 @@ interface DatePickersProps {
      handleDateChange: (dates: any) => void;
 }
 
-const StartDatePickers: FC<DatePickersProps> = ({ handleDateChange }) => {
+const StartDatePickers: FC<DatePickersProps> = ({handleDateChange}) => {
      const classes = useStyles();
 
-     const handleStartDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-          handleDateChange({ startDate: event.target.value });
+     const handleStartDateChange = (
+          event: React.ChangeEvent<HTMLInputElement>
+     ) => {
+          handleDateChange({startDate: event.target.value});
      };
      return (
           <form className={classes.container} noValidate>
@@ -38,16 +40,17 @@ const StartDatePickers: FC<DatePickersProps> = ({ handleDateChange }) => {
                          shrink: true,
                     }}
                     onChange={handleStartDateChange}
-
                />
           </form>
      );
 };
 
-const FinishDatePickers: FC<DatePickersProps> = ({ handleDateChange }) => {
+const FinishDatePickers: FC<DatePickersProps> = ({handleDateChange}) => {
      const classes = useStyles();
-     const handleFinishDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-          handleDateChange({ finishDate: event.target.value });
+     const handleFinishDateChange = (
+          event: React.ChangeEvent<HTMLInputElement>
+     ) => {
+          handleDateChange({finishDate: event.target.value});
      };
 
      return (
@@ -62,11 +65,9 @@ const FinishDatePickers: FC<DatePickersProps> = ({ handleDateChange }) => {
                          shrink: true,
                     }}
                     onChange={handleFinishDateChange}
-
                />
           </form>
      );
 };
 
-export { StartDatePickers, FinishDatePickers };
-
+export {StartDatePickers, FinishDatePickers};

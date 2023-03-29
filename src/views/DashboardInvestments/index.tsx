@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import {FC, memo} from 'react';
 import BigCard from '../../components/BigCard';
 import LittleCard from '../../components/LittleCard';
 import MediumCard from '../../components/MediumCard';
@@ -16,7 +16,6 @@ import {
 } from './styles';
 
 const DashboardInvestment: FC = () => {
-
      const iconStyle = {
           color: '#7E1B75',
           fontSize: 40,
@@ -55,14 +54,11 @@ const DashboardInvestment: FC = () => {
           },
      ];
 
-
-
      return (
           <>
                <Container>
                     <ResponsiveDrawer />
                     <MainContainer>
-
                          <LilDivContainer>
                               {data.map((item, index) => (
                                    <LittleCard

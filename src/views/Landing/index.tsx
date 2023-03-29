@@ -1,4 +1,4 @@
-import { FC, memo } from 'react';
+import {FC, memo} from 'react';
 import BasicTabs from '../../components/BasicTabs';
 import DashboardLanding from '../../components/DashboardLanding';
 import FeaturedCard from '../../components/FeaturedCard';
@@ -8,14 +8,10 @@ import Hr from '../../components/Hr';
 import InsightLanding from '../../components/InsightLanding';
 import NavBar from '../../components/NavBar';
 import TagsLanding from '../../components/TagsLanding';
-import { LandingLogic } from './logic';
+import {LandingLogic} from './logic';
 
 const Landing: FC = () => {
-
-     const {
-          landingData
-     } = LandingLogic();
-
+     const {landingData} = LandingLogic();
 
      return (
           <>

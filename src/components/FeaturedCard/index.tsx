@@ -1,6 +1,5 @@
-import { FC, memo, useCallback, useEffect, useState } from 'react';
+import {FC, memo, useCallback, useEffect, useState} from 'react';
 import {
-
      MainContainer,
      ContainerText,
      ContainerImg,
@@ -11,9 +10,8 @@ import {
      ButtonSimulation,
 } from './styles';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import { useNavigate } from 'react-router-dom';
-import { Fab, Tooltip } from '@mui/material';
-
+import {useNavigate} from 'react-router-dom';
+import {Fab, Tooltip} from '@mui/material';
 
 const FeaturedCard: FC = () => {
      const navigate = useNavigate();
@@ -29,11 +27,10 @@ const FeaturedCard: FC = () => {
      }, [token]);
 
      const goDashboard = useCallback(() => {
-
           navigate('/dashboard');
-     }, [navigate])
+     }, [navigate]);
 
-     const CustomTooltip = ({ title, children }: any) => {
+     const CustomTooltip = ({title, children}: any) => {
           return (
                <Tooltip title={title} placement="left">
                     {children}
@@ -70,8 +67,6 @@ const FeaturedCard: FC = () => {
                                              '&:hover': {
                                                   backgroundColor: '#7e1b7655', // Cambiar color del hover
                                              },
-
-
                                         }}
                                         color="primary"
                                         aria-label="add"

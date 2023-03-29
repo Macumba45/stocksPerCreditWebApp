@@ -1,7 +1,5 @@
-
-import { ProjectResponse } from '../services/api/project';
-import { normalizeTag } from './tag';
-
+import {ProjectResponse} from '../services/api/project';
+import {normalizeTag} from './tag';
 
 export type ProjectInput = {
      title: string;
@@ -23,7 +21,6 @@ export type ProjectInput = {
      createdAt: Date;
      updatedAt: Date;
      tags: string[];
-
 };
 
 export const normalizeProject = (input: ProjectResponse) => {
@@ -47,11 +44,11 @@ export const normalizeProject = (input: ProjectResponse) => {
           actionPerCredit: input?.actionPerCredit || '',
           returnInvestment: input?.returnInvestment || 0,
           goal: input?.goal || 0,
-          tags: input?.tags ? input.tags.map(normalizeTag) : [] ,
+          tags: input?.tags ? input.tags.map(normalizeTag) : [],
           limitvalue: input?.limitvalue || 0,
-          current:input?.current || 0,
-          min:input?.min || 0,
-          max:input?.max || 0,
+          current: input?.current || 0,
+          min: input?.min || 0,
+          max: input?.max || 0,
           createdAt: input?.createdAt || new Date(),
           updatedAt: input?.updatedAt || new Date(),
      };

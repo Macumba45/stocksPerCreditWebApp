@@ -1,18 +1,18 @@
-import { FC, memo, useCallback } from 'react';
+import {FC, memo, useCallback} from 'react';
 import NavBar from '../../components/NavBar';
 import VideoHeader from '../../components/VideoHeader';
 import TabsDetails from '../../components/TabsDetails';
 import LanguageIcon from '@mui/icons-material/Language';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import LinearWithValueLabel from '../../components/ProgressLinear';
-import { Divider } from '@mui/material';
+import {Divider} from '@mui/material';
 import ButtonInvest from '../../components/ButtonInvest';
-import InputDecorators from '../../components/InvestInputDetails'
-import CalculadoraAcciones from '../../components/SimulationInvestDetails'
+import InputDecorators from '../../components/InvestInputDetails';
+import CalculadoraAcciones from '../../components/SimulationInvestDetails';
 import Footer from '../../components/Footer';
-import { Fab, Tooltip } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { Dashboard } from '@mui/icons-material';
+import {Fab, Tooltip} from '@mui/material';
+import {useNavigate} from 'react-router-dom';
+import {Dashboard} from '@mui/icons-material';
 import {
      ButtonContainer,
      CalculadoraAccionesContainer,
@@ -44,28 +44,22 @@ import {
      TitleInvestContainer,
 } from './styles';
 
-
-
 const ProjectDetails: FC = () => {
      const videoProject =
           'https://www.youtube.com/embed/FR0yfiN1dEo?controls=0';
 
      const navigate = useNavigate();
      const goDashboard = useCallback(() => {
-
           navigate('/dashboard');
-     }, [navigate])
+     }, [navigate]);
 
-
-     const CustomTooltip = ({ title, children }: any) => {
+     const CustomTooltip = ({title, children}: any) => {
           return (
                <Tooltip title={title} placement="left">
                     {children}
                </Tooltip>
           );
      };
-
-
 
      return (
           <MainContainer>
@@ -82,8 +76,6 @@ const ProjectDetails: FC = () => {
                               '&:hover': {
                                    backgroundColor: '#7e1b7655', // Cambiar color del hover
                               },
-
-
                          }}
                          color="primary"
                          aria-label="add"
@@ -96,7 +88,7 @@ const ProjectDetails: FC = () => {
                     <MainContainer>
                          <VideoHeader src={videoProject} />
                     </MainContainer>
-                    <MainContainer style={{ marginTop: '3rem' }}>
+                    <MainContainer style={{marginTop: '3rem'}}>
                          <TitleContainer>
                               <Title>
                                    Lorem ipsum dolor sit amet consectetur
@@ -147,7 +139,9 @@ const ProjectDetails: FC = () => {
                                    </TitleInvestContainer>
                                    <SubTitleInvestContainer>
                                         <SubTitleInvest>
-                                             This project will only be funded if it reaches its goal before Mon, March 27, 2023 3:08 PM CEST.
+                                             This project will only be funded if
+                                             it reaches its goal before Mon,
+                                             March 27, 2023 3:08 PM CEST.
                                         </SubTitleInvest>
                                    </SubTitleInvestContainer>
                                    <ButtonContainer>
@@ -186,21 +180,15 @@ const ProjectDetails: FC = () => {
                />
                <StockersContainer>
                     <StockersFunds>
-                         <StockersTitles>
-                              Contributions:
-                         </StockersTitles>
+                         <StockersTitles>Contributions:</StockersTitles>
                          <SpanData>57.900€</SpanData>
                     </StockersFunds>
                     <StockersInvestors>
-                         <StockersTitles>
-                              Stockers:
-                         </StockersTitles>{' '}
+                         <StockersTitles>Stockers:</StockersTitles>{' '}
                          <SpanData>458 stockers</SpanData>
                     </StockersInvestors>
                     <StockersTime>
-                         <StockersTitles>
-                              Time:
-                         </StockersTitles>
+                         <StockersTitles>Time:</StockersTitles>
 
                          <SpanData>46 days more</SpanData>
                     </StockersTime>
@@ -237,10 +225,7 @@ const ProjectDetails: FC = () => {
                     }}
                />
                <LinearProgress>
-                    <LinearWithValueLabel
-                         min={0}
-                         max={100}
-                         current={50} />
+                    <LinearWithValueLabel min={0} max={100} current={50} />
                </LinearProgress>
 
                <Divider

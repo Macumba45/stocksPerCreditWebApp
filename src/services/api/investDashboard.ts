@@ -1,6 +1,6 @@
-import { getAuthenticatedToken } from '../storage/token';
-import { normalizeProject } from '../../models/project';
-import { ProjectResponse } from './project';
+import {getAuthenticatedToken} from '../storage/token';
+import {normalizeProject} from '../../models/project';
+import {ProjectResponse} from './project';
 
 export type InvestDashboardResponse = {
      allProjects: ProjectResponse[];

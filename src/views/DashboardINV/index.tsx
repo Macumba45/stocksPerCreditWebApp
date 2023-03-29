@@ -1,12 +1,12 @@
-import { FC, memo, useState } from 'react';
+import {FC, memo, useState} from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
-import { DashboardInvLogic } from './logic';
-import { FinishDatePickers } from '../../components/DatePicker';
+import {DashboardInvLogic} from './logic';
+import {FinishDatePickers} from '../../components/DatePicker';
 import Search from '../../components/Search';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
 import ContainedButtons from '../../components/ContainedButton';
-import { Button, Divider } from '@mui/material';
+import {Button, Divider} from '@mui/material';
 import {
      Container,
      MinMaxContainer,
@@ -27,19 +27,15 @@ import {
 } from './styles';
 
 const DashboardINVe: FC = () => {
-
-
-
      const {
-
           projectData,
           handleFilter2,
           handleRangeChange,
           handleFiltersChange,
-          handleDateChange
-     } = DashboardInvLogic()
+          handleDateChange,
+     } = DashboardInvLogic();
 
-     console.log(projectData)
+     console.log(projectData);
 
      const pageSize = 5;
      const [page, setPage] = useState(1); // Estado que controla la cantidad de partes cargadas
@@ -52,8 +48,6 @@ const DashboardINVe: FC = () => {
      const handleLoadMore = () => {
           setPage(page + 1);
      };
-
-
 
      return (
           <>
@@ -92,7 +86,12 @@ const DashboardINVe: FC = () => {
                     <NewContainer>
                          <SectionTitle>
                               <H3>ALL PROJECTS</H3>
-                              <Divider sx={{ backgroundColor: '#7E1B75', height: '5px' }} />
+                              <Divider
+                                   sx={{
+                                        backgroundColor: '#7E1B75',
+                                        height: '5px',
+                                   }}
+                              />
                          </SectionTitle>
                          <NewCards>
                               {/* Mapear solo los proyectos que son visibles en la página actual */}
@@ -108,8 +107,12 @@ const DashboardINVe: FC = () => {
                                              city={project.city}
                                              tags={[]}
                                              collected={project.totalInvest}
-                                             totalInvestor={project.totalInvestor}
-                                             minimuminvestment={project.minimuminvestment}
+                                             totalInvestor={
+                                                  project.totalInvestor
+                                             }
+                                             minimuminvestment={
+                                                  project.minimuminvestment
+                                             }
                                              goal={project.goal}
                                              limitvalue={project.limitvalue}
                                              totalInvest={project.totalInvest}
@@ -121,22 +124,33 @@ const DashboardINVe: FC = () => {
                     </NewContainer>
                     {visibleProjects.length < projects.length && (
                          <ButtonSeeMore>
-                              <Button sx={{
-                                   color: '#7E1B75',
-                                   marginBottom: '12px',
-                                   borderColor: '#7E1B75',
-                                   '&:hover': {
-                                        backgroundColor: '#7E1B75',
+                              <Button
+                                   sx={{
+                                        color: '#7E1B75',
+                                        marginBottom: '12px',
                                         borderColor: '#7E1B75',
-                                        color: 'white'
-                                   }
-                              }} variant='outlined' onClick={handleLoadMore}>Ver más proyectos</Button>
+                                        '&:hover': {
+                                             backgroundColor: '#7E1B75',
+                                             borderColor: '#7E1B75',
+                                             color: 'white',
+                                        },
+                                   }}
+                                   variant="outlined"
+                                   onClick={handleLoadMore}
+                              >
+                                   See more
+                              </Button>
                          </ButtonSeeMore>
                     )}
                     <TopContainer>
                          <SectionTitle>
                               <H3>TOP PROJECTS</H3>
-                              <Divider sx={{ backgroundColor: '#7E1B75', height: '5px' }} />
+                              <Divider
+                                   sx={{
+                                        backgroundColor: '#7E1B75',
+                                        height: '5px',
+                                   }}
+                              />
                          </SectionTitle>
                          <TopCards>
                               {projectData?.topProjects.map(
@@ -178,11 +192,15 @@ const DashboardINVe: FC = () => {
 
                     <TopContainer>
                          <SectionTitle>
-                              <H3>LANDING</H3>
-                              <Divider sx={{ backgroundColor: '#7E1B75', height: '5px' }} />
+                              <H3>RECENTS PROJECTS</H3>
+                              <Divider
+                                   sx={{
+                                        backgroundColor: '#7E1B75',
+                                        height: '5px',
+                                   }}
+                              />
                          </SectionTitle>
                          <TopCards>
-
                               {projectData?.latestProjects.map(
                                    (project, index) => (
                                         <div key={index}>
@@ -221,8 +239,13 @@ const DashboardINVe: FC = () => {
                     </TopContainer>
                     <FinalContainer>
                          <SectionTitle>
-                              <H3>CLOSE SOON</H3>
-                              <Divider sx={{ backgroundColor: '#7E1B75', height: '5px' }} />
+                              <H3>PROJECTS CLOSE SOON</H3>
+                              <Divider
+                                   sx={{
+                                        backgroundColor: '#7E1B75',
+                                        height: '5px',
+                                   }}
+                              />
                          </SectionTitle>
                          <FinalCards>
                               {projectData?.closeSoonProjects.map(
