@@ -29,7 +29,7 @@ const DashboardFavorites: FC = () => {
                               />
                          </SectionTitle>
                          <TopCards>
-                              {favoriteData?.map((favorite, index) => (
+                              {/* {favoriteData?.map((favorite, index) => (
                                    <div key={index}>
                                         <Card
                                              id={favorite.id}
@@ -53,7 +53,7 @@ const DashboardFavorites: FC = () => {
                                              toggleFav={toggleFavorite}
                                         />
                                    </div>
-                              ))}
+                              ))} */}
                          </TopCards>
                     </TopContainer>
                </CardsContainer>

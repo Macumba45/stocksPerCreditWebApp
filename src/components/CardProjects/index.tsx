@@ -34,6 +34,7 @@ import {
 } from './styles';
 
 import { togglePostFav } from '../../services/api/user';
+import { getUserRole } from '../../services/storage/userRole';
 
 const Card: FC<Props> = ({
      id,

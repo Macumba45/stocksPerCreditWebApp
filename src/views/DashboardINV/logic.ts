@@ -13,9 +13,6 @@ export const DashboardInvLogic = () => {
           min: number;
           max: number;
      }>({ min: 0, max: 0 });
-     const [filters, setFilters] = useState({ selectedTags: [] });
-     const [selectedDate, setSelectedDate] = useState({ finishDate: '' });
-     const [projectData, setprojectData] = useState<InvestDashboardResponse>();
 
 
      const getProjectData = useCallback(async () => {
@@ -25,7 +22,6 @@ export const DashboardInvLogic = () => {
                setprojectData(data);
           }
      }, [setprojectData]);
-     }>({min: 0, max: 0});
 
 
      const toggleFavorite = useCallback(async (id: string) => {
@@ -57,14 +53,6 @@ export const DashboardInvLogic = () => {
           handleFiltersChange(filters);
           handleDateChange(selectedDate);
      };
-
-     const getProjectData = useCallback(async () => {
-          getAuthenticatedToken();
-          const data = await getProjects();
-          if (data) {
-               setprojectData(data);
-          }
-     }, []);
 
      useEffect(() => {
           getProjectData();
