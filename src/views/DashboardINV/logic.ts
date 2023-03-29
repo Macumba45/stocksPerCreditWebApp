@@ -2,20 +2,21 @@ import {getAuthenticatedToken} from '../../services/storage/token';
 import {useCallback, useEffect, useState} from 'react';
 import {getProjects} from '../../services/api/investDashboard';
 import {InvestDashboardResponse} from '../../services/api/investDashboard';
-import { togglePostFav } from '../../services/api/user';
+import {togglePostFav} from '../../services/api/user';
 
 export const DashboardInvLogic = () => {
+     const [filters, setFilters] = useState({selectedTags: []});
+     const [selectedDate, setSelectedDate] = useState({finishDate: ''});
+     const [projectData, setprojectData] = useState<InvestDashboardResponse>();
      const [selectedRange, setSelectedRange] = useState<{
           min: number;
           max: number;
      }>({min: 0, max: 0});
-     const [filters, setFilters] = useState({selectedTags: []});
-     const [selectedDate, setSelectedDate] = useState({finishDate: ''});
-     const [projectData, setprojectData] = useState<InvestDashboardResponse>();
 
      const toggleFavorite = useCallback(async (id: string) => {
           await togglePostFav(id);
-        }, []);
+     }, []);
+
      const handleDateChange = (newDates: any) => {
           setSelectedDate((prevDates) => ({
                ...prevDates,
@@ -39,7 +40,8 @@ export const DashboardInvLogic = () => {
           // });
           handleRangeChange(selectedRange);
           handleFiltersChange(filters);
-          handleDateChange(selectedDate);     };
+          handleDateChange(selectedDate);
+     };
 
      const getProjectData = useCallback(async () => {
           getAuthenticatedToken();
@@ -53,13 +55,12 @@ export const DashboardInvLogic = () => {
           getProjectData();
      }, [getProjectData]);
 
-
      return {
           projectData,
           handleFilter2,
           handleRangeChange,
           handleFiltersChange,
           handleDateChange,
-          toggleFavorite
+          toggleFavorite,
      };
 };

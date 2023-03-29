@@ -165,20 +165,3 @@ export const getSuccesProjects = async (
      }
      return null;
 };
-
-// export const getTotalAmountProjects = async (
-//      id: string
-// ): Promise<ProjectDetail | null> => {
-//      try {
-//           const token = getAuthenticatedToken();
-//           const response = await fetch(`${BASE_API_URL}/totalamount`, {
-//                method: 'GET',
-//                headers: {Authorization: `Bearer ${token}`},
-//           });
-//           const data: ProjectDetailResponse = await response.json();
-//           return normalizeProjectCard(data);
-//      } catch (error) {
-//           console.log((error as Error).message);
-//      }
-//      return null;
-// };

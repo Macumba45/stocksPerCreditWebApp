@@ -1,6 +1,5 @@
 import {useState, memo, useCallback, FC} from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import * as React from 'react';
 import Button from '@mui/material/Button';
 import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -63,7 +62,8 @@ const Card: FC<Props> = ({
      toggleFav,
   isFavorite,
 }) => {
-     const [liked, setLiked] = useState(false);
+     // const [liked, setLiked] = useState(false);
+     const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();
      const [showMenu, setShowMenu] = useState(false);
      const location = useLocation();
@@ -75,11 +75,9 @@ const Card: FC<Props> = ({
      //      togglePostFav(projectId)
      // }, [liked]);
 
-     const [isFav, setIsFav] = useState(isFavorite);
   const handleToggleFav = useCallback(() => {
     setIsFav(!isFav);
     toggleFav(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFav]);
 
      const handleMenuClick = useCallback(() => {
