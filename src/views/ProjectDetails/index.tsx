@@ -150,9 +150,9 @@ const ProjectDetails: FC = () => {
                                              March 27, 2023 3:08 PM CEST.
                                         </SubTitleInvest>
                                    </SubTitleInvestContainer>
-                                   <ButtonContainer>
+                                   {/* <ButtonContainer>
                                         <InputDecorators />
-                                   </ButtonContainer>
+                                   </ButtonContainer> */}
                                    <ButtonContainer>
                                         <ButtonInvest />
                                    </ButtonContainer>

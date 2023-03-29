@@ -42,15 +42,17 @@ const toggleFavorite = (async (id: string) => {
 
 const BasicTabs: FC = () => {
      const [value, setValue] = useState(0);
+     const[loading, setLoading] = useState(false);
 
      const handleChange = (event: React.SyntheticEvent, newValue: number) => {
           setValue(newValue);
      };
-
      const {landingData} = LandingLogic();
      const topProjects = landingData?.topProjects || [];
      const lastestProjects = landingData.latestProjects?.slice(0, 3) || [];
      const closeSoon = landingData.latestProjects?.slice(-3) || [];
+
+     console.log(closeSoon)
 
      return (
           <MainContainer>
