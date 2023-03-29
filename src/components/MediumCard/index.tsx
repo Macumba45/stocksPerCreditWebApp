@@ -3,10 +3,10 @@ import Chart from './chart';
 import {Container} from './styles';
 import {Props} from './types';
 
-const MediumCard: FC = () => {
+const MediumCard: FC<Props> = ({chart}) => {
      return (
           <Container>
-               <Chart />
+               {chart}
           </Container>
      );
 };

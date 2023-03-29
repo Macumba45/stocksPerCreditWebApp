@@ -118,7 +118,7 @@ const DashboardINVe: FC = () => {
                                              totalInvest={project.totalInvest}
                                         />
                                    </div>
-                              ))}
+                              ))}  
                          </NewCards>
                          {/* Botón que carga la siguiente sección de la lista de proyectos */}
                     </NewContainer>

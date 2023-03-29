@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const MaxContainer = styled.div`
-     margin-top: 80px;
+     margin-top: 6rem;
+     margin-left:2rem;
      display: flex;
      flex-wrap: wrap;
-     justify-content: center;
+     justify-content: flex-start;
 `;

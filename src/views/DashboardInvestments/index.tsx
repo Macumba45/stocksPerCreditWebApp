@@ -1,4 +1,4 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import BigCard from '../../components/BigCard';
 import LittleCard from '../../components/LittleCard';
 import MediumCard from '../../components/MediumCard';
@@ -14,6 +14,15 @@ import {
      LilDivContainer,
      MainContainer,
 } from './styles';
+import Chart from '../../components/MediumCard/chart';
+import RadialChart from '../../components/MediumCard/radial';
+import RadarChartComponent from '../../components/MediumCard/radar';
+import Stacked from '../../components/BigCard/stacked';
+import TynyBar from '../../components/BigCard/TynyBar';
+
+
+
+
 
 const DashboardInvestment: FC = () => {
      const iconStyle = {
@@ -70,14 +79,17 @@ const DashboardInvestment: FC = () => {
                               ))}
                          </LilDivContainer>
                          <ContainerMediumCards>
-                              <MediumCard />
-                              <MediumCard />
-                              <MediumCard />
+                              <MediumCard
+                                   chart={<Chart />} />
+                              <MediumCard
+                                   chart={<RadialChart />} />
+                              <MediumCard
+                                   chart={<RadarChartComponent />} />
                          </ContainerMediumCards>
 
                          <ContainerBigCards>
-                              <BigCard />
-                              <BigCard />
+                              <BigCard chart={<Stacked />} />
+                              <BigCard chart={<TynyBar />} />
                          </ContainerBigCards>
                     </MainContainer>
                </Container>

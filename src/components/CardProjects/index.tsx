@@ -1,4 +1,4 @@
-import {useState, memo, useCallback, FC} from 'react';
+import { useState, memo, useCallback, FC } from 'react';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -6,9 +6,9 @@ import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import {useLocation} from 'react-router';
-import {useNavigate} from 'react-router-dom';
-import {Props} from './type';
+import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router-dom';
+import { Props } from './type';
 import VideoThumbail from './video/index';
 
 import {
@@ -33,6 +33,8 @@ import {
      TotalInvestor,
      ContainerInvestor,
 } from './styles';
+import { UserRole } from '../../models/user';
+import { getUserRole } from '../../services/storage/userRole';
 
 const Card: FC<Props> = ({
      id,
@@ -65,7 +67,8 @@ const Card: FC<Props> = ({
      const [showMenu, setShowMenu] = useState(false);
      const location = useLocation();
      const showMenuItems =
-          location.pathname !== '/' && location.pathname !== '/welcome';
+          location.pathname !== '/' && location.pathname !== '/welcome' && getUserRole() !== 'INVESTOR'
+     console.log(showMenuItems);
 
      const handleClick = useCallback(() => {
           setLiked(!liked);
@@ -74,6 +77,14 @@ const Card: FC<Props> = ({
      const handleMenuClick = useCallback(() => {
           setShowMenu(!showMenu);
      }, [showMenu]);
+
+
+     const handleMenuClickClose = useCallback(() => {
+          setShowMenu(showMenu);
+     }, [showMenu]);
+
+
+
 
      const handleGoDetails = useCallback(() => {
           navigate('/projectdetails');
@@ -88,7 +99,7 @@ const Card: FC<Props> = ({
                          src={url}
                          // width="270"
                          // height="270"
-                         style={{width: '100%', margin: 'auto'}}
+                         style={{ width: '100%', margin: 'auto' }}
                     />
                </ContainerImg>
                <ContainerButton>
@@ -144,7 +155,7 @@ const Card: FC<Props> = ({
                                         color: 'white',
                                    },
                               }}
-                              onClick={handleGoDetails}
+                              onClick={() => handleGoDetails()}
                          >
                               More Info
                          </Button>
@@ -153,7 +164,8 @@ const Card: FC<Props> = ({
                          </MenuButton>
                     </ContainerButtonModal>
                     {showMenuItems && showMenu && (
-                         <Menu>
+                         <Menu
+                              onClick={handleMenuClickClose}>
                               <MenuItem>
                                    <DeleteIcon /> <EditIcon />
                               </MenuItem>
