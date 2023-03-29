@@ -1,10 +1,13 @@
-import {FC, memo} from 'react';
-import {Container, MainContainer} from './styles';
+import { FC, memo } from 'react';
+import { Container, MainContainer } from './styles';
+import { Props } from './types';
 
-const BigCard: FC = () => {
+const BigCard: FC<Props> = ({ chart }) => {
      return (
           <MainContainer>
-               <Container />
+               <Container>
+                    {chart}
+               </Container>
           </MainContainer>
      );
 };

@@ -13,6 +13,7 @@ import DashboardInvestment from '../../views/DashboardInvestments/index';
 import FormProject from '../../components/FormProject';
 import Payment from '../../views/Payment';
 import DashboardFavorites from '../../views/DashboardFavorites';
+import DashboardOrders from '../../views/DashboardOrders';
 import ProfileEditar from '../../views/ProfileEditar';
 
 const Router: FC = () => {
@@ -101,6 +102,14 @@ const Router: FC = () => {
                          element={
                               <ProtectedRoutes>
                                    <DashboardFavorites />
+                              </ProtectedRoutes>
+                         }
+                    />
+                    <Route
+                         path="/dashboard/orders"
+                         element={
+                              <ProtectedRoutes>
+                                   <DashboardOrders />
                               </ProtectedRoutes>
                          }
                     />
