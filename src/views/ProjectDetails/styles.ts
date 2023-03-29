@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const MainContainer = styled.div``;
+export const MainContainer = styled.div`
+
+`;
 
 export const MainContainerDesktop = styled.div`
      display: flex;
@@ -21,15 +23,15 @@ export const TitleContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.small};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     color: ${({theme}) => theme.colors.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.small};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.primary};
      margin-left: 1rem;
      @media screen and (min-width: 600px) {
           margin-left: 3rem;
 
-          margin-top: 3rem;
+          margin-top: 3.2rem;
           margin-bottom: 3rem;
      }
 `;
@@ -37,7 +39,6 @@ export const Title = styled.h1`
 export const SubTitleContainer = styled.div`
      margin-left: 1rem;
      margin-right: 2rem;
-
      margin-bottom: 2rem;
      @media screen and (min-width: 600px) {
           margin-left: 3rem;
@@ -47,19 +48,31 @@ export const SubTitleContainer = styled.div`
 `;
 
 export const SubTitle = styled.h3`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
      font-weight: 250;
-     color: ${({theme}) => theme.colors.dark};
+     color: ${({ theme }) => theme.colors.dark};
      margin-right: 0.5rem;
      line-height: 1.8rem;
 `;
 
 export const MainInvestContainer = styled.div`
      /* display: flex; */
+
+`;
+
+export const PauloContainer = styled.div`
+     /* display: flex; */
+
+`;
+
+export const PauloContainer2 = styled.div`
+     /* display: flex; */
+
 `;
 export const MainInvestContainerFlex = styled.div`
      margin-bottom: 3rem;
+     
 `;
 
 export const CalculadoraAccionesContainer = styled.div`
@@ -74,9 +87,9 @@ export const TitleInvestContainer = styled.div`
 `;
 
 export const TitleInvest = styled.h3`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.small};
-     color: ${({theme}) => theme.colors.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.small};
+     color: ${({ theme }) => theme.colors.primary};
 
      @media screen and (min-width: 600px) {
           font-size: 40px;
@@ -98,17 +111,17 @@ export const SubTitleInvestContainer = styled.div`
 `;
 
 export const SubTitleInvest = styled.h3`
-     font-family: ${({theme}) => theme.fonts.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
      font-size: 15px;
      font-weight: 300;
-     color: ${({theme}) => theme.colors.dark};
+     color: ${({ theme }) => theme.colors.dark};
      text-align: center;
      margin-left: 2rem;
      margin-right: 2rem;
      line-height: 1.5rem;
 
      @media screen and (min-width: 600px) {
-          font-size: ${({theme}) => theme.fontSizes.smallest};
+          font-size: ${({ theme }) => theme.fontSizes.smallest};
      }
 `;
 
@@ -133,55 +146,55 @@ export const StockersTitles = styled.div`
 `;
 
 export const StockersFunds = styled.div`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
-     color: ${({theme}) => theme.colors.dark};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     color: ${({ theme }) => theme.colors.dark};
      margin-left: 1rem;
      margin-right: 1rem;
      @media screen and (min-width: 600px) {
-          font-size: ${({theme}) => theme.fontSizes.small};
+          font-size: ${({ theme }) => theme.fontSizes.small};
           margin-left: 3rem;
           margin-right: 3rem;
      }
 `;
 
 export const StockersInvestors = styled.div`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
-     color: ${({theme}) => theme.colors.dark};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     color: ${({ theme }) => theme.colors.dark};
      margin-left: 1rem;
      margin-right: 1rem;
      @media screen and (min-width: 600px) {
-          font-size: ${({theme}) => theme.fontSizes.small};
+          font-size: ${({ theme }) => theme.fontSizes.small};
           margin-left: 3rem;
           margin-right: 3rem;
      }
 `;
 
 export const StockersTime = styled.div`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiLight};
-     color: ${({theme}) => theme.colors.dark};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     color: ${({ theme }) => theme.colors.dark};
      margin-left: 1rem;
      margin-right: 1rem;
      @media screen and (min-width: 600px) {
-          font-size: ${({theme}) => theme.fontSizes.small};
+          font-size: ${({ theme }) => theme.fontSizes.small};
           margin-left: 3rem;
           margin-right: 3rem;
      }
 `;
 
 export const SpanData = styled.span`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     color: ${({theme}) => theme.colors.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.primary};
      line-height: 1.5rem;
      @media screen and (min-width: 600px) {
-          font-size: ${({theme}) => theme.fontSizes.small};
+          font-size: ${({ theme }) => theme.fontSizes.small};
      }
 `;
 
@@ -201,10 +214,10 @@ export const LinearProgress = styled.div`
 `;
 
 export const LocationCountry = styled.div`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     color: ${({theme}) => theme.colors.dark};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.dark};
      margin-left: 1rem;
      margin-right: 1rem;
      display: flex;
@@ -212,10 +225,10 @@ export const LocationCountry = styled.div`
 `;
 
 export const LocationCity = styled.div`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     color: ${({theme}) => theme.colors.dark};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.dark};
      margin-left: 1rem;
      margin-right: 1rem;
      display: flex;
@@ -223,23 +236,23 @@ export const LocationCity = styled.div`
 `;
 
 export const SpanLocation = styled.span`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     color: ${({theme}) => theme.colors.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.primary};
      line-height: 1.5rem;
      @media screen and (min-width: 600px) {
-          font-size: ${({theme}) => theme.fontSizes.small};
+          font-size: ${({ theme }) => theme.fontSizes.small};
      }
 `;
 
 export const SpanTags = styled.span`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     color: ${({theme}) => theme.colors.light};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.light};
      line-height: 1.5rem;
      @media screen and (min-width: 600px) {
-          font-size: ${({theme}) => theme.fontSizes.smallest};
+          font-size: ${({ theme }) => theme.fontSizes.smallest};
      }
 `;
 
@@ -255,9 +268,9 @@ export const Tags = styled.div`
      background-color: #7e1b75;
      color: white;
      border-radius: 10px;
-     font-family: ${({theme}) => theme.fonts.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
      font-size: 5px;
-     font-weight: ${({theme}) => theme.fontWeights.bold};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
      padding: 0.2rem;
      margin-left: 1rem;
      margin-right: 1rem;

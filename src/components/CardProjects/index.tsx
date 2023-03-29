@@ -36,10 +36,13 @@ import {
      MainContainer,
      StyledFavoriteIcon,
      StyledFavoriteBorderOutlinedIcon,
+     SpanText,
+     SpanData
 } from './styles';
 
-import {togglePostFav} from '../../services/api/user';
-import {getUserRole} from '../../services/storage/userRole';
+import { DetailsLogic } from '../../views/ProjectDetails/logic';
+import { getUserRole } from '../../services/storage/userRole';
+
 
 const Card: FC<Props> = ({
      id,
@@ -69,7 +72,7 @@ const Card: FC<Props> = ({
      toggleFav,
      isFavorite,
 }) => {
-     // const [liked, setLiked] = useState(false);
+     const { daysLeft } = DetailsLogic()
      const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();
      const [showMenu, setShowMenu] = useState(false);
@@ -98,62 +101,40 @@ const Card: FC<Props> = ({
           setShowMenu(showMenu);
      }, [showMenu]);
 
-     const handleGoDetails = useCallback(() => {
-          navigate('/projectdetails');
+
+
+
+     const handleGoDetails = useCallback((id: string) => {
+          navigate(`/projectdetails/${id}`);
+          console.log(id)
           window.scrollTo(0, 0);
      }, [navigate]);
 
      return (
           <CardContainer>
                <ContainerImg>
-                    {/* <Image style={{ objectFit: 'cover' }} src={`${url}?autoplay=0&mute=1&controls=0&modestbranding=1&iv_load_policy=3&rel=0&showinfo=0`} /> */}
                     <VideoThumbail
                          src={url}
-                         // width="270"
-                         // height="270"
-                         style={{width: '100%', margin: 'auto'}}
+                         style={{ width: '100%', margin: 'auto' }}
+
                     />
                </ContainerImg>
-               {/* <ContainerButton>
-                    {showHeartButton && (
-                         <HeartButton liked={liked} onClick={handleClick}>
-                              <FavoriteBorderIcon />
-                         </HeartButton>
-                    )}
-               </ContainerButton> */}
-               {/* <MainContainer>
-                    <HeartButton
-                         className={isFav ? 'active' : ''}
-                         onClick={handleToggleFav}
-                    />
-               </MainContainer> */}
                <ContainerTitle>
                     <Title>{title}</Title>
-                    {isFav ? (
-                         <StyledFavoriteIcon onClick={handleToggleFav} />
-                    ) : (
-                         <StyledFavoriteBorderOutlinedIcon
-                              className={isFav ? 'active' : ''}
-                              onClick={handleToggleFav}
-                         />
-                    )}
                </ContainerTitle>
                <ContainerInvestor>
                     <TotalInvestor>
-                         Total investors: {totalInvestor}
+                         <SpanText>Total investors:</SpanText><SpanData>{totalInvestor}</SpanData>
                     </TotalInvestor>
                </ContainerInvestor>
                <ContainerInvestor>
-                    <TotalInvestor>Finish at: {duration}</TotalInvestor>
+                    <TotalInvestor><SpanText>Finish in:</SpanText><SpanData>{' '}{daysLeft(duration!)}{' '}days</SpanData></TotalInvestor>
                </ContainerInvestor>
                <ContainerDesc>
                     <Description>{description}</Description>
                </ContainerDesc>
                <ContainerLocations>
-                    <Country>{country}</Country>
-               </ContainerLocations>
-               <ContainerLocations>
-                    <City>{city}</City>
+                    <Country>{country}</Country>{' '}<City>,{city}</City>
                </ContainerLocations>
                <ContainerCategories>
                     <Categories>
@@ -175,10 +156,11 @@ const Card: FC<Props> = ({
                <div>
                     <ContainerButtonModal>
                          <Button
-                              variant="outlined"
+                              variant="text"
                               sx={{
                                    color: '#7E1B75',
                                    marginBottom: '12px',
+                                   marginRight: '10px',
                                    borderColor: '#7E1B75',
                                    '&:hover': {
                                         backgroundColor: '#7E1B75',
@@ -186,10 +168,18 @@ const Card: FC<Props> = ({
                                         color: 'white',
                                    },
                               }}
-                              onClick={() => handleGoDetails()}
+                              onClick={() => handleGoDetails(id)}
                          >
                               More Info
                          </Button>
+                         {isFav ? (
+                              <StyledFavoriteIcon onClick={handleToggleFav} />
+                         ) : (
+                              <StyledFavoriteBorderOutlinedIcon
+                                   className={isFav ? 'active' : ''}
+                                   onClick={handleToggleFav}
+                              />
+                         )}
                          <MenuButton onClick={handleMenuClick}>
                               {showMenuItems && <MoreVertIcon />}
                          </MenuButton>

@@ -69,6 +69,7 @@ export const TotalInvestor = styled.h2`
      font-weight: 300;
      text-align: left;
      display: flex;
+     align-items: center;
      -webkit-box-align: center;
      align-items: center;
 `;
@@ -140,6 +141,25 @@ export const StyledFavoriteBorderOutlinedIcon = styled(FavoriteBorderOutlinedIco
     color: #ff0000;
   }
 `;
+
+export const SpanText = styled.span`
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: 15px;
+     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     color: ${({ theme }) => theme.colors.primary};
+     line-height: 1.5rem;
+    
+`;
+
+export const SpanData = styled.span`
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: 15px;
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.primary};
+     line-height: 1.5rem;
+    
+`;
+
 
 export const StyledFavoriteIcon = styled(FavoriteIcon)`
   color: #ff0000;

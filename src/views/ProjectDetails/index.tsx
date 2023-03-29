@@ -7,7 +7,6 @@ import LocationCityIcon from '@mui/icons-material/LocationCity';
 import LinearWithValueLabel from '../../components/ProgressLinear';
 import {Divider} from '@mui/material';
 import ButtonInvest from '../../components/ButtonInvest';
-import InputDecorators from '../../components/InvestInputDetails';
 import CalculadoraAcciones from '../../components/SimulationInvestDetails';
 import Footer from '../../components/Footer';
 import {Fab, Tooltip} from '@mui/material';
@@ -47,8 +46,9 @@ import {
 } from './styles';
 
 const ProjectDetails: FC = () => {
-     const videoProject =
-          'https://www.youtube.com/embed/FR0yfiN1dEo?controls=0';
+     const { dataDetails, daysLeft } = DetailsLogic();
+
+     console.log(dataDetails)
 
      const navigate = useNavigate();
      const goDashboard = useCallback(() => {
@@ -62,9 +62,6 @@ const ProjectDetails: FC = () => {
                </Tooltip>
           );
      };
-
-     const {dataDetails} = DetailsLogic();
-     console.log(dataDetails);
 
      return (
           <MainContainer>
@@ -91,14 +88,14 @@ const ProjectDetails: FC = () => {
                <NavBar />
                <MainContainerDesktop>
                     <MainContainer>
-                         <VideoHeader src={videoProject} />
+                         <VideoHeader src={dataDetails?.url!}
+                         />
                     </MainContainer>
+
                     <MainContainer style={{marginTop: '3rem'}}>
                          <TitleContainer>
                               <Title>
-                                   Lorem ipsum dolor sit amet consectetur
-                                   adipisicing elit. Blanditiis enim culpa
-                                   possimus.
+                                   {dataDetails?.title}
                               </Title>
                          </TitleContainer>
                          <Divider
@@ -113,16 +110,8 @@ const ProjectDetails: FC = () => {
                          />
                          <SubTitleContainer>
                               <SubTitle>
-                                   Lorem ipsum dolor sit amet consectetur
-                                   adipisicing elit. A sit, ratione aut ipsam
-                                   nemo repudiandae. Nemo ab, asperiores magnam
-                                   aperiam tempora perferendis laboriosam
-                                   deserunt minima magni mollitia ipsam sit
-                                   quam.Lorem ipsum dolor sit amet consectetur
-                                   adipisicing elit. A sit, ratione aut ipsam
-                                   nemo repudiandae.Lorem ipsum dolor sit amet
-                                   consectetur adipisicing elit. A sit, ratione
-                                   aut ipsam nemo repudiandae.
+                                   {dataDetails?.description}
+
                               </SubTitle>
                          </SubTitleContainer>
                          <Divider
@@ -145,8 +134,7 @@ const ProjectDetails: FC = () => {
                                    <SubTitleInvestContainer>
                                         <SubTitleInvest>
                                              This project will only be funded if
-                                             it reaches its goal before Mon,
-                                             March 27, 2023 3:08 PM CEST.
+                                             it reaches its goal before {dataDetails?.duration}
                                         </SubTitleInvest>
                                    </SubTitleInvestContainer>
                                    {/* <ButtonContainer>
@@ -186,16 +174,17 @@ const ProjectDetails: FC = () => {
                <StockersContainer>
                     <StockersFunds>
                          <StockersTitles>Contributions:</StockersTitles>
-                         <SpanData>57.900€</SpanData>
+                         <SpanData>
+                              {dataDetails?.totalInvest}€</SpanData>
                     </StockersFunds>
                     <StockersInvestors>
                          <StockersTitles>Stockers:</StockersTitles>{' '}
-                         <SpanData>458 stockers</SpanData>
+                         <SpanData>{dataDetails?.totalInvestor}</SpanData>
                     </StockersInvestors>
                     <StockersTime>
                          <StockersTitles>Time:</StockersTitles>
 
-                         <SpanData>46 days more</SpanData>
+                         <SpanData>{daysLeft(dataDetails?.duration!)}{' '}days more</SpanData>
                     </StockersTime>
                </StockersContainer>
                <Divider
@@ -212,11 +201,11 @@ const ProjectDetails: FC = () => {
                <LocationContainer>
                     <LocationCountry>
                          <LanguageIcon />
-                         <SpanLocation>United States</SpanLocation>
+                         <SpanLocation>{dataDetails?.country}</SpanLocation>
                     </LocationCountry>
                     <LocationCity>
                          <LocationCityIcon />{' '}
-                         <SpanLocation>New York</SpanLocation>
+                         <SpanLocation>{dataDetails?.city}</SpanLocation>
                     </LocationCity>
                </LocationContainer>
                <Divider
@@ -230,7 +219,11 @@ const ProjectDetails: FC = () => {
                     }}
                />
                <LinearProgress>
-                    <LinearWithValueLabel min={0} max={100} current={50} />
+                    <LinearWithValueLabel
+                         current={dataDetails?.totalInvest || 0}
+                         min={0}
+                         max={dataDetails?.goal || 0}
+                    />
                </LinearProgress>
 
                <Divider
@@ -263,8 +256,11 @@ const ProjectDetails: FC = () => {
                />
                <TabsDetails />
                <Footer />
+
           </MainContainer>
+
+
      );
-};
+}
 
 export default memo(ProjectDetails);

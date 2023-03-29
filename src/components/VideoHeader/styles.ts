@@ -13,10 +13,10 @@ export const VideoContainer = styled.div`
      /* height: 300px; */
      /* background-color: black; */
      margin-left: 0rem;
-     margin-top: 3.5rem;
+     /* margin-top: 3.5rem; */
      @media screen and (min-width: 600px) {
           /* height: 600px; */
-          margin-top: 6rem;
+          /* margin-top: 6rem; */
           width: 100%;
           display: flex;
           margin-left: 1rem;
