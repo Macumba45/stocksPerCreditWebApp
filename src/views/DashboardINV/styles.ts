@@ -106,7 +106,7 @@ export const SearchDiv = styled.div``;
 export const DiscretDiv = styled.div``;
 
 export const SectionTitle = styled.div`
-     margin: 1rem;
+     margin: 5rem;
 `;
 
 export const HR = styled.hr`

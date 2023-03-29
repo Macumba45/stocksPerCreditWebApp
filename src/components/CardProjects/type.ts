@@ -1,7 +1,7 @@
 import {TagResponse} from '../../services/api/tag';
 
 export type Props = {
-     id?: string;
+     id: string;
      title?: string;
      description?: string;
      url?: string;
@@ -28,4 +28,7 @@ export type Props = {
      collected?: number;
      investors?: number;
      onClick?: () => void;
+     toggleFav: (id: string) => void;
+     isFavorite?: boolean;
+
 };

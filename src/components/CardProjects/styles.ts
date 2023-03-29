@@ -87,17 +87,32 @@ export const Description = styled.p`
 `;
 export const ContainerButton = styled.div``;
 
-export const HeartButton = styled.button<{liked: boolean}>`
-     background-color: transparent;
-     border: none;
-     cursor: pointer;
-     font-size: 32px;
-     color: ${(props) => (props.liked ? 'red' : 'black')};
-     margin-left: 0.5rem;
+// export const HeartButton = styled.button<{liked: boolean}>`
+//      background-color: transparent;
+//      border: none;
+//      cursor: pointer;
+//      font-size: 32px;
+//      color: ${(props) => (props.liked ? 'red' : 'black')};
+//      margin-left: 0.5rem;
 
-     &:focus {
-          outline: none;
-     }
+//      &:focus {
+//           outline: none;
+//      }
+// `;
+export const HeartButton = styled.button`
+  background-image: url('https://rithmi.com/wp-content/uploads/2021/05/png-transparent-computer-icons-heart-outline-love-text-heart.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+
+  &.active {
+    filter: invert(43%) sepia(50%) saturate(566%) hue-rotate(348deg) brightness(100%) contrast(114%);
+  }
 `;
 export const HeartIcon = styled.i`
      display: inline-block;
@@ -318,3 +333,4 @@ export const MenuItem = styled.button`
      color: #333;
      cursor: pointer;
 `;
+

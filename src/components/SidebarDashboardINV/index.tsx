@@ -14,8 +14,6 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import PaymentIcon from '@mui/icons-material/Payment';
 import Typography from '@mui/material/Typography';
 import {FC, memo, useCallback, useState} from 'react';
-
-import MailIcon from '@mui/icons-material/Mail';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import React from 'react';
@@ -28,6 +26,7 @@ import {
 } from './styles';
 import {Link, useNavigate} from 'react-router-dom';
 import ProfileDashboard from '../ProfileDashboard';
+
 import Person4Icon from '@mui/icons-material/Person4';
 import {Fab, ListItemButton, Tooltip} from '@mui/material';
 import {Home} from '@mui/icons-material';
