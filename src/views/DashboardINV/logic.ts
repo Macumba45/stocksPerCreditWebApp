@@ -77,7 +77,7 @@ export const DashboardInvLogic = () => {
                selectedTags: tagsByFilter.selectedTags,
           });
           const filters: ProjectFilters = {
-               date: format(new Date(selectedDate?.finishDate), 'dd-MM-yyyy'),
+               date: format(new Date(selectedDate?.finishDate), 'MM-dd-yyyy'),
                investmentAmount: {
                     min: selectedRange.min,
                     max: selectedRange.max,

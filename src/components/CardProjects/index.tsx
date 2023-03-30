@@ -34,6 +34,7 @@ import {
      StyledFavoriteBorderOutlinedIcon,
      SpanText,
      SpanData,
+
      ContainerDays
 } from './styles';
 
@@ -67,6 +68,7 @@ const Card: FC<Props> = ({
      toggleFav,
      isFavorite,
 }) => {
+     const {daysLeft} = DetailsLogic();
 
      const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();
@@ -76,6 +78,7 @@ const Card: FC<Props> = ({
           location.pathname !== '/' &&
           location.pathname !== '/welcome' &&
           getUserRole() !== 'INVESTOR';
+
 
      const logged = getUserRole();
 
@@ -96,6 +99,7 @@ const Card: FC<Props> = ({
      const handleMenuClickClose = useCallback(() => {
           setShowMenu(showMenu);
      }, [showMenu]);
+
 
      const handleGoDetails = useCallback((id: string) => {
           if (logged) {
@@ -121,6 +125,7 @@ const Card: FC<Props> = ({
           <CardContainer>
                <ContainerImg>
                     <VideoThumbail
+
                          url={url}
 
                     />
@@ -130,9 +135,11 @@ const Card: FC<Props> = ({
                </ContainerTitle>
                <ContainerInvestor>
                     <TotalInvestor>
-                         <SpanText>Total investors:</SpanText><SpanData>{totalInvestor}</SpanData>
+                         <SpanText>Total investors:</SpanText>
+                         <SpanData>{totalInvestor}</SpanData>
                     </TotalInvestor>
                </ContainerInvestor>
+
                <ContainerDays>
                     <TotalInvestor><SpanText>Will end:</SpanText><SpanData>{' '}{daysLeft(duration!)}{' '}days</SpanData></TotalInvestor>
                </ContainerDays>
@@ -140,6 +147,7 @@ const Card: FC<Props> = ({
                     <Description>{description}</Description>
                </ContainerDesc>
                <ContainerLocations>
+
                     <Country>{country},</Country>{' '}<City>{city}</City>
                </ContainerLocations>
                <ContainerCategories>
@@ -154,6 +162,7 @@ const Card: FC<Props> = ({
                          max={goal || 0}
                     />
                </ContainerLinear>
+
                <div>
                     <ContainerButtonModal>
                          <Button
@@ -193,7 +202,7 @@ const Card: FC<Props> = ({
                          </Menu>
                     )}
                </div>
-          </CardContainer >
+          </CardContainer>
      );
 };
 

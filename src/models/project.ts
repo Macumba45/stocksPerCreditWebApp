@@ -18,8 +18,6 @@ export type ProjectInput = {
      returnInvestment: number;
      goal: number;
      limitvalue: number;
-     createdAt: Date;
-     updatedAt: Date;
      tags: string[];
 };
 

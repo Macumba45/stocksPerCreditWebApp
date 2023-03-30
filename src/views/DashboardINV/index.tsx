@@ -1,12 +1,12 @@
-import { FC, memo, useState } from 'react';
+import {FC, memo, useState} from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
-import { DashboardInvLogic } from './logic';
-import { FinishDatePickers } from '../../components/DatePicker';
+import {DashboardInvLogic} from './logic';
+import {FinishDatePickers} from '../../components/DatePicker';
 import Search from '../../components/Search';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
 import ContainedButtons from '../../components/ContainedButton';
-import { Button, Divider } from '@mui/material';
+import {Button, Divider} from '@mui/material';
 import {
      Container,
      MinMaxContainer,
@@ -35,7 +35,7 @@ const DashboardINVe: FC = () => {
           handleDateChange,
           toggleFavorite,
           isLoading,
-          tags
+          tags,
      } = DashboardInvLogic();
 
      const pageSize = 5;
@@ -51,7 +51,7 @@ const DashboardINVe: FC = () => {
      };
 
      if (isLoading) {
-          return (<p>cargando</p>)
+          return <p>cargando</p>;
      }
 
      return (
@@ -212,6 +212,7 @@ const DashboardINVe: FC = () => {
                               />
                          </SectionTitle>
                          <TopCards>
+
                               {projectData ? (
                                    projectData.latestProjects.map((project, index) => (
                                         <div key={index}>
@@ -367,7 +368,6 @@ const DashboardINVe: FC = () => {
                                         </Button>
                                    </ButtonSeeMore>
                               )}
-
                          </FinalCards>
                     </FinalContainer>
                </CardsContainer>
