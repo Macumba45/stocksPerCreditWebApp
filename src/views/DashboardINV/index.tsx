@@ -1,12 +1,12 @@
-import { FC, memo, useState } from 'react';
+import {FC, memo, useState} from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
-import { DashboardInvLogic } from './logic';
-import { FinishDatePickers } from '../../components/DatePicker';
+import {DashboardInvLogic} from './logic';
+import {FinishDatePickers} from '../../components/DatePicker';
 import Search from '../../components/Search';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
 import ContainedButtons from '../../components/ContainedButton';
-import { Button, Divider } from '@mui/material';
+import {Button, Divider} from '@mui/material';
 import {
      Container,
      MinMaxContainer,
@@ -35,7 +35,7 @@ const DashboardINVe: FC = () => {
           handleDateChange,
           toggleFavorite,
           isLoading,
-          tags
+          tags,
      } = DashboardInvLogic();
 
      const pageSize = 5;
@@ -43,7 +43,7 @@ const DashboardINVe: FC = () => {
      const projects = projectData?.allProjects || []; // La lista de proyectos
 
      // Obtener la sección de la lista de proyectos que se debe mostrar en función del estado actual
-     const visibleProjects = projects.slice(0, pageSize * page)|| [];
+     const visibleProjects = projects.slice(0, pageSize * page) || [];
 
      // Función que se ejecuta cuando se hace clic en el botón "ver más proyectos"
      const handleLoadMore = () => {
@@ -51,7 +51,7 @@ const DashboardINVe: FC = () => {
      };
 
      if (isLoading) {
-          return (<p>cargando</p>)
+          return <p>cargando</p>;
      }
 
      return (
@@ -75,7 +75,7 @@ const DashboardINVe: FC = () => {
                     <TagDiv>
                          <FiltersDiv>
                               <p>Select tags to filter your search </p>
-                              <Search 
+                              <Search
                                    handleFiltersChange={handleFiltersTagsChange}
                                    options={tags}
                               />
@@ -212,42 +212,50 @@ const DashboardINVe: FC = () => {
                               />
                          </SectionTitle>
                          <TopCards>
-                              {projectData?.latestProjects.map(
-                                   (project, index) => (
-                                        <div key={index}>
-                                             <Card
-                                                  id={project.id}
-                                                  url={project.url}
-                                                  showHeartButton={false}
-                                                  title={project.title}
-                                                  duration={project.duration}
-                                                  description={
-                                                       project.description
-                                                  }
-                                                  country={project.country}
-                                                  city={project.city}
-                                                  tags={[]}
-                                                  collected={
-                                                       project.totalInvest
-                                                  }
-                                                  totalInvestor={
-                                                       project.totalInvestor
-                                                  }
-                                                  minimuminvestment={
-                                                       project.minimuminvestment
-                                                  }
-                                                  goal={project.goal}
-                                                  limitvalue={
-                                                       project.limitvalue
-                                                  }
-                                                  totalInvest={
-                                                       project.totalInvest
-                                                  }
-                                                  toggleFav={toggleFavorite}
-                                             />
-                                        </div>
-                                   )
-                              )}
+                              {projectData
+                                   ? projectData.latestProjects.map(
+                                          (project, index) => (
+                                               <div key={index}>
+                                                    <Card
+                                                         id={project.id}
+                                                         url={project.url}
+                                                         showHeartButton={false}
+                                                         title={project.title}
+                                                         duration={
+                                                              project.duration
+                                                         }
+                                                         description={
+                                                              project.description
+                                                         }
+                                                         country={
+                                                              project.country
+                                                         }
+                                                         city={project.city}
+                                                         tags={[]}
+                                                         collected={
+                                                              project.totalInvest
+                                                         }
+                                                         totalInvestor={
+                                                              project.totalInvestor
+                                                         }
+                                                         minimuminvestment={
+                                                              project.minimuminvestment
+                                                         }
+                                                         goal={project.goal}
+                                                         limitvalue={
+                                                              project.limitvalue
+                                                         }
+                                                         totalInvest={
+                                                              project.totalInvest
+                                                         }
+                                                         toggleFav={
+                                                              toggleFavorite
+                                                         }
+                                                    />
+                                               </div>
+                                          )
+                                     )
+                                   : null}
                          </TopCards>
                     </TopContainer>
                     <FinalContainer>
@@ -379,7 +387,6 @@ const DashboardINVe: FC = () => {
                                         </Button>
                                    </ButtonSeeMore>
                               )}
-
                          </FinalCards>
                     </FinalContainer>
                </CardsContainer>

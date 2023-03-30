@@ -37,12 +37,11 @@ import {
      StyledFavoriteIcon,
      StyledFavoriteBorderOutlinedIcon,
      SpanText,
-     SpanData
+     SpanData,
 } from './styles';
 
-import { DetailsLogic } from '../../views/ProjectDetails/logic';
-import { getUserRole } from '../../services/storage/userRole';
-
+import {DetailsLogic} from '../../views/ProjectDetails/logic';
+import {getUserRole} from '../../services/storage/userRole';
 
 const Card: FC<Props> = ({
      id,
@@ -72,7 +71,7 @@ const Card: FC<Props> = ({
      toggleFav,
      isFavorite,
 }) => {
-     const { daysLeft } = DetailsLogic()
+     const {daysLeft} = DetailsLogic();
      const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();
      const [showMenu, setShowMenu] = useState(false);
@@ -81,7 +80,6 @@ const Card: FC<Props> = ({
           location.pathname !== '/' &&
           location.pathname !== '/welcome' &&
           getUserRole() !== 'INVESTOR';
-
 
      // const handleClick = useCallback(() => {
      //      setLiked(!liked);
@@ -101,22 +99,21 @@ const Card: FC<Props> = ({
           setShowMenu(showMenu);
      }, [showMenu]);
 
-
-
-
-     const handleGoDetails = useCallback((id: string) => {
-          navigate(`/projectdetails/${id}`);
-          console.log(id)
-          window.scrollTo(0, 0);
-     }, [navigate]);
+     const handleGoDetails = useCallback(
+          (id: string) => {
+               navigate(`/projectdetails/${id}`);
+               console.log(id);
+               window.scrollTo(0, 0);
+          },
+          [navigate]
+     );
 
      return (
           <CardContainer>
                <ContainerImg>
                     <VideoThumbail
                          src={url}
-                         style={{ width: '100%', margin: 'auto' }}
-
+                         style={{width: '100%', margin: 'auto'}}
                     />
                </ContainerImg>
                <ContainerTitle>
@@ -124,17 +121,21 @@ const Card: FC<Props> = ({
                </ContainerTitle>
                <ContainerInvestor>
                     <TotalInvestor>
-                         <SpanText>Total investors:</SpanText><SpanData>{totalInvestor}</SpanData>
+                         <SpanText>Total investors:</SpanText>
+                         <SpanData>{totalInvestor}</SpanData>
                     </TotalInvestor>
                </ContainerInvestor>
                <ContainerInvestor>
-                    <TotalInvestor><SpanText>Finish in:</SpanText><SpanData>{' '}{daysLeft(duration!)}{' '}days</SpanData></TotalInvestor>
+                    <TotalInvestor>
+                         <SpanText>Finish in:</SpanText>
+                         <SpanData> {daysLeft(duration!)} days</SpanData>
+                    </TotalInvestor>
                </ContainerInvestor>
                <ContainerDesc>
                     <Description>{description}</Description>
                </ContainerDesc>
                <ContainerLocations>
-                    <Country>{country}</Country>{' '}<City>,{city}</City>
+                    <Country>{country}</Country> <City>,{city}</City>
                </ContainerLocations>
                <ContainerCategories>
                     <Categories>
@@ -148,10 +149,6 @@ const Card: FC<Props> = ({
                          max={goal || 0}
                     />
                </ContainerLinear>
-               <HeartButton
-                    className={isFav ? 'active' : ''}
-                    onClick={handleToggleFav}
-               />
 
                <div>
                     <ContainerButtonModal>
@@ -192,7 +189,7 @@ const Card: FC<Props> = ({
                          </Menu>
                     )}
                </div>
-          </CardContainer >
+          </CardContainer>
      );
 };
 
