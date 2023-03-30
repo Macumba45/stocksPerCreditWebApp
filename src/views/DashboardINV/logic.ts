@@ -5,7 +5,6 @@ import {togglePostFav} from '../../services/api/user';
 import format from 'date-fns/format';
 import type {ProjectFilters} from '../../models/project';
 import type {Tag} from '../../models/tag';
-import { getTags } from '../../services/api/tag';
 import { getTagsGroup } from '../../services/api/tagGroup';
 
 export const DashboardInvLogic = () => {
@@ -21,7 +20,7 @@ export const DashboardInvLogic = () => {
           max: number;
      }>({min: 1000, max: 5000});
      const [isLoading, setIsLoading] = useState(false);
-     const [tags, setTags] = useState<Tag[]>([]);
+     const [tagsGroup, setTagsGroup] = useState<Tag[]>([]);
 
      const getProjectsData = useCallback(
           async (filters?: ProjectFilters) => {
@@ -35,12 +34,12 @@ export const DashboardInvLogic = () => {
           [setprojectData]
      );
 
-     const getTagsData = useCallback(async () => {
+     const getTagsGroupData = useCallback(async () => {
           setIsLoading(true);
           const data = await getTagsGroup();
           console.log(data)
           if (data) {
-               setTags(data);
+               setTagsGroup(data);
           }
           setIsLoading(false);
      }, [setprojectData]);
@@ -90,8 +89,8 @@ export const DashboardInvLogic = () => {
 
      useEffect(() => {
           getProjectsData();
-          getTagsData();
-     }, [getProjectsData, getTagsData]);
+          getTagsGroupData();
+     }, [getProjectsData, getTagsGroupData]);
 
      return {
           projectData,
@@ -101,6 +100,6 @@ export const DashboardInvLogic = () => {
           handleDateChange,
           toggleFavorite,
           isLoading,
-          tags
+          tagsGroup
      };
 };

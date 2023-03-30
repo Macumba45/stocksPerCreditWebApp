@@ -1,4 +1,4 @@
-import {FC, memo, useCallback, useState} from 'react';
+import {FC, memo, useCallback, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Formik, Field, Form} from 'formik';
 import {initialValues, validationSchema} from './constants';
@@ -10,9 +10,28 @@ import {
      FormButton,
      BackButton,
 } from './styles';
+import Search from '../../components/Search';
+import { getTags } from '../../services/api/tag';
+import { Tag } from '../../models/tag';
 
 const FormProject: FC = () => {
      const navigate = useNavigate();
+     const [isLoading, setIsLoading] = useState(false);
+     const [tags, setTags] = useState<Tag[]>([]);
+     const [tagsByFilter, setTagsByFilter] = useState<{selectedTags: Tag[]}>({
+          selectedTags: [],
+     });
+
+
+     const getTagsData = useCallback(async () => {
+          setIsLoading(true);
+          const data = await getTags();
+          console.log(data)
+          if (data) {
+               setTags(data);
+          }
+          setIsLoading(false);
+     }, []);
 
      const onSubmitForm = (
           values: any,
@@ -23,9 +42,20 @@ const FormProject: FC = () => {
           setSubmitting(false);
      };
 
+     const handleFiltersTagsChange = useCallback((newTags: any) => {
+          setTagsByFilter((prevTags) => ({
+               ...prevTags,
+               ...newTags,
+          }));
+     }, []);
+
      const handleGoToBack = useCallback(() => {
           navigate('/dashboardemp');
      }, [navigate]);
+
+     useEffect(() => {
+          getTagsData();
+     }, [getTagsData]);
 
      return (
           <FormContainer>
@@ -194,6 +224,14 @@ const FormProject: FC = () => {
                          }
                     </Form>
                </Formik>
+               <InputContainer>
+                              <p>Select tags to filter your search </p>
+                              <Search
+                              handleFiltersChange={handleFiltersTagsChange}
+                                   options={tags}
+                              />
+                              {/* <ContainedButtons/> */}
+                         </InputContainer>
           </FormContainer>
      );
 };

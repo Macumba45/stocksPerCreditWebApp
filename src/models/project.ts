@@ -17,7 +17,6 @@ export type ProjectInput = {
      actionPerCredit: string;
      returnInvestment: number;
      goal: number;
-     limitvalue: number;
      tags: string[];
 };
 

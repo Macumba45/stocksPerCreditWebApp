@@ -68,7 +68,6 @@ const Card: FC<Props> = ({
      toggleFav,
      isFavorite,
 }) => {
-     const {daysLeft} = DetailsLogic();
 
      const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();
