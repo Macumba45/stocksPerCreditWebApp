@@ -37,6 +37,7 @@ import {
 
      ContainerDays
 } from './styles';
+import { DetailsLogic } from '../../views/ProjectDetails/logic';
 
 
 

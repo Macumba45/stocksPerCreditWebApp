@@ -1,573 +1,356 @@
-import {FC, memo, useState} from 'react';
-import {Formik, Field, Form} from 'formik';
-import {initialValues, validationSchema} from './constants';
-import LooksOneIcon from '@mui/icons-material/LooksOne';
-import LooksTwoIcon from '@mui/icons-material/LooksTwo';
-import Looks3Icon from '@mui/icons-material/Looks3';
-import NavbarEmp from '../NavbarEmp';
-import CountrySelect from './Country';
-import LimitTags from './Tags';
-import MinHeightTextarea from './Text';
-import LimitCity from './City';
-import {StartDatePickers} from './DatePicker';
-import InputCurrency from './InputCurrency';
+import { FC, memo, useState } from 'react';
+import { initialValues } from './constants';
+import { Field, FieldProps, Formik } from 'formik';
+import { validationSchema } from './constants';
 import {
-     FormContainer,
-     TitleForm,
-     BasicInformation,
-     InputContainer,
-     Input,
-     Error,
-     FormButton,
+     MainFormContainer,
+     Form,
+     SignUpTitle,
+     EmailContainer,
+     PasswordContainer,
      LabelContainer,
      Label,
-     DivIcon,
-     DivIcon1,
-     Formulario,
-     ButtonNext,
-     ButtonPrevious,
+     Input,
+     ButtonSignUpContainer,
+     ButtonSignUp,
+     Error,
+     NameContainer,
+
 } from './styles';
+import { createProject } from '../../services/api/project';
 
-const FormProject: FC = () => {
-     const [step, setStep] = useState(1);
 
-     const onSubmitForm = (
-          values: any,
-          {setSubmitting}: {setSubmitting: (isSubmitting: boolean) => void}
-     ) => {
-          // Handle submitting the form data
-          setSubmitting(false);
+
+
+
+
+
+
+
+const FormProjectNew: FC = () => {
+
+     const [tags, setTags] = useState([]);
+
+
+     const onSubmit = async (values: any, newTags: any) => {
+          setTags(newTags);
+          await createProject(values)
+          console.log(values, newTags);
+          // do something with the form values here
      };
 
+
      return (
-          <FormContainer>
-               <NavbarEmp />
-
-               <Formik
-                    validationSchema={validationSchema}
-                    onSubmit={onSubmitForm} // quitar, solo esta para que deje de chillar la maricona
-                    initialValues={initialValues}
-               >
-                    <Form>
-                         <TitleForm>Create Your New Project</TitleForm>
-
-                         {step === 1 && (
-                              <>
-                                   <Formulario>
-                                        <BasicInformation>
-                                             <DivIcon1>
-                                                  <LooksOneIcon />
-                                             </DivIcon1>
-                                             Basic information
-                                        </BasicInformation>
-
-                                        <Field name="url">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Upload the url
-                                                                 for your
-                                                                 project*{' '}
-                                                            </Label>
-                                                            <Input
-                                                                 $hasError={
-                                                                      !!meta?.error
-                                                                 }
-                                                                 type="url"
-                                                                 placeholder="Write your url on..."
-                                                                 onKeyDown={(
-                                                                      event
-                                                                 ) => {
-                                                                      if (
-                                                                           event.key ===
-                                                                           'Enter'
-                                                                      ) {
-                                                                           event.preventDefault(); // Evita que se recargue la página
-                                                                      }
-                                                                 }}
-                                                                 {...field}
-                                                            />{' '}
-                                                       </LabelContainer>{' '}
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+          <>
+               <MainFormContainer>
+                    <Formik
+                         validationSchema={validationSchema}
+                         onSubmit={onSubmit}
+                         initialValues={initialValues}
+                    >
+                         <Form>
+                              <SignUpTitle>Create new Project</SignUpTitle>
+                              <Field name="url">
+                                   {({ field, meta }: FieldProps) => (
+                                        <NameContainer>
+                                             <LabelContainer>
+                                                  <Label>URL Video</Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="url"
+                                                  placeholder="Insert your URL"
+                                                  {...field}
+                                             />
+                                             {!!meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="title">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Write the title
-                                                                 of your
-                                                                 project*{' '}
-                                                            </Label>
-                                                       </LabelContainer>
-                                                       <Input
-                                                            $hasError={
-                                                                 !!meta?.error
-                                                            }
-                                                            type="text"
-                                                            placeholder="Write your title on..."
-                                                            onKeyDown={(
-                                                                 event
-                                                            ) => {
-                                                                 if (
-                                                                      event.key ===
-                                                                      'Enter'
-                                                                 ) {
-                                                                      event.preventDefault(); // Evita que se recargue la página
-                                                                 }
-                                                            }}
-                                                            {...field}
-                                                       />
-
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </NameContainer>
+                                   )}
+                              </Field>
+                              <Field name="title">
+                                   {({ field, meta }: FieldProps) => (
+                                        <NameContainer>
+                                             <LabelContainer>
+                                                  <Label>Project title</Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="title"
+                                                  placeholder="Insert your ProjectTitle"
+                                                  {...field}
+                                             />
+                                             {!!meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="country">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Indicate your
-                                                                 country*{' '}
-                                                            </Label>
-                                                            <CountrySelect />
-                                                       </LabelContainer>
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </NameContainer>
+                                   )}
+                              </Field>
+                              <Field name="description">
+                                   {({ field, meta }: FieldProps) => (
+                                        <NameContainer>
+                                             <LabelContainer>
+                                                  <Label>Description</Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="description"
+                                                  placeholder="Insert your Description"
+                                                  {...field}
+                                             />
+                                             {!!meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="city">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Indicate your
-                                                                 city*{' '}
-                                                            </Label>
-                                                            <LimitCity />
-                                                       </LabelContainer>
-
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </NameContainer>
+                                   )}
+                              </Field>
+                              <Field name="country">
+                                   {({ field, meta }: FieldProps) => (
+                                        <EmailContainer>
+                                             <LabelContainer>
+                                                  <Label>Country* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="country"
+                                                  placeholder="Insert your Country"
+                                                  {...field}
+                                             />
+                                             {!!meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                   </Formulario>
-
-                                   <ButtonNext onClick={() => setStep(2)}>
-                                        Next
-                                   </ButtonNext>
-                              </>
-                         )}
-
-                         {step === 2 && (
-                              <>
-                                   <Formulario>
-                                        <BasicInformation>
-                                             <DivIcon>
-                                                  <LooksTwoIcon />
-                                             </DivIcon>
-                                             Project Information{' '}
-                                        </BasicInformation>
-                                        <Field name="history">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Writte your
-                                                                 history*{' '}
-                                                            </Label>
-                                                            <MinHeightTextarea />
-                                                       </LabelContainer>
-
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </EmailContainer>
+                                   )}
+                              </Field>
+                              <Field name="city">
+                                   {({ field, meta }: FieldProps) => (
+                                        <NameContainer>
+                                             <LabelContainer>
+                                                  <Label>City* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="city"
+                                                  placeholder="Insert your City"
+                                                  {...field}
+                                             />{' '}
+                                             {!!meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="description">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Writte a
-                                                                 description*{' '}
-                                                            </Label>
-                                                            <MinHeightTextarea />
-                                                       </LabelContainer>
-
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </NameContainer>
+                                   )}
+                              </Field>
+                              <Field name="duration">
+                                   {({ field, meta }: FieldProps) => (
+                                        <NameContainer>
+                                             <LabelContainer>
+                                                  <Label>Duration* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="duration"
+                                                  placeholder="Insert your Duration"
+                                                  {...field}
+                                             />
+                                             {!!meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="proposal">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Indicate your
-                                                                 proposal*{' '}
-                                                            </Label>
-                                                       </LabelContainer>
-                                                       <MinHeightTextarea />
-
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </NameContainer>
+                                   )}
+                              </Field>
+                              <Field name="history">
+                                   {({ field, meta }: FieldProps) => (
+                                        <NameContainer>
+                                             <LabelContainer>
+                                                  <Label>History* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="history"
+                                                  placeholder="Insert your History"
+                                                  {...field}
+                                             />
+                                             {!!meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="duration">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 How long will
-                                                                 your project
-                                                                 last?*
-                                                            </Label>
-                                                       </LabelContainer>
-                                                       <StartDatePickers />
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </NameContainer>
+                                   )}
+                              </Field>
+                              <Field name="commerce">
+                                   {({ field, meta }: FieldProps) => (
+                                        <PasswordContainer>
+                                             <LabelContainer>
+                                                  <Label>Commerce* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="commerce"
+                                                  placeholder="Insert Commerce"
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-
-                                        <Field name="commerce">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Indicate your
-                                                                 type project*{' '}
-                                                            </Label>
-                                                            <MinHeightTextarea />
-                                                       </LabelContainer>
-
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </PasswordContainer>
+                                   )}
+                              </Field>
+                              <Field name="proposal">
+                                   {({ field, meta }: FieldProps) => (
+                                        <PasswordContainer>
+                                             <LabelContainer>
+                                                  <Label>Proposal* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="proposal"
+                                                  placeholder="Insert Proposal"
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-
-                                        <Field name="tags">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Choose your
-                                                                 favorite tags*{' '}
-                                                            </Label>
-                                                            <LimitTags />
-                                                       </LabelContainer>
-
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </PasswordContainer>
+                                   )}
+                              </Field>
+                              <Field name="cost">
+                                   {({ field, meta }: FieldProps) => (
+                                        <PasswordContainer>
+                                             <LabelContainer>
+                                                  <Label>Cost* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="cost"
+                                                  placeholder="Insert Cost"
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                   </Formulario>
-                                   <ButtonPrevious onClick={() => setStep(1)}>
-                                        Previous
-                                   </ButtonPrevious>
-                                   <ButtonNext onClick={() => setStep(3)}>
-                                        Next
-                                   </ButtonNext>
-                              </>
-                         )}
-                         {step === 3 && (
-                              <>
-                                   {' '}
-                                   <Formulario>
-                                        <BasicInformation>
-                                             <DivIcon>
-                                                  <Looks3Icon />
-                                             </DivIcon>
-                                             Economic Information{' '}
-                                        </BasicInformation>
-                                        <Field name="goal">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Indicate yout
-                                                                 goal*{' '}
-                                                            </Label>
-                                                       </LabelContainer>
-                                                       <Input
-                                                            $hasError={
-                                                                 !!meta?.error
-                                                            }
-                                                            type="number"
-                                                            placeholder="Write your proposal on..."
-                                                            {...field}
-                                                       />{' '}
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </PasswordContainer>
+                                   )}
+                              </Field>
+                              <Field name="currency">
+                                   {({ field, meta }: FieldProps) => (
+                                        <PasswordContainer>
+                                             <LabelContainer>
+                                                  <Label>Currency* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="currency"
+                                                  placeholder="Insert Currency"
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="currency">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 What type of
-                                                                 currency do you
-                                                                 use?*{' '}
-                                                            </Label>
-                                                       </LabelContainer>
-                                                       <InputCurrency />
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </PasswordContainer>
+                                   )}
+                              </Field>
+                              <Field name="MinimumInvestment">
+                                   {({ field, meta }: FieldProps) => (
+                                        <PasswordContainer>
+                                             <LabelContainer>
+                                                  <Label>Minimun Invest* </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="MinimumInvestment"
+                                                  placeholder="Insert MinInvest"
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="actionPerCredit">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 ActionPerCredit*{' '}
-                                                            </Label>
-                                                       </LabelContainer>
-                                                       <Input
-                                                            $hasError={
-                                                                 !!meta?.error
-                                                            }
-                                                            type="text"
-                                                            placeholder="Write your actionPerCredit on..."
-                                                            {...field}
-                                                       />
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </PasswordContainer>
+                                   )}
+                              </Field>
+                              <Field name="ActionPerCredits">
+                                   {({ field, meta }: FieldProps) => (
+                                        <PasswordContainer>
+                                             <LabelContainer>
+                                                  <Label>Action per Credit </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="ActionPerCredits"
+                                                  placeholder="Insert ActionPerCredit"
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="cost">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Cost*{' '}
-                                                            </Label>
-                                                       </LabelContainer>
-                                                       <Input
-                                                            $hasError={
-                                                                 !!meta?.error
-                                                            }
-                                                            type="number"
-                                                            placeholder="Write your cost on..."
-                                                            {...field}
-                                                       />
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </PasswordContainer>
+                                   )}
+                              </Field>
+                              <Field name="ReturnOnInvestment">
+                                   {({ field, meta }: FieldProps) => (
+                                        <PasswordContainer>
+                                             <LabelContainer>
+                                                  <Label>ROI </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="ReturnOnInvestment"
+                                                  placeholder="Insert ROI"
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <Field name="MinimumInvestment">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Minimum
-                                                                 Investment*{' '}
-                                                            </Label>
-                                                       </LabelContainer>
-                                                       <Input
-                                                            $hasError={
-                                                                 !!meta?.error
-                                                            }
-                                                            type="number"
-                                                            placeholder="Write your Minimum Investment on..."
-                                                            {...field}
-                                                       />
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </PasswordContainer>
+                                   )}
+                              </Field>
+                              <Field name="goal">
+                                   {({ field, meta }: FieldProps) => (
+                                        <PasswordContainer>
+                                             <LabelContainer>
+                                                  <Label>Goal </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="goal"
+                                                  placeholder="Insert Goal"
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>{' '}
-                                        <Field name="ReturnOnInvestment">
-                                             {({
-                                                  field,
-                                                  meta,
-                                             }: {
-                                                  field: any;
-                                                  meta: any;
-                                             }) => (
-                                                  <InputContainer>
-                                                       <LabelContainer>
-                                                            <Label>
-                                                                 Return On
-                                                                 Investment*{' '}
-                                                            </Label>
-                                                       </LabelContainer>
-                                                       <StartDatePickers />
-
-                                                       {meta?.error && (
-                                                            <Error>
-                                                                 {meta.error}
-                                                            </Error>
-                                                       )}
-                                                  </InputContainer>
+                                        </PasswordContainer>
+                                   )}
+                              </Field>
+                              <Field name="tags">
+                                   {({ field, meta }: FieldProps) => (
+                                        <PasswordContainer>
+                                             <LabelContainer>
+                                                  <Label>Tags </Label>
+                                             </LabelContainer>
+                                             <Input
+                                                  $hasError={!!meta?.error}
+                                                  type="tags"
+                                                  placeholder="Insert Tags"
+                                                  {...field}
+                                             />
+                                             {meta?.error && (
+                                                  <Error>{meta.error}</Error>
                                              )}
-                                        </Field>
-                                        <FormButton type="submit">
-                                             Save
-                                        </FormButton>
-                                   </Formulario>
-                                   <ButtonPrevious onClick={() => setStep(2)}>
-                                        Previous
-                                   </ButtonPrevious>
-                              </>
-                         )}
-                    </Form>
-               </Formik>
-          </FormContainer>
+                                        </PasswordContainer>
+                                   )}
+                              </Field>
+                              <ButtonSignUpContainer>
+                                   <ButtonSignUp type="submit">
+                                        Create new Project
+                                   </ButtonSignUp>
+                              </ButtonSignUpContainer>
+                         </Form>
+                    </Formik>
+               </MainFormContainer>
+          </>
      );
-};
 
-export default memo(FormProject);
+}
+
+
+
+export default memo(FormProjectNew)
