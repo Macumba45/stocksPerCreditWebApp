@@ -35,7 +35,7 @@ const DashboardINVe: FC = () => {
           handleDateChange,
           toggleFavorite,
           isLoading,
-          tags,
+          tagsGroup,
      } = DashboardInvLogic();
 
      const pageSize = 5;
@@ -77,7 +77,7 @@ const DashboardINVe: FC = () => {
                               <p>Select tags to filter your search </p>
                               <Search
                                    handleFiltersChange={handleFiltersTagsChange}
-                                   options={tags}
+                                   options={tagsGroup}
                               />
                               {/* <ContainedButtons/> */}
                          </FiltersDiv>
@@ -168,7 +168,6 @@ const DashboardINVe: FC = () => {
                                              <Card
                                                   id={project.id}
                                                   url={project.url}
-                                                  // showHeartButton={true}
                                                   title={project.title}
                                                   duration={project.duration}
                                                   description={
