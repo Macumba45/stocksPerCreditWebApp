@@ -30,6 +30,7 @@ export const fetchLandingData = async () => {
                ratioSuccess: data?.ratioSuccess,
                totalProjects: data?.totalProjects, // corregir la clave
           };
+          console.log(values)
 
           return values;
      } catch (error) {

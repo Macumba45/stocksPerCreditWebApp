@@ -21,6 +21,7 @@ export type Props = {
      returnInvestment?: number;
      goal?: number;
      tags?: TagResponse[] | undefined;
+     ProjectTag?:TagResponse[] | undefined;
      limitvalue?: number;
      createdAt?: Date;
      updatedAt?: Date;

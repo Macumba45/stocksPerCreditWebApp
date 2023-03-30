@@ -4,6 +4,16 @@ export const MainContainer = styled.div`
 
 `;
 
+export const MainContainerInv = styled.div`
+/* margin-left: 5rem; */
+
+@media screen and (min-width: 1000px) {
+       
+          margin-left: 5rem;
+     }
+
+`;
+
 export const MainContainerDesktop = styled.div`
      display: flex;
      width: 100%;
@@ -12,6 +22,7 @@ export const MainContainerDesktop = styled.div`
           display: flex;
           flex-direction: column;
           justify-content: center;
+          margin-top: 5rem;
      }
 `;
 

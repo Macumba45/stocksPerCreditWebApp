@@ -23,6 +23,7 @@ import {
      LocationCountry,
      MainContainer,
      MainContainerDesktop,
+     MainContainerInv,
      MainInvestContainer,
      MainInvestContainerFlex,
      SpanData,
@@ -60,6 +61,8 @@ const ProjectDetails: FC = () => {
           );
      };
 
+     console.log(dataDetails?.ProjectTag)
+
      return (
           <MainContainer>
                <CustomTooltip title="Go to Landing">
@@ -89,7 +92,7 @@ const ProjectDetails: FC = () => {
                          />
                     </MainContainer>
 
-                    <MainContainer style={{ marginTop: '3rem' }}>
+                    <MainContainerInv style={{ marginTop: '3rem' }}>
                          <TitleContainer>
                               <Title>
                                    {dataDetails?.title}
@@ -156,7 +159,7 @@ const ProjectDetails: FC = () => {
                                    </CalculadoraAccionesContainer>
                               </MainInvestContainerFlex>
                          </MainInvestContainer>
-                    </MainContainer>
+                    </MainContainerInv>
                </MainContainerDesktop>
                <Divider
                     sx={{
@@ -234,12 +237,11 @@ const ProjectDetails: FC = () => {
                     }}
                />
                <TagsContainer>
-                    <Tags>
-                         <SpanTags>TAG NUMERO 1</SpanTags>
-                    </Tags>
-                    <Tags>
-                         <SpanTags>TAG NUMERO 2</SpanTags>
-                    </Tags>
+                    {dataDetails?.ProjectTag?.map((tag) => (
+                         <Tags key={tag.id}>
+                              <SpanTags>{tag.name}</SpanTags>
+                         </Tags>
+                    ))}
                </TagsContainer>
                <Divider
                     sx={{

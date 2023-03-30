@@ -62,6 +62,7 @@ const Card: FC<Props> = ({
      returnInvestment,
      goal,
      tags,
+     ProjectTag,
      limitvalue,
      createdAt,
      updatedAt,
@@ -80,12 +81,7 @@ const Card: FC<Props> = ({
           getUserRole() !== 'INVESTOR';
 
 
-     const logged = getUserRole();
-
-     // const handleClick = useCallback(() => {
-     //      setLiked(!liked);
-     //      togglePostFav(projectId)
-     // }, [liked]);
+     const logged = getUserRole() !== 'INVESTOR' || 'ENTREPRENEUR';
 
      const handleToggleFav = useCallback(() => {
           setIsFav(!isFav);
@@ -104,11 +100,10 @@ const Card: FC<Props> = ({
      const handleGoDetails = useCallback((id: string) => {
           if (logged) {
                navigate(`/projectdetails/${id}`);
-               console.log(id)
                window.scrollTo(0, 0);
 
           } else {
-               navigate('/login')
+               navigate('/dashboard')
           }
 
      }, [navigate]);
@@ -125,9 +120,7 @@ const Card: FC<Props> = ({
           <CardContainer>
                <ContainerImg>
                     <VideoThumbail
-
                          url={url}
-
                     />
                </ContainerImg>
                <ContainerTitle>
@@ -152,7 +145,7 @@ const Card: FC<Props> = ({
                </ContainerLocations>
                <ContainerCategories>
                     <Categories>
-                         {tags ? tags.map((tag) => tag.name).join(' ') : ''}
+                         {ProjectTag ? ProjectTag.map((tag: any) => tag.name).join(' ') : ''}
                     </Categories>
                </ContainerCategories>
                <ContainerLinear>
