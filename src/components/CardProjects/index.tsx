@@ -1,23 +1,20 @@
-import {useState, memo, useCallback, FC} from 'react';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { useState, memo, useCallback, FC } from 'react';
 import Button from '@mui/material/Button';
 import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import {useLocation} from 'react-router';
-import {useNavigate} from 'react-router-dom';
-import {Props} from './type';
+import { useLocation } from 'react-router';
+import { useNavigate } from 'react-router-dom';
+import { Props } from './type';
 import VideoThumbail from './video/index';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { getUserRole } from '../../services/storage/userRole';
+
 
 import {
      CardContainer,
      Title,
-     HeartButton,
      ContainerImg,
-     ContainerButton,
      ContainerTitle,
      ContainerDesc,
      Description,
@@ -33,15 +30,15 @@ import {
      MenuItem,
      TotalInvestor,
      ContainerInvestor,
-     MainContainer,
      StyledFavoriteIcon,
      StyledFavoriteBorderOutlinedIcon,
      SpanText,
      SpanData,
+
+     ContainerDays
 } from './styles';
 
-import {DetailsLogic} from '../../views/ProjectDetails/logic';
-import {getUserRole} from '../../services/storage/userRole';
+
 
 const Card: FC<Props> = ({
      id,
@@ -72,6 +69,7 @@ const Card: FC<Props> = ({
      isFavorite,
 }) => {
      const {daysLeft} = DetailsLogic();
+
      const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();
      const [showMenu, setShowMenu] = useState(false);
@@ -80,6 +78,9 @@ const Card: FC<Props> = ({
           location.pathname !== '/' &&
           location.pathname !== '/welcome' &&
           getUserRole() !== 'INVESTOR';
+
+
+     const logged = getUserRole();
 
      // const handleClick = useCallback(() => {
      //      setLiked(!liked);
@@ -99,21 +100,34 @@ const Card: FC<Props> = ({
           setShowMenu(showMenu);
      }, [showMenu]);
 
-     const handleGoDetails = useCallback(
-          (id: string) => {
+
+     const handleGoDetails = useCallback((id: string) => {
+          if (logged) {
                navigate(`/projectdetails/${id}`);
-               console.log(id);
+               console.log(id)
                window.scrollTo(0, 0);
-          },
-          [navigate]
-     );
+
+          } else {
+               navigate('/login')
+          }
+
+     }, [navigate]);
+
+     const daysLeft = (date: string) => {
+          const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+          const today = new Date();
+          const difference = new Date(date).getTime() - today.getTime();
+          return Math.round(Math.abs((difference) / oneDay));
+
+     }
 
      return (
           <CardContainer>
                <ContainerImg>
                     <VideoThumbail
-                         src={url}
-                         style={{width: '100%', margin: 'auto'}}
+
+                         url={url}
+
                     />
                </ContainerImg>
                <ContainerTitle>
@@ -125,17 +139,16 @@ const Card: FC<Props> = ({
                          <SpanData>{totalInvestor}</SpanData>
                     </TotalInvestor>
                </ContainerInvestor>
-               <ContainerInvestor>
-                    <TotalInvestor>
-                         <SpanText>Finish in:</SpanText>
-                         <SpanData> {daysLeft(duration!)} days</SpanData>
-                    </TotalInvestor>
-               </ContainerInvestor>
+
+               <ContainerDays>
+                    <TotalInvestor><SpanText>Will end:</SpanText><SpanData>{' '}{daysLeft(duration!)}{' '}days</SpanData></TotalInvestor>
+               </ContainerDays>
                <ContainerDesc>
                     <Description>{description}</Description>
                </ContainerDesc>
                <ContainerLocations>
-                    <Country>{country}</Country> <City>,{city}</City>
+
+                    <Country>{country},</Country>{' '}<City>{city}</City>
                </ContainerLocations>
                <ContainerCategories>
                     <Categories>

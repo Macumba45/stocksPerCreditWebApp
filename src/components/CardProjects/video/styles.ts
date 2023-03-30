@@ -17,3 +17,8 @@ export const StyledPlayArrowIcon = styled(PlayArrowIcon)`
           transform: scale(1.2);
      }
 `;
+
+export const MainContainer = styled.div`
+     margin: 0 auto;
+    
+`;

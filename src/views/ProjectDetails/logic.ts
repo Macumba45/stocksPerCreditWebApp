@@ -23,14 +23,14 @@ export const DetailsLogic = () => {
         }
     }, []);
 
-    const daysLeft = (date:string)=> {
+    const daysLeft = (date: string) => {
         const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
         const today = new Date();
         const difference = new Date(date).getTime() - today.getTime();
         return Math.round(Math.abs((difference) / oneDay));
-    
+
     }
-    
+
 
 
     useEffect(() => {
@@ -41,3 +41,4 @@ export const DetailsLogic = () => {
         dataDetails,
         daysLeft
     };}
+

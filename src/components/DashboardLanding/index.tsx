@@ -1,4 +1,6 @@
-import {FC, memo} from 'react';
+import { FC, memo, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getAuthenticatedToken, setAuthenticatedToken } from '../../services/storage/token';
 import {
      MainContainer,
      ContainerText,
@@ -11,6 +13,19 @@ import {
 } from './styles';
 
 const DashboardLanding: FC = () => {
+
+     const token = getAuthenticatedToken()
+
+     const navigate = useNavigate()
+
+     const start = useCallback(() => {
+          if (token) {
+               navigate('/dashboard')
+          } else {
+               navigate('/login')
+
+          }
+     }, [])
      return (
           <MainContainer>
                <ContainerImg></ContainerImg>
@@ -24,7 +39,7 @@ const DashboardLanding: FC = () => {
                          crecimiento de todo el planeta
                     </SubTitle>
                     <ButtonContainer>
-                         <ButtonSimulation>Start</ButtonSimulation>
+                         <ButtonSimulation onClick={start} >Start</ButtonSimulation>
                     </ButtonContainer>
                </ContainerText>
           </MainContainer>

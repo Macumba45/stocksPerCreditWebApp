@@ -57,12 +57,20 @@ export const Title = styled.h2`
 `;
 export const ContainerInvestor = styled.div`
      position: relative;
+     margin-top: 10px;
+     margin-bottom: 10px;
      left: 1rem;
+     max-width: 220px; /* establecer un ancho máximo para el contenedor */
+`;
+export const ContainerDays = styled.div`
+     position: relative;
+     left: 1rem;
+     margin-bottom: 10px;
+
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
 `;
 
 export const TotalInvestor = styled.h2`
-     margin: 10px 0px;
      font-family: Roboto, sans-serif;
      color: #606060;
      font-size: 1rem;
@@ -179,16 +187,16 @@ export const ContainerLocations = styled.div`
 `;
 
 export const Country = styled.p`
-     color: ${({ theme }) => theme.colors.lighterGrey};
+     color: ${({ theme }) => theme.colors.primary};
      font-family: ${({ theme }) => theme.fonts.primary};
      font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
+     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
      max-width: 220px; /* establecer un ancho máximo para el contenedor */
      display: inline-block;
 `;
 
 export const City = styled.p`
-     color: ${({ theme }) => theme.colors.lighterGrey};
+     color: '#7e1b7669';
      font-family: ${({ theme }) => theme.fonts.primary};
      font-size: ${({ theme }) => theme.fontSizes.smallest};
      font-weight: ${({ theme }) => theme.fontWeights.semiLight};
