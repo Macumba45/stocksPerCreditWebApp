@@ -43,7 +43,7 @@ const DashboardINVe: FC = () => {
      const projects = projectData?.allProjects || []; // La lista de proyectos
 
      // Obtener la sección de la lista de proyectos que se debe mostrar en función del estado actual
-     const visibleProjects = projects.slice(0, pageSize * page)|| [];
+     const visibleProjects = projects.slice(0, pageSize * page) || [];
 
      // Función que se ejecuta cuando se hace clic en el botón "ver más proyectos"
      const handleLoadMore = () => {
@@ -75,7 +75,7 @@ const DashboardINVe: FC = () => {
                     <TagDiv>
                          <FiltersDiv>
                               <p>Select tags to filter your search </p>
-                              <Search 
+                              <Search
                                    handleFiltersChange={handleFiltersTagsChange}
                                    options={tags}
                               />
@@ -212,8 +212,8 @@ const DashboardINVe: FC = () => {
                               />
                          </SectionTitle>
                          <TopCards>
-                              {projectData?.latestProjects.map(
-                                   (project, index) => (
+                              {projectData ? (
+                                   projectData.latestProjects.map((project, index) => (
                                         <div key={index}>
                                              <Card
                                                   id={project.id}
@@ -221,33 +221,21 @@ const DashboardINVe: FC = () => {
                                                   showHeartButton={false}
                                                   title={project.title}
                                                   duration={project.duration}
-                                                  description={
-                                                       project.description
-                                                  }
+                                                  description={project.description}
                                                   country={project.country}
                                                   city={project.city}
                                                   tags={[]}
-                                                  collected={
-                                                       project.totalInvest
-                                                  }
-                                                  totalInvestor={
-                                                       project.totalInvestor
-                                                  }
-                                                  minimuminvestment={
-                                                       project.minimuminvestment
-                                                  }
+                                                  collected={project.totalInvest}
+                                                  totalInvestor={project.totalInvestor}
+                                                  minimuminvestment={project.minimuminvestment}
                                                   goal={project.goal}
-                                                  limitvalue={
-                                                       project.limitvalue
-                                                  }
-                                                  totalInvest={
-                                                       project.totalInvest
-                                                  }
+                                                  limitvalue={project.limitvalue}
+                                                  totalInvest={project.totalInvest}
                                                   toggleFav={toggleFavorite}
                                              />
                                         </div>
-                                   )
-                              )}
+                                   ))
+                              ) : null}
                          </TopCards>
                     </TopContainer>
                     <FinalContainer>

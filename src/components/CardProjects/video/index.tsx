@@ -1,9 +1,11 @@
-import {memo, useState} from 'react';
+
+
+import { memo, useState } from 'react';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 const logo = require('../../../components/NavBar/assets/logo.png');
 
-const VideoThumbnail = ({url}: any) => {
+const VideoThumbnail = ({ url }: any) => {
      const [thumbnailUrl] = useState(logo);
      const [isPlaying, setIsPlaying] = useState(false);
 
