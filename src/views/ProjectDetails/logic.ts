@@ -14,21 +14,23 @@ export const DetailsLogic = () => {
     const [dataDetails, setDataDetails] = useState<ProjectResponse>();
     const { id } = useParams<{ id: string }>(); // Obtener la id desde la ruta
 
-    const getDataDetails = useCallback(async (id: string) => {
-        const data = await getProjectById(id);
-        if (data) {
-            setDataDetails(data);
+    const getDataDetails = useCallback(async (id: string | undefined) => {
+        if (id) {
+            const data = await getProjectById(id);
+            if (data) {
+                setDataDetails(data);
+            }
         }
     }, []);
 
-    const daysLeft = (date:string)=> {
+    const daysLeft = (date: string) => {
         const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
         const today = new Date();
         const difference = new Date(date).getTime() - today.getTime();
         return Math.round(Math.abs((difference) / oneDay));
-    
+
     }
-    
+
 
 
     useEffect(() => {
@@ -39,3 +41,4 @@ export const DetailsLogic = () => {
         dataDetails,
         daysLeft
     };
+}
