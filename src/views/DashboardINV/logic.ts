@@ -1,38 +1,47 @@
 import {useCallback, useEffect, useState} from 'react';
-import {getProjects} from '../../services/api/investDashboard';
-import {InvestDashboardResponse} from '../../services/api/investDashboard';
+import {
+     getGroupedProjects,
+     InvestDashboardResponse,
+} from '../../services/api/project';
 import {togglePostFav} from '../../services/api/user';
 import format from 'date-fns/format';
-import type {ProjectFilters} from '../../models/project';
+import type {Project, ProjectFilters} from '../../models/project';
 import type {Tag} from '../../models/tag';
 import {getTagsGroup} from '../../services/api/tagGroup';
+import {getInvestorProjects} from '../../services/api/investDashboard';
 
 export const DashboardInvLogic = () => {
-     const [tagsByFilter, setTagsByFilter] = useState<{selectedTags: Tag[]}>({
-          selectedTags: [],
-     });
+     const [tagsByFilter, setTagsByFilter] = useState<Tag[]>([]);
      const [selectedDate, setSelectedDate] = useState({
-          finishDate: '2023-03-24',
+          finishDate: '',
      });
-     const [projectData, setprojectData] = useState<InvestDashboardResponse>();
+     const [groupedProjectsData, setGroupedProjectsData] =
+          useState<InvestDashboardResponse>();
+     const [projectsData, setProjectsData] = useState<Project[]>([]);
      const [selectedRange, setSelectedRange] = useState<{
           min: number;
           max: number;
-     }>({min: 1000, max: 5000});
+     }>({min: 0, max: 5000});
      const [isLoading, setIsLoading] = useState(false);
      const [tagsGroup, setTagsGroup] = useState<Tag[]>([]);
 
-     const getProjectsData = useCallback(
-          async (filters?: ProjectFilters) => {
-               setIsLoading(true);
-               const data = await getProjects(filters);
-               if (data) {
-                    setprojectData(data);
-               }
-               setIsLoading(false);
-          },
-          [setprojectData]
-     );
+     const getGroupedProjectsData = useCallback(async () => {
+          setIsLoading(true);
+          const data = await getGroupedProjects();
+          if (data) {
+               setGroupedProjectsData(data);
+          }
+          setIsLoading(false);
+     }, []);
+
+     const getProjectsData = useCallback(async (filters?: ProjectFilters) => {
+          setIsLoading(true);
+          const data = await getInvestorProjects(filters);
+          if (data) {
+               setProjectsData(data);
+          }
+          setIsLoading(false);
+     }, []);
 
      const getTagsGroupData = useCallback(async () => {
           setIsLoading(true);
@@ -41,7 +50,7 @@ export const DashboardInvLogic = () => {
                setTagsGroup(data);
           }
           setIsLoading(false);
-     }, [setprojectData]);
+     }, []);
 
      const toggleFavorite = useCallback(async (id: string) => {
           await togglePostFav(id);
@@ -70,24 +79,27 @@ export const DashboardInvLogic = () => {
 
      const handleApplyFilters = useCallback(async () => {
           const filters: ProjectFilters = {
-               date: format(new Date(selectedDate?.finishDate), 'MM-dd-yyyy'),
+               date: selectedDate?.finishDate
+                    ? format(new Date(selectedDate.finishDate), 'MM-dd-yyyy')
+                    : '',
                investmentAmount: {
                     min: selectedRange.min,
                     max: selectedRange.max,
                },
-               tags: tagsByFilter.selectedTags.map((tag) => tag.id),
+               tags: Object.values(tagsByFilter).map((tag) => tag.id),
           };
-
           await getProjectsData(filters);
-     }, [getProjectsData, selectedRange, selectedDate, tagsByFilter]);
+     }, [selectedRange, selectedDate, tagsByFilter]);
 
      useEffect(() => {
-          getProjectsData();
+          getGroupedProjectsData();
           getTagsGroupData();
-     }, [getProjectsData, getTagsGroupData]);
+          getProjectsData();
+     }, [getGroupedProjectsData, getTagsGroupData]);
 
      return {
-          projectData,
+          projectsData,
+          groupedProjectsData,
           handleApplyFilters,
           handleRangeChange,
           handleFiltersTagsChange,

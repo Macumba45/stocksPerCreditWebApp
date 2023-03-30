@@ -59,7 +59,6 @@ const FinishDatePickers: FC<DatePickersProps> = ({handleDateChange}) => {
                     id="date"
                     label="Return of investment"
                     type="date"
-                    defaultValue="2023-03-24"
                     className={classes.textField}
                     InputLabelProps={{
                          shrink: true,

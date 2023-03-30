@@ -94,9 +94,8 @@ const SignUp: FC = () => {
                                              </LabelContainer>
                                              <Input
                                                   $hasError={!!meta?.error}
-                                                  type="name"
+                                                  type="text"
                                                   placeholder="Insert your username"
-                                                  autoComplete="email"
                                                   {...field}
                                              />
                                              {!!meta?.error && (

@@ -2,6 +2,8 @@ import {normalizeProject, Project, ProjectInput} from '../../models/project';
 import {getAuthenticatedToken} from '../../services/storage/token';
 import {TagResponse} from './tag';
 
+const BASE_API_URL = 'http://localhost:8000/projects';
+
 export type ProjectResponse = {
      id: string;
      title: string;
@@ -32,23 +34,12 @@ export type ProjectResponse = {
      updatedAt: Date;
 };
 
-const BASE_API_URL = 'http://localhost:8000/projects';
-
-export const getProjects = async () => {
-     try {
-          const token = getAuthenticatedToken();
-          const response = await fetch(BASE_API_URL, {
-               headers: {
-                    Authorization: `Bearer ${token}`,
-               },
-          });
-          const data: ProjectResponse[] = await response.json();
-          return data.map(normalizeProject);
-     } catch (error) {
-          console.log((error as Error).message);
-     }
-     return [];
+export type InvestDashboardResponse = {
+     topProjects: ProjectResponse[];
+     latestProjects: ProjectResponse[];
+     closeSoonProjects: ProjectResponse[];
 };
+
 
 export const getProjectById = async (id: string): Promise<Project | null> => {
      try {
@@ -117,49 +108,23 @@ export const updateProject = async (id: string, data: Partial<Project>) => {
      }
 };
 
-export const getLatestProjects = async (
-     id: string
-): Promise<Project | null> => {
+export const getGroupedProjects = async () => {
      try {
           const token = getAuthenticatedToken();
-          const response = await fetch(`${BASE_API_URL}/latest`, {
+          const response = await fetch(`${BASE_API_URL}/dashboard-investor`, {
                method: 'GET',
-               headers: {Authorization: `Bearer ${token}`},
+               headers: {
+                    Authorization: `Bearer ${token}`,
+               },
           });
-          const data: ProjectResponse = await response.json();
-          return normalizeProject(data);
-     } catch (error) {
-          console.log((error as Error).message);
-     }
-     return null;
-};
+          const data: InvestDashboardResponse = await response.json();
 
-export const getTopProjects = async (id: string): Promise<Project | null> => {
-     try {
-          const token = getAuthenticatedToken();
-          const response = await fetch(`${BASE_API_URL}/top-project`, {
-               method: 'GET',
-               headers: {Authorization: `Bearer ${token}`},
-          });
-          const data: ProjectResponse = await response.json();
-          return normalizeProject(data);
-     } catch (error) {
-          console.log((error as Error).message);
-     }
-     return null;
-};
-
-export const getSuccesProjects = async (
-     id: string
-): Promise<Project | null> => {
-     try {
-          const token = getAuthenticatedToken();
-          const response = await fetch(`${BASE_API_URL}/success`, {
-               method: 'GET',
-               headers: {Authorization: `Bearer ${token}`},
-          });
-          const data: ProjectResponse = await response.json();
-          return normalizeProject(data);
+          return {
+               topProjects: data?.topProjects?.map(normalizeProject),
+               latestProjects: data?.latestProjects?.map(normalizeProject),
+               closeSoonProjects:
+                   data?.closeSoonProjects?.map(normalizeProject),
+          };
      } catch (error) {
           console.log((error as Error).message);
      }

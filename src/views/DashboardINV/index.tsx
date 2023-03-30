@@ -1,4 +1,4 @@
-import {FC, memo, useState} from 'react';
+import {FC, memo, useCallback, useState} from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
 import {DashboardInvLogic} from './logic';
 import {FinishDatePickers} from '../../components/DatePicker';
@@ -28,7 +28,7 @@ import {
 
 const DashboardINVe: FC = () => {
      const {
-          projectData,
+          groupedProjectsData,
           handleApplyFilters,
           handleRangeChange,
           handleFiltersTagsChange,
@@ -36,19 +36,19 @@ const DashboardINVe: FC = () => {
           toggleFavorite,
           isLoading,
           tagsGroup,
+          projectsData,
      } = DashboardInvLogic();
 
      const pageSize = 5;
      const [page, setPage] = useState(1); // Estado que controla la cantidad de partes cargadas
-     const projects = projectData?.allProjects || []; // La lista de proyectos
 
      // Obtener la sección de la lista de proyectos que se debe mostrar en función del estado actual
-     const visibleProjects = projects.slice(0, pageSize * page) || [];
+     const visibleProjects = projectsData.slice(0, pageSize * page) || [];
 
      // Función que se ejecuta cuando se hace clic en el botón "ver más proyectos"
-     const handleLoadMore = () => {
+     const handleLoadMore = useCallback(() => {
           setPage(page + 1);
-     };
+     }, [page]);
 
      if (isLoading) {
           return <p>cargando</p>;
@@ -131,7 +131,7 @@ const DashboardINVe: FC = () => {
                          </NewCards>
                          {/* Botón que carga la siguiente sección de la lista de proyectos */}
                     </NewContainer>
-                    {visibleProjects.length < projects.length && (
+                    {visibleProjects.length < projectsData.length && (
                          <ButtonSeeMore>
                               <Button
                                    sx={{
@@ -163,7 +163,7 @@ const DashboardINVe: FC = () => {
                               />
                          </SectionTitle>
                          <TopCards>
-                              {projectData?.topProjects.map(
+                              {groupedProjectsData?.topProjects.map(
                                    (project, index) => (
                                         <div key={index}>
                                              <Card
@@ -213,8 +213,8 @@ const DashboardINVe: FC = () => {
                               />
                          </SectionTitle>
                          <TopCards>
-                              {projectData
-                                   ? projectData.latestProjects.map(
+                              {groupedProjectsData
+                                   ? groupedProjectsData.latestProjects.map(
                                           (project, index) => (
                                                <div key={index}>
                                                     <Card
@@ -271,7 +271,7 @@ const DashboardINVe: FC = () => {
                               />
                          </SectionTitle>
                          <FinalCards>
-                              {projectData?.closeSoonProjects.map(
+                              {groupedProjectsData?.closeSoonProjects.map(
                                    (project, index) => (
                                         <div key={index}>
                                              <Card
