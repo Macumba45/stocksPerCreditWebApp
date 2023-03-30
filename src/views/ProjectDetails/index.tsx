@@ -1,18 +1,18 @@
-import { FC, memo, useCallback } from 'react';
+import {FC, memo, useCallback} from 'react';
 import NavBar from '../../components/NavBar';
 import VideoHeader from '../../components/VideoHeader';
 import TabsDetails from '../../components/TabsDetails';
 import LanguageIcon from '@mui/icons-material/Language';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import LinearWithValueLabel from '../../components/ProgressLinear';
-import { Divider } from '@mui/material';
+import {Divider} from '@mui/material';
 import ButtonInvest from '../../components/ButtonInvest';
 import CalculadoraAcciones from '../../components/SimulationInvestDetails';
 import Footer from '../../components/Footer';
-import { Fab, Tooltip } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import { Dashboard } from '@mui/icons-material';
-import { DetailsLogic } from './logic';
+import {Fab, Tooltip} from '@mui/material';
+import {useNavigate} from 'react-router-dom';
+import {Dashboard} from '@mui/icons-material';
+import {DetailsLogic} from './logic';
 
 import {
      ButtonContainer,
@@ -47,21 +47,19 @@ import {
 } from './styles';
 
 const ProjectDetails: FC = () => {
-     const { dataDetails, daysLeft } = DetailsLogic();
+     const {dataDetails, daysLeft} = DetailsLogic();
      const navigate = useNavigate();
      const goDashboard = useCallback(() => {
           navigate('/dashboard');
      }, [navigate]);
 
-     const CustomTooltip = ({ title, children }: any) => {
+     const CustomTooltip = ({title, children}: any) => {
           return (
                <Tooltip title={title} placement="left">
                     {children}
                </Tooltip>
           );
      };
-
-     console.log(dataDetails?.ProjectTag)
 
      return (
           <MainContainer>
@@ -88,15 +86,12 @@ const ProjectDetails: FC = () => {
                <NavBar />
                <MainContainerDesktop>
                     <MainContainer>
-                         <VideoHeader src={dataDetails?.url!}
-                         />
+                         <VideoHeader src={dataDetails?.url!} />
                     </MainContainer>
 
-                    <MainContainerInv style={{ marginTop: '3rem' }}>
+                    <MainContainerInv style={{marginTop: '3rem'}}>
                          <TitleContainer>
-                              <Title>
-                                   {dataDetails?.title}
-                              </Title>
+                              <Title>{dataDetails?.title}</Title>
                          </TitleContainer>
                          <Divider
                               sx={{
@@ -109,10 +104,7 @@ const ProjectDetails: FC = () => {
                               }}
                          />
                          <SubTitleContainer>
-                              <SubTitle>
-                                   {dataDetails?.description}
-
-                              </SubTitle>
+                              <SubTitle>{dataDetails?.description}</SubTitle>
                          </SubTitleContainer>
                          <Divider
                               sx={{
@@ -134,7 +126,8 @@ const ProjectDetails: FC = () => {
                                    <SubTitleInvestContainer>
                                         <SubTitleInvest>
                                              This project will only be funded if
-                                             it reaches its goal before {dataDetails?.duration}
+                                             it reaches its goal before{' '}
+                                             {dataDetails?.duration}
                                         </SubTitleInvest>
                                    </SubTitleInvestContainer>
                                    {/* <ButtonContainer>
@@ -174,8 +167,7 @@ const ProjectDetails: FC = () => {
                <StockersContainer>
                     <StockersFunds>
                          <StockersTitles>Contributions:</StockersTitles>
-                         <SpanData>
-                              {dataDetails?.totalInvest}€</SpanData>
+                         <SpanData>{dataDetails?.totalInvest}€</SpanData>
                     </StockersFunds>
                     <StockersInvestors>
                          <StockersTitles>Stockers:</StockersTitles>{' '}
@@ -184,7 +176,9 @@ const ProjectDetails: FC = () => {
                     <StockersTime>
                          <StockersTitles>Time:</StockersTitles>
 
-                         <SpanData>{daysLeft(dataDetails?.duration!)}{' '}days more</SpanData>
+                         <SpanData>
+                              {daysLeft(dataDetails?.duration!)} days more
+                         </SpanData>
                     </StockersTime>
                </StockersContainer>
                <Divider
@@ -255,11 +249,8 @@ const ProjectDetails: FC = () => {
                />
                <TabsDetails />
                <Footer />
-
           </MainContainer>
-
-
      );
-}
+};
 
 export default memo(ProjectDetails);

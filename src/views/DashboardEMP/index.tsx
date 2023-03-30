@@ -8,8 +8,11 @@ import {Home} from '@mui/icons-material';
 import AddIcon from '@mui/icons-material/Add';
 import Person4Icon from '@mui/icons-material/Person4';
 import {togglePostFav} from '../../services/api/user';
+import {DashboardEmpLogic} from './logic';
 
 const DashboardEMP: FC = () => {
+     const {userdata, deleteProjectUser} = DashboardEmpLogic();
+     console.log(userdata);
      const navigate = useNavigate();
      const goDashboard = useCallback(() => {
           navigate('/');
@@ -100,24 +103,33 @@ const DashboardEMP: FC = () => {
                     </Fab>
                </CustomTooltip>
                <MaxContainer>
-                    <Card
-                         id={'id'}
-                         url={'https://player.vimeo.com/video/800507584'}
-                         showHeartButton={false}
-                         title={'Mind on me'}
-                         description={
-                              'Deteccion de deterioro cognitivo precoz mediante IA y PNL'
-                         }
-                         country={'España'}
-                         city={'Madrid'}
-                         tags={[]}
-                         collected={3000}
-                         investors={4000}
-                         minimuminvestment={300}
-                         goal={600}
-                         limitvalue={500}
-                         toggleFav={toggleFavorite}
-                    />
+                    {userdata?.map((project, index) => (
+                         <div key={index}>
+                              <Card
+                                   id={project.id}
+                                   url={project.url}
+                                   showHeartButton={false}
+                                   title={project.title}
+                                   duration={project.duration}
+                                   description={project.description}
+                                   ProjectTag={project.ProjectTag}
+                                   country={project.country}
+                                   city={project.city}
+                                   tags={[]}
+                                   collected={project.totalInvest}
+                                   totalInvestor={project.totalInvestor}
+                                   minimuminvestment={project.minimuminvestment}
+                                   goal={project.goal}
+                                   limitvalue={project.limitvalue}
+                                   totalInvest={project.totalInvest}
+                                   toggleFav={toggleFavorite}
+                                   onDelete={() =>
+                                        deleteProjectUser(project.id)
+                                   }
+                                   deleteIcon={true}
+                              />
+                         </div>
+                    ))}
                </MaxContainer>
           </>
      );

@@ -13,22 +13,19 @@ const BASE_API_URL = 'http://localhost:8000/projects/dashboard-investor';
 
 export const getProjects = async (filters?: ProjectFilters) => {
      try {
-          console.log(filters)
           const token = getAuthenticatedToken();
-          let queryParams = ''
+          let queryParams = '';
           if (filters) {
                if (filters.date) {
-                    queryParams += `date=${filters.date}&`
+                    queryParams += `date=${filters.date}&`;
                }
                if (filters.tags) {
-                    queryParams += `tags=[${filters.tags}]&`
+                    queryParams += `tags=[${filters.tags}]&`;
                }
                if (filters.investmentAmount) {
-                    queryParams += `investmentAmount={min:${filters.investmentAmount.min},max:${filters.investmentAmount.max}}`
+                    queryParams += `investmentAmount={min:${filters.investmentAmount.min},max:${filters.investmentAmount.max}}`;
                }
           }
-
-          console.log(queryParams)
 
           const response = await fetch(`${BASE_API_URL}?${queryParams}`, {
                method: 'GET',
@@ -37,7 +34,6 @@ export const getProjects = async (filters?: ProjectFilters) => {
                },
           });
           const data: InvestDashboardResponse = await response.json();
-          console.log(data);
 
           const values = {
                allProjects: data?.allProjects?.map(normalizeProject),

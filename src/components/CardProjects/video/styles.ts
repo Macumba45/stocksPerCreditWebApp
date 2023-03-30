@@ -20,5 +20,4 @@ export const StyledPlayArrowIcon = styled(PlayArrowIcon)`
 
 export const MainContainer = styled.div`
      margin: 0 auto;
-    
 `;

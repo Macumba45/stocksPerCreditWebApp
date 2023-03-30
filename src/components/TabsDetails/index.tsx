@@ -59,7 +59,6 @@ const itemData = [
 ];
 
 const TabsDetails: FC = () => {
-
      const FaqTab = () => {
           return <div>FAQ component</div>;
      };

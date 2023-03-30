@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import {useCallback, useEffect, useState} from 'react';
 // import { useParams } from 'react-router-dom';
 // import { getProjectById } from '../../services/api/project';
 // import { getAuthenticatedToken } from '../../services/storage/token';
@@ -21,7 +21,6 @@ import { useCallback, useEffect, useState } from 'react';
 //             setDataDetails(data);
 //         }
 //     }, []);
-
 
 //     useEffect(() => {
 //         getDataDetails();

@@ -43,9 +43,8 @@ export const getTagsGroup = async () => {
                },
           });
           const data: TagGroupResponse[] = await response.json();
-          console.log(data)
-          if (!data || data.length <=0) {
-               return tags
+          if (!data || data.length <= 0) {
+               return tags;
           }
           return data.map(normalizeTag);
      } catch (error) {
@@ -53,4 +52,3 @@ export const getTagsGroup = async () => {
      }
      return [];
 };
-

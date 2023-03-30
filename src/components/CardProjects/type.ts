@@ -21,7 +21,7 @@ export type Props = {
      returnInvestment?: number;
      goal?: number;
      tags?: TagResponse[] | undefined;
-     ProjectTag?:TagResponse[] | undefined;
+     ProjectTag?: TagResponse[] | undefined;
      limitvalue?: number;
      createdAt?: Date;
      updatedAt?: Date;
@@ -31,4 +31,6 @@ export type Props = {
      onClick?: () => void;
      toggleFav: (id: string) => void;
      isFavorite?: boolean;
+     onDelete?: () => void;
+     deleteIcon: boolean;
 };

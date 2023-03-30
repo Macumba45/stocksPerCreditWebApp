@@ -124,6 +124,7 @@ const DashboardINVe: FC = () => {
                                              limitvalue={project.limitvalue}
                                              totalInvest={project.totalInvest}
                                              toggleFav={toggleFavorite}
+                                             deleteIcon={false}
                                         />
                                    </div>
                               ))}
@@ -193,6 +194,7 @@ const DashboardINVe: FC = () => {
                                                        project.totalInvest
                                                   }
                                                   toggleFav={toggleFavorite}
+                                                  deleteIcon={false}
                                              />
                                         </div>
                                    )
@@ -211,31 +213,51 @@ const DashboardINVe: FC = () => {
                               />
                          </SectionTitle>
                          <TopCards>
-
-                              {projectData ? (
-                                   projectData.latestProjects.map((project, index) => (
-                                        <div key={index}>
-                                             <Card
-                                                  id={project.id}
-                                                  url={project.url}
-                                                  showHeartButton={false}
-                                                  title={project.title}
-                                                  duration={project.duration}
-                                                  description={project.description}
-                                                  country={project.country}
-                                                  city={project.city}
-                                                  tags={[]}
-                                                  collected={project.totalInvest}
-                                                  totalInvestor={project.totalInvestor}
-                                                  minimuminvestment={project.minimuminvestment}
-                                                  goal={project.goal}
-                                                  limitvalue={project.limitvalue}
-                                                  totalInvest={project.totalInvest}
-                                                  toggleFav={toggleFavorite}
-                                             />
-                                        </div>
-                                   ))
-                              ) : null}
+                              {projectData
+                                   ? projectData.latestProjects.map(
+                                          (project, index) => (
+                                               <div key={index}>
+                                                    <Card
+                                                         id={project.id}
+                                                         url={project.url}
+                                                         showHeartButton={false}
+                                                         title={project.title}
+                                                         duration={
+                                                              project.duration
+                                                         }
+                                                         description={
+                                                              project.description
+                                                         }
+                                                         country={
+                                                              project.country
+                                                         }
+                                                         city={project.city}
+                                                         tags={[]}
+                                                         collected={
+                                                              project.totalInvest
+                                                         }
+                                                         totalInvestor={
+                                                              project.totalInvestor
+                                                         }
+                                                         minimuminvestment={
+                                                              project.minimuminvestment
+                                                         }
+                                                         goal={project.goal}
+                                                         limitvalue={
+                                                              project.limitvalue
+                                                         }
+                                                         totalInvest={
+                                                              project.totalInvest
+                                                         }
+                                                         toggleFav={
+                                                              toggleFavorite
+                                                         }
+                                                         deleteIcon={false}
+                                                    />
+                                               </div>
+                                          )
+                                     )
+                                   : null}
                          </TopCards>
                     </TopContainer>
                     <FinalContainer>
@@ -281,92 +303,12 @@ const DashboardINVe: FC = () => {
                                                        project.totalInvest
                                                   }
                                                   toggleFav={toggleFavorite}
+                                                  deleteIcon={false}
                                              />
                                         </div>
                                    )
                               )}
-                              <NewContainer>
-                                   <SectionTitle>
-                                        <H3>ALL PROJECTS</H3>
-                                        <Divider
-                                             sx={{
-                                                  backgroundColor: '#7E1B75',
-                                                  height: '5px',
-                                             }}
-                                        />
-                                   </SectionTitle>
-                                   <NewCards>
-                                        {/* Mapear solo los proyectos que son visibles en la página actual */}
-                                        {visibleProjects.map(
-                                             (project, index) => (
-                                                  <div key={index}>
-                                                       <Card
-                                                            id={project.id}
-                                                            url={project.url}
-                                                            showHeartButton={
-                                                                 false
-                                                            }
-                                                            title={
-                                                                 project.title
-                                                            }
-                                                            duration={
-                                                                 project.duration
-                                                            }
-                                                            description={
-                                                                 project.description
-                                                            }
-                                                            country={
-                                                                 project.country
-                                                            }
-                                                            city={project.city}
-                                                            tags={[]}
-                                                            collected={
-                                                                 project.totalInvest
-                                                            }
-                                                            totalInvestor={
-                                                                 project.totalInvestor
-                                                            }
-                                                            minimuminvestment={
-                                                                 project.minimuminvestment
-                                                            }
-                                                            goal={project.goal}
-                                                            limitvalue={
-                                                                 project.limitvalue
-                                                            }
-                                                            totalInvest={
-                                                                 project.totalInvest
-                                                            }
-                                                            toggleFav={
-                                                                 toggleFavorite
-                                                            }
-                                                       />
-                                                  </div>
-                                             )
-                                        )}
-                                   </NewCards>
-                                   {/* Botón que carga la siguiente sección de la lista de proyectos */}
-                              </NewContainer>
-                              {visibleProjects.length < projects.length && (
-                                   <ButtonSeeMore>
-                                        <Button
-                                             sx={{
-                                                  color: '#7E1B75',
-                                                  marginBottom: '12px',
-                                                  borderColor: '#7E1B75',
-                                                  '&:hover': {
-                                                       backgroundColor:
-                                                            '#7E1B75',
-                                                       borderColor: '#7E1B75',
-                                                       color: 'white',
-                                                  },
-                                             }}
-                                             variant="outlined"
-                                             onClick={handleLoadMore}
-                                        >
-                                             See more
-                                        </Button>
-                                   </ButtonSeeMore>
-                              )}
+                              <NewContainer></NewContainer>
                          </FinalCards>
                     </FinalContainer>
                </CardsContainer>

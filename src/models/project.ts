@@ -1,5 +1,5 @@
-import { ProjectResponse } from '../services/api/project';
-import { normalizeTag } from './tag';
+import {ProjectResponse} from '../services/api/project';
+import {normalizeTag} from './tag';
 
 export type ProjectInput = {
      title: string;
