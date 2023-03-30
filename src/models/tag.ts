@@ -1,4 +1,4 @@
-import {} from '../services/api/tag';
+import { } from '../services/api/tag';
 
 export const normalizeTag = (input: any) => {
      return {

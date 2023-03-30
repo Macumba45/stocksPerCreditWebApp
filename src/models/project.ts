@@ -1,5 +1,5 @@
-import {ProjectResponse} from '../services/api/project';
-import {normalizeTag} from './tag';
+import { ProjectResponse } from '../services/api/project';
+import { normalizeTag } from './tag';
 
 export type ProjectInput = {
      title: string;
@@ -15,7 +15,7 @@ export type ProjectInput = {
      cost: number;
      minimuminvestment: number;
      actionPerCredit: string;
-     returnInvestment: number;
+     ReturnOnInvestment: number;
      goal: number;
      tags: string[];
 };
@@ -55,6 +55,7 @@ export const normalizeProject = (input: ProjectResponse) => {
           current: input?.current || 0,
           min: input?.min || 0,
           max: input?.max || 0,
+          ProjectTag: input?.ProjectTag?.map(normalizeTag) || [],
           createdAt: input?.createdAt || new Date(),
           updatedAt: input?.updatedAt || new Date(),
      };

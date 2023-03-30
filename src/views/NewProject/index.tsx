@@ -1,7 +1,7 @@
-import {FC, memo, useCallback, useEffect, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {Formik, Field, Form} from 'formik';
-import {initialValues, validationSchema} from './constants';
+import { FC, memo, useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Formik, Field, Form } from 'formik';
+import { initialValues, validationSchema } from './constants';
 import {
      FormContainer,
      InputContainer,
@@ -18,10 +18,16 @@ const FormProject: FC = () => {
      const navigate = useNavigate();
      const [isLoading, setIsLoading] = useState(false);
      const [tags, setTags] = useState<Tag[]>([]);
-     const [tagsByFilter, setTagsByFilter] = useState<{selectedTags: Tag[]}>({
+     const [tagsByFilter, setTagsByFilter] = useState<{ selectedTags: Tag[] }>({
           selectedTags: [],
      });
 
+     const handleFiltersTagsChange = useCallback((newTags: any) => {
+          setTagsByFilter((prevTags) => ({
+               ...prevTags,
+               ...newTags,
+          }));
+     }, []);
 
      const getTagsData = useCallback(async () => {
           setIsLoading(true);
@@ -30,24 +36,18 @@ const FormProject: FC = () => {
           if (data) {
                setTags(data);
           }
-          setIsLoading(false);
      }, []);
 
      const onSubmitForm = (
           values: any,
-          {setSubmitting}: {setSubmitting: (isSubmitting: boolean) => void}
+          { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
      ) => {
           // Handle submitting the form data
           console.log(values)
           setSubmitting(false);
      };
 
-     const handleFiltersTagsChange = useCallback((newTags: any) => {
-          setTagsByFilter((prevTags) => ({
-               ...prevTags,
-               ...newTags,
-          }));
-     }, []);
+
 
      const handleGoToBack = useCallback(() => {
           navigate('/dashboardemp');
@@ -65,9 +65,9 @@ const FormProject: FC = () => {
                     initialValues={initialValues}
                >
                     <Form>
-                         
+
                          <Field name="title">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -82,7 +82,7 @@ const FormProject: FC = () => {
                               )}
                          </Field>
                          <Field name="description">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -97,7 +97,7 @@ const FormProject: FC = () => {
                               )}
                          </Field>
                          <Field name="country">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -112,7 +112,7 @@ const FormProject: FC = () => {
                               )}
                          </Field>
                          <Field name="city">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -127,7 +127,7 @@ const FormProject: FC = () => {
                               )}
                          </Field>
                          <Field name="categories">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -142,7 +142,7 @@ const FormProject: FC = () => {
                               )}
                          </Field>
                          <Field name="collected">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -157,7 +157,7 @@ const FormProject: FC = () => {
                               )}
                          </Field>
                          <Field name="investors">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -172,7 +172,7 @@ const FormProject: FC = () => {
                               )}
                          </Field>
                          <Field name="minimuminvestment">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -187,7 +187,7 @@ const FormProject: FC = () => {
                               )}
                          </Field>
                          <Field name="goals">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -202,7 +202,7 @@ const FormProject: FC = () => {
                               )}
                          </Field>
                          <Field name="limitvalue">
-                              {({field, meta}: {field: any; meta: any}) => (
+                              {({ field, meta }: { field: any; meta: any }) => (
                                    <InputContainer>
                                         <Input
                                              $hasError={!!meta?.error}
@@ -225,13 +225,13 @@ const FormProject: FC = () => {
                     </Form>
                </Formik>
                <InputContainer>
-                              <p>Select tags to filter your search </p>
-                              <Search
-                              handleFiltersChange={handleFiltersTagsChange}
-                                   options={tags}
-                              />
-                              {/* <ContainedButtons/> */}
-                         </InputContainer>
+                    <p>Select tags to filter your search </p>
+                    <Search
+                         handleFiltersChange={handleFiltersTagsChange}
+                         options={tags}
+                    />
+                    {/* <ContainedButtons/> */}
+               </InputContainer>
           </FormContainer>
      );
 };

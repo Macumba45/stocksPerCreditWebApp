@@ -1,11 +1,12 @@
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import {FC, memo, useCallback, useState} from 'react';
+import { FC, memo, useCallback, useState } from 'react';
 import Card from '../CardProjects';
-import {ContainerProjects, MainContainer, TabDiv} from './styles';
-import {LandingLogic} from './logic';
-import {togglePostFav} from '../../services/api/user';
+import { ContainerProjects, MainContainer, TabDiv } from './styles';
+import { LandingLogic } from './logic';
+import { togglePostFav } from '../../services/api/user';
+import { IosShare } from '@mui/icons-material';
 
 interface TabPanelProps {
      children?: React.ReactNode;
@@ -14,7 +15,7 @@ interface TabPanelProps {
 }
 
 function TabPanel(props: TabPanelProps) {
-     const {children, value, index, ...other} = props;
+     const { children, value, index, ...other } = props;
 
      return (
           <TabDiv
@@ -24,7 +25,7 @@ function TabPanel(props: TabPanelProps) {
                aria-labelledby={`simple-tab-${index}`}
                {...other}
           >
-               {value === index && <Box sx={{p: 3}}>{children}</Box>}
+               {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
           </TabDiv>
      );
 }
@@ -42,21 +43,21 @@ const toggleFavorite = async (id: string) => {
 
 const BasicTabs: FC = () => {
      const [value, setValue] = useState(0);
-     const[loading, setLoading] = useState(false);
+     const [loading, setLoading] = useState(false);
 
      const handleChange = (event: React.SyntheticEvent, newValue: number) => {
           setValue(newValue);
      };
-     const {landingData} = LandingLogic();
+     const { landingData } = LandingLogic();
      const topProjects = landingData?.topProjects || [];
      const lastestProjects = landingData.latestProjects?.slice(0, 3) || [];
      const closeSoon = landingData.latestProjects?.slice(-3) || [];
 
-     console.log(closeSoon)
+     console.log(landingData)
 
      return (
           <MainContainer>
-               <Box sx={{margin: '0 auto', color: '#7E1B75'}}>
+               <Box sx={{ margin: '0 auto', color: '#7E1B75' }}>
                     <Box
                          sx={{
                               borderBottom: 1,
@@ -65,16 +66,16 @@ const BasicTabs: FC = () => {
                          }}
                     >
                          <Tabs
-                              sx={{color: '#7E1B75', indicatorColor: '#7E1B75'}}
+                              sx={{ color: '#7E1B75', indicatorColor: '#7E1B75' }}
                               value={value}
                               onChange={handleChange}
                               aria-label="basic tabs example"
-                              TabIndicatorProps={{sx: {bgcolor: '#7E1B75'}}}
+                              TabIndicatorProps={{ sx: { bgcolor: '#7E1B75' } }}
                          >
                               <Tab
                                    sx={{
                                         color: '#7E1B75',
-                                        '&.Mui-selected': {color: '#7e1b76c6'},
+                                        '&.Mui-selected': { color: '#7e1b76c6' },
                                    }}
                                    label="Top projects"
                                    {...a11yProps(0)}
@@ -82,7 +83,7 @@ const BasicTabs: FC = () => {
                               <Tab
                                    sx={{
                                         color: '#7E1B75',
-                                        '&.Mui-selected': {color: '#7e1b76c6'},
+                                        '&.Mui-selected': { color: '#7e1b76c6' },
                                    }}
                                    label="Recents"
                                    {...a11yProps(1)}
@@ -90,7 +91,7 @@ const BasicTabs: FC = () => {
                               <Tab
                                    sx={{
                                         color: '#7E1B75',
-                                        '&.Mui-selected': {color: '#7e1b76c6'},
+                                        '&.Mui-selected': { color: '#7e1b76c6' },
                                    }}
                                    label="Close soon"
                                    {...a11yProps(2)}
@@ -113,6 +114,7 @@ const BasicTabs: FC = () => {
                                         country={item.country}
                                         city={item.city}
                                         totalInvest={item.totalInvest}
+                                        ProjectTag={item.ProjectTag}
                                         goal={item.goal}
                                         onClick={() => console.log('prueba')}
                                         toggleFav={toggleFavorite}
@@ -132,6 +134,7 @@ const BasicTabs: FC = () => {
                                              duration={item.duration}
                                              // showHeartButton={true}
                                              totalInvestor={item.totalInvestor}
+                                             ProjectTag={item.ProjectTag}
                                              totalInvest={item.totalInvest}
                                              goal={item.goal}
                                              title={item.title}
@@ -159,6 +162,7 @@ const BasicTabs: FC = () => {
                                              duration={item.duration}
                                              totalInvestor={item.totalInvestor}
                                              // showHeartButton={true}
+                                             ProjectTag={item.ProjectTag}
                                              totalInvest={item.totalInvest}
                                              goal={item.goal}
                                              title={item.title}

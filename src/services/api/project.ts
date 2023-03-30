@@ -23,6 +23,7 @@ export type ProjectResponse = {
      returnInvestment: number;
      goal: number;
      tags: TagResponse[];
+     ProjectTag?: TagResponse[];
      limitvalue: number;
      current: number;
      min: number;
@@ -84,7 +85,10 @@ export const createProject = async (data: ProjectInput) => {
           const token = getAuthenticatedToken();
           const response = await fetch(BASE_API_URL, {
                method: 'POST',
-               headers: { Authorization: `Bearer ${token}` },
+               headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
+               },
                body: JSON.stringify(data),
           });
           console.log(response)

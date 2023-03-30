@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ProjectReference } from 'typescript';
 import { getProjectById, ProjectResponse } from '../../services/api/project';
+import { getTags } from '../../services/api/tag';
 import { getAuthenticatedToken } from '../../services/storage/token';
 
 export const DetailsLogic = () => {
@@ -13,10 +14,13 @@ export const DetailsLogic = () => {
     //  }
     const [dataDetails, setDataDetails] = useState<ProjectResponse>();
     const { id } = useParams<{ id: string }>(); // Obtener la id desde la ruta
+    // console.log(dataDetails)
+
 
     const getDataDetails = useCallback(async (id: string | undefined) => {
         if (id) {
             const data = await getProjectById(id);
+            console.log(data)
             if (data) {
                 setDataDetails(data);
             }
@@ -31,8 +35,6 @@ export const DetailsLogic = () => {
 
     }
 
-
-
     useEffect(() => {
         getDataDetails(id!); // Llamar a getDataDetails con la id obtenida desde la ruta
     }, [getDataDetails, id]);
@@ -40,5 +42,6 @@ export const DetailsLogic = () => {
     return {
         dataDetails,
         daysLeft
-    };}
+    };
+}
 

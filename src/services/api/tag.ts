@@ -1,10 +1,11 @@
-import {normalizeTag, Tag} from '../../models/tag';
-import {getAuthenticatedToken} from '../storage/token';
+import { normalizeTag, Tag } from '../../models/tag';
+import { getAuthenticatedToken } from '../storage/token';
 
 export type TagResponse = {
      id: string;
      name: string;
 };
+
 
 const tags: Tag[] = [
      {
@@ -79,7 +80,7 @@ export const getTags = async () => {
                },
           });
           const data: TagResponse[] = await response.json();
-          if (!data || data.length <=0) {
+          if (!data || data.length <= 0) {
                return tags
           }
           return data.map(normalizeTag);
