@@ -10,11 +10,11 @@ import NotFound404 from '../../views/NotFound404';
 import Dashboard from '../../views/Dashboard';
 import ProjectDetails from '../../views/ProjectDetails';
 import DashboardInvestment from '../../views/DashboardInvestments/index';
-import FormProject from '../../components/FormProject';
 import Payment from '../../views/Payment';
 import DashboardFavorites from '../../views/DashboardFavorites';
 import DashboardOrders from '../../views/DashboardOrders';
 import ProfileEditar from '../../views/ProfileEditar';
+import FormProjectNew from '../../components/FormProject';
 
 const Router: FC = () => {
      const ProtectedRoutes = ({ children }: { children: JSX.Element }) => {
@@ -119,7 +119,7 @@ const Router: FC = () => {
                     />
                     <Route
                          path="/dashboard/new-project"
-                         element={<FormProject />}
+                         element={<FormProjectNew />}
                     />
                     <Route
                          path="/payment"

@@ -37,6 +37,7 @@ import {
 
      ContainerDays
 } from './styles';
+import { DetailsLogic } from '../../views/ProjectDetails/logic';
 
 
 
@@ -68,7 +69,6 @@ const Card: FC<Props> = ({
      toggleFav,
      isFavorite,
 }) => {
-     const {daysLeft} = DetailsLogic();
 
      const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();

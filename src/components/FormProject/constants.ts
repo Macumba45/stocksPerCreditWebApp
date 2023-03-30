@@ -1,24 +1,33 @@
 import * as Yup from 'yup';
 
+
 export const validationSchema = Yup.object().shape({
+
+     title: Yup.string().required('You need a tile to create your project')
+          .min(4, 'Too Short!')
+          .max(25, 'Too Long!')
+          .required('Name is required'),
      url: Yup.string().required('The url field is required'), //url a youtube
-     tile: Yup.string().required('You need a tile to create your project'), //title
+     description: Yup.string().required('Write a brief description')
+          .min(4, 'Too Short!')
+          .max(255, 'Too Long!')
+          .required('Name is required'),
+     duration: Yup.string().required('Write how long you want your project to last')
+          .min(4, 'Too Short!')
+          .max(255, 'Too Long!')
+          .required('Name is required'),
      country: Yup.string().required('Indicate your country'), //echo
      city: Yup.string().required('Indicate your city'), // echo
-
-     history: Yup.string().required('Explain your start with a brief history'), //echo
-     description: Yup.string().required('Write a brief description'), //breve description //echo
+     history: Yup.string().required('Write how long you want your project to last')
+          .min(4, 'Too Short!')
+          .max(255, 'Too Long!')
+          .required('Name is required'),
      proposal: Yup.string().required('write down your proposal'), //echo
-     duration: Yup.string().required(
-          'Write how long you want your project to last'
-     ), //echo
      commerce: Yup.string().required('Tell us the type of trade you want'),
-     tags: Yup.string().required('The Tasg field is required'), //echo pero en commerce ( cambiar )
-
-     goal: Yup.string().required('Write your goal'),
+     goal: Yup.number().required('Write your goal'),
      currency: Yup.string().required('Tell us yout required currency'),
-     cost: Yup.string().required('let us know what the cost is'),
-     MinimumInvestment: Yup.string().required(
+     cost: Yup.number().required('let us know what the cost is'),
+     MinimumInvestment: Yup.number().required(
           'The Minimum Investment field is required'
      ),
      ActionPerCredits: Yup.string().required(
@@ -27,22 +36,29 @@ export const validationSchema = Yup.object().shape({
      ReturnOnInvestment: Yup.string().required(
           'The Return On Investment field is reqiired'
      ),
+     tags: Yup.array()
+          .of(Yup.string())
+          .required('The Tags field is required')
 });
 
+
+
 export const initialValues = {
-     image: '',
-     tile: '',
-     goal: '',
-     miniInvest: '',
-     totalInvest: '',
-     actionPerCredit: '',
-     currency: '',
-     duration: '',
-     history: '',
-     proposal: '',
-     cost: '',
-     commerce: '',
-     country: '',
-     city: '',
-     description: '',
+     url: 'https://meet.google.com/rtt-fqoi-knq',
+     title: 'Prueba',
+     country: 'Prueba',
+     city: 'Prueba',
+     history: 'Prueba',
+     description: 'Prueba',
+     proposal: 'Prueba',
+     duration: 'Prueba',
+     commerce: 'Prueba',
+     tags: ['Prueba'],
+     goal: 10,
+     currency: 'EUROS',
+     cost: 10,
+     minimuminvestment: 10,
+     actionPerCredit: 'Prueba',
+     returnInvestment: 'Prueba',
+
 };

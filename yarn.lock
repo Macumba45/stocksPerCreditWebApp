@@ -2490,6 +2490,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-tagsinput@^3.19.9":
+  version "3.19.9"
+  resolved "https://registry.yarnpkg.com/@types/react-tagsinput/-/react-tagsinput-3.19.9.tgz#0bcfa38ab235cca043d31908d492f79e3f7f207c"
+  integrity sha512-NisSj7GS4q6jaU9qWtXnHoCmcW4vKqNC9m9CQ0HloD5YbWXaHxJ8HkELSsQb2EKIM9pX6hbJENkhZ4ApiJ4ygA==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-transition-group@^4.2.0", "@types/react-transition-group@^4.4.5":
   version "4.4.5"
   resolved "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.5.tgz"
@@ -8412,6 +8419,11 @@ react-smooth@^2.0.2:
   dependencies:
     fast-equals "^4.0.3"
     react-transition-group "2.9.0"
+
+react-tagsinput@^3.20.0:
+  version "3.20.0"
+  resolved "https://registry.yarnpkg.com/react-tagsinput/-/react-tagsinput-3.20.0.tgz#2aa802ee95ba13efa2ea1e04f638f4e5013f0334"
+  integrity sha512-znuxyJAXj0rd3wIabBK5+WN5RHBk9EkS25DrojBdHjT+0p/6SFvOScdugHcwzksdNGnu7Oo7+oVw+LiHMkUXJg==
 
 react-transition-group@2.9.0:
   version "2.9.0"

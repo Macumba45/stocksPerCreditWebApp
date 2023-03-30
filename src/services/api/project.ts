@@ -1,6 +1,6 @@
-import {normalizeProject, Project, ProjectInput} from '../../models/project';
-import {getAuthenticatedToken} from '../../services/storage/token';
-import {TagResponse} from './tag';
+import { normalizeProject, Project, ProjectInput } from '../../models/project';
+import { getAuthenticatedToken } from '../../services/storage/token';
+import { TagResponse } from './tag';
 
 export type ProjectResponse = {
      id: string;
@@ -54,7 +54,7 @@ export const getProjectById = async (id: string): Promise<Project | null> => {
           const token = getAuthenticatedToken();
           const response = await fetch(`${BASE_API_URL}/${id}`, {
                method: 'GET',
-               headers: {Authorization: `Bearer ${token}`},
+               headers: { Authorization: `Bearer ${token}` },
           });
           const data: ProjectResponse = await response.json();
           return normalizeProject(data);
@@ -84,9 +84,10 @@ export const createProject = async (data: ProjectInput) => {
           const token = getAuthenticatedToken();
           const response = await fetch(BASE_API_URL, {
                method: 'POST',
-               headers: {Authorization: `Bearer ${token}`},
+               headers: { Authorization: `Bearer ${token}` },
                body: JSON.stringify(data),
           });
+          console.log(response)
           const project: ProjectResponse = await response.json();
           return normalizeProject(project);
      } catch (error) {
@@ -96,7 +97,7 @@ export const createProject = async (data: ProjectInput) => {
 
 export const updateProject = async (id: string, data: Partial<Project>) => {
      try {
-          console.log({data});
+          console.log({ data });
           const token = getAuthenticatedToken();
           const response = await fetch(`${BASE_API_URL}/${id}`, {
                method: 'PUT',
@@ -108,7 +109,7 @@ export const updateProject = async (id: string, data: Partial<Project>) => {
           });
 
           const project: ProjectResponse = await response.json();
-          console.log({project});
+          console.log({ project });
           return normalizeProject(project);
      } catch (error) {
           console.log((error as Error).message);
@@ -122,7 +123,7 @@ export const getLatestProjects = async (
           const token = getAuthenticatedToken();
           const response = await fetch(`${BASE_API_URL}/latest`, {
                method: 'GET',
-               headers: {Authorization: `Bearer ${token}`},
+               headers: { Authorization: `Bearer ${token}` },
           });
           const data: ProjectResponse = await response.json();
           return normalizeProject(data);
@@ -137,7 +138,7 @@ export const getTopProjects = async (id: string): Promise<Project | null> => {
           const token = getAuthenticatedToken();
           const response = await fetch(`${BASE_API_URL}/top-project`, {
                method: 'GET',
-               headers: {Authorization: `Bearer ${token}`},
+               headers: { Authorization: `Bearer ${token}` },
           });
           const data: ProjectResponse = await response.json();
           return normalizeProject(data);
@@ -154,7 +155,7 @@ export const getSuccesProjects = async (
           const token = getAuthenticatedToken();
           const response = await fetch(`${BASE_API_URL}/success`, {
                method: 'GET',
-               headers: {Authorization: `Bearer ${token}`},
+               headers: { Authorization: `Bearer ${token}` },
           });
           const data: ProjectResponse = await response.json();
           return normalizeProject(data);
