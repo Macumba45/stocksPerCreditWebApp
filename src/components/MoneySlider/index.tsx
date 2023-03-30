@@ -19,18 +19,15 @@ interface RangeProps {
 }
 
 const RangeSlider: FC<RangeProps> = ({handleRangeChange}) => {
-     const [value, setValue] = useState<number[]>([1000, 5000]);
+     const [value, setValue] = useState<number[]>([0, 5000]);
 
-     const handleChange = (event: Event, newValue: number | number[]) => {
+     const handleChange = (_: Event, newValue: number | number[]) => {
           if (Array.isArray(newValue)) {
                setValue(newValue);
           }
      };
 
-     const handleSliderChangeCommitted = (
-          event: any,
-          newValue: number | number[]
-     ) => {
+     const handleSliderChangeCommitted = (_: any, newValue: number | number[]) => {
           if (Array.isArray(newValue)) {
                handleRangeChange({min: newValue[0], max: newValue[1]});
           }
@@ -44,6 +41,7 @@ const RangeSlider: FC<RangeProps> = ({handleRangeChange}) => {
           const updatedValue = [...value];
           updatedValue[index] = newValue;
           setValue(updatedValue);
+          handleSliderChangeCommitted(null, updatedValue)
      };
 
      return (
