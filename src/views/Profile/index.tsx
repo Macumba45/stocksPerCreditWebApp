@@ -75,7 +75,6 @@ const Profile: FC = () => {
      const getProfileInfo = useCallback(async () => {
           setIsLoading(true);
           const userprofile = await getUserInfo();
-          console.log('esto es el userprofile' + userprofile);
           setUserInfo(userprofile);
           setIsLoading(false);
      }, []);

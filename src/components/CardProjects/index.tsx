@@ -1,15 +1,14 @@
-import { useState, memo, useCallback, FC } from 'react';
+import {useState, memo, useCallback, FC} from 'react';
 import Button from '@mui/material/Button';
 import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useLocation } from 'react-router';
-import { useNavigate } from 'react-router-dom';
-import { Props } from './type';
+import {useLocation} from 'react-router';
+import {Route, useNavigate} from 'react-router-dom';
+import {Props} from './type';
 import VideoThumbail from './video/index';
-import { getUserRole } from '../../services/storage/userRole';
-
+import {getUserRole} from '../../services/storage/userRole';
 
 import {
      CardContainer,
@@ -34,12 +33,9 @@ import {
      StyledFavoriteBorderOutlinedIcon,
      SpanText,
      SpanData,
-
-     ContainerDays
+     ContainerDays,
 } from './styles';
-import { DetailsLogic } from '../../views/ProjectDetails/logic';
-
-
+import {DetailsLogic} from '../../views/ProjectDetails/logic';
 
 const Card: FC<Props> = ({
      id,
@@ -69,8 +65,9 @@ const Card: FC<Props> = ({
      showHeartButton,
      toggleFav,
      isFavorite,
+     onDelete,
+     deleteIcon,
 }) => {
-
      const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();
      const [showMenu, setShowMenu] = useState(false);
@@ -79,7 +76,6 @@ const Card: FC<Props> = ({
           location.pathname !== '/' &&
           location.pathname !== '/welcome' &&
           getUserRole() !== 'INVESTOR';
-
 
      const logged = getUserRole() !== 'INVESTOR' || 'ENTREPRENEUR';
 
@@ -96,32 +92,29 @@ const Card: FC<Props> = ({
           setShowMenu(showMenu);
      }, [showMenu]);
 
-
-     const handleGoDetails = useCallback((id: string) => {
-          if (logged) {
-               navigate(`/projectdetails/${id}`);
-               window.scrollTo(0, 0);
-
-          } else {
-               navigate('/dashboard')
-          }
-
-     }, [navigate]);
+     const handleGoDetails = useCallback(
+          (id: string) => {
+               if (logged) {
+                    navigate(`/projectdetails/${id}`);
+                    window.scrollTo(0, 0);
+               } else {
+                    navigate('/dashboard');
+               }
+          },
+          [navigate]
+     );
 
      const daysLeft = (date: string) => {
           const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
           const today = new Date();
           const difference = new Date(date).getTime() - today.getTime();
-          return Math.round(Math.abs((difference) / oneDay));
-
-     }
+          return Math.round(Math.abs(difference / oneDay));
+     };
 
      return (
           <CardContainer>
                <ContainerImg>
-                    <VideoThumbail
-                         url={url}
-                    />
+                    <VideoThumbail url={url} />
                </ContainerImg>
                <ContainerTitle>
                     <Title>{title}</Title>
@@ -134,19 +127,22 @@ const Card: FC<Props> = ({
                </ContainerInvestor>
 
                <ContainerDays>
-                    <TotalInvestor><SpanText>Will end:</SpanText><SpanData>{' '}{daysLeft(duration!)}{' '}days</SpanData></TotalInvestor>
+                    <TotalInvestor>
+                         <SpanText>Will end:</SpanText>
+                         <SpanData> {daysLeft(duration!)} days</SpanData>
+                    </TotalInvestor>
                </ContainerDays>
                <ContainerDesc>
                     <Description>{description}</Description>
                </ContainerDesc>
                <ContainerLocations>
-
-                    <Country>{country},</Country>{' '}<City>{city}</City>
+                    <Country>{country},</Country> <City>{city}</City>
                </ContainerLocations>
                <ContainerCategories>
-                    <Categories>
-                         {ProjectTag ? ProjectTag.map((tag: any) => tag.name).join(' ') : ''}
-                    </Categories>
+                    {ProjectTag &&
+                         ProjectTag.map((tag: any) => (
+                              <Categories key={tag.id}>{tag.name}</Categories>
+                         ))}
                </ContainerCategories>
                <ContainerLinear>
                     <LinearWithValueLabel
@@ -175,25 +171,24 @@ const Card: FC<Props> = ({
                          >
                               More Info
                          </Button>
-                         {isFav ? (
-                              <StyledFavoriteIcon onClick={handleToggleFav} />
-                         ) : (
-                              <StyledFavoriteBorderOutlinedIcon
-                                   className={isFav ? 'active' : ''}
-                                   onClick={handleToggleFav}
+                         {showHeartButton &&
+                              (isFav ? (
+                                   <StyledFavoriteIcon
+                                        onClick={handleToggleFav}
+                                   />
+                              ) : (
+                                   <StyledFavoriteBorderOutlinedIcon
+                                        className={isFav ? 'active' : ''}
+                                        onClick={handleToggleFav}
+                                   />
+                              ))}
+                         {deleteIcon && (
+                              <DeleteIcon
+                                   onClick={onDelete}
+                                   sx={{color: 'red'}}
                               />
                          )}
-                         <MenuButton onClick={handleMenuClick}>
-                              {showMenuItems && <MoreVertIcon />}
-                         </MenuButton>
                     </ContainerButtonModal>
-                    {showMenuItems && showMenu && (
-                         <Menu onClick={handleMenuClickClose}>
-                              <MenuItem>
-                                   <DeleteIcon /> <EditIcon />
-                              </MenuItem>
-                         </Menu>
-                    )}
                </div>
           </CardContainer>
      );

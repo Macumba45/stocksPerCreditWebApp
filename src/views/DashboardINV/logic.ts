@@ -5,7 +5,7 @@ import {togglePostFav} from '../../services/api/user';
 import format from 'date-fns/format';
 import type {ProjectFilters} from '../../models/project';
 import type {Tag} from '../../models/tag';
-import { getTagsGroup } from '../../services/api/tagGroup';
+import {getTagsGroup} from '../../services/api/tagGroup';
 
 export const DashboardInvLogic = () => {
      const [tagsByFilter, setTagsByFilter] = useState<{selectedTags: Tag[]}>({
@@ -37,7 +37,6 @@ export const DashboardInvLogic = () => {
      const getTagsGroupData = useCallback(async () => {
           setIsLoading(true);
           const data = await getTagsGroup();
-          console.log(data)
           if (data) {
                setTagsGroup(data);
           }
@@ -70,11 +69,6 @@ export const DashboardInvLogic = () => {
      );
 
      const handleApplyFilters = useCallback(async () => {
-          console.log({
-               selectedRange,
-               selectedDate,
-               selectedTags: tagsByFilter.selectedTags,
-          });
           const filters: ProjectFilters = {
                date: format(new Date(selectedDate?.finishDate), 'MM-dd-yyyy'),
                investmentAmount: {
@@ -100,6 +94,6 @@ export const DashboardInvLogic = () => {
           handleDateChange,
           toggleFavorite,
           isLoading,
-          tagsGroup
+          tagsGroup,
      };
 };

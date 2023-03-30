@@ -1,4 +1,4 @@
-import { FC, memo, useCallback, useEffect, useState } from 'react';
+import {FC, memo, useCallback, useEffect, useState} from 'react';
 import {
      MainContainer,
      ContainerText,
@@ -10,8 +10,8 @@ import {
      ButtonSimulation,
 } from './styles';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import { useNavigate } from 'react-router-dom';
-import { Fab, Tooltip } from '@mui/material';
+import {useNavigate} from 'react-router-dom';
+import {Fab, Tooltip} from '@mui/material';
 
 const FeaturedCard: FC = () => {
      const navigate = useNavigate();
@@ -20,15 +20,13 @@ const FeaturedCard: FC = () => {
      );
      const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
-
      const start = useCallback(() => {
           if (token) {
-               navigate('/dashboard')
+               navigate('/dashboard');
           } else {
-               navigate('/login')
-
+               navigate('/login');
           }
-     }, [])
+     }, []);
 
      useEffect(() => {
           if (token) {
@@ -37,12 +35,10 @@ const FeaturedCard: FC = () => {
      }, [token]);
 
      const goDashboard = useCallback(() => {
-
           navigate('/dashboard');
-
      }, [navigate]);
 
-     const CustomTooltip = ({ title, children }: any) => {
+     const CustomTooltip = ({title, children}: any) => {
           return (
                <Tooltip title={title} placement="left">
                     {children}
@@ -64,7 +60,9 @@ const FeaturedCard: FC = () => {
                          respaldo de nuestro test.
                     </SubTitle>
                     <ButtonContainer>
-                         <ButtonSimulation onClick={start}>Start</ButtonSimulation>
+                         <ButtonSimulation onClick={start}>
+                              Start
+                         </ButtonSimulation>
                          {isAuthenticated && (
                               <CustomTooltip title="Go to Dashboard">
                                    <Fab

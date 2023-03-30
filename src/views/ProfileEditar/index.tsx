@@ -20,7 +20,6 @@ const EditProfile = () => {
 
      const getProfileInfo = useCallback(async () => {
           const userprofile = await getUserInfo();
-          console.log('esto es el userprofile' + userprofile);
           setUserInfo(userprofile);
      }, []);
 

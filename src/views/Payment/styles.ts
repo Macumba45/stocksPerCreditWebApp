@@ -22,19 +22,19 @@ export const ContainerSteps = styled.div`
 `;
 
 export const TextSteps1 = styled.p`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiLight};
-     color: ${({ theme }) => theme.colors.lighterGrey};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiLight};
+     color: ${({theme}) => theme.colors.lighterGrey};
      margin-left: 0.5rem;
      margin-right: 1rem;
 `;
 
 export const TextSteps2 = styled.p`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.mediumSemiBold};
-     color: ${({ theme }) => theme.colors.primary};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.mediumSemiBold};
+     color: ${({theme}) => theme.colors.primary};
      margin-left: 0.5rem;
      margin-right: 1rem;
 `;
@@ -46,10 +46,10 @@ export const ContainerTitle = styled.div`
 `;
 
 export const TitleStartup = styled.h1`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.mediumSemiBold};
-     color: ${({ theme }) => theme.colors.primary};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.mediumSemiBold};
+     color: ${({theme}) => theme.colors.primary};
 `;
 
 export const ContainerAmount = styled.div`
@@ -64,10 +64,10 @@ export const ContainerPayment = styled.div`
 `;
 
 export const TitlePayment = styled.h1`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-     color: ${({ theme }) => theme.colors.lighterGrey};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     color: ${({theme}) => theme.colors.lighterGrey};
 `;
 
 export const ContainerMastercard = styled.div`
@@ -85,10 +85,10 @@ export const MastercardPayment = styled.div`
 `;
 
 export const IconPaymentCardPaypal = styled.div`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-     color: ${({ theme }) => theme.colors.dark};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     color: ${({theme}) => theme.colors.dark};
      display: flex;
      align-items: center;
      margin-right: 1rem;
@@ -99,10 +99,10 @@ export const IconPaymentCardPaypal = styled.div`
 `;
 
 export const IconPaymentCard = styled.div`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-     color: ${({ theme }) => theme.colors.dark};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     color: ${({theme}) => theme.colors.dark};
      display: flex;
      align-items: center;
      margin-right: 1rem;
@@ -113,10 +113,10 @@ export const IconPaymentCard = styled.div`
 `;
 
 export const LabelPaymentCard = styled.div`
-     font-family: ${({ theme }) => theme.fonts.primary};
-     font-size: ${({ theme }) => theme.fontSizes.smallest};
-     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-     color: ${({ theme }) => theme.colors.dark};
+     font-family: ${({theme}) => theme.fonts.primary};
+     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     color: ${({theme}) => theme.colors.dark};
      display: flex;
      align-items: center;
      margin-right: 1rem;
