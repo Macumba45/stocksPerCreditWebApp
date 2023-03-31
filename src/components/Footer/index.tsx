@@ -1,10 +1,9 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
-const logo = require('../../../src/components/NavBar/assets/logo.png');
 import {
      FooterContainer,
      FooterSection,
@@ -27,6 +26,8 @@ import {
 } from './style';
 
 const Footer: FC = () => {
+     const logo = require('../../../src/components/NavBar/assets/logo.png');
+
      return (
           <FooterContainer>
                <FooterSection>
