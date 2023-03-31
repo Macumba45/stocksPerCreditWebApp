@@ -1,8 +1,8 @@
-import {FC, memo, useState} from 'react';
+import { FC, memo, useState } from 'react';
 import Autocomplete from '@mui/joy/Autocomplete';
-import {makeStyles} from '@material-ui/core/styles';
-import type {Props} from './type';
-import type {Tag} from '../../models/tag';
+import { makeStyles } from '@material-ui/core/styles';
+import type { Props } from './type';
+import type { Tag } from '../../models/tag';
 
 const useStyles = makeStyles({
      autocomplete: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
      },
 });
 
-const Search: FC<Props> = ({handleFiltersChange, options, value}) => {
+const Search: FC<Props> = ({ handleFiltersChange, options, value }) => {
      const classes = useStyles();
      const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
      const handleTagSelection = (tags: Tag[]) => {
@@ -32,8 +32,9 @@ const Search: FC<Props> = ({handleFiltersChange, options, value}) => {
           <Autocomplete
                className={classes.autocomplete}
                sx={{
-                    width: '270px',
+                    width: '350px',
                     marginLeft: 0,
+                    height: '80px',
                     zIndex: 99,
                }}
                multiple

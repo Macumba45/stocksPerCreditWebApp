@@ -5,13 +5,13 @@ export const validationSchema = Yup.object().shape({
           .required('You need a tile to create your project')
           .min(4, 'Too Short!')
           .max(255, 'Too Long!')
-          .required('Name is required'),
-     url: Yup.string().required('The url field is required'), //url a youtube
+          .required('Title is required'),
+     url: Yup.string().required('URL is required'), //url a youtube
      description: Yup.string()
           .required('Write a brief description')
           .min(4, 'Too Short!')
           .max(255, 'Too Long!')
-          .required('Name is required'),
+          .required('Description is required'),
      duration: Yup.string()
           .required('Write how long you want your project to last')
           .min(4, 'Too Short!')

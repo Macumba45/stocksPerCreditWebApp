@@ -1,6 +1,6 @@
-import styled, {css} from 'styled-components';
-import {Link} from 'react-router-dom';
-import {Form as defaultForm} from 'formik';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
+import { Form as defaultForm } from 'formik';
 
 export const LoginBackImg = styled.div`
      background: rgb(0, 0, 0);
@@ -54,9 +54,9 @@ export const Form = styled(defaultForm)`
 `;
 
 export const SignUpTitle = styled.h1`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.mediumSmall};
-     font-weight: ${({theme}) => theme.fontWeights.bold};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.mediumSmall};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
      margin-bottom: 1.125rem;
      margin-left: 1.875rem;
      margin-top: 3.125rem;
@@ -88,35 +88,39 @@ export const PasswordContainer = styled.div`
      min-width: 21rem;
 `;
 
-export const LabelContainer = styled.div``;
+export const LabelContainer = styled.div`
+margin-bottom: 1rem;
+`;
 
 export const Label = styled.label`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
-     margin: 0 2.1rem;
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     color: ${({ theme }) => theme.colors.primary};
+
+     
 `;
 
 export const LabelTags = styled.label`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
 `;
 
 export const Error = styled.span`
-     color: ${({theme}) => theme.colors.danger};
-     font-family: ${({theme}) => theme.fonts.primary};
+     color: ${({ theme }) => theme.colors.danger};
+     font-family: ${({ theme }) => theme.fonts.primary};
      font-size: 0.7rem;
      margin-top: 0.5rem;
      margin-left: 2.05rem;
 `;
 
-export const Input = styled.input<{$hasError?: boolean}>`
+export const Input = styled.input<{ $hasError?: boolean }>`
      border-radius: 5px;
      border: 0.1px solid
-          ${({$hasError, theme}) =>
-               $hasError ? theme.colors.danger : theme.colors.secondary};
+          ${({ $hasError, theme }) =>
+          $hasError ? theme.colors.danger : theme.colors.secondary};
      padding-left: 0.5rem;
      box-sizing: border-box;
-     font-family: ${({theme}) => theme.fonts.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
      font-size: 0.8rem;
      height: 2.5rem;
      margin-right: 2rem;
@@ -124,15 +128,15 @@ export const Input = styled.input<{$hasError?: boolean}>`
      margin-top: 0.625rem;
      width: 15rem;
 
-     ${({$hasError, theme}) =>
+     ${({ $hasError, theme }) =>
           $hasError &&
           css`
                color: ${theme.colors.danger};
           `}
 
      &::placeholder {
-          color: ${({theme}) => theme.colors.primary};
-          font-family: ${({theme}) => theme.fonts.primary};
+          color: ${({ theme }) => theme.colors.primary};
+          font-family: ${({ theme }) => theme.fonts.primary};
           font-size: 0.7rem;
           font-weight: 200;
           opacity: 0.5;
@@ -157,9 +161,9 @@ export const LinkLoginContainer = styled.div`
 `;
 
 export const LinkLoginText = styled(Link)`
-     color: ${({theme}) => theme.colors.primary};
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
+     color: ${({ theme }) => theme.colors.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
      font-weight: 500;
      text-decoration: none;
      text-align: center;
@@ -167,19 +171,19 @@ export const LinkLoginText = styled(Link)`
      cursor: pointer;
 
      &:hover {
-          color: ${({theme}) => theme.colors.secondary};
+          color: ${({ theme }) => theme.colors.secondary};
 
           cursor: pointer;
      }
 `;
 
 export const ButtonSignUp = styled.button`
-     background-color: ${({theme}) => theme.colors.primary};
+     background-color: ${({ theme }) => theme.colors.primary};
      border-radius: 10px;
      border: none;
      color: white;
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
      font-weight: 500;
 
      margin-top: 1.5rem;
@@ -187,8 +191,8 @@ export const ButtonSignUp = styled.button`
      text-decoration: none;
 
      &:hover {
-          background-color: ${({theme}) => theme.colors.secondary};
-          color: ${({theme}) => theme.colors.light};
+          background-color: ${({ theme }) => theme.colors.secondary};
+          color: ${({ theme }) => theme.colors.light};
           cursor: pointer;
      }
 `;
@@ -199,10 +203,10 @@ export const ErrorFirebaseContainer = styled.div`
 `;
 
 export const ErrorFirebaseText = styled.p`
-     font-family: ${({theme}) => theme.fonts.primary};
-     font-size: ${({theme}) => theme.fontSizes.smallest};
-     font-weight: ${({theme}) => theme.fontWeights.semiBold};
-     color: ${({theme}) => theme.colors.danger};
+     font-family: ${({ theme }) => theme.fonts.primary};
+     font-size: ${({ theme }) => theme.fontSizes.smallest};
+     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+     color: ${({ theme }) => theme.colors.danger};
      margin-bottom: 1rem;
 `;
 
@@ -211,17 +215,17 @@ export const RadioGroup = styled.div`
      flex-direction: row;
      margin-top: 2rem;
      margin-left: 1.5rem;
-     font-family: ${({theme}) => theme.fonts.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
 `;
 
 export const RadioOption = styled.label`
      display: flex;
      align-items: center;
      margin-right: 16px;
-     font-family: ${({theme}) => theme.fonts.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
 `;
 
 export const RadioInput = styled.input`
      margin-right: 8px;
-     font-family: ${({theme}) => theme.fonts.primary};
+     font-family: ${({ theme }) => theme.fonts.primary};
 `;

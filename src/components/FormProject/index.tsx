@@ -1,12 +1,13 @@
-import {FC, memo, useCallback, useEffect, useState} from 'react';
-import {initialValues} from './constants';
-import {Field, FieldProps, Formik} from 'formik';
-import {validationSchema} from './constants';
-import {createProject} from '../../services/api/project';
+import { FC, memo, useCallback, useEffect, useState } from 'react';
+import { initialValues } from './constants';
+import { Field, FieldProps, Formik } from 'formik';
+import { validationSchema } from './constants';
+import { createProject } from '../../services/api/project';
 import Search from '../../components/Search';
-import {getTags} from '../../services/api/tag';
-import {Tag} from '../../models/tag';
-import {useNavigate} from 'react-router-dom';
+import { getTags } from '../../services/api/tag';
+import { Tag } from '../../models/tag';
+import { TextField } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import {
      Dialog,
      DialogTitle,
@@ -22,14 +23,12 @@ import {
      PasswordContainer,
      LabelContainer,
      Label,
-     Input,
      ButtonSignUpContainer,
      ButtonSignUp,
      Error,
      NameContainer,
      MainFormContainerDivisor,
      MainFormContainerStart,
-     LabelTags,
 } from './styles';
 
 const FormProjectNew: FC = () => {
@@ -41,6 +40,7 @@ const FormProjectNew: FC = () => {
           const newTagId = newTags.map((tag) => tag.id);
           setTagsByFilter(newTagId);
      }, []);
+
 
      const getTagsData = useCallback(async () => {
           const data = await getTags();
@@ -78,16 +78,17 @@ const FormProjectNew: FC = () => {
           <>
                <Dialog open={modalOpen} onClose={handleModalClose}>
                     <DialogTitle>Submission Successful</DialogTitle>
-                    <DialogContent style={{fontFamily: 'Roboto'}}>
+                    <DialogContent style={{ fontFamily: 'Roboto' }}>
                          <p>Your project has been successfully submitted.</p>
                     </DialogContent>
-                    <DialogActions style={{fontFamily: 'Roboto'}}>
+                    <DialogActions style={{ fontFamily: 'Roboto' }}>
                          <Button
                               onClick={handleModalClose}
+                              style={{ backgroundColor: '#7E1B75' }}
                               color="primary"
                               autoFocus
                          >
-                              OK
+                              Close
                          </Button>
                     </DialogActions>
                </Dialog>
@@ -101,126 +102,107 @@ const FormProjectNew: FC = () => {
                          <Form>
                               <MainFormContainerStart>
                                    <Field name="url">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
                                                        <Label>URL Video</Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
                                                        type="url"
                                                        placeholder="Insert your URL"
                                                        {...field}
+                                                       style={{ width: "350px" }}
+
                                                   />
-                                                  {!!meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
                                              </NameContainer>
                                         )}
                                    </Field>
                                    <Field name="title">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
-                                                       <Label>
-                                                            Project title
-                                                       </Label>
+                                                       <Label>Project title</Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="title"
-                                                       placeholder="Insert your ProjectTitle"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       type="text"
+                                                       placeholder="Insert your title here"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {!!meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
                                              </NameContainer>
                                         )}
                                    </Field>
                                    <Field name="description">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
-                                                       <Label>
-                                                            Description
-                                                       </Label>
+                                                       <Label>Description*</Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="description"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={4} // aquí se define el número de filas
                                                        placeholder="Insert your Description"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {!!meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
                                              </NameContainer>
                                         )}
                                    </Field>
                               </MainFormContainerStart>
                               <MainFormContainerDivisor>
                                    <Field name="country">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Country* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="country"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={1} // aquí se define el número de filas
                                                        placeholder="Insert your Country"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {!!meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
                                              </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="city">
-                                        {({field, meta}: FieldProps) => (
-                                             <NameContainer>
+                                        {({ field, meta }: FieldProps) => (
+                                             <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>City* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="city"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={1} // aquí se define el número de filas
                                                        placeholder="Insert your City"
                                                        {...field}
-                                                  />{' '}
-                                                  {!!meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
-                                             </NameContainer>
+                                                       style={{ width: "350px" }}
+                                                  />
+                                             </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="duration">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
                                                        <Label>Duration* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
+                                                  <TextField
+                                                       error={!!meta?.error}
                                                        type="date"
-                                                       placeholder="Insert your Duration"
-                                                       min={
-                                                            new Date()
-                                                                 .toISOString()
-                                                                 .split('T')[0]
-                                                       }
+                                                       placeholder="Insert Duration Project"
+                                                       style={{ width: "350px" }}
                                                        {...field}
                                                   />
                                                   {!!meta?.error && (
@@ -231,170 +213,147 @@ const FormProjectNew: FC = () => {
                                              </NameContainer>
                                         )}
                                    </Field>
-
                                    <Field name="history">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
-                                                       <Label>History* </Label>
+                                                       <Label>History of your Project*</Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="history"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={4} // aquí se define el número de filas
                                                        placeholder="Insert your History"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {!!meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
                                              </NameContainer>
                                         )}
                                    </Field>
                               </MainFormContainerDivisor>
                               <MainFormContainerDivisor>
                                    <Field name="commerce">
-                                        {({field, meta}: FieldProps) => (
-                                             <PasswordContainer>
+                                        {({ field, meta }: FieldProps) => (
+                                             <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Commerce* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="commerce"
-                                                       placeholder="Insert Commerce"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={1} // aquí se define el número de filas
+                                                       placeholder="Insert your commerce"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
-                                             </PasswordContainer>
+                                             </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="proposal">
-                                        {({field, meta}: FieldProps) => (
-                                             <PasswordContainer>
+                                        {({ field, meta }: FieldProps) => (
+                                             <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Proposal* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="proposal"
-                                                       placeholder="Insert Proposal"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={1} // aquí se define el número de filas
+                                                       placeholder="Insert your proposals"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
-                                             </PasswordContainer>
+                                             </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="cost">
-                                        {({field, meta}: FieldProps) => (
-                                             <PasswordContainer>
+                                        {({ field, meta }: FieldProps) => (
+                                             <EmailContainer>
                                                   <LabelContainer>
-                                                       <Label>Cost* </Label>
+                                                       <Label>Estimated Cost Project* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="cost"
-                                                       placeholder="Insert Cost"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={1} // aquí se define el número de filas
+                                                       placeholder="Insert your Cost Project"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
-                                             </PasswordContainer>
+                                             </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="currency">
-                                        {({field, meta}: FieldProps) => (
-                                             <PasswordContainer>
+                                        {({ field, meta }: FieldProps) => (
+                                             <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Currency* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="currency"
-                                                       placeholder="Insert Currency"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={1} // aquí se define el número de filas
+                                                       placeholder="Insert your currency"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
-                                             </PasswordContainer>
+                                             </EmailContainer>
                                         )}
                                    </Field>
                               </MainFormContainerDivisor>
                               <MainFormContainerDivisor>
                                    <Field name="minimuminvestment">
-                                        {({field, meta}: FieldProps) => (
-                                             <PasswordContainer>
+                                        {({ field, meta }: FieldProps) => (
+                                             <EmailContainer>
                                                   <LabelContainer>
-                                                       <Label>
-                                                            Minimun Invest*{' '}
-                                                       </Label>
+                                                       <Label>Minimun Inversion:* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="MinimumInvestment"
-                                                       placeholder="Insert MinInvest"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={1} // aquí se define el número de filas
+                                                       placeholder="Insert your Min invest"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
-                                             </PasswordContainer>
+                                             </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="actionPerCredit">
-                                        {({field, meta}: FieldProps) => (
-                                             <PasswordContainer>
+                                        {({ field, meta }: FieldProps) => (
+                                             <EmailContainer>
                                                   <LabelContainer>
-                                                       <Label>
-                                                            Action per Credit{' '}
-                                                       </Label>
+                                                       <Label>Action per Credit:* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="ActionPerCredits"
-                                                       placeholder="Insert ActionPerCredit"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={1} // aquí se define el número de filas
+                                                       placeholder="Insert your Action per Credit"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
-                                             </PasswordContainer>
+                                             </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="ReturnOnInvestment">
-                                        {({field, meta}: FieldProps) => (
+                                        {({ field, meta }: FieldProps) => (
                                              <PasswordContainer>
                                                   <LabelContainer>
                                                        <Label>ROI </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
+                                                  <TextField
+                                                       error={!!meta?.error}
                                                        type="date"
                                                        placeholder="Insert ROI"
-                                                       min={
-                                                            new Date()
-                                                                 .toISOString()
-                                                                 .split('T')[0]
-                                                       }
+                                                       style={{ width: "350px" }}
                                                        {...field}
                                                   />
                                                   {meta?.error && (
@@ -407,28 +366,26 @@ const FormProjectNew: FC = () => {
                                    </Field>
 
                                    <Field name="goal">
-                                        {({field, meta}: FieldProps) => (
-                                             <PasswordContainer>
+                                        {({ field, meta }: FieldProps) => (
+                                             <EmailContainer>
                                                   <LabelContainer>
-                                                       <Label>Goal </Label>
+                                                       <Label>Your Goal Project:* </Label>
                                                   </LabelContainer>
-                                                  <Input
-                                                       $hasError={!!meta?.error}
-                                                       type="goal"
-                                                       placeholder="Insert Goal"
+                                                  <TextField
+                                                       error={!!meta?.error}
+                                                       helperText={meta?.error}
+                                                       multiline
+                                                       rows={1} // aquí se define el número de filas
+                                                       placeholder="Insert your Your goal Project"
                                                        {...field}
+                                                       style={{ width: "350px" }}
                                                   />
-                                                  {meta?.error && (
-                                                       <Error>
-                                                            {meta.error}
-                                                       </Error>
-                                                  )}
-                                             </PasswordContainer>
+                                             </EmailContainer>
                                         )}
                                    </Field>
                                    <PasswordContainer>
                                         <LabelContainer>
-                                             <LabelTags>Tags </LabelTags>
+                                             <Label>Tags </Label>
                                         </LabelContainer>
                                         <Search
                                              handleFiltersChange={
@@ -436,6 +393,7 @@ const FormProjectNew: FC = () => {
                                              }
                                              options={tags}
                                              value={tags.map((tag) => tag.id)}
+                                             
                                         />
                                    </PasswordContainer>
                               </MainFormContainerDivisor>
