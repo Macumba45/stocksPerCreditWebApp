@@ -47,6 +47,8 @@ const DashboardINVe: FC = () => {
           setPage(page + 1);
      }, [page]);
 
+     console.log(projectsData)
+
      if (isLoading) {
           return <p>cargando</p>;
      }
@@ -123,6 +125,7 @@ const DashboardINVe: FC = () => {
                                              toggleFav={toggleFavorite}
                                              deleteIcon={false}
                                              ProjectTag={project.ProjectTag}
+                                             
                                         />
                                    </div>
                               ))}
