@@ -166,7 +166,8 @@ const Card: FC<Props> = ({
                          {deleteIcon && (
                               <DeleteIcon
                                    onClick={onDelete}
-                                   sx={{color: 'red'}}
+                                   sx={{color: 'red',
+                                   cursor: 'pointer'}}
                               />
                          )}
                     </ContainerButtonModal>

@@ -54,7 +54,6 @@ const Profile: FC = () => {
                     <Container>
                          <ButtonContainer>
                               <ButtonBack onClick={goToEditProfile}>
-                                   <button>Edit</button>
                               </ButtonBack>
                          </ButtonContainer>
                          <AvatarContainer>
