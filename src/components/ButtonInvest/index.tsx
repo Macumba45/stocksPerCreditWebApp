@@ -4,7 +4,10 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import Stack from '@mui/material/Stack';
 import {useNavigate} from 'react-router-dom';
 
-const ButtonInvest: FC = () => {
+type Props = {
+     projectId?:string
+}
+const ButtonInvest: FC<Props> = ({projectId}) => {
      const navigate = useNavigate();
      const [token] = useState<string | null>(
           window.localStorage.getItem('token')
@@ -18,8 +21,8 @@ const ButtonInvest: FC = () => {
      }, [token, isAuthenticated]);
 
      const goPayment = useCallback(() => {
-          navigate('/payment');
-     }, [navigate]);
+          navigate('/payment/'+projectId);
+     }, [navigate, projectId]);
 
      const ButtonStyles = {
           backgroundColor: '#7E1B75',

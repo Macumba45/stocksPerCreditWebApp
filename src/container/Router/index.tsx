@@ -122,7 +122,7 @@ const Router: FC = () => {
                          element={<FormProjectNew />}
                     />
                     <Route
-                         path="/payment"
+                         path="/payment/:id"
                          element={
                               <ProtectedRoutes>
                                    <Payment />

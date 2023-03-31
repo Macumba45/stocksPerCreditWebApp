@@ -38,7 +38,6 @@ const DashboardINVe: FC = () => {
           tagsGroup,
           projectsData,
      } = DashboardInvLogic();
-
      const pageSize = 5;
      const [page, setPage] = useState(1); // Estado que controla la cantidad de partes cargadas
 
