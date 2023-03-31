@@ -1,13 +1,11 @@
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useEffect} from 'react';
 import {
      getUserInfo,
      togglePostFav,
-     UserInfoResponse,
 } from '../../services/api/user';
 import {getAuthenticatedToken} from '../../services/storage/token';
 
 export const FavoriteViewLogic = () => {
-     const [favoriteData, setfavoriteData] = useState<UserInfoResponse>();
 
      const getFavorites = useCallback(async () => {
           getAuthenticatedToken();
@@ -27,7 +25,6 @@ export const FavoriteViewLogic = () => {
 
      return {
           getFavorites,
-          favoriteData,
           toggleFavorite,
      };
 };

@@ -1,7 +1,6 @@
 import {memo, useCallback, useEffect, useState} from 'react';
 import {Field, Form, Formik} from 'formik';
 import {validationSchema, initialValues} from './constants';
-import {useNavigate} from 'react-router-dom';
 import {getUserInfo} from '../../services/api/profile';
 import {User} from '../../models/profile';
 import {
@@ -16,7 +15,6 @@ import {
 const EditProfile = () => {
      const [userinfo, setUserInfo] = useState<User | null>(null);
      const [isEditing, setIsEditing] = useState<boolean>(false);
-     const navigate = useNavigate();
 
      const getProfileInfo = useCallback(async () => {
           const userprofile = await getUserInfo();

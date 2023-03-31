@@ -17,11 +17,11 @@ export const DashboardEmpLogic = () => {
                await removeProject(id);
                getProjectUser();
           }
-     }, []);
+     }, [getProjectUser]);
 
      useEffect(() => {
           getProjectUser();
-     }, [getProjectUser, removeProject]);
+     }, [getProjectUser]);
 
      return {
           userdata,

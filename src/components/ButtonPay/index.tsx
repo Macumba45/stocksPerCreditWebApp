@@ -24,7 +24,7 @@ const ButtonPayment: FC<Props> = ({investAmount,projectId}) => {
           // Definimos la función handleCloseModal
           setIsOpen(false);
           navigate('/dashboard/orders');
-     }, []);
+     }, [navigate]);
 
      const handleInvest = useCallback(async(projectId: string) => {
           // Realizar la llamada de inversión aquí, usando investAmount

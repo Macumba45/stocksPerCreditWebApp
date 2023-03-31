@@ -1,14 +1,14 @@
-import {useCallback, useEffect, useState} from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
      getGroupedProjects,
      InvestDashboardResponse,
 } from '../../services/api/project';
-import {togglePostFav} from '../../services/api/user';
+import { togglePostFav } from '../../services/api/user';
 import format from 'date-fns/format';
-import type {Project, ProjectFilters} from '../../models/project';
-import type {Tag} from '../../models/tag';
-import {getTagsGroup} from '../../services/api/tagGroup';
-import {getInvestorProjects} from '../../services/api/investDashboard';
+import type { Project, ProjectFilters } from '../../models/project';
+import type { Tag } from '../../models/tag';
+import { getTagsGroup } from '../../services/api/tagGroup';
+import { getInvestorProjects } from '../../services/api/investDashboard';
 
 export const DashboardInvLogic = () => {
      const [tagsByFilter, setTagsByFilter] = useState<Tag[]>([]);
@@ -21,7 +21,7 @@ export const DashboardInvLogic = () => {
      const [selectedRange, setSelectedRange] = useState<{
           min: number;
           max: number;
-     }>({min: 0, max: 5000});
+     }>({ min: 0, max: 5000 });
      const [isLoading, setIsLoading] = useState(false);
      const [tagsGroup, setTagsGroup] = useState<Tag[]>([]);
 
@@ -71,7 +71,7 @@ export const DashboardInvLogic = () => {
      }, []);
 
      const handleRangeChange = useCallback(
-          (range: {min: number; max: number}) => {
+          (range: { min: number; max: number }) => {
                setSelectedRange(range);
           },
           []
@@ -89,13 +89,13 @@ export const DashboardInvLogic = () => {
                tags: Object.values(tagsByFilter).map((tag) => tag.id),
           };
           await getProjectsData(filters);
-     }, [selectedRange, selectedDate, tagsByFilter]);
+     }, [selectedRange, selectedDate, tagsByFilter,getProjectsData]);
 
      useEffect(() => {
           getGroupedProjectsData();
           getTagsGroupData();
           getProjectsData();
-     }, [getGroupedProjectsData, getTagsGroupData]);
+     }, [getGroupedProjectsData, getTagsGroupData, getProjectsData]);
 
      return {
           projectsData,

@@ -3,7 +3,6 @@ import ResponsiveDrawer from '../../components/SidebarDashboardINV';
 import { NewCards, NewContainer } from '../DashboardINV/styles';
 import Card from '../../components/CardProjects';
 import { Container } from './styles';
-import { TagResponse } from '../../services/api/tag';
 
 const DashboardOrders: FC = () => {
 

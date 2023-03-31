@@ -1,6 +1,5 @@
 import { FC, memo } from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
-import { FavoriteViewLogic } from './logic';
 import Card from '../../components/CardProjects';
 import {
      CardsContainer,
@@ -9,7 +8,6 @@ import {
 } from './styles';
 
 const DashboardFavorites: FC = () => {
-     const { getFavorites, favoriteData, toggleFavorite } = FavoriteViewLogic();
 
      return (
           <>
