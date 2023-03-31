@@ -1,13 +1,13 @@
-import { FC, memo, useCallback, useEffect, useState } from 'react';
-import { initialValues } from './constants';
-import { Field, FieldProps, Formik } from 'formik';
-import { validationSchema } from './constants';
-import { createProject } from '../../services/api/project';
+import {FC, memo, useCallback, useEffect, useState} from 'react';
+import {initialValues} from './constants';
+import {Field, FieldProps, Formik} from 'formik';
+import {validationSchema} from './constants';
+import {createProject} from '../../services/api/project';
 import Search from '../../components/Search';
-import { getTags } from '../../services/api/tag';
-import { Tag } from '../../models/tag';
-import { TextField } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import {getTags} from '../../services/api/tag';
+import {Tag} from '../../models/tag';
+import {TextField} from '@mui/material';
+import {useNavigate} from 'react-router-dom';
 import {
      Dialog,
      DialogTitle,
@@ -40,7 +40,6 @@ const FormProjectNew: FC = () => {
           const newTagId = newTags.map((tag) => tag.id);
           setTagsByFilter(newTagId);
      }, []);
-
 
      const getTagsData = useCallback(async () => {
           const data = await getTags();
@@ -78,13 +77,16 @@ const FormProjectNew: FC = () => {
           <>
                <Dialog open={modalOpen} onClose={handleModalClose}>
                     <DialogTitle>Submission Successful</DialogTitle>
-                    <DialogContent style={{ fontFamily: 'Roboto' }}>
+                    <DialogContent style={{fontFamily: 'Roboto'}}>
                          <p>Your project has been successfully submitted.</p>
                     </DialogContent>
-                    <DialogActions style={{ fontFamily: 'Roboto' }}>
+                    <DialogActions style={{fontFamily: 'Roboto'}}>
                          <Button
                               onClick={handleModalClose}
-                              style={{ backgroundColor: '#7E1B75' }}
+                              style={{
+                                   backgroundColor: '#7E1B75',
+                                   color: 'white',
+                              }}
                               color="primary"
                               autoFocus
                          >
@@ -102,7 +104,7 @@ const FormProjectNew: FC = () => {
                          <Form>
                               <MainFormContainerStart>
                                    <Field name="url">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
                                                        <Label>URL Video</Label>
@@ -113,17 +115,18 @@ const FormProjectNew: FC = () => {
                                                        type="url"
                                                        placeholder="Insert your URL"
                                                        {...field}
-                                                       style={{ width: "350px" }}
-
+                                                       style={{width: '350px'}}
                                                   />
                                              </NameContainer>
                                         )}
                                    </Field>
                                    <Field name="title">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
-                                                       <Label>Project title</Label>
+                                                       <Label>
+                                                            Project title
+                                                       </Label>
                                                   </LabelContainer>
                                                   <TextField
                                                        error={!!meta?.error}
@@ -131,16 +134,18 @@ const FormProjectNew: FC = () => {
                                                        type="text"
                                                        placeholder="Insert your title here"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </NameContainer>
                                         )}
                                    </Field>
                                    <Field name="description">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
-                                                       <Label>Description*</Label>
+                                                       <Label>
+                                                            Description*
+                                                       </Label>
                                                   </LabelContainer>
                                                   <TextField
                                                        error={!!meta?.error}
@@ -149,7 +154,7 @@ const FormProjectNew: FC = () => {
                                                        rows={4} // aquí se define el número de filas
                                                        placeholder="Insert your Description"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </NameContainer>
                                         )}
@@ -157,7 +162,7 @@ const FormProjectNew: FC = () => {
                               </MainFormContainerStart>
                               <MainFormContainerDivisor>
                                    <Field name="country">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Country* </Label>
@@ -169,13 +174,13 @@ const FormProjectNew: FC = () => {
                                                        rows={1} // aquí se define el número de filas
                                                        placeholder="Insert your Country"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="city">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>City* </Label>
@@ -187,13 +192,13 @@ const FormProjectNew: FC = () => {
                                                        rows={1} // aquí se define el número de filas
                                                        placeholder="Insert your City"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="duration">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
                                                        <Label>Duration* </Label>
@@ -202,7 +207,7 @@ const FormProjectNew: FC = () => {
                                                        error={!!meta?.error}
                                                        type="date"
                                                        placeholder="Insert Duration Project"
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                        {...field}
                                                   />
                                                   {!!meta?.error && (
@@ -214,10 +219,13 @@ const FormProjectNew: FC = () => {
                                         )}
                                    </Field>
                                    <Field name="history">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <NameContainer>
                                                   <LabelContainer>
-                                                       <Label>History of your Project*</Label>
+                                                       <Label>
+                                                            History of your
+                                                            Project*
+                                                       </Label>
                                                   </LabelContainer>
                                                   <TextField
                                                        error={!!meta?.error}
@@ -226,7 +234,7 @@ const FormProjectNew: FC = () => {
                                                        rows={4} // aquí se define el número de filas
                                                        placeholder="Insert your History"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </NameContainer>
                                         )}
@@ -234,7 +242,7 @@ const FormProjectNew: FC = () => {
                               </MainFormContainerDivisor>
                               <MainFormContainerDivisor>
                                    <Field name="commerce">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Commerce* </Label>
@@ -243,16 +251,16 @@ const FormProjectNew: FC = () => {
                                                        error={!!meta?.error}
                                                        helperText={meta?.error}
                                                        multiline
-                                                       rows={1} // aquí se define el número de filas
+                                                       rows={4} // aquí se define el número de filas
                                                        placeholder="Insert your commerce"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="proposal">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Proposal* </Label>
@@ -261,19 +269,22 @@ const FormProjectNew: FC = () => {
                                                        error={!!meta?.error}
                                                        helperText={meta?.error}
                                                        multiline
-                                                       rows={1} // aquí se define el número de filas
+                                                       rows={4} // aquí se define el número de filas
                                                        placeholder="Insert your proposals"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="cost">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
-                                                       <Label>Estimated Cost Project* </Label>
+                                                       <Label>
+                                                            Estimated Cost
+                                                            Project*{' '}
+                                                       </Label>
                                                   </LabelContainer>
                                                   <TextField
                                                        error={!!meta?.error}
@@ -282,13 +293,13 @@ const FormProjectNew: FC = () => {
                                                        rows={1} // aquí se define el número de filas
                                                        placeholder="Insert your Cost Project"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="currency">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
                                                        <Label>Currency* </Label>
@@ -300,7 +311,7 @@ const FormProjectNew: FC = () => {
                                                        rows={1} // aquí se define el número de filas
                                                        placeholder="Insert your currency"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </EmailContainer>
                                         )}
@@ -308,10 +319,12 @@ const FormProjectNew: FC = () => {
                               </MainFormContainerDivisor>
                               <MainFormContainerDivisor>
                                    <Field name="minimuminvestment">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
-                                                       <Label>Minimun Inversion:* </Label>
+                                                       <Label>
+                                                            Minimun Inversion:*{' '}
+                                                       </Label>
                                                   </LabelContainer>
                                                   <TextField
                                                        error={!!meta?.error}
@@ -320,16 +333,18 @@ const FormProjectNew: FC = () => {
                                                        rows={1} // aquí se define el número de filas
                                                        placeholder="Insert your Min invest"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="actionPerCredit">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
-                                                       <Label>Action per Credit:* </Label>
+                                                       <Label>
+                                                            Action per Credit:*{' '}
+                                                       </Label>
                                                   </LabelContainer>
                                                   <TextField
                                                        error={!!meta?.error}
@@ -338,13 +353,13 @@ const FormProjectNew: FC = () => {
                                                        rows={1} // aquí se define el número de filas
                                                        placeholder="Insert your Action per Credit"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </EmailContainer>
                                         )}
                                    </Field>
                                    <Field name="ReturnOnInvestment">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <PasswordContainer>
                                                   <LabelContainer>
                                                        <Label>ROI </Label>
@@ -353,7 +368,7 @@ const FormProjectNew: FC = () => {
                                                        error={!!meta?.error}
                                                        type="date"
                                                        placeholder="Insert ROI"
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                        {...field}
                                                   />
                                                   {meta?.error && (
@@ -366,10 +381,12 @@ const FormProjectNew: FC = () => {
                                    </Field>
 
                                    <Field name="goal">
-                                        {({ field, meta }: FieldProps) => (
+                                        {({field, meta}: FieldProps) => (
                                              <EmailContainer>
                                                   <LabelContainer>
-                                                       <Label>Your Goal Project:* </Label>
+                                                       <Label>
+                                                            Your Goal Project:*{' '}
+                                                       </Label>
                                                   </LabelContainer>
                                                   <TextField
                                                        error={!!meta?.error}
@@ -378,7 +395,7 @@ const FormProjectNew: FC = () => {
                                                        rows={1} // aquí se define el número de filas
                                                        placeholder="Insert your Your goal Project"
                                                        {...field}
-                                                       style={{ width: "350px" }}
+                                                       style={{width: '350px'}}
                                                   />
                                              </EmailContainer>
                                         )}
@@ -393,7 +410,6 @@ const FormProjectNew: FC = () => {
                                              }
                                              options={tags}
                                              value={tags.map((tag) => tag.id)}
-                                             
                                         />
                                    </PasswordContainer>
                               </MainFormContainerDivisor>
