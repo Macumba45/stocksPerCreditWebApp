@@ -18,6 +18,7 @@ export const DashboardInvLogic = () => {
      const [groupedProjectsData, setGroupedProjectsData] =
           useState<InvestDashboardResponse>();
      const [projectsData, setProjectsData] = useState<Project[]>([]);
+     console.log(projectsData)
      const [selectedRange, setSelectedRange] = useState<{
           min: number;
           max: number;
@@ -89,7 +90,7 @@ export const DashboardInvLogic = () => {
                tags: Object.values(tagsByFilter).map((tag) => tag.id),
           };
           await getProjectsData(filters);
-     }, [selectedRange, selectedDate, tagsByFilter,getProjectsData]);
+     }, [selectedRange, selectedDate, tagsByFilter, getProjectsData]);
 
      useEffect(() => {
           getGroupedProjectsData();

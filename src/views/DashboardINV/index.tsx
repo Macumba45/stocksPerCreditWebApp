@@ -122,6 +122,7 @@ const DashboardINVe: FC = () => {
                                              totalInvest={project.totalInvest}
                                              toggleFav={toggleFavorite}
                                              deleteIcon={false}
+                                             ProjectTag={project.ProjectTag}
                                         />
                                    </div>
                               ))}
@@ -192,6 +193,7 @@ const DashboardINVe: FC = () => {
                                                   }
                                                   toggleFav={toggleFavorite}
                                                   deleteIcon={false}
+                                                  ProjectTag={project.ProjectTag}
                                              />
                                         </div>
                                    )
@@ -250,6 +252,7 @@ const DashboardINVe: FC = () => {
                                                             toggleFavorite
                                                        }
                                                        deleteIcon={false}
+                                                       ProjectTag={project.ProjectTag}
                                                   />
                                              </div>
                                         )
@@ -302,6 +305,7 @@ const DashboardINVe: FC = () => {
                                                        }
                                                        toggleFav={toggleFavorite}
                                                        deleteIcon={false}
+                                                       ProjectTag={project.ProjectTag}
                                                   />
                                              </div>
                                         )

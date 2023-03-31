@@ -52,11 +52,6 @@ const Card: FC<Props> = ({
      const [isFav, setIsFav] = useState(isFavorite);
      const navigate = useNavigate();
      const [showMenu, setShowMenu] = useState(false);
-     const location = useLocation();
-     const showMenuItems =
-          location.pathname !== '/' &&
-          location.pathname !== '/welcome' &&
-          getUserRole() !== 'INVESTOR';
 
      const logged = getUserRole() !== 'INVESTOR' || 'ENTREPRENEUR';
 
@@ -64,14 +59,6 @@ const Card: FC<Props> = ({
           setIsFav(!isFav);
           toggleFav(id);
      }, [isFav]);
-
-     const handleMenuClick = useCallback(() => {
-          setShowMenu(!showMenu);
-     }, [showMenu]);
-
-     const handleMenuClickClose = useCallback(() => {
-          setShowMenu(showMenu);
-     }, [showMenu]);
 
      const handleGoDetails = useCallback(
           (id: string) => {
