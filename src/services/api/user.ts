@@ -9,6 +9,25 @@ export type UserInfoResponse = {
 
 const BASE_API_URL = 'http://localhost:8000/dashboard';
 
+export const investOnProject = async (invest: { projectId: string; amount: { total: number; }; }) => {
+     try {
+          const token = getAuthenticatedToken();
+          console.log(invest)
+          const response = await fetch(`http://localhost:8000/users/invest`, {
+               method: 'POST',
+               headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(invest),
+          });
+          const data = await response.json();
+          console.log(data)
+     } catch (error) {
+          console.log((error as Error).message);
+     }
+}
+
 export const togglePostFav = async (projectId: string) => {
      try {
           const token = getAuthenticatedToken();

@@ -10,7 +10,7 @@ import ButtonInvest from '../../components/ButtonInvest';
 import CalculadoraAcciones from '../../components/SimulationInvestDetails';
 import Footer from '../../components/Footer';
 import {Fab, Tooltip} from '@mui/material';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import {Dashboard} from '@mui/icons-material';
 import {DetailsLogic} from './logic';
 
@@ -48,6 +48,7 @@ import {
 
 const ProjectDetails: FC = () => {
      const {dataDetails, daysLeft} = DetailsLogic();
+     const { id } = useParams();
      const navigate = useNavigate();
      const goDashboard = useCallback(() => {
           navigate('/dashboard');
@@ -134,7 +135,7 @@ const ProjectDetails: FC = () => {
                                         <InputDecorators />
                                    </ButtonContainer> */}
                                    <ButtonContainer>
-                                        <ButtonInvest />
+                                        <ButtonInvest projectId={id} />
                                    </ButtonContainer>
                               </MainInvestContainerFlex>
                               <MainInvestContainerFlex>

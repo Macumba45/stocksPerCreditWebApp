@@ -25,11 +25,13 @@ import {
      IconPaymentCardPaypal,
      ButtonPaymentContainer,
 } from './styles';
+import { useParams } from 'react-router-dom';
+
 
 const Payment: FC = () => {
      const [selectedValue, setSelectedValue] = useState('');
      const [investAmount, setInvestAmount] = useState(10);
-
+     const { id } = useParams();
      const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
           setSelectedValue(event.target.value);
      };
@@ -156,7 +158,7 @@ const Payment: FC = () => {
                               </ContainerPayment>
                          </ContainerTitle>
                          <ButtonPaymentContainer>
-                              <ButtonPayment investAmount={investAmount} />
+                              <ButtonPayment projectId={id} investAmount={investAmount} />
                          </ButtonPaymentContainer>
                     </ContainerForm>
                </MainContainer>

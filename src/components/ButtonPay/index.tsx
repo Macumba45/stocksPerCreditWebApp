@@ -4,12 +4,14 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import Stack from '@mui/material/Stack';
 import {useNavigate} from 'react-router-dom';
 import ModalPayment from '../ModalPayment';
+import { investOnProject } from '../../services/api/user';
 
 interface Props {
      investAmount: number;
+     projectId?: string;
 }
 
-const ButtonPayment: FC<Props> = ({investAmount}) => {
+const ButtonPayment: FC<Props> = ({investAmount,projectId}) => {
      const navigate = useNavigate();
      const [isOpen, setIsOpen] = useState(false); // Agregamos el estado isOpen al componente
 
@@ -24,17 +26,24 @@ const ButtonPayment: FC<Props> = ({investAmount}) => {
           navigate('/dashboard/orders');
      }, []);
 
-     const handleInvest = useCallback(() => {
+     const handleInvest = useCallback(async(projectId: string) => {
           // Realizar la llamada de inversión aquí, usando investAmount
+          const invest = {
+               projectId,
+               amount: {
+                    total: investAmount
+               }
+          }
           if (investAmount) {
+               await investOnProject(invest)
           }
           handleOpenModal(); // Llamamos a handleOpenModal para abrir el modal después de realizar la llamada de inversión
-     }, [investAmount, navigate, handleOpenModal]);
+     }, [investAmount, handleOpenModal]);
 
      return (
           <Stack>
                <Button
-                    onClick={handleInvest}
+                    onClick={() => handleInvest(projectId!)}
                     size="large"
                     sx={{
                          backgroundColor: '#7E1B75',
