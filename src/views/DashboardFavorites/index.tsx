@@ -1,6 +1,6 @@
-import {FC, memo} from 'react';
+import { FC, memo } from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
-import {FavoriteViewLogic} from './logic';
+import { FavoriteViewLogic } from './logic';
 import Card from '../../components/CardProjects';
 import {
      CardsContainer,
@@ -9,17 +9,17 @@ import {
      TopCards,
      TopContainer,
 } from './styles';
-import {Divider} from '@mui/material';
+import { Divider } from '@mui/material';
 
 const DashboardFavorites: FC = () => {
-     const {getFavorites, favoriteData, toggleFavorite} = FavoriteViewLogic();
+     const { getFavorites, favoriteData, toggleFavorite } = FavoriteViewLogic();
 
      return (
           <>
                <ResponsiveDrawer />
                <CardsContainer>
                     <TopContainer>
-                         <SectionTitle>
+                         {/* <SectionTitle>
                               <H3>YOUR FAVORITES</H3>
                               <Divider
                                    sx={{
@@ -27,33 +27,30 @@ const DashboardFavorites: FC = () => {
                                         height: '5px',
                                    }}
                               />
-                         </SectionTitle>
+                         </SectionTitle> */}
                          <TopCards>
-                              {/* {favoriteData?.map((favorite, index) => (
-                                   <div key={index}>
-                                        <Card
-                                             id={favorite.id}
-                                             url={favorite.url}
-                                             title={favorite.title}
-                                             duration={favorite.duration}
-                                             description={favorite.description}
-                                             country={favorite.country}
-                                             city={favorite.city}
-                                             tags={[]}
-                                             collected={favorite.totalInvest}
-                                             totalInvestor={
-                                                  favorite.totalInvestor
-                                             }
-                                             minimuminvestment={
-                                                  favorite.minimuminvestment
-                                             }
-                                             goal={favorite.goal}
-                                             limitvalue={favorite.limitvalue}
-                                             totalInvest={favorite.totalInvest}
-                                             toggleFav={toggleFavorite}
-                                        />
-                                   </div>
-                              ))} */}
+                              <div >
+                                   <Card
+                                        id={"abc123"}
+                                        url={"https://www.example.com"}
+                                        showHeartButton={true}
+                                        title={"GreenCycle"}
+                                        duration={"1 1 24"}
+                                        description={"GreenCycle es una plataforma de reciclaje comunitario que ayuda a los ciudadanos a gestionar de manera sostenible sus residuos."}
+                                        country={"España"}
+                                        city={"Madrid"}
+                                        // tags={ }
+                                        collected={10000}
+                                        totalInvestor={83}
+                                        minimuminvestment={100}
+                                        goal={28000}
+                                        limitvalue={500}
+                                        totalInvest={15000}
+                                        toggleFav={() => console.log("Favorito")}
+                                        deleteIcon={false}
+
+                                   />
+                              </div>
                          </TopCards>
                     </TopContainer>
                </CardsContainer>

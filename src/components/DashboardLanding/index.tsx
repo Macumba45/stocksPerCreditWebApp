@@ -1,5 +1,5 @@
-import {FC, memo, useCallback} from 'react';
-import {useNavigate} from 'react-router-dom';
+import { FC, memo, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
      getAuthenticatedToken,
      setAuthenticatedToken,
@@ -36,7 +36,7 @@ const DashboardLanding: FC = () => {
                          claras y seguras
                     </Title>
                     <SubTitle>
-                         Invierte desde solo 100€{<br />} en startups en
+                         Invierte desde solo 10€{<br />} en startups en
                          crecimiento de todo el planeta
                     </SubTitle>
                     <ButtonContainer>

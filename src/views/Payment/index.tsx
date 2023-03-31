@@ -25,13 +25,10 @@ import {
      IconPaymentCardPaypal,
      ButtonPaymentContainer,
 } from './styles';
-import { PaymentLogic } from './logic';
 import { useParams } from 'react-router-dom';
 
 
 const Payment: FC = () => {
-     const { dataDetails, idUser } = PaymentLogic()
-     console.log(dataDetails, idUser)
      const [selectedValue, setSelectedValue] = useState('');
      const [investAmount, setInvestAmount] = useState(10);
      const { id } = useParams();

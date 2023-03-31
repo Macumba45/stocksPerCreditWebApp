@@ -1,12 +1,12 @@
-import {FC, memo, useCallback, useState} from 'react';
+import { FC, memo, useCallback, useState } from 'react';
 import ResponsiveDrawer from '../../components/SidebarDashboardINV';
-import {DashboardInvLogic} from './logic';
-import {FinishDatePickers} from '../../components/DatePicker';
+import { DashboardInvLogic } from './logic';
+import { FinishDatePickers } from '../../components/DatePicker';
 import Search from '../../components/Search';
 import Card from '../../components/CardProjects';
 import RangeSlider from '../../components/MoneySlider';
 import ContainedButtons from '../../components/ContainedButton';
-import {Button, Divider} from '@mui/material';
+import { Button, Divider } from '@mui/material';
 import {
      Container,
      MinMaxContainer,
@@ -214,102 +214,103 @@ const DashboardINVe: FC = () => {
                          <TopCards>
                               {groupedProjectsData
                                    ? groupedProjectsData.latestProjects.map(
-                                          (project, index) => (
-                                               <div key={index}>
-                                                    <Card
-                                                         id={project.id}
-                                                         url={project.url}
-                                                         showHeartButton={false}
-                                                         title={project.title}
-                                                         duration={
-                                                              project.duration
-                                                         }
-                                                         description={
-                                                              project.description
-                                                         }
-                                                         country={
-                                                              project.country
-                                                         }
-                                                         city={project.city}
-                                                         tags={[]}
-                                                         collected={
-                                                              project.totalInvest
-                                                         }
-                                                         totalInvestor={
-                                                              project.totalInvestor
-                                                         }
-                                                         minimuminvestment={
-                                                              project.minimuminvestment
-                                                         }
-                                                         goal={project.goal}
-                                                         limitvalue={
-                                                              project.limitvalue
-                                                         }
-                                                         totalInvest={
-                                                              project.totalInvest
-                                                         }
-                                                         toggleFav={
-                                                              toggleFavorite
-                                                         }
-                                                         deleteIcon={false}
-                                                    />
-                                               </div>
-                                          )
-                                     )
+                                        (project, index) => (
+                                             <div key={index}>
+                                                  <Card
+                                                       id={project.id}
+                                                       url={project.url}
+                                                       showHeartButton={false}
+                                                       title={project.title}
+                                                       duration={
+                                                            project.duration
+                                                       }
+                                                       description={
+                                                            project.description
+                                                       }
+                                                       country={
+                                                            project.country
+                                                       }
+                                                       city={project.city}
+                                                       tags={[]}
+                                                       collected={
+                                                            project.totalInvest
+                                                       }
+                                                       totalInvestor={
+                                                            project.totalInvestor
+                                                       }
+                                                       minimuminvestment={
+                                                            project.minimuminvestment
+                                                       }
+                                                       goal={project.goal}
+                                                       limitvalue={
+                                                            project.limitvalue
+                                                       }
+                                                       totalInvest={
+                                                            project.totalInvest
+                                                       }
+                                                       toggleFav={
+                                                            toggleFavorite
+                                                       }
+                                                       deleteIcon={false}
+                                                  />
+                                             </div>
+                                        )
+                                   )
                                    : null}
                          </TopCards>
                     </TopContainer>
-                    <FinalContainer>
-                         <SectionTitle>
-                              <H3>PROJECTS CLOSE SOON</H3>
-                              <Divider
-                                   sx={{
-                                        backgroundColor: '#7E1B75',
-                                        height: '5px',
-                                   }}
-                              />
-                         </SectionTitle>
-                         <FinalCards>
-                              {groupedProjectsData?.closeSoonProjects.map(
-                                   (project, index) => (
-                                        <div key={index}>
-                                             <Card
-                                                  id={project.id}
-                                                  url={project.url}
-                                                  showHeartButton={false}
-                                                  title={project.title}
-                                                  duration={project.duration}
-                                                  description={
-                                                       project.description
-                                                  }
-                                                  country={project.country}
-                                                  city={project.city}
-                                                  tags={[]}
-                                                  collected={
-                                                       project.totalInvest
-                                                  }
-                                                  totalInvestor={
-                                                       project.totalInvestor
-                                                  }
-                                                  minimuminvestment={
-                                                       project.minimuminvestment
-                                                  }
-                                                  goal={project.goal}
-                                                  limitvalue={
-                                                       project.limitvalue
-                                                  }
-                                                  totalInvest={
-                                                       project.totalInvest
-                                                  }
-                                                  toggleFav={toggleFavorite}
-                                                  deleteIcon={false}
-                                             />
-                                        </div>
-                                   )
-                              )}
-                              <NewContainer></NewContainer>
-                         </FinalCards>
-                    </FinalContainer>
+                    <TopContainer>
+                         <TopContainer>
+                              <SectionTitle>
+                                   <H3>PROJECTS CLOSE SOON</H3>
+                                   <Divider
+                                        sx={{
+                                             backgroundColor: '#7E1B75',
+                                             height: '5px',
+                                        }}
+                                   />
+                              </SectionTitle>
+                              <TopCards>
+                                   {groupedProjectsData?.closeSoonProjects.map(
+                                        (project, index) => (
+                                             <div key={index}>
+                                                  <Card
+                                                       id={project.id}
+                                                       url={project.url}
+                                                       showHeartButton={false}
+                                                       title={project.title}
+                                                       duration={project.duration}
+                                                       description={
+                                                            project.description
+                                                       }
+                                                       country={project.country}
+                                                       city={project.city}
+                                                       tags={[]}
+                                                       collected={
+                                                            project.totalInvest
+                                                       }
+                                                       totalInvestor={
+                                                            project.totalInvestor
+                                                       }
+                                                       minimuminvestment={
+                                                            project.minimuminvestment
+                                                       }
+                                                       goal={project.goal}
+                                                       limitvalue={
+                                                            project.limitvalue
+                                                       }
+                                                       totalInvest={
+                                                            project.totalInvest
+                                                       }
+                                                       toggleFav={toggleFavorite}
+                                                       deleteIcon={false}
+                                                  />
+                                             </div>
+                                        )
+                                   )}
+                              </TopCards>
+                         </TopContainer>
+                    </TopContainer>
                </CardsContainer>
           </>
      );

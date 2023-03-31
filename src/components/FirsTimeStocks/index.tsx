@@ -19,7 +19,7 @@ const FirsTimeStocks: FC = () => {
      }, [token]);
 
      const route = useCallback(() => {
-          if (isAuthenticated) {
+          if (!isAuthenticated) {
 
                navigate('/dashboard')
 

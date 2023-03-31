@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-     background-color: ${({theme}) => theme.colors.light};
+     background-color: ${({ theme }) => theme.colors.light};
      width: 100%;
      height: 200vh;
      @media (max-width: 768px) {
@@ -52,10 +52,8 @@ export const TagDiv = styled.div`
 `;
 
 export const CardsContainer = styled.div`
-     margin-top: 80px;
      display: flex;
      flex-wrap: wrap;
-     justify-content: center;
      margin-left: 18rem;
      @media (max-width: 600px) {
           margin-left: 1rem;
@@ -111,6 +109,6 @@ export const HR = styled.hr`
 `;
 
 export const H3 = styled.h3`
-     font-weight: ${({theme}) => theme.fontWeights.bold};
-     font-size: ${({theme}) => theme.fontSizes.small};
+     font-weight: ${({ theme }) => theme.fontWeights.bold};
+     font-size: ${({ theme }) => theme.fontSizes.small};
 `;
