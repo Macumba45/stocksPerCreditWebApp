@@ -3,7 +3,7 @@ import Chip from '@mui/material/Chip';
 import {FC, memo} from 'react';
 import {Props} from './type';
 
-const Hr: FC<Props> = ({label, style}) => {
+const Hr: FC<Props> = ({label}) => {
      return (
           <Divider
                sx={{

@@ -19,8 +19,6 @@ import {
      SectionTitle,
      NewContainer,
      NewCards,
-     FinalContainer,
-     FinalCards,
      H3,
      ButtonContainer,
      ButtonSeeMore,

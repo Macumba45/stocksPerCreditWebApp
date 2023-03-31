@@ -1,4 +1,7 @@
 import {FC, memo, useCallback, useEffect, useState} from 'react';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import {useNavigate} from 'react-router-dom';
+import {Fab, Tooltip} from '@mui/material';
 import {
      MainContainer,
      ContainerText,
@@ -9,9 +12,6 @@ import {
      ButtonContainer,
      ButtonSimulation,
 } from './styles';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import {useNavigate} from 'react-router-dom';
-import {Fab, Tooltip} from '@mui/material';
 
 const FeaturedCard: FC = () => {
      const navigate = useNavigate();

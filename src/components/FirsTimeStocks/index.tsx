@@ -1,9 +1,8 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { ButtonContainer, MainContainer, SubTitle, SubTitleContainer, Title, TitleContainer } from './styles';
 import { useNavigate } from 'react-router-dom';
-
+import { ButtonContainer, MainContainer, SubTitle, SubTitleContainer, Title, TitleContainer } from './styles';
 
 const FirsTimeStocks: FC = () => {
      const navigate = useNavigate()

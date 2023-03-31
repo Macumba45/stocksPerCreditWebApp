@@ -3,11 +3,10 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import {FC, memo, useCallback, useState} from 'react';
 import Card from '../CardProjects';
-import {ContainerProjects, MainContainer, TabDiv} from './styles';
 import {LandingLogic} from './logic';
 import {togglePostFav} from '../../services/api/user';
-import {IosShare} from '@mui/icons-material';
-import {createFalse} from 'typescript';
+import {ContainerProjects, MainContainer, TabDiv} from './styles';
+
 
 interface TabPanelProps {
      children?: React.ReactNode;

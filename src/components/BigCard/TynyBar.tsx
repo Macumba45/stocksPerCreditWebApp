@@ -1,13 +1,7 @@
-import React, {FC, memo, PureComponent} from 'react';
+import React, {FC, memo} from 'react';
 import {
      BarChart,
      Bar,
-     Cell,
-     XAxis,
-     YAxis,
-     CartesianGrid,
-     Tooltip,
-     Legend,
      ResponsiveContainer,
 } from 'recharts';
 
@@ -57,7 +51,6 @@ const data = [
 ];
 
 const TynyBar: FC = () => {
-     // static demoUrl = 'https://codesandbox.io/s/tiny-bar-chart-35meb';
 
      return (
           <ResponsiveContainer width="80%" height="80%">

@@ -2,10 +2,8 @@ import {useState, memo, useCallback, FC} from 'react';
 import Button from '@mui/material/Button';
 import LinearWithValueLabel from '../ProgressLinear/index';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import {useLocation} from 'react-router';
-import {Route, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import {Props} from './type';
 import VideoThumbail from './video/index';
 import {getUserRole} from '../../services/storage/userRole';
@@ -24,9 +22,6 @@ import {
      Categories,
      ContainerLinear,
      ContainerButtonModal,
-     MenuButton,
-     Menu,
-     MenuItem,
      TotalInvestor,
      ContainerInvestor,
      StyledFavoriteIcon,
@@ -35,7 +30,6 @@ import {
      SpanData,
      ContainerDays,
 } from './styles';
-import {DetailsLogic} from '../../views/ProjectDetails/logic';
 
 const Card: FC<Props> = ({
      id,
@@ -47,21 +41,8 @@ const Card: FC<Props> = ({
      totalInvestor,
      country,
      city,
-     history,
-     commerce,
-     proposal,
-     images,
-     currency,
-     cost,
-     minimuminvestment,
-     actionPerCredit,
-     returnInvestment,
      goal,
-     tags,
      ProjectTag,
-     limitvalue,
-     createdAt,
-     updatedAt,
      showHeartButton,
      toggleFav,
      isFavorite,

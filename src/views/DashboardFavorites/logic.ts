@@ -1,5 +1,4 @@
 import {useCallback, useEffect, useState} from 'react';
-import {ProjectResponse} from '../../services/api/project';
 import {
      getUserInfo,
      togglePostFav,

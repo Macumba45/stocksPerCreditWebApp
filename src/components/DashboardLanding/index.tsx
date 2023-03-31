@@ -2,7 +2,6 @@ import { FC, memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
      getAuthenticatedToken,
-     setAuthenticatedToken,
 } from '../../services/storage/token';
 import {
      MainContainer,

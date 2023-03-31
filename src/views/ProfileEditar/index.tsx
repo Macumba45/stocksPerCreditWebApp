@@ -1,4 +1,4 @@
-import {FC, memo, useCallback, useEffect, useMemo, useState} from 'react';
+import {memo, useCallback, useEffect, useState} from 'react';
 import {Field, Form, Formik} from 'formik';
 import {validationSchema, initialValues} from './constants';
 import {useNavigate} from 'react-router-dom';

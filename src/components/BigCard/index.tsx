@@ -1,6 +1,6 @@
 import {FC, memo} from 'react';
-import {Container, MainContainer} from './styles';
 import {Props} from './types';
+import {Container, MainContainer} from './styles';
 
 const BigCard: FC<Props> = ({chart}) => {
      return (

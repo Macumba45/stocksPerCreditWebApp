@@ -7,6 +7,7 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 import { Fab, Tooltip } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ButtonPayment from '../../components/ButtonPay';
+import { useParams } from 'react-router-dom';
 import {
      MainContainer,
      ContainerForm,
@@ -25,8 +26,6 @@ import {
      IconPaymentCardPaypal,
      ButtonPaymentContainer,
 } from './styles';
-import { useParams } from 'react-router-dom';
-
 
 const Payment: FC = () => {
      const [selectedValue, setSelectedValue] = useState('');

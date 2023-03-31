@@ -13,7 +13,6 @@ import {Fab, Tooltip} from '@mui/material';
 import {useNavigate, useParams} from 'react-router-dom';
 import {Dashboard} from '@mui/icons-material';
 import {DetailsLogic} from './logic';
-
 import {
      ButtonContainer,
      CalculadoraAccionesContainer,

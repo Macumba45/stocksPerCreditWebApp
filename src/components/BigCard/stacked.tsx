@@ -1,4 +1,4 @@
-import React, {FC, memo, PureComponent} from 'react';
+import React, {FC, memo} from 'react';
 import {
      AreaChart,
      Area,

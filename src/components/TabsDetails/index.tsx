@@ -2,10 +2,10 @@ import {FC, memo} from 'react';
 import Tabs from '@mui/joy/Tabs';
 import TabList from '@mui/joy/TabList';
 import Tab, {tabClasses} from '@mui/joy/Tab';
-import {TabContainer} from './styles';
 import {TabPanel} from '@mui/joy';
 import CustomImageList from '../PicturesProject/index';
 import CampaignTab from '../CampaginProject';
+import {TabContainer} from './styles';
 
 const itemData = [
      {

@@ -1,6 +1,6 @@
 import {useCallback, useEffect, useState} from 'react';
 import {ProjectResponse} from '../../services/api/project';
-import {getUserInfo, togglePostFav} from '../../services/api/user';
+import {getUserInfo} from '../../services/api/user';
 import {getAuthenticatedToken} from '../../services/storage/token';
 
 export const InvestmentViewLogic = () => {

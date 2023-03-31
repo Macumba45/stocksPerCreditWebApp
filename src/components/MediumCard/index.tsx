@@ -1,7 +1,6 @@
 import {FC, memo} from 'react';
-import Chart from './chart';
-import {Container} from './styles';
 import {Props} from './types';
+import {Container} from './styles';
 
 const MediumCard: FC<Props> = ({chart}) => {
      return <Container>{chart}</Container>;

@@ -1,6 +1,6 @@
 import {FC, memo} from 'react';
-import {MainContainer, VideoContainer, VideoIframe} from './styles';
 import {Props} from './type';
+import {MainContainer, VideoContainer, VideoIframe} from './styles';
 
 const VideoHeader: FC<Props> = ({src}) => {
      return (

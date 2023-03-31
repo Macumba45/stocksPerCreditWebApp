@@ -5,6 +5,7 @@ import {validationSchema, initialValues} from './constants';
 import {Props} from './type';
 import {setAuthenticatedToken} from '../../../services/storage/token';
 import {handledSubmitLogin} from '../../../services/api/auth';
+import {setUserRole} from '../../../services/storage/userRole';
 import {
      MainFormContainer,
      LoginTitle,
@@ -21,7 +22,6 @@ import {
      Error,
      ErrorLogin,
 } from './styles';
-import {getUserRole, setUserRole} from '../../../services/storage/userRole';
 
 const Login: FC<Props> = () => {
      const navigate = useNavigate();

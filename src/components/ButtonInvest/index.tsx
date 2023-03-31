@@ -27,9 +27,8 @@ const ButtonInvest: FC<Props> = ({projectId}) => {
      const ButtonStyles = {
           backgroundColor: '#7E1B75',
           padding: '1rem 4rem',
-          // margin: '0rem 10rem',
           '&:hover': {
-               backgroundColor: '#9c27b0', // Cambia el color del hover aquí
+               backgroundColor: '#9c27b0', 
           },
      };
 

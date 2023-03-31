@@ -2,12 +2,12 @@ import {Modal} from '@mui/material';
 import {memo, FC, useState} from 'react';
 import {IconButton} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import {Props} from './types';
 import {
      ExpandedPicturesContainer,
      MainContainer,
      PicturesContainer,
 } from './styles';
-import {Props} from './types';
 
 const StandardImageList: FC<Props> = ({image}) => {
      const [expanded, setExpanded] = useState(false);

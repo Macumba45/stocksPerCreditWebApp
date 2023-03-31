@@ -7,6 +7,11 @@ import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import PaidIcon from '@mui/icons-material/Paid';
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import Chart from '../../components/MediumCard/chart';
+import RadialChart from '../../components/MediumCard/radial';
+import RadarChartComponent from '../../components/MediumCard/radar';
+import Stacked from '../../components/BigCard/stacked';
+import TynyBar from '../../components/BigCard/TynyBar';
 import {
      Container,
      ContainerBigCards,
@@ -14,11 +19,6 @@ import {
      LilDivContainer,
      MainContainer,
 } from './styles';
-import Chart from '../../components/MediumCard/chart';
-import RadialChart from '../../components/MediumCard/radial';
-import RadarChartComponent from '../../components/MediumCard/radar';
-import Stacked from '../../components/BigCard/stacked';
-import TynyBar from '../../components/BigCard/TynyBar';
 
 const DashboardInvestment: FC = () => {
      const iconStyle = {

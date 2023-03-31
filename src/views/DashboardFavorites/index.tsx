@@ -4,12 +4,9 @@ import { FavoriteViewLogic } from './logic';
 import Card from '../../components/CardProjects';
 import {
      CardsContainer,
-     H3,
-     SectionTitle,
      TopCards,
      TopContainer,
 } from './styles';
-import { Divider } from '@mui/material';
 
 const DashboardFavorites: FC = () => {
      const { getFavorites, favoriteData, toggleFavorite } = FavoriteViewLogic();

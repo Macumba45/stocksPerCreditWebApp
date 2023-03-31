@@ -1,9 +1,8 @@
 import {FC, memo, useCallback} from 'react';
 import LogoutIcon from '@mui/icons-material/Logout';
 import {Fab, Tooltip} from '@mui/material';
-import {Dashboard} from '@mui/icons-material';
-import {MainContainer} from './styles';
 import {useNavigate} from 'react-router-dom';
+import {MainContainer} from './styles';
 
 const ProfileDashboard: FC = () => {
      const navigate = useNavigate();
