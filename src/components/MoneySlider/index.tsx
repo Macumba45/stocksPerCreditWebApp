@@ -19,7 +19,7 @@ interface RangeProps {
 }
 
 const RangeSlider: FC<RangeProps> = ({handleRangeChange}) => {
-     const [value, setValue] = useState<number[]>([0, 5000]);
+     const [value, setValue] = useState<number[]>([0, 30000]);
 
      const handleChange = (_: Event, newValue: number | number[]) => {
           if (Array.isArray(newValue)) {
@@ -70,7 +70,7 @@ const RangeSlider: FC<RangeProps> = ({handleRangeChange}) => {
                          onChangeCommitted={handleSliderChangeCommitted}
                          valueLabelDisplay="auto"
                          getAriaValueText={valuetext}
-                         max={10000}
+                         max={60000}
                     />
                     <InputContainer>
                          <MinLabel htmlFor="lower-input">Minimum:</MinLabel>
