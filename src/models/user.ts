@@ -1,11 +1,12 @@
 export type ProfileInput = {
      name: string;
-     lastname: string;
+     lastname?: string;
      email: string;
      country: string;
      city: string;
      phone: string;
      avatar: string;
+     id?: string;
 };
 
 export enum UserRole {
